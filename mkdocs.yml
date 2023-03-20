@@ -1,0 +1,29 @@
+site_name: hello-java
+repo_name: GepengCn/hello-java
+repo_url: https://github.com/GepengCn/hello-java.git
+theme:
+    icon:
+        repo: fontawesome/brands/git
+        logo: material/library
+    name: material
+    language: zh
+    palette:
+        - scheme: default
+          primary: light green
+          accent: light green
+          toggle:
+                icon: material/brightness-7
+                name: Switch to dark mode
+        - scheme: slate
+          primary: green
+          accent: green
+          toggle:
+                icon: material/brightness-4
+                name: Switch to light mode
+markdown_extensions:
+    - admonition
+    - pymdownx.details
+    - pymdownx.superfences
+nav:
+    - Home: index.md
+    - 算法: algorithm.md
