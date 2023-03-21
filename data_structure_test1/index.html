@@ -9,17 +9,15 @@
       
       
       
-        <link rel="prev" href="..">
+        <link rel="prev" href="../data_structure/">
       
-      
-        <link rel="next" href="../data_structure_test1/">
       
       <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.3">
     
     
       
-        <title>数据结构 - hello-java</title>
+        <title>测试1 - hello-java</title>
       
     
     
@@ -71,7 +69,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#stack" class="md-skip">
+        <a href="#_1" class="md-skip">
           跳转至
         </a>
       
@@ -106,7 +104,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              数据结构
+              测试1
             
           </span>
         </div>
@@ -249,6 +247,21 @@
 
   
   
+  
+    <li class="md-nav__item">
+      <a href="../data_structure/" class="md-nav__link">
+        数据结构
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
     
   
   
@@ -261,12 +274,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          数据结构
+          测试1
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        数据结构
+        测试1
       </a>
       
         
@@ -285,36 +298,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    特性
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#java" class="md-nav__link">
-    Java用法
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    实现方式
+    第一次测试
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    实际应用
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#leetcode" class="md-nav__link">
-    leetcode
+  <a href="#java-12-0" class="md-nav__link">
+    java用法 12 0
   </a>
   
 </li>
@@ -323,21 +315,6 @@
   
 </nav>
       
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../data_structure_test1/" class="md-nav__link">
-        测试1
-      </a>
     </li>
   
 
@@ -369,36 +346,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    特性
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#java" class="md-nav__link">
-    Java用法
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    实现方式
+    第一次测试
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    实际应用
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#leetcode" class="md-nav__link">
-    leetcode
+  <a href="#java-12-0" class="md-nav__link">
+    java用法 12 0
   </a>
   
 </li>
@@ -421,36 +377,25 @@
   
 
 
-<h1 id="stack">栈 <code>Stack</code></h1>
-<h2 id="_1">特性</h2>
+<h1 id="_1">栈</h1>
+<p>2023-03-21</p>
+<p>61</p>
+<h2 id="_2">第一次测试</h2>
+<p>特性 18 6</p>
 <ul>
 <li>先入后出</li>
 <li>线性</li>
-<li>类比与桌子上的邮件，新邮件放在最上面</li>
-<li>栈元素的顶部俗称栈顶</li>
-<li>入栈：元素添加到栈顶</li>
-<li>出栈：删除栈顶元素</li>
 </ul>
-<h2 id="java">Java用法</h2>
-<div class="highlight"><pre><span></span><code><span class="n">Stack</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">stack</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Stack</span><span class="o">&lt;&gt;</span><span class="p">();</span>
-<span class="n">stack</span><span class="p">.</span><span class="na">push</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="c1">//入栈</span>
-<span class="kt">int</span><span class="w"> </span><span class="n">pop</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stack</span><span class="p">.</span><span class="na">pop</span><span class="p">();</span><span class="c1">//出栈</span>
-<span class="kt">int</span><span class="w"> </span><span class="n">peek</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stack</span><span class="p">.</span><span class="na">peek</span><span class="p">();</span><span class="c1">//访问栈顶元素，不删除栈顶元素</span>
-</code></pre></div>
-<h2 id="_2">实现方式</h2>
-<div class="admonition tip">
-<p class="admonition-title">1. 链表</p>
-<p>使用单链表，链表顶端插入实现push， 删除顶端实现pop，访问顶端实现peek。</p>
-</div>
-<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Stack</span><span class="o">&lt;</span><span class="n">Item</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<h2 id="java-12-0">java用法 12 0</h2>
+<p>实现方式 40</p>
+<p>链表 20 10</p>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Stack</span><span class="o">&lt;</span><span class="n">Item</span><span class="o">&gt;</span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">Node</span><span class="o">&lt;</span><span class="n">Item</span><span class="o">&gt;</span><span class="w"> </span><span class="n">first</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">N</span><span class="p">;</span>
 
-<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Node</span><span class="w"> </span><span class="n">first</span><span class="p">;</span>
-
-<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">N</span><span class="p">;</span>
-
-<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Node</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">Item</span><span class="w"> </span><span class="n">item</span><span class="p">;</span>
-<span class="w">        </span><span class="n">Node</span><span class="w"> </span><span class="n">next</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Node</span><span class="p">{</span>
+<span class="w">        </span><span class="kd">public</span><span class="w"> </span><span class="n">Item</span><span class="w"> </span><span class="n">item</span><span class="p">;</span>
+<span class="w">        </span><span class="kd">public</span><span class="w"> </span><span class="n">Node</span><span class="w"> </span><span class="n">next</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
 
 <span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">isEmpty</span><span class="p">(){</span><span class="k">return</span><span class="w"> </span><span class="n">first</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">;}</span>
@@ -459,28 +404,31 @@
 
 <span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">push</span><span class="p">(</span><span class="n">Item</span><span class="w"> </span><span class="n">item</span><span class="p">){</span>
 <span class="w">        </span><span class="n">Node</span><span class="w"> </span><span class="n">oldFirst</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">first</span><span class="p">;</span>
-<span class="w">        </span><span class="n">first</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Node</span><span class="p">();</span>
+<span class="w">        </span><span class="c1">//first = new Node();</span>
 <span class="w">        </span><span class="n">first</span><span class="p">.</span><span class="na">item</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">item</span><span class="p">;</span>
 <span class="w">        </span><span class="n">first</span><span class="p">.</span><span class="na">next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">oldFirst</span><span class="p">;</span>
 <span class="w">        </span><span class="n">N</span><span class="o">++</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
 
 <span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">Item</span><span class="w"> </span><span class="nf">pop</span><span class="p">(){</span>
+
 <span class="w">        </span><span class="n">Item</span><span class="w"> </span><span class="n">item</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">first</span><span class="p">.</span><span class="na">item</span><span class="p">;</span>
+
 <span class="w">        </span><span class="n">first</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">first</span><span class="p">.</span><span class="na">next</span><span class="p">;</span>
+
 <span class="w">        </span><span class="n">N</span><span class="o">--</span><span class="p">;</span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">item</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
+
 <span class="p">}</span>
 </code></pre></div>
-<div class="admonition tip">
-<p class="admonition-title">2. 数组</p>
-<p>使用数组，尾部插入元素实现push，尾部删除元素实现pop</p>
-</div>
-<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Stack</span><span class="o">&lt;</span><span class="n">Item</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<p>数组 20 20</p>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Stack</span><span class="o">&lt;</span><span class="n">Item</span><span class="o">&gt;</span><span class="p">{</span>
 
 <span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Item</span><span class="o">&gt;</span><span class="w"> </span><span class="n">list</span><span class="p">;</span>
 
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">isEmpty</span><span class="p">(){</span><span class="k">return</span><span class="w"> </span><span class="n">list</span><span class="p">.</span><span class="na">size</span><span class="p">()</span><span class="o">==</span><span class="mi">0</span><span class="p">;}</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">isEmpty</span><span class="p">(){</span><span class="k">return</span><span class="w"> </span><span class="n">list</span><span class="p">.</span><span class="na">size</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">;}</span>
 
 <span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">size</span><span class="p">(){</span><span class="k">return</span><span class="w"> </span><span class="n">list</span><span class="p">.</span><span class="na">size</span><span class="p">();}</span>
 
@@ -493,81 +441,15 @@
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-<h2 id="_3">实际应用</h2>
-<div class="admonition note">
-<p class="admonition-title">平衡符号</p>
-<p>编译器检查花括号、方括号、圆括号等是否成对出现，可以使用栈来实现。做一个空栈。读入字符直到文件末尾。a.遇到起始括号，则推入栈；b.遇到结尾括号，如果栈为空则报错。否则，将栈顶元素弹出，如果弹出的元素不是对应的起始括号，则报错。如果读到文件末尾时，栈不为空，也报错。</p>
-</div>
-<div class="admonition note">
-<p class="admonition-title">方法调用</p>
-<p>每当调用函数时，系统就会在栈顶添加一个栈帧，用来记录函数的上下文信息。在递归函数中，向下递推会不断执行入栈，向上回溯阶段时出栈。</p>
-</div>
-<div class="admonition note">
-<p class="admonition-title">浏览器前进后退, 软件中的撤销与反撤销</p>
-<p>每当我们打开新的网页，浏览器就将上一个网页执行入栈，这样我们就可以通过「后退」操作来回到上一页面，后退操作实际上是在执行出栈。如果要同时支持后退和前进，那么则需要两个栈来配合实现。</p>
-</div>
-<h2 id="leetcode"><code>leetcode</code></h2>
-<div class="admonition example">
-<p class="admonition-title">20. 有效的括号</p>
-<p>给定一个只包括 '('，')'，'{'，'}'，'['，']' 的字符串 s ，判断字符串是否有效。</p>
-<p>有效字符串需满足：</p>
+<p>应用 30 25</p>
 <ol>
-<li>
-<p>左括号必须用相同类型的右括号闭合。</p>
-</li>
-<li>
-<p>左括号必须以正确的顺序闭合。</p>
-</li>
-<li>
-<p>每个右括号都有一个对应的相同类型的左括号。
-<div class="highlight"><pre><span></span><code><span class="kd">class</span> <span class="nc">Solution</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">isValid</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">Stack</span><span class="o">&lt;</span><span class="n">Character</span><span class="o">&gt;</span><span class="w"> </span><span class="n">stack</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Stack</span><span class="o">&lt;&gt;</span><span class="p">();</span>
-<span class="w">            </span><span class="n">Map</span><span class="o">&lt;</span><span class="n">Character</span><span class="p">,</span><span class="w"> </span><span class="n">Character</span><span class="o">&gt;</span><span class="w"> </span><span class="n">dict</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HashMap</span><span class="o">&lt;&gt;</span><span class="p">();</span>
-
-<span class="w">            </span><span class="n">dict</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="sc">&#39;)&#39;</span><span class="p">,</span><span class="sc">&#39;(&#39;</span><span class="p">);</span>
-<span class="w">            </span><span class="n">dict</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="sc">&#39;]&#39;</span><span class="p">,</span><span class="sc">&#39;[&#39;</span><span class="p">);</span>
-<span class="w">            </span><span class="n">dict</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="sc">&#39;}&#39;</span><span class="p">,</span><span class="sc">&#39;{&#39;</span><span class="p">);</span>
-
-<span class="w">            </span><span class="k">for</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="n">c</span><span class="p">:</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="na">toCharArray</span><span class="p">()){</span>
-
-<span class="w">                </span><span class="k">if</span><span class="p">(</span><span class="n">c</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="sc">&#39;(&#39;</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="sc">&#39;[&#39;</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="sc">&#39;{&#39;</span><span class="p">){</span>
-<span class="w">                    </span><span class="n">stack</span><span class="p">.</span><span class="na">push</span><span class="p">(</span><span class="n">c</span><span class="p">);</span>
-<span class="w">                </span><span class="p">}</span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                    </span><span class="k">if</span><span class="p">(</span><span class="n">stack</span><span class="p">.</span><span class="na">isEmpty</span><span class="p">())</span><span class="k">return</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
-
-<span class="w">                    </span><span class="k">if</span><span class="p">(</span><span class="n">stack</span><span class="p">.</span><span class="na">pop</span><span class="p">()</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">dict</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">c</span><span class="p">))</span><span class="k">return</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
-<span class="w">                </span><span class="p">}</span>
-<span class="w">            </span><span class="p">}</span>
-<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">stack</span><span class="p">.</span><span class="na">isEmpty</span><span class="p">();</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">    </span><span class="p">}</span>
-</code></pre></div>
-<code>ASCII码表</code>中起始括号与结尾括号相差1或者2，所以以上代码还可以优化
-<div class="highlight"><pre><span></span><code><span class="kd">class</span> <span class="nc">Solution</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">isValid</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">Stack</span><span class="o">&lt;</span><span class="n">Character</span><span class="o">&gt;</span><span class="w"> </span><span class="n">stack</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Stack</span><span class="o">&lt;&gt;</span><span class="p">();</span>
-
-<span class="w">            </span><span class="k">for</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="n">c</span><span class="p">:</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="na">toCharArray</span><span class="p">()){</span>
-
-<span class="w">                </span><span class="k">if</span><span class="p">(</span><span class="n">c</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="sc">&#39;(&#39;</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="sc">&#39;[&#39;</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="sc">&#39;{&#39;</span><span class="p">){</span>
-<span class="w">                    </span><span class="n">stack</span><span class="p">.</span><span class="na">push</span><span class="p">(</span><span class="n">c</span><span class="p">);</span>
-<span class="w">                </span><span class="p">}</span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                    </span><span class="k">if</span><span class="p">(</span><span class="n">stack</span><span class="p">.</span><span class="na">isEmpty</span><span class="p">())</span><span class="k">return</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
-<span class="w">                    </span><span class="kt">int</span><span class="w"> </span><span class="n">pop</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stack</span><span class="p">.</span><span class="na">pop</span><span class="p">();</span>
-<span class="w">                    </span><span class="k">if</span><span class="p">(</span><span class="n">pop</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">c</span><span class="o">-</span><span class="mi">1</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">pop</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">c</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span><span class="k">return</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
-<span class="w">                </span><span class="p">}</span>
-<span class="w">            </span><span class="p">}</span>
-<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">stack</span><span class="p">.</span><span class="na">isEmpty</span><span class="p">();</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">    </span><span class="p">}</span>
-</code></pre></div></p>
-</li>
+<li>平衡符号
+编译器编译括号的合法性，是否闭环，利用一个栈来实现。
+读取文件直到尾部，如果是起始括号，则推入栈中。如果是结尾括号，判断栈是否为空。如果栈为空，则报错；如果不为空，则推出栈顶元素。如果推出的元素与当前括号不匹配，则报错。
+如果扫描到尾部后，栈不为空，则报错。</li>
+<li>浏览器的后退与前进，软件的撤销与反撤销。</li>
+<li>方法调用，每当有新方法调用，则将函数变量、地址等推入栈顶，该引用为栈帧，方法执行完后，执行出栈，即栈帧出栈或栈顶元素出栈。函数递归</li>
 </ol>
-</div>
-<div class="admonition example">
-<p class="admonition-title">回文链表</p>
-</div>
 
 
 
