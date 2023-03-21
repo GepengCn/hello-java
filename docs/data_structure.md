@@ -8,7 +8,7 @@
 - 入栈：元素添加到栈顶
 - 出栈：删除栈顶元素
 
-## Java用法
+## `Java`用法
 ```java
 Stack<Integer> stack = new Stack<>();
 stack.push(1);//入栈
@@ -83,7 +83,7 @@ public class Stack<Item> {
 
 !!! Note "平衡符号"
 
-    编译器检查花括号、方括号、圆括号等是否成对出现，可以使用栈来实现。做一个空栈。读入字符直到文件末尾。如果遇到起始括号，则推入栈。如果栈为空则报错。否则，将栈顶元素弹出，如果弹出的元素不对应起始括号，则报错。如果读到文件末尾时，栈不为空，也报错。
+    编译器检查花括号、方括号、圆括号等是否成对出现，可以使用栈来实现。做一个空栈。读入字符直到文件末尾。a.遇到起始括号，则推入栈；b.遇到结尾括号，如果栈为空则报错。否则，将栈顶元素弹出，如果弹出的元素不是对应的起始括号，则报错。如果读到文件末尾时，栈不为空，也报错。
 
 !!! Note "方法调用"
 
@@ -93,4 +93,64 @@ public class Stack<Item> {
 
     每当我们打开新的网页，浏览器就将上一个网页执行入栈，这样我们就可以通过「后退」操作来回到上一页面，后退操作实际上是在执行出栈。如果要同时支持后退和前进，那么则需要两个栈来配合实现。
 
-    
+## `leetcode`
+
+!!! example "20. 有效的括号"
+
+    给定一个只包括 '('，')'，'{'，'}'，'['，']' 的字符串 s ，判断字符串是否有效。
+
+    有效字符串需满足：
+
+    1. 左括号必须用相同类型的右括号闭合。
+
+    2. 左括号必须以正确的顺序闭合。
+
+    3. 每个右括号都有一个对应的相同类型的左括号。
+    ```java
+    class Solution {
+        public boolean isValid(String s) {
+            Stack<Character> stack = new Stack<>();
+                Map<Character, Character> dict = new HashMap<>();
+
+                dict.put(')','(');
+                dict.put(']','[');
+                dict.put('}','{');
+
+                for(char c: s.toCharArray()){
+
+                    if(c == '(' || c == '[' || c == '{'){
+                        stack.push(c);
+                    }else {
+                        if(stack.isEmpty())return false;
+
+                        if(stack.pop() != dict.get(c))return false;
+                    }
+                }
+                return stack.isEmpty();
+            }
+        }
+    ```
+    `ASCII码表`中起始括号与结尾括号相差1或者2，所以以上代码还可以优化
+    ```java
+    class Solution {
+        public boolean isValid(String s) {
+            Stack<Character> stack = new Stack<>();
+
+                for(char c: s.toCharArray()){
+
+                    if(c == '(' || c == '[' || c == '{'){
+                        stack.push(c);
+                    }else {
+                        if(stack.isEmpty())return false;
+                        int pop = stack.pop();
+                        if(pop != c-1 && pop != c-2)return false;
+                    }
+                }
+                return stack.isEmpty();
+            }
+        }
+    ```
+
+!!! example "234. 回文链表"
+
+    给你一个单链表的头节点 head ，请你判断该链表是否为回文链表。如果是，返回 true ；否则，返回 false 。

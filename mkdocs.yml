@@ -7,6 +7,9 @@ theme:
         logo: material/library
     name: material
     language: zh
+    font:
+#        text: Noto Serif SC
+#        code: Fira Mono
     palette:
         - scheme: default
           primary: light green
@@ -25,5 +28,6 @@ markdown_extensions:
     - pymdownx.details
     - pymdownx.superfences
 nav:
-#    - Home: index.md
+    - 首页: index.md
     - 数据结构: data_structure.md
+    - 测试1: data_structure_test1.md
