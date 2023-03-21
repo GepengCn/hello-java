@@ -25,5 +25,5 @@ markdown_extensions:
     - pymdownx.details
     - pymdownx.superfences
 nav:
-    - Home: index.md
-    - 算法: algorithm.md
+#    - Home: index.md
+    - 数据结构: data_structure.md
