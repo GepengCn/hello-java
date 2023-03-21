@@ -1,7 +1,30 @@
 site_name: hello-java
 repo_name: GepengCn/hello-java
 repo_url: https://github.com/GepengCn/hello-java.git
+edit_uri: https://github.com/GepengCn/hello-java/tree/main/docs/
+copyright: Copyright &copy; 2023 gepeng
+extra:
+    generator: false
+    social:
+        - icon: fontawesome/brands/github
+          link: https://github.com/GepengCn/hello-java
+          name: gepeng
 theme:
+    features:
+        - content.action.edit
+        - content.code.annotate
+        - content.code.copy
+        - content.tabs.link
+        - content.tooltips
+        - navigation.indexes
+        - navigation.sections
+        - navigation.top
+        - navigation.footer
+        - navigation.tracking
+        - search.highlight
+        - search.share
+        - search.suggest
+        - toc.follow
     icon:
         repo: fontawesome/brands/git
         logo: material/library
@@ -29,5 +52,9 @@ markdown_extensions:
     - pymdownx.superfences
 nav:
     - 首页: index.md
-    - 数据结构: data_structure.md
-    - 测试1: data_structure_test1.md
+
+    - 栈: stack/stack.md
+
+    - 测试1: stack/stack_test1.md
+
+    - 队列: queue/queue.md
