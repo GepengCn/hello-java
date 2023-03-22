@@ -94,7 +94,7 @@ public class Stack<Item> {
     每当我们打开新的网页，浏览器就将上一个网页执行入栈，这样我们就可以通过「后退」操作来回到上一页面，后退操作实际上是在执行出栈。如果要同时支持后退和前进，那么则需要两个栈来配合实现。
 
 ## `leetcode`
-
+### 有效的括号
 !!! example "20. 有效的括号"
 
     给定一个只包括 '('，')'，'{'，'}'，'['，']' 的字符串 s ，判断字符串是否有效。
@@ -110,25 +110,25 @@ public class Stack<Item> {
     class Solution {
         public boolean isValid(String s) {
             Stack<Character> stack = new Stack<>();
-                Map<Character, Character> dict = new HashMap<>();
+            Map<Character, Character> dict = new HashMap<>();
 
-                dict.put(')','(');
-                dict.put(']','[');
-                dict.put('}','{');
+            dict.put(')','(');
+            dict.put(']','[');
+            dict.put('}','{');
 
-                for(char c: s.toCharArray()){
+            for(char c: s.toCharArray()){
 
-                    if(c == '(' || c == '[' || c == '{'){
-                        stack.push(c);
-                    }else {
-                        if(stack.isEmpty())return false;
+                if(c == '(' || c == '[' || c == '{'){
+                    stack.push(c);
+                }else {
+                    if(stack.isEmpty())return false;
 
-                        if(stack.pop() != dict.get(c))return false;
-                    }
+                    if(stack.pop() != dict.get(c))return false;
                 }
-                return stack.isEmpty();
             }
+            return stack.isEmpty();
         }
+    }
     ```
     `ASCII码表`中起始括号与结尾括号相差1或者2，所以以上代码还可以优化
     ```java
@@ -136,21 +136,124 @@ public class Stack<Item> {
         public boolean isValid(String s) {
             Stack<Character> stack = new Stack<>();
 
-                for(char c: s.toCharArray()){
+            for(char c: s.toCharArray()){
 
-                    if(c == '(' || c == '[' || c == '{'){
-                        stack.push(c);
-                    }else {
-                        if(stack.isEmpty())return false;
-                        int pop = stack.pop();
-                        if(pop != c-1 && pop != c-2)return false;
-                    }
+                if(c == '(' || c == '[' || c == '{'){
+                    stack.push(c);
+                }else {
+                    if(stack.isEmpty())return false;
+                    int pop = stack.pop();
+                    if(pop != c-1 && pop != c-2)return false;
                 }
-                return stack.isEmpty();
+            }
+            return stack.isEmpty();
+        }
+    }
+    ```
+### 回文链表
+!!! example "234. 回文链表"
+
+    给你一个单链表的头节点 head ，请你判断该链表是否为回文链表。如果是，返回 true ；否则，返回 false 。
+    ```java
+    /**
+    * Definition for singly-linked list.
+    * public class ListNode {
+        *     int val;
+        *     ListNode next;
+        *     ListNode() {}
+        *     ListNode(int val) { this.val = val; }
+        *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+        * }
+        */
+        class Solution {
+            public boolean isPalindrome(ListNode head) {
+                Stack<Integer> stack = new Stack<>();
+                ListNode temp = head;
+                while(temp!=null){
+                    stack.push(temp.val);
+                    temp = temp.next;
+                }
+
+                while(!stack.isEmpty()){
+
+                    if(head.val!=stack.pop())return false;
+                    head = head.next;
+                }
+
+                return true;
+            }
+        }
+    ```
+    这里相当于链表从前往后全部都比较了一遍，其实我们只需要拿链表的后半部分和前半部分比较即可，没必要全部比较，所以这里可以优化一下
+    ```java
+    /**
+    * Definition for singly-linked list.
+    * public class ListNode {
+        *     int val;
+        *     ListNode next;
+        *     ListNode() {}
+        *     ListNode(int val) { this.val = val; }
+        *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+        * }
+        */
+        class Solution {
+            public boolean isPalindrome(ListNode head) {
+                Stack<Integer> stack = new Stack<>();
+                ListNode temp = head;
+                int length = 0;
+                while(temp!=null){
+                    stack.push(temp.val);
+                    temp = temp.next;
+                    length++;
+                }
+                length/=2;
+                while(length-- > 0){
+
+                    if(head.val!=stack.pop())return false;
+                    head = head.next;
+                }
+
+                return true;
             }
         }
     ```
 
-!!! example "234. 回文链表"
+### 二叉树的中序遍历
+!!! example "94. 二叉树的中序遍历"
 
-    给你一个单链表的头节点 head ，请你判断该链表是否为回文链表。如果是，返回 true ；否则，返回 false 。
+    给定一个二叉树的根节点 root ，返回 它的 中序 遍历 。
+    ```java
+    /**
+    * Definition for a binary tree node.
+    * public class TreeNode {
+        *     int val;
+        *     TreeNode left;
+        *     TreeNode right;
+        *     TreeNode() {}
+        *     TreeNode(int val) { this.val = val; }
+        *     TreeNode(int val, TreeNode left, TreeNode right) {
+        *         this.val = val;
+        *         this.left = left;
+        *         this.right = right;
+        *     }
+        * }
+        */
+        class Solution {
+            public List<Integer> inorderTraversal(TreeNode root) {
+                List<Integer> res = new ArrayList<>();
+                Stack<TreeNode> stack = new Stack<>();
+                while(root!=null || !stack.isEmpty()){
+                    while(root!=null){
+                        stack.push(root);
+                        root = root.left;
+                    }
+                    root = stack.pop();
+                    res.add(root.val);
+                    root = root.right;
+
+                }
+
+                return res;
+            }
+        }
+    ```
