@@ -53,10 +53,25 @@ markdown_extensions:
     - attr_list
     - md_in_html
 nav:
-    - 首页: index.md
-
+#    - 首页: index.md
     - 栈: stack/stack.md
-
-    - 测试1: stack/stack_test1.md
-
+#    - 测试1: stack/stack_test1.md
     - 队列: queue/queue.md
+    - 数组: array/array.md
+    - 链表: linkedlist/linkedlist.md
+    - 树:
+        - 二叉树: tree/binary_tree.md
+        - 二叉查找树: tree/binary_search_tree.md
+        - AVL树: tree/avl_tree.md
+        - 伸展树: tree/splay_tree.md
+        - 红黑树: tree/red_black_tree.md
+    - 堆: heap/heap.md
+    - 图: graph/graph.md
+    - 排序:
+        - 排序: sort/sort.md
+        - 插入排序: sort/insertion_sort.md
+        - 希尔排序: sort/shell_sort.md
+        - 堆排序: sort/heap_sort.md
+        - 归并排序: sort/merge_sort.md
+        - 快速排序: sort/quick_sort.md
+        - 计数排序: sort/counting_sort.md
