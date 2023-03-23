@@ -1,5 +1,9 @@
 # 链表`linkedlist`
 
+## 思维导图
+
+![](https://p.ipic.vip/qsl07v.jpg)
+
 ## 特性
 - 表示一列元素
 - 递归的数据结构
