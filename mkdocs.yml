@@ -63,10 +63,10 @@ nav:
     - 首页: index.md
     - 算法:
         - 数据结构:
-            - 栈: stack/stack.md
-            - 队列: queue/queue.md
             - 数组: array/array.md
             - 链表: linkedlist/linkedlist.md
+            - 栈: stack/stack.md
+            - 队列: queue/queue.md
             - 树:
                 - 二叉树: tree/binary_tree.md
                 - 二叉查找树: tree/binary_search_tree.md
