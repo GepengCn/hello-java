@@ -412,41 +412,48 @@
       
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
-    特性
+    思维导图
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    构造链表
+    特性
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
-    初始化
+    构造链表
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
-    常用操作
+    初始化
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
-    常见类型
+    常用操作
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_6" class="md-nav__link">
+    常见类型
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
     实际应用
   </a>
   
@@ -936,41 +943,48 @@
       
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
-    特性
+    思维导图
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    构造链表
+    特性
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
-    初始化
+    构造链表
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
-    常用操作
+    初始化
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
-    常见类型
+    常用操作
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_6" class="md-nav__link">
+    常见类型
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
     实际应用
   </a>
   
@@ -1034,7 +1048,9 @@
 
 
 <h1 id="linkedlist">链表<code>linkedlist</code></h1>
-<h2 id="_1">特性</h2>
+<h2 id="_1">思维导图</h2>
+<p><img alt="" src="https://p.ipic.vip/qsl07v.jpg" /></p>
+<h2 id="_2">特性</h2>
 <ul>
 <li>表示一列元素</li>
 <li>递归的数据结构</li>
@@ -1045,7 +1061,7 @@
 <li>查询效率低，时间复杂度 <span class="arithmatex">\(O(N)\)</span></li>
 <li>与数组相比，内存占用高，因为需要保存指针</li>
 </ul>
-<h2 id="_2">构造链表</h2>
+<h2 id="_3">构造链表</h2>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">ListNode</span><span class="p">{</span>
 <span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">val</span><span class="p">;</span>
 <span class="w">    </span><span class="n">ListNode</span><span class="w"> </span><span class="n">next</span><span class="p">;</span>
@@ -1058,7 +1074,7 @@
 <li>构建节点的指向关系</li>
 </ol>
 </div>
-<h2 id="_3">初始化</h2>
+<h2 id="_4">初始化</h2>
 <div class="admonition info">
 <p class="admonition-title">构造器初始化</p>
 <div class="highlight"><pre><span></span><code><span class="n">ListNode</span><span class="w"> </span><span class="n">node</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ListNode</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="c1">//构造器初始化</span>
@@ -1070,7 +1086,7 @@
 <span class="n">node1</span><span class="p">.</span><span class="na">val</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
 </code></pre></div>
 </div>
-<h2 id="_4">常用操作</h2>
+<h2 id="_5">常用操作</h2>
 <div class="admonition quote">
 <p class="admonition-title">遍历</p>
 <div class="highlight"><pre><span></span><code><span class="n">ListNode</span><span class="w"> </span><span class="n">head</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">initNode</span><span class="p">();</span>
@@ -1118,13 +1134,13 @@
 <span class="p">}</span>
 </code></pre></div>
 </div>
-<h2 id="_5">常见类型</h2>
+<h2 id="_6">常见类型</h2>
 <ul>
 <li><strong>单向链表</strong>。节点指向下一节点</li>
 <li><strong>环形链表</strong>。首位节点相接，即尾结点指向首节点，形成环。</li>
 <li><strong>双向链表</strong>。节点指向上一节点与下一节点。</li>
 </ul>
-<h2 id="_6">实际应用</h2>
+<h2 id="_7">实际应用</h2>
 <div class="admonition note">
 <p class="admonition-title">缓存算法</p>
 </div>
