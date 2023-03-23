@@ -133,6 +133,7 @@ public class ArrayQueue{
 
 ## `leetcode`
 
+### 225. 用队列实现栈
 !!! example "225. 用队列实现栈"
 
     请你仅使用两个队列实现一个后入先出（LIFO）的栈，并支持普通栈的全部四种操作（push、top、pop 和 empty）。
@@ -177,7 +178,7 @@ public class ArrayQueue{
         }
 
     ```
-
+### 32. 用栈实现队列
 !!! example "232. 用栈实现队列"
 
     请你仅使用两个栈实现先入先出队列。队列应当支持一般队列支持的所有操作（push、pop、peek、empty）：
@@ -228,7 +229,7 @@ public class ArrayQueue{
         }
     }
     ```
-
+### 剑指 Offer 50. 第一个只出现一次的字符
 !!! example "剑指 Offer 50. 第一个只出现一次的字符"
 
     在字符串 s 中找出第一个只出现一次的字符。如果没有，返回一个单空格。 s 只包含小写字母。
