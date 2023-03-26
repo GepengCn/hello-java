@@ -42,6 +42,8 @@
       
     
     
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -1019,10 +1021,10 @@
   
 
 
-<h1 id="stack">栈 <code>Stack</code></h1>
-<h2 id="_1">思维导图</h2>
+<h1 id="stack">栈 <code>Stack</code><a class="headerlink" href="#stack" title="Permanent link">&para;</a></h1>
+<h2 id="_1">思维导图<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p><img alt="" src="https://p.ipic.vip/nkzwbu.png" width="500" /></p>
-<h2 id="_2">特性</h2>
+<h2 id="_2">特性<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <ul>
 <li>先入后出</li>
 <li>线性</li>
@@ -1031,13 +1033,13 @@
 <li>入栈：元素添加到栈顶</li>
 <li>出栈：删除栈顶元素</li>
 </ul>
-<h2 id="java"><code>Java</code>用法</h2>
+<h2 id="java"><code>Java</code>用法<a class="headerlink" href="#java" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><span class="n">Stack</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">stack</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Stack</span><span class="o">&lt;&gt;</span><span class="p">();</span>
 <span class="n">stack</span><span class="p">.</span><span class="na">push</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="c1">//入栈</span>
 <span class="kt">int</span><span class="w"> </span><span class="n">pop</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stack</span><span class="p">.</span><span class="na">pop</span><span class="p">();</span><span class="c1">//出栈</span>
 <span class="kt">int</span><span class="w"> </span><span class="n">peek</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stack</span><span class="p">.</span><span class="na">peek</span><span class="p">();</span><span class="c1">//访问栈顶元素，不删除栈顶元素</span>
 </code></pre></div>
-<h2 id="_3">实现方式</h2>
+<h2 id="_3">实现方式<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <div class="admonition tip">
 <p class="admonition-title">1. 链表</p>
 <p>使用单链表，链表顶端插入实现push， 删除顶端实现pop，访问顶端实现peek。</p>
@@ -1093,7 +1095,7 @@
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-<h2 id="_4">实际应用</h2>
+<h2 id="_4">实际应用<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <div class="admonition note">
 <p class="admonition-title">平衡符号</p>
 <p>编译器检查花括号、方括号、圆括号等是否成对出现，可以使用栈来实现。做一个空栈。读入字符直到文件末尾。a.遇到起始括号，则推入栈；b.遇到结尾括号，如果栈为空则报错。否则，将栈顶元素弹出，如果弹出的元素不是对应的起始括号，则报错。如果读到文件末尾时，栈不为空，也报错。</p>
@@ -1106,8 +1108,8 @@
 <p class="admonition-title">浏览器前进后退, 软件中的撤销与反撤销</p>
 <p>每当我们打开新的网页，浏览器就将上一个网页执行入栈，这样我们就可以通过「后退」操作来回到上一页面，后退操作实际上是在执行出栈。如果要同时支持后退和前进，那么则需要两个栈来配合实现。</p>
 </div>
-<h2 id="leetcode"><code>leetcode</code></h2>
-<h3 id="20">20. 有效的括号</h3>
+<h2 id="leetcode"><code>leetcode</code><a class="headerlink" href="#leetcode" title="Permanent link">&para;</a></h2>
+<h3 id="20">20. 有效的括号<a class="headerlink" href="#20" title="Permanent link">&para;</a></h3>
 <div class="admonition example">
 <p class="admonition-title">20. 有效的括号</p>
 <p>给定一个只包括 '('，')'，'{'，'}'，'['，']' 的字符串 s ，判断字符串是否有效。</p>
@@ -1166,7 +1168,7 @@
 </li>
 </ol>
 </div>
-<h3 id="234">234. 回文链表</h3>
+<h3 id="234">234. 回文链表<a class="headerlink" href="#234" title="Permanent link">&para;</a></h3>
 <div class="admonition example">
 <p class="admonition-title">234. 回文链表</p>
 <p>给你一个单链表的头节点 head ，请你判断该链表是否为回文链表。如果是，返回 true ；否则，返回 false 。
@@ -1232,7 +1234,7 @@
 <span class="w">    </span><span class="p">}</span>
 </code></pre></div></p>
 </div>
-<h3 id="94">94. 二叉树的中序遍历</h3>
+<h3 id="94">94. 二叉树的中序遍历<a class="headerlink" href="#94" title="Permanent link">&para;</a></h3>
 <div class="admonition example">
 <p class="admonition-title">94. 二叉树的中序遍历</p>
 <p>给定一个二叉树的根节点 root ，返回 它的 中序 遍历 。

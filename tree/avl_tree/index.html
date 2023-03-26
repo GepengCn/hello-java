@@ -42,6 +42,8 @@
       
     
     
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -69,6 +71,11 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
+      
+        
+        <a href="#avl" class="md-skip">
+          跳转至
+        </a>
       
     </div>
     <div data-md-component="announce">
@@ -477,10 +484,153 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          AVL树
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         AVL树
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    思维导图
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    特性
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    旋转
+  </a>
+  
+    <nav class="md-nav" aria-label="旋转">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    前置函数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    右旋
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    左旋
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    先左后右
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    先右后左
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    旋转的选择
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    常用操作
+  </a>
+  
+    <nav class="md-nav" aria-label="常用操作">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    插入结点
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    删除结点
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    查找结点
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    常见应用
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#leetcode" class="md-nav__link">
+    leetcode
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -820,6 +970,133 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    思维导图
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    特性
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    旋转
+  </a>
+  
+    <nav class="md-nav" aria-label="旋转">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    前置函数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    右旋
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    左旋
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    先左后右
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    先右后左
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    旋转的选择
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    常用操作
+  </a>
+  
+    <nav class="md-nav" aria-label="常用操作">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    插入结点
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    删除结点
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    查找结点
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    常见应用
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#leetcode" class="md-nav__link">
+    leetcode
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -842,9 +1119,451 @@
   
 
 
-  <h1>AVL树</h1>
+<h1 id="avl">平衡二叉搜索树<code>AVL树</code><a class="headerlink" href="#avl" title="Permanent link">&para;</a></h1>
+<h2 id="_1">思维导图<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p><img alt="" src="https://p.ipic.vip/wiun6x.jpg" /></p>
+<h2 id="_2">特性<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<ul>
+<li>不断添加与删除结点后，AVL 树仍然不会发生退化，时间复杂度均能保持在<span class="arithmatex">\(O(\log n)\)</span></li>
+<li>每个结点的左子树和右子树的高度差<span class="arithmatex">\(\leq 1\)</span>的二叉搜索树</li>
+<li>通过<strong>旋转</strong>恢复平衡</li>
+</ul>
+<h2 id="_3">旋转<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h3 id="_4">前置函数<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:4"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">树节点类</label><label for="__tabbed_1_2">获取结点高度</label><label for="__tabbed_1_3">更新结点高度</label><label for="__tabbed_1_4">获取平衡因子</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="cm">/* AVL 树结点类 */</span>
+<span class="kd">class</span> <span class="nc">TreeNode</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">val</span><span class="p">;</span><span class="w">        </span><span class="c1">// 结点值</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">height</span><span class="p">;</span><span class="w">     </span><span class="c1">// 结点高度</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">TreeNode</span><span class="w"> </span><span class="n">left</span><span class="p">;</span><span class="w">  </span><span class="c1">// 左子结点</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">TreeNode</span><span class="w"> </span><span class="n">right</span><span class="p">;</span><span class="w"> </span><span class="c1">// 右子结点</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">TreeNode</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">val</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="cm">/* 获取结点高度 */</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">height</span><span class="p">(</span><span class="n">TreeNode</span><span class="w"> </span><span class="n">node</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// 空结点高度为 -1 ，叶结点高度为 0</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">node</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">node</span><span class="p">.</span><span class="na">height</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="cm">/* 更新结点高度 */</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">updateHeight</span><span class="p">(</span><span class="n">TreeNode</span><span class="w"> </span><span class="n">node</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// 结点高度等于最高子树高度 + 1</span>
+<span class="w">    </span><span class="n">node</span><span class="p">.</span><span class="na">height</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Math</span><span class="p">.</span><span class="na">max</span><span class="p">(</span><span class="n">height</span><span class="p">(</span><span class="n">node</span><span class="p">.</span><span class="na">left</span><span class="p">),</span><span class="w"> </span><span class="n">height</span><span class="p">(</span><span class="n">node</span><span class="p">.</span><span class="na">right</span><span class="p">))</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="cm">/* 获取平衡因子 */</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">balanceFactor</span><span class="p">(</span><span class="n">TreeNode</span><span class="w"> </span><span class="n">node</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// 空结点平衡因子为 0</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">node</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="c1">// 结点平衡因子 = 左子树高度 - 右子树高度</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">height</span><span class="p">(</span><span class="n">node</span><span class="p">.</span><span class="na">left</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">height</span><span class="p">(</span><span class="n">node</span><span class="p">.</span><span class="na">right</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<h3 id="_5">右旋<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<div class="admonition question">
+<p class="admonition-title">右旋</p>
+<p><strong>如果失衡结点的子树度为1</strong></p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:4"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">1.</label><label for="__tabbed_2_2">2.</label><label for="__tabbed_2_3">3.</label><label for="__tabbed_2_4">4.</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><img alt="" src="https://p.ipic.vip/boksji.jpg" /></p>
+</div>
+<div class="tabbed-block">
+<p><img alt="" src="https://p.ipic.vip/7bwqix.jpg" /></p>
+</div>
+<div class="tabbed-block">
+<p><img alt="" src="https://p.ipic.vip/gl7s9p.jpg" /></p>
+</div>
+<div class="tabbed-block">
+<p><img alt="" src="https://p.ipic.vip/unah0i.jpg" /></p>
+</div>
+</div>
+</div>
+<p><strong>如果失衡结点的子树度为2</strong></p>
+<p><img alt="" src="https://p.ipic.vip/u8t6wr.jpg" /></p>
+</div>
+<div class="highlight"><pre><span></span><code><span class="cm">/* 右旋操作 */</span>
+<span class="n">TreeNode</span><span class="w"> </span><span class="nf">rightRotate</span><span class="p">(</span><span class="n">TreeNode</span><span class="w"> </span><span class="n">node</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">TreeNode</span><span class="w"> </span><span class="n">child</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">node</span><span class="p">.</span><span class="na">left</span><span class="p">;</span>
+<span class="w">    </span><span class="n">TreeNode</span><span class="w"> </span><span class="n">grandChild</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">child</span><span class="p">.</span><span class="na">right</span><span class="p">;</span>
+<span class="w">    </span><span class="c1">// 以 child 为原点，将 node 向右旋转</span>
+<span class="w">    </span><span class="n">child</span><span class="p">.</span><span class="na">right</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">node</span><span class="p">;</span>
+<span class="w">    </span><span class="n">node</span><span class="p">.</span><span class="na">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">grandChild</span><span class="p">;</span>
+<span class="w">    </span><span class="c1">// 更新结点高度</span>
+<span class="w">    </span><span class="n">updateHeight</span><span class="p">(</span><span class="n">node</span><span class="p">);</span>
+<span class="w">    </span><span class="n">updateHeight</span><span class="p">(</span><span class="n">child</span><span class="p">);</span>
+<span class="w">    </span><span class="c1">// 返回旋转后子树的根结点</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">child</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="_6">左旋<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<div class="admonition question">
+<p class="admonition-title">左旋</p>
+<p><strong>如果失衡结点的子树度为1</strong></p>
+<p><img alt="" src="https://p.ipic.vip/z2flay.jpg" /></p>
+<p><strong>如果失衡结点的子树度为2</strong></p>
+<p><img alt="" src="https://p.ipic.vip/v9zlmw.jpg" /></p>
+<p>观察发现，<strong>「左旋」和「右旋」操作是镜像对称的，两者对应解决的两种失衡情况也是对称的。</strong>根据对称性，我们可以很方便地从「右旋」推导出「左旋」。具体地，只需将「右旋」代码中的把所有的 left 替换为 right 、所有的 right 替换为 left ，即可得到「左旋」代码。</p>
+</div>
+<div class="highlight"><pre><span></span><code><span class="cm">/* 左旋操作 */</span>
+<span class="n">TreeNode</span><span class="w"> </span><span class="nf">leftRotate</span><span class="p">(</span><span class="n">TreeNode</span><span class="w"> </span><span class="n">node</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">TreeNode</span><span class="w"> </span><span class="n">child</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">node</span><span class="p">.</span><span class="na">right</span><span class="p">;</span>
+<span class="w">    </span><span class="n">TreeNode</span><span class="w"> </span><span class="n">grandChild</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">child</span><span class="p">.</span><span class="na">left</span><span class="p">;</span>
+<span class="w">    </span><span class="c1">// 以 child 为原点，将 node 向左旋转</span>
+<span class="w">    </span><span class="n">child</span><span class="p">.</span><span class="na">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">node</span><span class="p">;</span>
+<span class="w">    </span><span class="n">node</span><span class="p">.</span><span class="na">right</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">grandChild</span><span class="p">;</span>
+<span class="w">    </span><span class="c1">// 更新结点高度</span>
+<span class="w">    </span><span class="n">updateHeight</span><span class="p">(</span><span class="n">node</span><span class="p">);</span>
+<span class="w">    </span><span class="n">updateHeight</span><span class="p">(</span><span class="n">child</span><span class="p">);</span>
+<span class="w">    </span><span class="c1">// 返回旋转后子树的根结点</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">child</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="_7">先左后右<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<div class="admonition question">
+<p class="admonition-title">先左后右</p>
+<p><strong>单一使用左旋或右旋都无法使子树恢复平衡，此时需要「先左旋后右旋」</strong></p>
+<p><img alt="" src="https://p.ipic.vip/fyhd04.jpg" /></p>
+</div>
+<h3 id="_8">先右后左<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<div class="admonition question">
+<p class="admonition-title">先右后左</p>
+<p><strong>「先右旋后左旋」</strong></p>
+<p><img alt="" src="https://p.ipic.vip/1el9po.jpg" /></p>
+</div>
+<h3 id="_9">旋转的选择<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<div class="admonition question">
+<p class="admonition-title">旋转的选择</p>
+<p><img alt="" src="https://p.ipic.vip/35j3wa.jpg" /></p>
+<ul>
+<li>失衡结点的平衡因子：<strong>node</strong></li>
+<li>子结点的平衡因子：<strong>child</strong></li>
+</ul>
+<div class="center-table" markdown>
+<table>
+<thead>
+<tr>
+<th>失衡结点的平衡因子</th>
+<th>子结点的平衡因子</th>
+<th>应采用的旋转方法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(&gt;0\)</span> （即左偏树）</td>
+<td><span class="arithmatex">\(\geq 0\)</span></td>
+<td>右旋</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(&gt;0\)</span> （即左偏树）</td>
+<td><span class="arithmatex">\(&lt;0\)</span></td>
+<td>先左旋后右旋</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(&lt;0\)</span> （即右偏树）</td>
+<td><span class="arithmatex">\(\leq 0\)</span></td>
+<td>左旋</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(&lt;0\)</span> （即右偏树）</td>
+<td><span class="arithmatex">\(&gt;0\)</span></td>
+<td>先右旋后左旋</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="highlight"><pre><span></span><code><span class="cm">/* 执行旋转操作，使该子树重新恢复平衡 */</span>
+<span class="n">TreeNode</span><span class="w"> </span><span class="nf">rotate</span><span class="p">(</span><span class="n">TreeNode</span><span class="w"> </span><span class="n">node</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// 获取结点 node 的平衡因子</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">balanceFactor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">balanceFactor</span><span class="p">(</span><span class="n">node</span><span class="p">);</span>
+<span class="w">    </span><span class="c1">// 左偏树</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">balanceFactor</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">balanceFactor</span><span class="p">(</span><span class="n">node</span><span class="p">.</span><span class="na">left</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="c1">// 右旋</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">rightRotate</span><span class="p">(</span><span class="n">node</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="c1">// 先左旋后右旋</span>
+<span class="w">            </span><span class="n">node</span><span class="p">.</span><span class="na">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">leftRotate</span><span class="p">(</span><span class="n">node</span><span class="p">.</span><span class="na">left</span><span class="p">);</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">rightRotate</span><span class="p">(</span><span class="n">node</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="c1">// 右偏树</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">balanceFactor</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">balanceFactor</span><span class="p">(</span><span class="n">node</span><span class="p">.</span><span class="na">right</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="c1">// 左旋</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">leftRotate</span><span class="p">(</span><span class="n">node</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="c1">// 先右旋后左旋</span>
+<span class="w">            </span><span class="n">node</span><span class="p">.</span><span class="na">right</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rightRotate</span><span class="p">(</span><span class="n">node</span><span class="p">.</span><span class="na">right</span><span class="p">);</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">leftRotate</span><span class="p">(</span><span class="n">node</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="c1">// 平衡树，无需旋转，直接返回</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">node</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="_10">常用操作<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
+<h3 id="_11">插入结点<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
+<p>插入结点后，从该结点到根结点的路径上会出现一系列「失衡结点」。所以，<strong>需要从该结点开始，从底至顶地执行旋转操作，使所有失衡结点恢复平衡。</strong></p>
+<div class="admonition quote">
+<p class="admonition-title">通过递归找到符合插入条件的结点，创建<code>new TreeNode(val)</code>后开始回溯，回溯过程途径的结点会更新结点高度，如果平衡因子出现问题会进行旋转，直到回溯到根结点为止，此时整个树恢复平衡。</p>
+<div class="highlight"><pre><span></span><code><span class="cm">/* 插入结点 */</span>
+<span class="n">TreeNode</span><span class="w"> </span><span class="nf">insert</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">val</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">root</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">insertHelper</span><span class="p">(</span><span class="n">root</span><span class="p">,</span><span class="w"> </span><span class="n">val</span><span class="p">);</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">root</span><span class="p">;</span>
+<span class="p">}</span>
 
+<span class="cm">/* 递归插入结点（辅助方法） */</span>
+<span class="n">TreeNode</span><span class="w"> </span><span class="nf">insertHelper</span><span class="p">(</span><span class="n">TreeNode</span><span class="w"> </span><span class="n">node</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">val</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">node</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">TreeNode</span><span class="p">(</span><span class="n">val</span><span class="p">);</span>
+<span class="w">    </span><span class="cm">/* 1. 查找插入位置，并插入结点 */</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">val</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">node</span><span class="p">.</span><span class="na">val</span><span class="p">)</span>
+<span class="w">        </span><span class="n">node</span><span class="p">.</span><span class="na">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">insertHelper</span><span class="p">(</span><span class="n">node</span><span class="p">.</span><span class="na">left</span><span class="p">,</span><span class="w"> </span><span class="n">val</span><span class="p">);</span>
+<span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">val</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">node</span><span class="p">.</span><span class="na">val</span><span class="p">)</span>
+<span class="w">        </span><span class="n">node</span><span class="p">.</span><span class="na">right</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">insertHelper</span><span class="p">(</span><span class="n">node</span><span class="p">.</span><span class="na">right</span><span class="p">,</span><span class="w"> </span><span class="n">val</span><span class="p">);</span>
+<span class="w">    </span><span class="k">else</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">node</span><span class="p">;</span><span class="w">     </span><span class="c1">// 重复结点不插入，直接返回</span>
+<span class="w">    </span><span class="n">updateHeight</span><span class="p">(</span><span class="n">node</span><span class="p">);</span><span class="w">  </span><span class="c1">// 更新结点高度</span>
+<span class="w">    </span><span class="cm">/* 2. 执行旋转操作，使该子树重新恢复平衡 */</span>
+<span class="w">    </span><span class="n">node</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rotate</span><span class="p">(</span><span class="n">node</span><span class="p">);</span>
+<span class="w">    </span><span class="c1">// 返回子树的根结点</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">node</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<h3 id="_12">删除结点<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
+<div class="admonition quote">
+<p class="admonition-title">「AVL 树」删除结点操作与「二叉搜索树」删除结点操作总体相同。类似地，在删除结点后，也需要从底至顶地执行旋转操作，使所有失衡结点恢复平衡。</p>
+<div class="highlight"><pre><span></span><code><span class="cm">/* 删除结点 */</span>
+<span class="n">TreeNode</span><span class="w"> </span><span class="nf">remove</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">val</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">root</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">removeHelper</span><span class="p">(</span><span class="n">root</span><span class="p">,</span><span class="w"> </span><span class="n">val</span><span class="p">);</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">root</span><span class="p">;</span>
+<span class="p">}</span>
 
+<span class="cm">/* 递归删除结点（辅助方法） */</span>
+<span class="n">TreeNode</span><span class="w"> </span><span class="nf">removeHelper</span><span class="p">(</span><span class="n">TreeNode</span><span class="w"> </span><span class="n">node</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">val</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">node</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
+<span class="w">    </span><span class="cm">/* 1. 查找结点，并删除之 */</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">val</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">node</span><span class="p">.</span><span class="na">val</span><span class="p">)</span>
+<span class="w">    </span><span class="n">node</span><span class="p">.</span><span class="na">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">removeHelper</span><span class="p">(</span><span class="n">node</span><span class="p">.</span><span class="na">left</span><span class="p">,</span><span class="w"> </span><span class="n">val</span><span class="p">);</span>
+<span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">val</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">node</span><span class="p">.</span><span class="na">val</span><span class="p">)</span>
+<span class="w">    </span><span class="n">node</span><span class="p">.</span><span class="na">right</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">removeHelper</span><span class="p">(</span><span class="n">node</span><span class="p">.</span><span class="na">right</span><span class="p">,</span><span class="w"> </span><span class="n">val</span><span class="p">);</span>
+<span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">node</span><span class="p">.</span><span class="na">left</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">node</span><span class="p">.</span><span class="na">right</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">TreeNode</span><span class="w"> </span><span class="n">child</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">node</span><span class="p">.</span><span class="na">left</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">node</span><span class="p">.</span><span class="na">left</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">node</span><span class="p">.</span><span class="na">right</span><span class="p">;</span>
+<span class="w">            </span><span class="c1">// 子结点数量 = 0 ，直接删除 node 并返回</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">child</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
+<span class="w">            </span><span class="c1">// 子结点数量 = 1 ，直接删除 node</span>
+<span class="w">            </span><span class="k">else</span>
+<span class="w">            </span><span class="n">node</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">child</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="c1">// 子结点数量 = 2 ，则将中序遍历的下个结点删除，并用该结点替换当前结点</span>
+<span class="w">            </span><span class="n">TreeNode</span><span class="w"> </span><span class="n">temp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getInOrderNext</span><span class="p">(</span><span class="n">node</span><span class="p">.</span><span class="na">right</span><span class="p">);</span>
+<span class="w">            </span><span class="n">node</span><span class="p">.</span><span class="na">right</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">removeHelper</span><span class="p">(</span><span class="n">node</span><span class="p">.</span><span class="na">right</span><span class="p">,</span><span class="w"> </span><span class="n">temp</span><span class="p">.</span><span class="na">val</span><span class="p">);</span>
+<span class="w">            </span><span class="n">node</span><span class="p">.</span><span class="na">val</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">temp</span><span class="p">.</span><span class="na">val</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="n">updateHeight</span><span class="p">(</span><span class="n">node</span><span class="p">);</span><span class="w">  </span><span class="c1">// 更新结点高度</span>
+<span class="w">    </span><span class="cm">/* 2. 执行旋转操作，使该子树重新恢复平衡 */</span>
+<span class="w">    </span><span class="n">node</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rotate</span><span class="p">(</span><span class="n">node</span><span class="p">);</span>
+<span class="w">    </span><span class="c1">// 返回子树的根结点</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">node</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="cm">/* 获取中序遍历中的下一个结点（仅适用于 root 有左子结点的情况） */</span>
+<span class="n">TreeNode</span><span class="w"> </span><span class="nf">getInOrderNext</span><span class="p">(</span><span class="n">TreeNode</span><span class="w"> </span><span class="n">node</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">node</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">node</span><span class="p">;</span>
+<span class="w">    </span><span class="c1">// 循环访问左子结点，直到叶结点时为最小结点，跳出</span>
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">node</span><span class="p">.</span><span class="na">left</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">node</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">node</span><span class="p">.</span><span class="na">left</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">node</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<h3 id="_13">查找结点<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h3>
+<div class="admonition quote">
+<p class="admonition-title">与二叉搜索树一致</p>
+<div class="highlight"><pre><span></span><code><span class="cm">/* 查找结点 */</span>
+<span class="n">TreeNode</span><span class="w"> </span><span class="nf">search</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">TreeNode</span><span class="w"> </span><span class="n">cur</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">root</span><span class="p">;</span>
+<span class="w">    </span><span class="c1">// 循环查找，越过叶结点后跳出</span>
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">cur</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// 目标结点在 cur 的右子树中</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">cur</span><span class="p">.</span><span class="na">val</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">num</span><span class="p">)</span><span class="w"> </span><span class="n">cur</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cur</span><span class="p">.</span><span class="na">right</span><span class="p">;</span>
+<span class="w">        </span><span class="c1">// 目标结点在 cur 的左子树中</span>
+<span class="w">        </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">cur</span><span class="p">.</span><span class="na">val</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">num</span><span class="p">)</span><span class="w"> </span><span class="n">cur</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cur</span><span class="p">.</span><span class="na">left</span><span class="p">;</span>
+<span class="w">        </span><span class="c1">// 找到目标结点，跳出循环</span>
+<span class="w">        </span><span class="k">else</span><span class="w"> </span><span class="k">break</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="c1">// 返回目标结点</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">cur</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<h2 id="_14">常见应用<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h2>
+<ul>
+<li>组织存储大型数据，适用于高频查找、低频增删场景；</li>
+<li>用于建立数据库中的索引系统；</li>
+</ul>
+<div class="admonition question">
+<p class="admonition-title">为什么红黑树比 AVL 树更受欢迎？</p>
+<p>红黑树的平衡条件相对宽松，因此在红黑树中插入与删除结点所需的旋转操作相对更少，结点增删操作相比 AVL 树的效率更高。</p>
+</div>
+<h2 id="leetcode"><code>leetcode</code><a class="headerlink" href="#leetcode" title="Permanent link">&para;</a></h2>
+<div class="admonition example">
+<p class="admonition-title">1382. 将二叉搜索树变平衡</p>
+<p>给你一棵二叉搜索树，请你返回一棵 平衡后 的二叉搜索树，新生成的树应该与原来的树有着相同的节点值。如果有多种构造方法，请你返回任意一种。</p>
+<p>如果一棵二叉搜索树中，每个节点的两棵子树高度差不超过 <code>1</code> ，我们就称这棵二叉搜索树是 <strong>平衡的</strong> 。</p>
+<p>本地最优解是先用中序遍历把二叉树转换为有序数组，然后构造平衡二叉搜索树，不过为了熟悉旋转，本题使用手撕方式。</p>
+<div class="highlight"><pre><span></span><code><span class="kd">class</span> <span class="nc">Solution</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">TreeNode</span><span class="w"> </span><span class="nf">balanceBST</span><span class="p">(</span><span class="n">TreeNode</span><span class="w"> </span><span class="n">root</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">root</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">){</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="c1">// node节点的高度缓存</span>
+<span class="w">        </span><span class="n">Map</span><span class="o">&lt;</span><span class="n">TreeNode</span><span class="p">,</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">nodeHeight</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HashMap</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<span class="w">        </span><span class="n">TreeNode</span><span class="w"> </span><span class="n">newRoot</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
+<span class="w">        </span><span class="n">Deque</span><span class="o">&lt;</span><span class="n">TreeNode</span><span class="o">&gt;</span><span class="w"> </span><span class="n">stack</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">LinkedList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<span class="w">            </span><span class="n">TreeNode</span><span class="w"> </span><span class="n">node</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">root</span><span class="p">;</span>
+<span class="w">            </span><span class="c1">// 先序遍历插入（其实用哪个遍历都行）</span>
+<span class="w">            </span><span class="k">while</span><span class="p">(</span><span class="n">node</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="o">!</span><span class="n">stack</span><span class="p">.</span><span class="na">isEmpty</span><span class="p">()){</span>
+<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">node</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">){</span>
+<span class="w">                    </span><span class="c1">// 新树插入</span>
+<span class="w">                    </span><span class="n">newRoot</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">insert</span><span class="p">(</span><span class="n">newRoot</span><span class="p">,</span><span class="n">node</span><span class="p">.</span><span class="na">val</span><span class="p">,</span><span class="n">nodeHeight</span><span class="p">);</span>
+<span class="w">                    </span><span class="n">stack</span><span class="p">.</span><span class="na">push</span><span class="p">(</span><span class="n">node</span><span class="p">);</span>
+<span class="w">                    </span><span class="n">node</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">node</span><span class="p">.</span><span class="na">left</span><span class="p">;</span>
+<span class="w">                </span><span class="p">}</span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="n">node</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stack</span><span class="p">.</span><span class="na">pop</span><span class="p">();</span>
+<span class="w">                    </span><span class="n">node</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">node</span><span class="p">.</span><span class="na">right</span><span class="p">;</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">newRoot</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="cm">/**</span>
+<span class="cm">        * 新节点插入</span>
+<span class="cm">        * @param root root</span>
+<span class="cm">        * @param val 新加入的值</span>
+<span class="cm">        * @param nodeHeight 节点高度缓存</span>
+<span class="cm">        * @return 新的root节点</span>
+<span class="cm">        */</span>
+<span class="w">        </span><span class="kd">private</span><span class="w"> </span><span class="n">TreeNode</span><span class="w"> </span><span class="nf">insert</span><span class="p">(</span><span class="n">TreeNode</span><span class="w"> </span><span class="n">root</span><span class="p">,</span><span class="kt">int</span><span class="w"> </span><span class="n">val</span><span class="p">,</span><span class="n">Map</span><span class="o">&lt;</span><span class="n">TreeNode</span><span class="p">,</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">nodeHeight</span><span class="p">){</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">root</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">){</span>
+<span class="w">                </span><span class="n">root</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">TreeNode</span><span class="p">(</span><span class="n">val</span><span class="p">);</span>
+<span class="w">                </span><span class="n">nodeHeight</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="n">root</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span><span class="c1">// 新节点的高度</span>
+<span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="n">root</span><span class="p">;</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">            </span><span class="n">TreeNode</span><span class="w"> </span><span class="n">node</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">root</span><span class="p">;</span>
+<span class="w">            </span><span class="kt">int</span><span class="w"> </span><span class="n">cmp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">val</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">node</span><span class="p">.</span><span class="na">val</span><span class="p">;</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">cmp</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">){</span>
+<span class="w">                </span><span class="c1">// 左子树插入</span>
+<span class="w">                </span><span class="n">node</span><span class="p">.</span><span class="na">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">insert</span><span class="p">(</span><span class="n">root</span><span class="p">.</span><span class="na">left</span><span class="p">,</span><span class="n">val</span><span class="p">,</span><span class="n">nodeHeight</span><span class="p">);</span>
+<span class="w">                </span><span class="c1">// 如果左右子树高度差超过1，进行旋转调整</span>
+<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">nodeHeight</span><span class="p">.</span><span class="na">getOrDefault</span><span class="p">(</span><span class="n">node</span><span class="p">.</span><span class="na">left</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">nodeHeight</span><span class="p">.</span><span class="na">getOrDefault</span><span class="p">(</span><span class="n">node</span><span class="p">.</span><span class="na">right</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">1</span><span class="p">){</span>
+<span class="w">                    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">val</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">node</span><span class="p">.</span><span class="na">left</span><span class="p">.</span><span class="na">val</span><span class="p">){</span>
+<span class="w">                        </span><span class="c1">// 插入在左孩子右边，左孩子先左旋</span>
+<span class="w">                        </span><span class="n">node</span><span class="p">.</span><span class="na">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rotateLeft</span><span class="p">(</span><span class="n">node</span><span class="p">.</span><span class="na">left</span><span class="p">,</span><span class="n">nodeHeight</span><span class="p">);</span>
+<span class="w">                    </span><span class="p">}</span>
+<span class="w">                    </span><span class="c1">// 节点右旋</span>
+<span class="w">                    </span><span class="n">node</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rotateRight</span><span class="p">(</span><span class="n">node</span><span class="p">,</span><span class="n">nodeHeight</span><span class="p">);</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">}</span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">cmp</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">){</span>
+<span class="w">                </span><span class="c1">// 右子树插入</span>
+<span class="w">                </span><span class="n">node</span><span class="p">.</span><span class="na">right</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">insert</span><span class="p">(</span><span class="n">root</span><span class="p">.</span><span class="na">right</span><span class="p">,</span><span class="n">val</span><span class="p">,</span><span class="n">nodeHeight</span><span class="p">);</span>
+<span class="w">                </span><span class="c1">// 如果左右子树高度差超过1，进行旋转调整</span>
+<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">nodeHeight</span><span class="p">.</span><span class="na">getOrDefault</span><span class="p">(</span><span class="n">node</span><span class="p">.</span><span class="na">right</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">nodeHeight</span><span class="p">.</span><span class="na">getOrDefault</span><span class="p">(</span><span class="n">node</span><span class="p">.</span><span class="na">left</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">1</span><span class="p">){</span>
+<span class="w">                    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">val</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">node</span><span class="p">.</span><span class="na">right</span><span class="p">.</span><span class="na">val</span><span class="p">){</span>
+<span class="w">                        </span><span class="c1">// 插入在右孩子左边，右孩子先右旋</span>
+<span class="w">                        </span><span class="n">node</span><span class="p">.</span><span class="na">right</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rotateRight</span><span class="p">(</span><span class="n">node</span><span class="p">.</span><span class="na">right</span><span class="p">,</span><span class="n">nodeHeight</span><span class="p">);</span>
+<span class="w">                    </span><span class="p">}</span>
+<span class="w">                    </span><span class="c1">// 节点左旋</span>
+<span class="w">                    </span><span class="n">node</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rotateLeft</span><span class="p">(</span><span class="n">node</span><span class="p">,</span><span class="n">nodeHeight</span><span class="p">);</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">}</span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="c1">// 一样的节点，啥都没发生</span>
+<span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="n">node</span><span class="p">;</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">            </span><span class="c1">// 获取当前节点新高度</span>
+<span class="w">            </span><span class="kt">int</span><span class="w"> </span><span class="n">height</span><span class="w"> </span><span class="o">=</span><span class="w">  </span><span class="n">getCurNodeNewHeight</span><span class="p">(</span><span class="n">node</span><span class="p">,</span><span class="n">nodeHeight</span><span class="p">);</span>
+<span class="w">            </span><span class="c1">// 更新当前节点高度</span>
+<span class="w">            </span><span class="n">nodeHeight</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="n">node</span><span class="p">,</span><span class="n">height</span><span class="p">);</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">node</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="cm">/**</span>
+<span class="cm">        * node节点左旋</span>
+<span class="cm">        * @param node node</span>
+<span class="cm">        * @param nodeHeight node高度缓存</span>
+<span class="cm">        * @return 旋转后的当前节点</span>
+<span class="cm">        */</span>
+<span class="w">        </span><span class="kd">private</span><span class="w"> </span><span class="n">TreeNode</span><span class="w"> </span><span class="nf">rotateLeft</span><span class="p">(</span><span class="n">TreeNode</span><span class="w"> </span><span class="n">node</span><span class="p">,</span><span class="n">Map</span><span class="o">&lt;</span><span class="n">TreeNode</span><span class="p">,</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">nodeHeight</span><span class="p">){</span>
+<span class="w">            </span><span class="c1">// ---指针调整</span>
+<span class="w">            </span><span class="n">TreeNode</span><span class="w"> </span><span class="n">right</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">node</span><span class="p">.</span><span class="na">right</span><span class="p">;</span>
+<span class="w">            </span><span class="n">node</span><span class="p">.</span><span class="na">right</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">right</span><span class="p">.</span><span class="na">left</span><span class="p">;</span>
+<span class="w">            </span><span class="n">right</span><span class="p">.</span><span class="na">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">node</span><span class="p">;</span>
+<span class="w">            </span><span class="c1">// ---高度更新</span>
+<span class="w">            </span><span class="c1">// 先更新node节点的高度，这个时候node是right节点的左孩子</span>
+<span class="w">            </span><span class="kt">int</span><span class="w"> </span><span class="n">newNodeHeight</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getCurNodeNewHeight</span><span class="p">(</span><span class="n">node</span><span class="p">,</span><span class="n">nodeHeight</span><span class="p">);</span>
+<span class="w">            </span><span class="c1">// 更新node节点高度</span>
+<span class="w">            </span><span class="n">nodeHeight</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="n">node</span><span class="p">,</span><span class="n">newNodeHeight</span><span class="p">);</span>
+<span class="w">            </span><span class="c1">// newNodeHeight是现在right节点左子树高度，原理一样，取现在right左右子树最大高度+1</span>
+<span class="w">            </span><span class="kt">int</span><span class="w"> </span><span class="n">newRightHeight</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Math</span><span class="p">.</span><span class="na">max</span><span class="p">(</span><span class="n">newNodeHeight</span><span class="p">,</span><span class="n">nodeHeight</span><span class="p">.</span><span class="na">getOrDefault</span><span class="p">(</span><span class="n">right</span><span class="p">.</span><span class="na">right</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">            </span><span class="c1">// 更新原right节点高度</span>
+<span class="w">            </span><span class="n">nodeHeight</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="n">right</span><span class="p">,</span><span class="n">newRightHeight</span><span class="p">);</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">right</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="cm">/**</span>
+<span class="cm">        * node节点右旋</span>
+<span class="cm">        * @param node node</span>
+<span class="cm">        * @param nodeHeight node高度缓存</span>
+<span class="cm">        * @return 旋转后的当前节点</span>
+<span class="cm">        */</span>
+<span class="w">        </span><span class="kd">private</span><span class="w"> </span><span class="n">TreeNode</span><span class="w"> </span><span class="nf">rotateRight</span><span class="p">(</span><span class="n">TreeNode</span><span class="w"> </span><span class="n">node</span><span class="p">,</span><span class="n">Map</span><span class="o">&lt;</span><span class="n">TreeNode</span><span class="p">,</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">nodeHeight</span><span class="p">){</span>
+<span class="w">            </span><span class="c1">// ---指针调整</span>
+<span class="w">            </span><span class="n">TreeNode</span><span class="w"> </span><span class="n">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">node</span><span class="p">.</span><span class="na">left</span><span class="p">;</span>
+<span class="w">            </span><span class="n">node</span><span class="p">.</span><span class="na">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">left</span><span class="p">.</span><span class="na">right</span><span class="p">;</span>
+<span class="w">            </span><span class="n">left</span><span class="p">.</span><span class="na">right</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">node</span><span class="p">;</span>
+<span class="w">            </span><span class="c1">// ---高度更新</span>
+<span class="w">            </span><span class="c1">// 先更新node节点的高度，这个时候node是right节点的左孩子</span>
+<span class="w">            </span><span class="kt">int</span><span class="w"> </span><span class="n">newNodeHeight</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getCurNodeNewHeight</span><span class="p">(</span><span class="n">node</span><span class="p">,</span><span class="n">nodeHeight</span><span class="p">);</span>
+<span class="w">            </span><span class="c1">// 更新node节点高度</span>
+<span class="w">            </span><span class="n">nodeHeight</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="n">node</span><span class="p">,</span><span class="n">newNodeHeight</span><span class="p">);</span>
+<span class="w">            </span><span class="c1">// newNodeHeight是现在left节点右子树高度，原理一样，取现在right左右子树最大高度+1</span>
+<span class="w">            </span><span class="kt">int</span><span class="w"> </span><span class="n">newLeftHeight</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Math</span><span class="p">.</span><span class="na">max</span><span class="p">(</span><span class="n">newNodeHeight</span><span class="p">,</span><span class="n">nodeHeight</span><span class="p">.</span><span class="na">getOrDefault</span><span class="p">(</span><span class="n">left</span><span class="p">.</span><span class="na">left</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">            </span><span class="c1">// 更新原left节点高度</span>
+<span class="w">            </span><span class="n">nodeHeight</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="n">left</span><span class="p">,</span><span class="n">newLeftHeight</span><span class="p">);</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">left</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="cm">/**</span>
+<span class="cm">        * 获取当前节点的新高度</span>
+<span class="cm">        * @param node node</span>
+<span class="cm">        * @param nodeHeight node高度缓存</span>
+<span class="cm">        * @return 当前node的新高度</span>
+<span class="cm">        */</span>
+<span class="w">        </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">getCurNodeNewHeight</span><span class="p">(</span><span class="n">TreeNode</span><span class="w"> </span><span class="n">node</span><span class="p">,</span><span class="n">Map</span><span class="o">&lt;</span><span class="n">TreeNode</span><span class="p">,</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">nodeHeight</span><span class="p">){</span>
+<span class="w">            </span><span class="c1">// node节点的高度，为现在node左右子树最大高度+1</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">Math</span><span class="p">.</span><span class="na">max</span><span class="p">(</span><span class="n">nodeHeight</span><span class="p">.</span><span class="na">getOrDefault</span><span class="p">(</span><span class="n">node</span><span class="p">.</span><span class="na">left</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span><span class="n">nodeHeight</span><span class="p">.</span><span class="na">getOrDefault</span><span class="p">(</span><span class="n">node</span><span class="p">.</span><span class="na">right</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+</code></pre></div>
+</div>
 
 
 

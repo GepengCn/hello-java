@@ -42,6 +42,8 @@
       
     
     
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -1019,10 +1021,10 @@
   
 
 
-<h1 id="queue">队列<code>Queue</code></h1>
-<h2 id="_1">思维导图</h2>
+<h1 id="queue">队列<code>Queue</code><a class="headerlink" href="#queue" title="Permanent link">&para;</a></h1>
+<h2 id="_1">思维导图<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p><img alt="" src="https://p.ipic.vip/bypa82.jpg" width="500" /></p>
-<h2 id="_2">特性</h2>
+<h2 id="_2">特性<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <ul>
 <li>先入先出</li>
 <li>线性</li>
@@ -1031,7 +1033,7 @@
 <li>入队：加入队尾</li>
 <li>出队：删除队首</li>
 </ul>
-<h2 id="java"><code>Java</code>用法</h2>
+<h2 id="java"><code>Java</code>用法<a class="headerlink" href="#java" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><span class="n">Queue</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">queue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">LinkedList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
 <span class="n">queue</span><span class="p">.</span><span class="na">offer</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="c1">//入队</span>
 <span class="kt">int</span><span class="w"> </span><span class="n">peek</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">queue</span><span class="p">.</span><span class="na">peek</span><span class="p">();</span><span class="c1">//访问队首元素</span>
@@ -1039,7 +1041,7 @@
 <span class="kt">int</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">queue</span><span class="p">.</span><span class="na">size</span><span class="p">();</span><span class="c1">//获取队列的长度</span>
 <span class="kt">boolean</span><span class="w"> </span><span class="n">isEmpty</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">queue</span><span class="p">.</span><span class="na">isEmpty</span><span class="p">();</span><span class="c1">//判断队列是否为空</span>
 </code></pre></div>
-<h2 id="_3">实现方式</h2>
+<h2 id="_3">实现方式<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <div class="admonition tip">
 <p class="admonition-title">链表</p>
 <p>使用两个单链表，一个作为队首，一个作为队尾</p>
@@ -1134,7 +1136,7 @@
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-<h2 id="_4">实际应用</h2>
+<h2 id="_4">实际应用<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <div class="admonition note">
 <p class="admonition-title">淘宝订单</p>
 <p>购物者下单后，订单就被加入到队列之中，随后系统再根据顺序依次处理队列中的订单</p>
@@ -1145,8 +1147,8 @@
 <div class="admonition note">
 <p class="admonition-title">餐厅的出餐队列</p>
 </div>
-<h2 id="leetcode"><code>leetcode</code></h2>
-<h3 id="225">225. 用队列实现栈</h3>
+<h2 id="leetcode"><code>leetcode</code><a class="headerlink" href="#leetcode" title="Permanent link">&para;</a></h2>
+<h3 id="225">225. 用队列实现栈<a class="headerlink" href="#225" title="Permanent link">&para;</a></h3>
 <div class="admonition example">
 <p class="admonition-title">225. 用队列实现栈</p>
 <p>请你仅使用两个队列实现一个后入先出（LIFO）的栈，并支持普通栈的全部四种操作（push、top、pop 和 empty）。</p>
@@ -1189,7 +1191,7 @@
 <span class="w">    </span><span class="p">}</span>
 </code></pre></div>
 </div>
-<h3 id="32">32. 用栈实现队列</h3>
+<h3 id="32">32. 用栈实现队列<a class="headerlink" href="#32" title="Permanent link">&para;</a></h3>
 <div class="admonition example">
 <p class="admonition-title">232. 用栈实现队列</p>
 <p>请你仅使用两个栈实现先入先出队列。队列应当支持一般队列支持的所有操作（push、pop、peek、empty）：</p>
@@ -1239,7 +1241,7 @@
 <span class="p">}</span>
 </code></pre></div>
 </div>
-<h3 id="offer-50">剑指 Offer 50. 第一个只出现一次的字符</h3>
+<h3 id="offer-50">剑指 Offer 50. 第一个只出现一次的字符<a class="headerlink" href="#offer-50" title="Permanent link">&para;</a></h3>
 <div class="admonition example">
 <p class="admonition-title">剑指 Offer 50. 第一个只出现一次的字符</p>
 <p>在字符串 s 中找出第一个只出现一次的字符。如果没有，返回一个单空格。 s 只包含小写字母。</p>

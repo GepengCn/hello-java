@@ -42,6 +42,8 @@
       
     
     
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -566,6 +568,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    二叉树题目总结
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1035,6 +1044,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    二叉树题目总结
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1063,10 +1079,10 @@
   
 
 
-<h1 id="binary_tree">二叉树<code>binary_tree</code></h1>
-<h2 id="_1">思维导图</h2>
+<h1 id="binary_tree">二叉树<code>binary_tree</code><a class="headerlink" href="#binary_tree" title="Permanent link">&para;</a></h1>
+<h2 id="_1">思维导图<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p><img alt="" src="https://p.ipic.vip/dcmg3l.jpg" /></p>
-<h2 id="_2">特性</h2>
+<h2 id="_2">特性<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <ul>
 <li>非线性</li>
 <li>一分为二的<code>分治逻辑</code></li>
@@ -1080,7 +1096,7 @@
 <li>结点深度：根结点到此结点经过的边的数量</li>
 <li>结点高度：此结点到最远叶结点经过的边的数量</li>
 </ul>
-<h2 id="_3">常用操作</h2>
+<h2 id="_3">常用操作<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <div class="admonition quote">
 <p class="admonition-title">初始化</p>
 <div class="highlight"><pre><span></span><code><span class="n">TreeNode</span><span class="w"> </span><span class="n">n1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">TreeNode</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
@@ -1108,7 +1124,7 @@
 </code></pre></div>
 <img alt="" src="https://p.ipic.vip/4emu04.jpg" /></p>
 </div>
-<h2 id="_4">常见二叉树类型</h2>
+<h2 id="_4">常见二叉树类型<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <div class="admonition info">
 <p class="admonition-title">完美二叉树</p>
 <ul>
@@ -1141,21 +1157,21 @@
 </ul>
 <p><img alt="" src="https://p.ipic.vip/329z8e.jpg" /></p>
 </div>
-<h2 id="_5">二叉树的退化</h2>
+<h2 id="_5">二叉树的退化<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <p>当二叉树的每层的结点都被填满时，达到「完美二叉树」；而当所有结点都偏向一边时，二叉树退化为「链表」。</p>
 <ul>
 <li>完美二叉树是一个二叉树的“最佳状态”，可以完全发挥出二叉树“分治”的优势；</li>
 <li>链表则是另一个极端，各项操作都变为线性操作，时间复杂度退化至 <span class="arithmatex">\(O(n)\)</span>；</li>
 </ul>
 <p><img alt="" src="https://p.ipic.vip/2rfi23.jpg" /></p>
-<h2 id="_6">遍历方式</h2>
+<h2 id="_6">遍历方式<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
 <p><img alt="" src="https://p.ipic.vip/q5fjpy.jpg" /></p>
 <ul>
 <li>前序遍历（先根，再左，最后右）</li>
 <li>中序遍历（先左，再根，最后右）</li>
 <li>后序遍历（先左，再右，最后根）</li>
 </ul>
-<h2 id="_7">中序遍历算法实现</h2>
+<h2 id="_7">中序遍历算法实现<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
 <div class="admonition tip">
 <p class="admonition-title">广度优先搜索 BFS</p>
 <div class="highlight"><pre><span></span><code><span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">levelOrder</span><span class="p">(</span><span class="n">TreeNode</span><span class="w"> </span><span class="n">root</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -1195,8 +1211,8 @@
 <span class="p">}</span>
 </code></pre></div>
 </div>
-<h2 id="leetcode"><code>leetcode</code></h2>
-<h3 id="offer-32-i">剑指 Offer 32 - I. 从上到下打印二叉树</h3>
+<h2 id="leetcode"><code>leetcode</code><a class="headerlink" href="#leetcode" title="Permanent link">&para;</a></h2>
+<h3 id="offer-32-i">剑指 Offer 32 - I. 从上到下打印二叉树<a class="headerlink" href="#offer-32-i" title="Permanent link">&para;</a></h3>
 <div class="admonition example">
 <p class="admonition-title">剑指 Offer 32 - I. 从上到下打印二叉树</p>
 <p>从上到下打印出二叉树的每个结点，同一层的结点按照从左到右的顺序打印。</p>
@@ -1228,7 +1244,7 @@
 <span class="p">}</span>
 </code></pre></div>
 </div>
-<h3 id="offer-32-ii-ii">剑指 Offer 32 - II. 从上到下打印二叉树 II</h3>
+<h3 id="offer-32-ii-ii">剑指 Offer 32 - II. 从上到下打印二叉树 II<a class="headerlink" href="#offer-32-ii-ii" title="Permanent link">&para;</a></h3>
 <div class="admonition example">
 <p class="admonition-title">剑指 Offer 32 - II. 从上到下打印二叉树 II<p>从上到下按层打印二叉树，同一层的结点按从左到右的顺序打印，每一层打印到一行。</p>
 <p>例如:
@@ -1267,7 +1283,7 @@
 </code></pre></div>
 </p>
 </div>
-<h3 id="offer-32-iii-iii">剑指 Offer 32 - III. 从上到下打印二叉树 III</h3>
+<h3 id="offer-32-iii-iii">剑指 Offer 32 - III. 从上到下打印二叉树 III<a class="headerlink" href="#offer-32-iii-iii" title="Permanent link">&para;</a></h3>
 <div class="admonition example">
 <p class="admonition-title">剑指 Offer 32 - III. 从上到下打印二叉树 III</p>
 <p>请实现一个函数按照之字形顺序打印二叉树，即第一行按照从左到右的顺序打印，第二层按照从右到左的顺序打印，第三行再按照从左到右的顺序打印，其他行以此类推。</p>
@@ -1307,7 +1323,7 @@
 <span class="p">}</span>
 </code></pre></div>
 </div>
-<h3 id="offer-27">剑指 Offer 27. 二叉树的镜像</h3>
+<h3 id="offer-27">剑指 Offer 27. 二叉树的镜像<a class="headerlink" href="#offer-27" title="Permanent link">&para;</a></h3>
 <div class="admonition example">
 <p class="admonition-title">剑指 Offer 27. 二叉树的镜像</p>
 <p>请完成一个函数，输入一个二叉树，该函数输出它的镜像。</p>
@@ -1336,6 +1352,8 @@
 <span class="p">}</span>
 </code></pre></div>
 </div>
+<h3 id="_8">二叉树题目总结<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<p><img alt="" src="https://p.ipic.vip/3izhky.jpg" /></p>
 
 
 

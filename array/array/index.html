@@ -42,6 +42,8 @@
       
     
     
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -991,10 +993,10 @@
   
 
 
-<h1 id="array">数组<code>Array</code></h1>
-<h2 id="_1">思维导图</h2>
+<h1 id="array">数组<code>Array</code><a class="headerlink" href="#array" title="Permanent link">&para;</a></h1>
+<h2 id="_1">思维导图<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p><img alt="" src="https://p.ipic.vip/v3xymp.png" /></p>
-<h2 id="_2">特性</h2>
+<h2 id="_2">特性<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <ul>
 <li><code>顺序</code>存储多个<code>相同类型</code>的数据, 内存中相连</li>
 <li>元素在数组中的位置为<code>索引</code></li>
@@ -1003,7 +1005,7 @@
 <li>插入或删除元素效率低，为了使数组的元素相连，可能需要移动其它数组元素，时间复杂度 <span class="arithmatex">\(O(N)\)</span></li>
 <li><code>内存浪费</code>，初始化一个比较长的数组，只用前面部分</li>
 </ul>
-<h2 id="_3">初始化</h2>
+<h2 id="_3">初始化<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <div class="admonition info">
 <p class="admonition-title">无初始值，但需指定长度</p>
 <div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">arr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="o">[</span><span class="mi">5</span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="c1">// { 0, 0, 0, 0, 0 }</span>
@@ -1014,7 +1016,7 @@
 <div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">nums</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="p">};</span>
 </code></pre></div>
 </div>
-<h2 id="_4">常用操作</h2>
+<h2 id="_4">常用操作<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <div class="admonition quote">
 <p class="admonition-title">遍历</p>
 <div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">nums</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="p">};</span>
@@ -1057,7 +1059,7 @@
 <span class="p">}</span>
 </code></pre></div>
 </div>
-<h2 id="_5">实际应用</h2>
+<h2 id="_5">实际应用<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <div class="admonition note">
 <p class="admonition-title">随机访问</p>
 <p>如果我们想要随机抽取一些样本，那么可以用数组存储，并生成一个随机序列，根据索引实现样本的随机抽取。</p>
@@ -1070,8 +1072,8 @@
 <p class="admonition-title">深度学习</p>
 <p>神经网络中大量使用了向量、矩阵、张量之间的线性代数运算，这些数据都是以数组的形式构建的。数组是神经网络编程中最常使用的数据结构。</p>
 </div>
-<h2 id="leetcode"><code>leetcode</code></h2>
-<h3 id="1">1. 两数之和</h3>
+<h2 id="leetcode"><code>leetcode</code><a class="headerlink" href="#leetcode" title="Permanent link">&para;</a></h2>
+<h3 id="1">1. 两数之和<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
 <div class="admonition example">
 <p class="admonition-title">1. 两数之和</p>
 <p>给定一个整数数组 nums 和一个整数目标值 target，请你在该数组中找出 和为目标值 target  的那 两个 整数，并返回它们的数组下标。</p>
