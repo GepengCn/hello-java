@@ -9,7 +9,7 @@
       
       
       
-        <link rel="prev" href="../splay_tree/">
+        <link rel="prev" href="../avl_tree/">
       
       
         <link rel="next" href="../../heap/heap/">
@@ -71,6 +71,11 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
       
     </div>
     <div data-md-component="announce">
@@ -485,20 +490,6 @@
               
   
   
-  
-    <li class="md-nav__item">
-      <a href="../splay_tree/" class="md-nav__link">
-        伸展树
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
     
   
   
@@ -507,10 +498,187 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          红黑树
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         红黑树
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    思维导图
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    特性
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    红黑树满足以下条件
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    常见应用
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    常用操作
+  </a>
+  
+    <nav class="md-nav" aria-label="常用操作">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    插入
+  </a>
+  
+    <nav class="md-nav" aria-label="插入">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    1. 插入根结点
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    2. 父结点为黑色
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    3. 左倾染色
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    4. 右倾染色
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    5. 左旋调衡
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    6. 右旋调衡
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    删除
+  </a>
+  
+    <nav class="md-nav" aria-label="删除">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    1. 删除根结点
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-null" class="md-nav__link">
+    2. 左右子结点都为null
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_1" class="md-nav__link">
+    3. 左右子结点有一个有值
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-null" class="md-nav__link">
+    4. 前驱为黑色结点，并且有一个非 null 子结点
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-null" class="md-nav__link">
+    5. 前驱为黑色节点，同时子节点都为 null
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-null" class="md-nav__link">
+    6. 前驱为红色结点，同时子结点都为null
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -822,6 +990,167 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    思维导图
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    特性
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    红黑树满足以下条件
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    常见应用
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    常用操作
+  </a>
+  
+    <nav class="md-nav" aria-label="常用操作">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    插入
+  </a>
+  
+    <nav class="md-nav" aria-label="插入">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    1. 插入根结点
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    2. 父结点为黑色
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    3. 左倾染色
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    4. 右倾染色
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    5. 左旋调衡
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    6. 右旋调衡
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    删除
+  </a>
+  
+    <nav class="md-nav" aria-label="删除">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    1. 删除根结点
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-null" class="md-nav__link">
+    2. 左右子结点都为null
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_1" class="md-nav__link">
+    3. 左右子结点有一个有值
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-null" class="md-nav__link">
+    4. 前驱为黑色结点，并且有一个非 null 子结点
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-null" class="md-nav__link">
+    5. 前驱为黑色节点，同时子节点都为 null
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-null" class="md-nav__link">
+    6. 前驱为红色结点，同时子结点都为null
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -844,9 +1173,279 @@
   
 
 
-  <h1>红黑树</h1>
-
-
+<h1 id="_1">红黑树<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<h2 id="_2">思维导图<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p><img alt="" src="https://p.ipic.vip/0c8jou.jpg" /></p>
+<h2 id="_3">特性<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<ul>
+<li>二叉搜索树</li>
+<li>增加一个存储位表示结点颜色</li>
+<li>没有一个路径会比其他路径长2倍，因而是近似于平衡的</li>
+<li>从某个结点出发（不含该结点）到达一个叶结点的任意一条路径上的黑色结点个数称为该结点的<strong>黑高</strong></li>
+<li>红黑树的黑高等于其根结点的黑高</li>
+<li>一颗有<span class="arithmatex">\(n\)</span>个内部结点的红黑树的高度至多为 <span class="arithmatex">\(2\lg (n+1)\)</span></li>
+<li>增删查的时间复杂度为<span class="arithmatex">\(O(\lg(n))\)</span></li>
+<li>新插入的结点是红色</li>
+</ul>
+<h2 id="_4">红黑树满足以下条件<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<ol>
+<li>每个结点或是红色的，或是黑色的</li>
+<li>根结点是黑色的</li>
+<li>每个叶结点是黑色的</li>
+<li>如果一个结点是红色的，则它的两个子结点都是黑色的</li>
+<li>对每个结点，从该结点到其所有后代叶结点的简单路径上，均包含相同数目的黑色结点</li>
+</ol>
+<h2 id="_5">常见应用<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<ul>
+<li><code>TreeMap</code> 和 <code>TreeSet</code> 都是基于红黑树实现的</li>
+<li><code>JDK8</code> 中 <code>HashMap</code> 当链表长度大于 8 时会转化为红黑树</li>
+</ul>
+<h2 id="_6">常用操作<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<h3 id="_7">插入<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<h4 id="1">1. 插入根结点<a class="headerlink" href="#1" title="Permanent link">&para;</a></h4>
+<div class="admonition quote">
+<p class="admonition-title">插入的新结点 N 是红黑树的根结点，这种情况下，我们把结点 N 的颜色由红色变为黑色，性质2（根是黑色）被满足。同时 N 被染成黑色后，红黑树所有路径上的黑色结点数量增加一个，性质5（从任一结点到其每个叶子的所有简单路径都包含相同数目的黑色结点）仍然被满足</p>
+<p><img alt="" src="https://p.ipic.vip/uq7dvi.jpg" width="200" /></p>
+</div>
+<h4 id="2">2. 父结点为黑色<a class="headerlink" href="#2" title="Permanent link">&para;</a></h4>
+<div class="admonition quote">
+<p class="admonition-title">N 的父结点是黑色，这种情况下，性质4（每个红色结点必须有两个黑色的子结点）和性质5没有受到影响，不需要调整。</p>
+<p><img alt="" src="https://p.ipic.vip/w8tdlj.jpg" width="175" /></p>
+</div>
+<h4 id="3">3. 左倾染色<a class="headerlink" href="#3" title="Permanent link">&para;</a></h4>
+<div class="admonition quote">
+<p class="admonition-title">条件：新增结点1的叔叔结点4为红色。</p>
+<p>新增结点1，相当于2-3树中在结点2上添加了一个结点，这个时候并不影响树高，只需要染色保持红黑树的规则即可。</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">3.1</label><label for="__tabbed_1_2">3.2</label><label for="__tabbed_1_3">3.3</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><img alt="" src="https://p.ipic.vip/9u903u.jpg" width="300" /></p>
+</div>
+<div class="tabbed-block">
+<p><img alt="" src="https://p.ipic.vip/ooluf3.jpg" width="300" /></p>
+</div>
+<div class="tabbed-block">
+<p><img alt="" src="https://p.ipic.vip/nsxt94.jpg" width="300" /></p>
+</div>
+</div>
+</div>
+</div>
+<h4 id="4">4. 右倾染色<a class="headerlink" href="#4" title="Permanent link">&para;</a></h4>
+<div class="admonition quote">
+<p class="admonition-title">条件：新增结点4的叔叔结点1是红色。</p>
+<p>新增结点4，相当于2-3树中在结点3上添加了一个结点，这个时候并不影响树高，只需要染色保持红黑树的规则即可。</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">4.1</label><label for="__tabbed_2_2">4.2</label><label for="__tabbed_2_3">4.3</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><img alt="" src="https://p.ipic.vip/t57qmo.jpg" width="300" /></p>
+</div>
+<div class="tabbed-block">
+<p><img alt="" src="https://p.ipic.vip/h7q78x.jpg" width="300" /></p>
+</div>
+<div class="tabbed-block">
+<p><img alt="" src="https://p.ipic.vip/wapqo7.jpg" width="300" /></p>
+</div>
+</div>
+</div>
+</div>
+<h4 id="5">5. 左旋调衡<a class="headerlink" href="#5" title="Permanent link">&para;</a></h4>
+<div class="admonition quote">
+<p class="admonition-title">条件：新增结点的叔叔结点不是红色</p>
+<p>对照2-3树，只有当一个结点内有3个结点的时候，才需要调衡。那么红黑树则是判断当前结点的叔叔结点是否为红色结点，如果不是则没法通过染色调衡，也就是需要选择进行调衡。</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 一次左旋</li>
+</ul>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:3"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">5.1.1</label><label for="__tabbed_3_2">5.1.2</label><label for="__tabbed_3_3">5.1.3</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><img alt="" src="https://p.ipic.vip/hmxdju.jpg" width="275" /></p>
+</div>
+<div class="tabbed-block">
+<p><img alt="" src="https://p.ipic.vip/jyy6hy.jpg" width="275" /></p>
+</div>
+<div class="tabbed-block">
+<p><img alt="" src="https://p.ipic.vip/pu2aqy.jpg" width="225" /></p>
+</div>
+</div>
+</div>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 右旋 <span class="arithmatex">\(+\)</span> 左旋</li>
+</ul>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:4"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><input id="__tabbed_4_4" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">5.2.1</label><label for="__tabbed_4_2">5.2.2</label><label for="__tabbed_4_3">5.2.3</label><label for="__tabbed_4_4">5.2.4</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><img alt="" src="https://p.ipic.vip/mtumg6.jpg" width="225" /></p>
+</div>
+<div class="tabbed-block">
+<p><img alt="" src="https://p.ipic.vip/ww479o.jpg" width="275" /></p>
+</div>
+<div class="tabbed-block">
+<p><img alt="" src="https://p.ipic.vip/jyy6hy.jpg" width="275" /></p>
+</div>
+<div class="tabbed-block">
+<p><img alt="" src="https://p.ipic.vip/pu2aqy.jpg" width="225" /></p>
+</div>
+</div>
+</div>
+</div>
+<h4 id="6">6. 右旋调衡<a class="headerlink" href="#6" title="Permanent link">&para;</a></h4>
+<div class="admonition quote">
+<p class="admonition-title">条件：新增结点的叔叔结点不是红色</p>
+<p>同左旋</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 一次右旋</li>
+</ul>
+<div class="tabbed-set tabbed-alternate" data-tabs="5:3"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><input id="__tabbed_5_3" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">6.1.1</label><label for="__tabbed_5_2">6.1.2</label><label for="__tabbed_5_3">6.1.3</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><img alt="" src="https://p.ipic.vip/4hqwyf.jpg" width="275" /></p>
+</div>
+<div class="tabbed-block">
+<p><img alt="" src="https://p.ipic.vip/f5vljj.jpg" width="275" /></p>
+</div>
+<div class="tabbed-block">
+<p><img alt="" src="https://p.ipic.vip/bnhlvv.jpg" width="225" /></p>
+</div>
+</div>
+</div>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 左旋 <span class="arithmatex">\(+\)</span> 右旋</li>
+</ul>
+<div class="tabbed-set tabbed-alternate" data-tabs="6:4"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><input id="__tabbed_6_3" name="__tabbed_6" type="radio" /><input id="__tabbed_6_4" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">6.2.1</label><label for="__tabbed_6_2">6.2.2</label><label for="__tabbed_6_3">6.2.3</label><label for="__tabbed_6_4">6.2.4</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><img alt="" src="https://p.ipic.vip/t0htv1.jpg" width="225" /></p>
+</div>
+<div class="tabbed-block">
+<p><img alt="" src="https://p.ipic.vip/7011w2.jpg" width="275" /></p>
+</div>
+<div class="tabbed-block">
+<p><img alt="" src="https://p.ipic.vip/f5vljj.jpg" width="275" /></p>
+</div>
+<div class="tabbed-block">
+<p><img alt="" src="https://p.ipic.vip/bnhlvv.jpg" width="225" /></p>
+</div>
+</div>
+</div>
+</div>
+<h3 id="_8">删除<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<h4 id="1_1">1. 删除根结点<a class="headerlink" href="#1_1" title="Permanent link">&para;</a></h4>
+<div class="admonition quote">
+<p class="admonition-title">删除的是根结点，则直接将根结点置为 <code>null</code></p>
+<p><img alt="" src="https://p.ipic.vip/9a554q.jpg" width="225" /></p>
+</div>
+<h4 id="2-null">2. 左右子结点都为<code>null</code><a class="headerlink" href="#2-null" title="Permanent link">&para;</a></h4>
+<div class="admonition quote">
+<p class="admonition-title">左右子结点都为<code>null</code></p>
+<div class="tabbed-set tabbed-alternate" data-tabs="7:2"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><input id="__tabbed_7_2" name="__tabbed_7" type="radio" /><div class="tabbed-labels"><label for="__tabbed_7_1">2.1.1</label><label for="__tabbed_7_2">2.1.2</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><img alt="" src="https://p.ipic.vip/u6p5x5.jpg" width="275" /></p>
+</div>
+<div class="tabbed-block">
+<p><img alt="" src="https://p.ipic.vip/ui2hvx.jpg" width="232.5" /></p>
+</div>
+</div>
+</div>
+</div>
+<h4 id="3_1">3. 左右子结点有一个有值<a class="headerlink" href="#3_1" title="Permanent link">&para;</a></h4>
+<div class="admonition quote">
+<p class="admonition-title">待删除结点的左右子结点有一个有值，则用有值的结点替换该结点即可。</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="8:2"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio" /><input id="__tabbed_8_2" name="__tabbed_8" type="radio" /><div class="tabbed-labels"><label for="__tabbed_8_1">3.1.1</label><label for="__tabbed_8_2">3.1.2</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><img alt="" src="https://p.ipic.vip/otftgh.jpg" width="232.5" /></p>
+</div>
+<div class="tabbed-block">
+<p><img alt="" src="https://p.ipic.vip/pz1ljp.jpg" width="200" /></p>
+</div>
+</div>
+</div>
+</div>
+<h4 id="4-null">4. 前驱为黑色结点，并且有一个非 <code>null</code> 子结点<a class="headerlink" href="#4-null" title="Permanent link">&para;</a></h4>
+<div class="admonition quote">
+<p class="admonition-title">待删除结点的左右子结点有一个有值，则用有值的结点替换该结点即可。</p>
+<ol>
+<li>找到前驱结点</li>
+<li>用前驱结点的值替换待删除结点的值</li>
+<li>删除前驱结点</li>
+<li>变色</li>
+</ol>
+<div class="tabbed-set tabbed-alternate" data-tabs="9:4"><input checked="checked" id="__tabbed_9_1" name="__tabbed_9" type="radio" /><input id="__tabbed_9_2" name="__tabbed_9" type="radio" /><input id="__tabbed_9_3" name="__tabbed_9" type="radio" /><input id="__tabbed_9_4" name="__tabbed_9" type="radio" /><div class="tabbed-labels"><label for="__tabbed_9_1">4.1.1 找到前驱</label><label for="__tabbed_9_2">4.1.2 用前驱赋值</label><label for="__tabbed_9_3">4.1.3 删除前驱</label><label for="__tabbed_9_4">4.1.4 变色</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><img alt="" src="https://p.ipic.vip/x3crua.jpg" width="375" /></p>
+</div>
+<div class="tabbed-block">
+<p><img alt="" src="https://p.ipic.vip/a1ov8d.jpg" width="375" /></p>
+</div>
+<div class="tabbed-block">
+<p><img alt="" src="https://p.ipic.vip/5ro0u2.jpg" width="275" /></p>
+</div>
+<div class="tabbed-block">
+<p><img alt="" src="https://p.ipic.vip/jz34kk.jpg" width="275" /></p>
+</div>
+</div>
+</div>
+</div>
+<h4 id="5-null">5. 前驱为黑色节点，同时子节点都为 <code>null</code><a class="headerlink" href="#5-null" title="Permanent link">&para;</a></h4>
+<div class="admonition quote">
+<p class="admonition-title">前驱为黑色节点，同时子节点都为 <code>null</code></p>
+<ol>
+<li>找到前驱结点</li>
+<li>用前驱结点的值替换待删除结点的值</li>
+<li>删除前驱结点</li>
+<li>变色</li>
+</ol>
+<div class="tabbed-set tabbed-alternate" data-tabs="10:4"><input checked="checked" id="__tabbed_10_1" name="__tabbed_10" type="radio" /><input id="__tabbed_10_2" name="__tabbed_10" type="radio" /><input id="__tabbed_10_3" name="__tabbed_10" type="radio" /><input id="__tabbed_10_4" name="__tabbed_10" type="radio" /><div class="tabbed-labels"><label for="__tabbed_10_1">5.1.1 找到前驱</label><label for="__tabbed_10_2">5.1.2 用前驱赋值</label><label for="__tabbed_10_3">5.1.3 删除前驱</label><label for="__tabbed_10_4">5.1.4 变色</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><img alt="" src="https://p.ipic.vip/fcqv7c.jpg" width="375" /></p>
+</div>
+<div class="tabbed-block">
+<p><img alt="" src="https://p.ipic.vip/k4ga7p.jpg" width="375" /></p>
+</div>
+<div class="tabbed-block">
+<p><img alt="" src="https://p.ipic.vip/ywlzqs.jpg" width="300" /></p>
+</div>
+<div class="tabbed-block">
+<p><img alt="" src="https://p.ipic.vip/oneo2o.jpg" width="240" /></p>
+</div>
+</div>
+</div>
+</div>
+<h4 id="6-null">6. 前驱为红色结点，同时子结点都为<code>null</code><a class="headerlink" href="#6-null" title="Permanent link">&para;</a></h4>
+<div class="admonition quote">
+<p class="admonition-title">前驱为红色结点，同时子结点都为<code>null</code></p>
+<ol>
+<li>找到前驱结点</li>
+<li>用前驱结点的值替换待删除结点的值</li>
+<li>删除前驱结点</li>
+</ol>
+<div class="tabbed-set tabbed-alternate" data-tabs="11:3"><input checked="checked" id="__tabbed_11_1" name="__tabbed_11" type="radio" /><input id="__tabbed_11_2" name="__tabbed_11" type="radio" /><input id="__tabbed_11_3" name="__tabbed_11" type="radio" /><div class="tabbed-labels"><label for="__tabbed_11_1">6.1.1 找到前驱</label><label for="__tabbed_11_2">6.1.2 用前驱赋值</label><label for="__tabbed_11_3">6.1.3 删除前驱</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><img alt="" src="https://p.ipic.vip/mzek9z.jpg" width="375" /></p>
+</div>
+<div class="tabbed-block">
+<p><img alt="" src="https://p.ipic.vip/zen2eg.jpg" width="375" /></p>
+</div>
+<div class="tabbed-block">
+<p><img alt="" src="https://p.ipic.vip/0g0qmw.jpg" width="250" /></p>
+</div>
+</div>
+</div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">补充</p>
+<p>后继的情况与前驱类似</p>
+<ol>
+<li>找到后继结点</li>
+<li>用后继结点的值替换待删除结点的值</li>
+<li>删除后继结点</li>
+<li>变色</li>
+</ol>
+</div>
 
 
 
@@ -875,7 +1474,7 @@
       <nav class="md-footer__inner md-grid" aria-label="页脚" >
         
           
-          <a href="../splay_tree/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 伸展树" rel="prev">
+          <a href="../avl_tree/" class="md-footer__link md-footer__link--prev" aria-label="上一页: AVL树" rel="prev">
             <div class="md-footer__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
             </div>
@@ -884,7 +1483,7 @@
                 <span class="md-footer__direction">
                   上一页
                 </span>
-                伸展树
+                AVL树
               </div>
             </div>
           </a>
