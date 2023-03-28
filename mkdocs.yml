@@ -85,7 +85,7 @@ nav:
                 - 二叉树: tree/binary_tree.md
                 - 二叉查找树: tree/binary_search_tree.md
                 - AVL树: tree/avl_tree.md
-#                - 伸展树: tree/splay_tree.md
+                - 2-3查找树: tree/2_3_tree.md
                 - 红黑树: tree/red_black_tree.md
             - 堆: heap/heap.md
             - 图: graph/graph.md
