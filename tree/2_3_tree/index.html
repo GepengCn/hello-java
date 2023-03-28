@@ -9,17 +9,17 @@
       
       
       
-        <link rel="prev" href="../../sort/counting_sort/">
+        <link rel="prev" href="../avl_tree/">
       
       
-        <link rel="next" href="../divide_conquer/">
+        <link rel="next" href="../red_black_tree/">
       
       <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.3">
     
     
       
-        <title>贪婪算法 - hello-java</title>
+        <title>2-3查找树 - hello-java</title>
       
     
     
@@ -72,6 +72,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#2-3" class="md-skip">
+          跳转至
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -101,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              贪婪算法
+              2-3查找树
             
           </span>
         </div>
@@ -327,16 +332,18 @@
               
   
   
+    
+  
   
     
       
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" checked>
       
       
       
@@ -345,7 +352,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_2_1">
           <span class="md-nav__icon md-icon"></span>
           数据结构
@@ -412,14 +419,16 @@
               
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1_5" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1_5" checked>
       
       
       
@@ -428,7 +437,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_1_5_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_1_5_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_2_1_5">
           <span class="md-nav__icon md-icon"></span>
           树
@@ -441,7 +450,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tree/binary_tree/" class="md-nav__link">
+      <a href="../binary_tree/" class="md-nav__link">
         二叉树
       </a>
     </li>
@@ -455,7 +464,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tree/binary_search_tree/" class="md-nav__link">
+      <a href="../binary_search_tree/" class="md-nav__link">
         二叉查找树
       </a>
     </li>
@@ -469,7 +478,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tree/avl_tree/" class="md-nav__link">
+      <a href="../avl_tree/" class="md-nav__link">
         AVL树
       </a>
     </li>
@@ -481,11 +490,120 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../tree/2_3_tree/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          2-3查找树
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         2-3查找树
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    定义
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    特性
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    常用操作
+  </a>
+  
+    <nav class="md-nav" aria-label="常用操作">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    查找
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    插入
+  </a>
+  
+    <nav class="md-nav" aria-label="插入">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-2-" class="md-nav__link">
+    1. 向2-结点插入新键
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-3-" class="md-nav__link">
+    2. 向一棵只含有一个3-结点的树中插入新键
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-23" class="md-nav__link">
+    3. 向一个父结点为2结点的3结点中插入新键
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-33" class="md-nav__link">
+    4. 向一个父结点为3结点的3结点中插入新键
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -497,7 +615,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tree/red_black_tree/" class="md-nav__link">
+      <a href="../red_black_tree/" class="md-nav__link">
         红黑树
       </a>
     </li>
@@ -685,18 +803,16 @@
               
   
   
-    
-  
   
     
       
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" checked>
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
       
       
       
@@ -705,7 +821,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="true">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_2_3">
           <span class="md-nav__icon md-icon"></span>
           算法技巧
@@ -716,19 +832,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../tips/greedy/" class="md-nav__link">
         贪婪算法
       </a>
-      
     </li>
   
 
@@ -740,7 +848,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../divide_conquer/" class="md-nav__link">
+      <a href="../../tips/divide_conquer/" class="md-nav__link">
         分治算法
       </a>
     </li>
@@ -754,7 +862,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../dynamic/" class="md-nav__link">
+      <a href="../../tips/dynamic/" class="md-nav__link">
         动态规划
       </a>
     </li>
@@ -768,7 +876,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../random/" class="md-nav__link">
+      <a href="../../tips/random/" class="md-nav__link">
         随机化算法
       </a>
     </li>
@@ -782,7 +890,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../backtracking/" class="md-nav__link">
+      <a href="../../tips/backtracking/" class="md-nav__link">
         回溯算法
       </a>
     </li>
@@ -820,6 +928,91 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    定义
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    特性
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    常用操作
+  </a>
+  
+    <nav class="md-nav" aria-label="常用操作">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    查找
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    插入
+  </a>
+  
+    <nav class="md-nav" aria-label="插入">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-2-" class="md-nav__link">
+    1. 向2-结点插入新键
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-3-" class="md-nav__link">
+    2. 向一棵只含有一个3-结点的树中插入新键
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-23" class="md-nav__link">
+    3. 向一个父结点为2结点的3结点中插入新键
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-33" class="md-nav__link">
+    4. 向一个父结点为3结点的3结点中插入新键
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -834,7 +1027,7 @@
                   
 
   
-    <a href="https://github.com/GepengCn/hello-java/tree/main/docs/tips/greedy.md" title="编辑此页" class="md-content__button md-icon">
+    <a href="https://github.com/GepengCn/hello-java/tree/main/docs/tree/2_3_tree.md" title="编辑此页" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
     </a>
@@ -842,9 +1035,132 @@
   
 
 
-  <h1>贪婪算法</h1>
-
-
+<h1 id="2-3">2-3查找树<a class="headerlink" href="#2-3" title="Permanent link">&para;</a></h1>
+<h2 id="_1">定义<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<div class="admonition tip">
+<p class="admonition-title">2-3查找树</p>
+<p>一棵2-3查找树或为<strong>一棵空树</strong>，或由<strong>以下结点</strong>组成：</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <strong>2-结点</strong>，含有一个键和两条链接，左链接指向的键<strong>小于</strong>该结点，右链接指向的键<strong>大于</strong>该结点。</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <strong>3-结点</strong>，含有两个键和三条链接，左链接指向的键<strong>小于</strong>该结点，中链接指向的键位于该节点<strong>两键之间</strong>，右链接指向的键<strong>大于</strong>该结点。</li>
+</ul>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">2-结点</label><label for="__tabbed_1_2">3-结点</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><img alt="" src="https://p.ipic.vip/er99b5.jpg" width="225" /></p>
+</div>
+<div class="tabbed-block">
+<p><img alt="" src="https://p.ipic.vip/k8osbg.jpg" width="300" /></p>
+</div>
+</div>
+</div>
+</div>
+<h2 id="_2">特性<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<ul>
+<li>一棵完美平衡的2-3查找树中的所有空链接到根节点的距离都应该是相同的</li>
+<li>每一个结点都有一或两个键</li>
+<li>当结点有一个键，结点有两个链接</li>
+<li>当结点有两个键，结点有三个链接</li>
+<li>所有叶结点在同一层</li>
+<li>查找与插入的时间复杂度为<span class="arithmatex">\(O(\log n)\)</span></li>
+</ul>
+<h2 id="_3">常用操作<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h3 id="_4">查找<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<div class="admonition quote">
+<p class="admonition-title">与二叉搜索树或者二分查找类似，从根节点递归向下查找， 区别是遇到2-结点或3-结点，要循环比对大小</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">查找1.</label><label for="__tabbed_2_2">查找2.</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><img alt="" src="https://p.ipic.vip/8ixlm6.jpg" /></p>
+</div>
+<div class="tabbed-block">
+<p><img alt="" src="https://p.ipic.vip/xnyhm1.jpg" width="615" /></p>
+</div>
+</div>
+</div>
+</div>
+<h3 id="_5">插入<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<h4 id="1-2-">1. 向2-结点插入新键<a class="headerlink" href="#1-2-" title="Permanent link">&para;</a></h4>
+<div class="admonition quote">
+<p class="admonition-title">向2-结点插入新键</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">1.1</label><label for="__tabbed_3_2">1.2</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><img alt="" src="https://p.ipic.vip/ld72ce.jpg" width="325" /></p>
+</div>
+<div class="tabbed-block">
+<p><img alt="" src="https://p.ipic.vip/2bx1rl.jpg" width="300" /></p>
+</div>
+</div>
+</div>
+</div>
+<h4 id="2-3-">2. 向一棵只含有一个3-结点的树中插入新键<a class="headerlink" href="#2-3-" title="Permanent link">&para;</a></h4>
+<div class="admonition quote">
+<p class="admonition-title">向一棵只含有一个3-结点的树中插入新键</p>
+<ol>
+<li>插入新键，暂时使其变为4-结点（三个结点，4个链接）</li>
+<li>将4-结点的中间键提升为根节点，4-结点的左键作为父结点的左子树，4-结点的右键作为父结点的右子树</li>
+</ol>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:3"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">2.1</label><label for="__tabbed_4_2">2.2</label><label for="__tabbed_4_3">2.3</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><img alt="" src="https://p.ipic.vip/vz9y5i.jpg" width="300" /></p>
+</div>
+<div class="tabbed-block">
+<p><img alt="" src="https://p.ipic.vip/t5yzh6.jpg" width="250" /></p>
+</div>
+<div class="tabbed-block">
+<p><img alt="" src="https://p.ipic.vip/hich4g.jpg" width="225" /></p>
+</div>
+</div>
+</div>
+</div>
+<h4 id="3-23">3. 向一个父结点为2结点的3结点中插入新键<a class="headerlink" href="#3-23" title="Permanent link">&para;</a></h4>
+<div class="admonition quote">
+<p class="admonition-title">向一个父结点为2结点的3结点中插入新键</p>
+<ol>
+<li>插入新建，暂时使其变为4-结点</li>
+<li>把4-结点的中间键提升，与父结点组成3-结点，4-结点的左键作为父结点的中子树，4-结点的右键作为父结点的右子树</li>
+</ol>
+<div class="tabbed-set tabbed-alternate" data-tabs="5:3"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><input id="__tabbed_5_3" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">3.1</label><label for="__tabbed_5_2">3.2</label><label for="__tabbed_5_3">3.3</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><img alt="" src="https://p.ipic.vip/glcm7v.jpg" width="425" /></p>
+</div>
+<div class="tabbed-block">
+<p><img alt="" src="https://p.ipic.vip/lh3q4c.jpg" width="475" /></p>
+</div>
+<div class="tabbed-block">
+<p><img alt="" src="https://p.ipic.vip/53z4tw.jpg" width="425" /></p>
+</div>
+</div>
+</div>
+</div>
+<h4 id="4-33">4. 向一个父结点为3结点的3结点中插入新键<a class="headerlink" href="#4-33" title="Permanent link">&para;</a></h4>
+<div class="admonition quote">
+<p class="admonition-title">向一个父结点为3结点的3结点中插入新键</p>
+<ol>
+<li>插入新建，暂时使其为4-结点</li>
+<li>把当前4结点(为防混淆，假设为<span class="arithmatex">\(n\)</span>)的中间键提升，与父结点(假设为<span class="arithmatex">\(p\)</span>)组成4-结点，<span class="arithmatex">\(n\)</span>的左键和右键作为<span class="arithmatex">\(p\)</span>(4-结点)的左1子树和左2子树。</li>
+<li>将<span class="arithmatex">\(p\)</span>的中间键提升，与祖父结点组成2-结点或3-结点(向上递归继续提升，此例到此为止)，<span class="arithmatex">\(p\)</span>左键作为祖父的中子树，<span class="arithmatex">\(p\)</span>右键作为祖父的右子树，同时<span class="arithmatex">\(p\)</span>左键与左1和左2组成<code>2-3树</code>，<span class="arithmatex">\(p\)</span>右键与右1和右2组成<code>2-3树</code>。</li>
+</ol>
+<div class="tabbed-set tabbed-alternate" data-tabs="6:4"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><input id="__tabbed_6_3" name="__tabbed_6" type="radio" /><input id="__tabbed_6_4" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">4.1</label><label for="__tabbed_6_2">4.2</label><label for="__tabbed_6_3">4.3</label><label for="__tabbed_6_4">4.4</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><img alt="" src="https://p.ipic.vip/znzqks.jpg" width="475" /></p>
+</div>
+<div class="tabbed-block">
+<p><img alt="" src="https://p.ipic.vip/amcyjd.jpg" width="525" /></p>
+</div>
+<div class="tabbed-block">
+<p><img alt="" src="https://p.ipic.vip/zr990q.jpg" width="500" /></p>
+</div>
+<div class="tabbed-block">
+<p><img alt="" src="https://p.ipic.vip/6fr57b.jpg" width="500" /></p>
+</div>
+</div>
+</div>
+</div>
 
 
 
@@ -873,7 +1189,7 @@
       <nav class="md-footer__inner md-grid" aria-label="页脚" >
         
           
-          <a href="../../sort/counting_sort/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 计数排序" rel="prev">
+          <a href="../avl_tree/" class="md-footer__link md-footer__link--prev" aria-label="上一页: AVL树" rel="prev">
             <div class="md-footer__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
             </div>
@@ -882,20 +1198,20 @@
                 <span class="md-footer__direction">
                   上一页
                 </span>
-                计数排序
+                AVL树
               </div>
             </div>
           </a>
         
         
           
-          <a href="../divide_conquer/" class="md-footer__link md-footer__link--next" aria-label="下一页: 分治算法" rel="next">
+          <a href="../red_black_tree/" class="md-footer__link md-footer__link--next" aria-label="下一页: 红黑树" rel="next">
             <div class="md-footer__title">
               <div class="md-ellipsis">
                 <span class="md-footer__direction">
                   下一页
                 </span>
-                分治算法
+                红黑树
               </div>
             </div>
             <div class="md-footer__button md-icon">
