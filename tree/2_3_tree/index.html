@@ -527,20 +527,27 @@
       
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
-    定义
+    思维导图
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    特性
+    定义
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
+    特性
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
     常用操作
   </a>
   
@@ -548,14 +555,14 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     查找
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     插入
   </a>
   
@@ -939,20 +946,27 @@
       
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
-    定义
+    思维导图
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    特性
+    定义
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
+    特性
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
     常用操作
   </a>
   
@@ -960,14 +974,14 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     查找
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     插入
   </a>
   
@@ -1036,7 +1050,9 @@
 
 
 <h1 id="2-3">2-3查找树<a class="headerlink" href="#2-3" title="Permanent link">&para;</a></h1>
-<h2 id="_1">定义<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<h2 id="_1">思维导图<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p><img alt="" src="https://p.ipic.vip/v9l5rt.jpg" /></p>
+<h2 id="_2">定义<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <div class="admonition tip">
 <p class="admonition-title">2-3查找树</p>
 <p>一棵2-3查找树或为<strong>一棵空树</strong>，或由<strong>以下结点</strong>组成：</p>
@@ -1055,7 +1071,7 @@
 </div>
 </div>
 </div>
-<h2 id="_2">特性<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h2 id="_3">特性<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <ul>
 <li>一棵完美平衡的2-3查找树中的所有空链接到根节点的距离都应该是相同的</li>
 <li>每一个结点都有一或两个键</li>
@@ -1064,8 +1080,8 @@
 <li>所有叶结点在同一层</li>
 <li>查找与插入的时间复杂度为<span class="arithmatex">\(O(\log n)\)</span></li>
 </ul>
-<h2 id="_3">常用操作<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<h3 id="_4">查找<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<h2 id="_4">常用操作<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<h3 id="_5">查找<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
 <div class="admonition quote">
 <p class="admonition-title">与二叉搜索树或者二分查找类似，从根节点递归向下查找， 区别是遇到2-结点或3-结点，要循环比对大小</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">查找1.</label><label for="__tabbed_2_2">查找2.</label></div>
@@ -1079,7 +1095,7 @@
 </div>
 </div>
 </div>
-<h3 id="_5">插入<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<h3 id="_6">插入<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
 <h4 id="1-2-">1. 向2-结点插入新键<a class="headerlink" href="#1-2-" title="Permanent link">&para;</a></h4>
 <div class="admonition quote">
 <p class="admonition-title">向2-结点插入新键</p>
@@ -1119,7 +1135,7 @@
 <div class="admonition quote">
 <p class="admonition-title">向一个父结点为2结点的3结点中插入新键</p>
 <ol>
-<li>插入新建，暂时使其变为4-结点</li>
+<li>插入新键，暂时使其变为4-结点</li>
 <li>把4-结点的中间键提升，与父结点组成3-结点，4-结点的左键作为父结点的中子树，4-结点的右键作为父结点的右子树</li>
 </ol>
 <div class="tabbed-set tabbed-alternate" data-tabs="5:3"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><input id="__tabbed_5_3" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">3.1</label><label for="__tabbed_5_2">3.2</label><label for="__tabbed_5_3">3.3</label></div>
@@ -1140,7 +1156,7 @@
 <div class="admonition quote">
 <p class="admonition-title">向一个父结点为3结点的3结点中插入新键</p>
 <ol>
-<li>插入新建，暂时使其为4-结点</li>
+<li>插入新键，暂时使其为4-结点</li>
 <li>把当前4结点(为防混淆，假设为<span class="arithmatex">\(n\)</span>)的中间键提升，与父结点(假设为<span class="arithmatex">\(p\)</span>)组成4-结点，<span class="arithmatex">\(n\)</span>的左键和右键作为<span class="arithmatex">\(p\)</span>(4-结点)的左1子树和左2子树。</li>
 <li>将<span class="arithmatex">\(p\)</span>的中间键提升，与祖父结点组成2-结点或3-结点(向上递归继续提升，此例到此为止)，<span class="arithmatex">\(p\)</span>左键作为祖父的中子树，<span class="arithmatex">\(p\)</span>右键作为祖父的右子树，同时<span class="arithmatex">\(p\)</span>左键与左1和左2组成<code>2-3树</code>，<span class="arithmatex">\(p\)</span>右键与右1和右2组成<code>2-3树</code>。</li>
 </ol>
