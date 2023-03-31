@@ -2,7 +2,8 @@
 
 ## 思维导图
 
-![](https://p.ipic.vip/t6veuf.jpg)
+![](https://p.ipic.vip/33ee5n.png#only-light)
+![](https://p.ipic.vip/om2mko.png#only-dark)
 
 ## 定义
 

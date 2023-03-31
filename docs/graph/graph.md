@@ -17,22 +17,23 @@
 
     $G = {V,E}$
 
-    ![](https://p.ipic.vip/vvxes0.jpg)
+    ![](https://p.ipic.vip/y5adxw.png)
 
 ## 图的表现形式
 
 !!! note "无向图"
 
     <div class="center-table" markdown>
-    ![](https://p.ipic.vip/bedjb5.jpg){width=275}
+    ![](https://p.ipic.vip/3tgdtw.png){width=275}
     </div>
 !!! note "邻接链表"
     <div class="center-table" markdown>
-    ![](https://p.ipic.vip/f9f9k9.jpg){width=325}
+    ![](https://p.ipic.vip/7u4txl.png){width=325}
     </div>
 !!! note "邻接矩阵"
     <div class="center-table" markdown>
-    ![](https://p.ipic.vip/jrdlec.jpg){width=325}
+    ![](https://p.ipic.vip/jrdlec.jpg#only-light){width=325}
+    ![](https://p.ipic.vip/h0wwby.png#only-dark){width=325}
     </div>
 
 ## 常见应用
