@@ -69,7 +69,7 @@
 - **右**子结点：$2i+2$
 - **父**结点：$(i-1)/2$
 
-![](https://p.ipic.vip/80i006.jpg)
+![](https://p.ipic.vip/otvi0o.png)
 
 ## 常用操作
 
@@ -83,16 +83,16 @@
 
 
     === "1.1"
-        ![](https://p.ipic.vip/1ubr0f.jpg)
+        ![](https://p.ipic.vip/47awb0.png)
 
     === "1.2"
-        ![](https://p.ipic.vip/cbwv3w.jpg)
+        ![](https://p.ipic.vip/4aajzf.png)
 
     === "1.3"
-        ![](https://p.ipic.vip/5dybto.jpg)
+        ![](https://p.ipic.vip/1e2uyp.png)
 
     === "1.4"
-        ![](https://p.ipic.vip/jhzxco.jpg)
+        ![](https://p.ipic.vip/b1kwe5.png)
 
     ```Java
     /* 元素入堆 */
@@ -133,34 +133,34 @@
     顾名思义，从顶至底堆化的操作方向与从底至顶堆化相反，我们比较根结点的值与其两个子结点的值，将最大的子结点与根结点执行交换，并循环以上操作，直到越过叶结点时结束，或当遇到无需交换的结点时提前结束。
 
     === "2.1"
-        ![](https://p.ipic.vip/nkuw11.jpg)
+        ![](https://p.ipic.vip/93aynr.png)
 
     === "2.2"
-        ![](https://p.ipic.vip/o0tk1i.jpg)
+        ![](https://p.ipic.vip/9btiz1.png)
 
     === "2.3"
-        ![](https://p.ipic.vip/intz6i.jpg)
+        ![](https://p.ipic.vip/45jds3.png)
 
     === "2.4"
-        ![](https://p.ipic.vip/zm082l.jpg)
+        ![](https://p.ipic.vip/m7atgd.png)
 
     === "2.5"
-        ![](https://p.ipic.vip/x8j8x4.jpg)
+        ![](https://p.ipic.vip/8v1xuw.png)
 
     === "2.6"
-        ![](https://p.ipic.vip/5pqdkw.jpg)
+        ![](https://p.ipic.vip/c59mg3.png)
 
     === "2.7"
-        ![](https://p.ipic.vip/4ywxqs.jpg)
+        ![](https://p.ipic.vip/q70oke.png)
 
     === "2.8"
-        ![](https://p.ipic.vip/7pl603.jpg)
+        ![](https://p.ipic.vip/7a39sh.png)
 
     === "2.9"
-        ![](https://p.ipic.vip/oa35l8.jpg)
+        ![](https://p.ipic.vip/eptnlm.png)
 
     === "2.10"
-        ![](https://p.ipic.vip/otsjoq.jpg)
+        ![](https://p.ipic.vip/irbyno.png)
 
     ```java
     /* 元素出堆 */
