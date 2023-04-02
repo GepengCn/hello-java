@@ -726,6 +726,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../sort/bubble_sort/" class="md-nav__link">
+        冒泡排序
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../sort/insertion_sort/" class="md-nav__link">
         插入排序
       </a>
@@ -1297,9 +1311,9 @@
 <span class="c1">// 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点</span>
 <span class="n">List</span><span class="o">&lt;</span><span class="n">Vertex</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">graphBFS</span><span class="p">(</span><span class="n">GraphAdjList</span><span class="w"> </span><span class="n">graph</span><span class="p">,</span><span class="w"> </span><span class="n">Vertex</span><span class="w"> </span><span class="n">startVet</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="c1">// 顶点遍历序列</span>
-<span class="n">List</span><span class="o">&lt;</span><span class="n">Vertex</span><span class="o">&gt;</span><span class="w"> </span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
-<span class="w">    </span><span class="c1">// 哈希表，用于记录已被访问过的顶点</span>
-<span class="n">Set</span><span class="o">&lt;</span><span class="n">Vertex</span><span class="o">&gt;</span><span class="w"> </span><span class="n">visited</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HashSet</span><span class="o">&lt;&gt;</span><span class="p">()</span><span class="w"> </span><span class="p">{{</span><span class="w"> </span><span class="n">add</span><span class="p">(</span><span class="n">startVet</span><span class="p">);</span><span class="w"> </span><span class="p">}};</span>
+<span class="w">    </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Vertex</span><span class="o">&gt;</span><span class="w"> </span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<span class="w">        </span><span class="c1">// 哈希表，用于记录已被访问过的顶点</span>
+<span class="w">    </span><span class="n">Set</span><span class="o">&lt;</span><span class="n">Vertex</span><span class="o">&gt;</span><span class="w"> </span><span class="n">visited</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HashSet</span><span class="o">&lt;&gt;</span><span class="p">()</span><span class="w"> </span><span class="p">{{</span><span class="w"> </span><span class="n">add</span><span class="p">(</span><span class="n">startVet</span><span class="p">);</span><span class="w"> </span><span class="p">}};</span>
 <span class="w">    </span><span class="c1">// 队列用于实现 BFS</span>
 <span class="w">    </span><span class="n">Queue</span><span class="o">&lt;</span><span class="n">Vertex</span><span class="o">&gt;</span><span class="w"> </span><span class="n">que</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">LinkedList</span><span class="o">&lt;&gt;</span><span class="p">()</span><span class="w"> </span><span class="p">{{</span><span class="w"> </span><span class="n">offer</span><span class="p">(</span><span class="n">startVet</span><span class="p">);</span><span class="w"> </span><span class="p">}};</span>
 <span class="w">        </span><span class="c1">// 以顶点 vet 为起点，循环直至访问完所有顶点</span>
