@@ -72,6 +72,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#insertion-sort" class="md-skip">
+          跳转至
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -618,10 +623,71 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          插入排序
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         插入排序
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    思维导图
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    特性
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    原理
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    复杂度分析
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    插入排序优势
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -834,6 +900,51 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    思维导图
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    特性
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    原理
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    复杂度分析
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    插入排序优势
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -856,9 +967,59 @@
   
 
 
-  <h1>插入排序</h1>
-
-
+<h1 id="insertion-sort">插入排序 <code>Insertion Sort</code><a class="headerlink" href="#insertion-sort" title="Permanent link">&para;</a></h1>
+<h2 id="_1">思维导图<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p><img alt="" src="https://p.ipic.vip/k63l7u.png" /></p>
+<h2 id="_2">特性<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<ul>
+<li>是一种基于<strong>数组插入操作</strong>的排序算法。</li>
+</ul>
+<h2 id="_3">原理<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>「插入操作」原理：选定某个待排序元素为基准数 <code>base</code>，将 <code>base</code> 与其左侧已排序区间元素依次对比大小，并插入到正确位置。</p>
+<div class="admonition tip">
+<p class="admonition-title">原理</p>
+<blockquote>
+<p>一次插入</p>
+</blockquote>
+<p>回忆数组插入操作，我们需要将从目标索引到 <code>base</code> 之间的所有元素向右移动一位，然后再将 <code>base</code> 赋值给目标索引。</p>
+<p><img alt="" src="https://p.ipic.vip/6qava5.png" /></p>
+<blockquote>
+<p>插入全流程</p>
+</blockquote>
+<p><img alt="" src="https://p.ipic.vip/5y2nst.png" width="450" /></p>
+<blockquote>
+<p>代码</p>
+</blockquote>
+<div class="highlight"><pre><span></span><code><span class="cm">/* 插入排序 */</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">insertionSort</span><span class="p">(</span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">nums</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// 外循环：base = nums[1], nums[2], ..., nums[n-1]</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="na">length</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">base</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">        </span><span class="c1">// 内循环：将 base 插入到左边的正确位置</span>
+<span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">j</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">nums</span><span class="o">[</span><span class="n">j</span><span class="o">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">base</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">nums</span><span class="o">[</span><span class="n">j</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="o">[</span><span class="n">j</span><span class="o">]</span><span class="p">;</span><span class="w">  </span><span class="c1">// 1. 将 nums[j] 向右移动一位</span>
+<span class="w">            </span><span class="n">j</span><span class="o">--</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="n">nums</span><span class="o">[</span><span class="n">j</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">base</span><span class="p">;</span><span class="w">         </span><span class="c1">// 2. 将 base 赋值到正确位置</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<h2 id="_4">复杂度分析<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p><strong>时间复杂度 <span class="arithmatex">\(O(n^2)\)</span></strong> ：最差情况下，各轮插入操作循环 <span class="arithmatex">\(n - 1\)</span> , <span class="arithmatex">\(n-2\)</span> , <span class="arithmatex">\(\cdots\)</span> , <span class="arithmatex">\(2\)</span> , <span class="arithmatex">\(1\)</span> 次，求和为 <span class="arithmatex">\(\frac{(n - 1) n}{2}\)</span> ，使用 <span class="arithmatex">\(O(n^2)\)</span> 时间。输入数组完全有序下，达到最佳时间复杂度 <span class="arithmatex">\(O(n)\)</span> 。</p>
+<p><strong>空间复杂度 <span class="arithmatex">\(O(1)\)</span></strong> ：指针 <span class="arithmatex">\(i\)</span> , <span class="arithmatex">\(j\)</span> 使用常数大小的额外空间。</p>
+<h2 id="_5">插入排序优势<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<p>回顾「冒泡排序」和「插入排序」的复杂度分析，两者的循环轮数都是 <span class="arithmatex">\(\frac{(n - 1) n}{2}\)</span> 。但不同的是：</p>
+<ul>
+<li>冒泡操作基于 <strong>元素交换</strong> 实现，需要借助一个临时变量实现，共 3 个单元操作；</li>
+<li>插入操作基于 <strong>元素赋值</strong> 实现，只需 1 个单元操作；</li>
+</ul>
+<p>粗略估计，冒泡排序的计算开销约为插入排序的 3 倍，因此插入排序更受欢迎，许多编程语言（例如 Java）的内置排序函数都使用到了插入排序，大致思路为：</p>
+<ul>
+<li>对于 <strong>长数组</strong>，采用基于分治的排序算法，例如「快速排序」，时间复杂度为 <span class="arithmatex">\(O(n \log n)\)</span> ；</li>
+<li>对于 <strong>短数组</strong>，直接使用「插入排序」，时间复杂度为 <span class="arithmatex">\(O(n^2)\)</span> ；</li>
+</ul>
+<p>虽然插入排序比快速排序的时间复杂度更高，<strong>但实际上在数据量较小时插入排序更快</strong>，这是因为复杂度中的常数项（即每轮中的单元操作数量）占主导作用。这个现象与「线性查找」和「二分查找」的情况类似。</p>
 
 
 
