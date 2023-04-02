@@ -2,7 +2,7 @@
 
 ## 思维导图
 
-![](https://p.ipic.vip/k63l7u.png)
+![](https://p.ipic.vip/avfy4t.jpg)
 
 ## 特性
 
@@ -14,18 +14,17 @@
 
 !!! tip "原理"
 
-    > 一次插入
-
+    - [x] 一次插入
 
     回忆数组插入操作，我们需要将从目标索引到 `base` 之间的所有元素向右移动一位，然后再将 `base` 赋值给目标索引。
 
     ![](https://p.ipic.vip/6qava5.png)
 
-    > 插入全流程
+    - [x] 插入全流程
 
     ![](https://p.ipic.vip/5y2nst.png){width=450}
 
-    > 代码
+    - [x] 代码
 
     ```java
     /* 插入排序 */
