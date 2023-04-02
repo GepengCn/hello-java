@@ -969,7 +969,7 @@
 
 <h1 id="insertion-sort">插入排序 <code>Insertion Sort</code><a class="headerlink" href="#insertion-sort" title="Permanent link">&para;</a></h1>
 <h2 id="_1">思维导图<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p><img alt="" src="https://p.ipic.vip/k63l7u.png" /></p>
+<p><img alt="" src="https://p.ipic.vip/avfy4t.jpg" /></p>
 <h2 id="_2">特性<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <ul>
 <li>是一种基于<strong>数组插入操作</strong>的排序算法。</li>
@@ -978,18 +978,18 @@
 <p>「插入操作」原理：选定某个待排序元素为基准数 <code>base</code>，将 <code>base</code> 与其左侧已排序区间元素依次对比大小，并插入到正确位置。</p>
 <div class="admonition tip">
 <p class="admonition-title">原理</p>
-<blockquote>
-<p>一次插入</p>
-</blockquote>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 一次插入</li>
+</ul>
 <p>回忆数组插入操作，我们需要将从目标索引到 <code>base</code> 之间的所有元素向右移动一位，然后再将 <code>base</code> 赋值给目标索引。</p>
 <p><img alt="" src="https://p.ipic.vip/6qava5.png" /></p>
-<blockquote>
-<p>插入全流程</p>
-</blockquote>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 插入全流程</li>
+</ul>
 <p><img alt="" src="https://p.ipic.vip/5y2nst.png" width="450" /></p>
-<blockquote>
-<p>代码</p>
-</blockquote>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 代码</li>
+</ul>
 <div class="highlight"><pre><span></span><code><span class="cm">/* 插入排序 */</span>
 <span class="kt">void</span><span class="w"> </span><span class="nf">insertionSort</span><span class="p">(</span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">nums</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="c1">// 外循环：base = nums[1], nums[2], ..., nums[n-1]</span>
