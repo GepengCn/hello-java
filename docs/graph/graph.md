@@ -196,9 +196,9 @@
     // 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点
     List<Vertex> graphBFS(GraphAdjList graph, Vertex startVet) {
         // 顶点遍历序列
-    List<Vertex> res = new ArrayList<>();
-        // 哈希表，用于记录已被访问过的顶点
-    Set<Vertex> visited = new HashSet<>() {{ add(startVet); }};
+        List<Vertex> res = new ArrayList<>();
+            // 哈希表，用于记录已被访问过的顶点
+        Set<Vertex> visited = new HashSet<>() {{ add(startVet); }};
         // 队列用于实现 BFS
         Queue<Vertex> que = new LinkedList<>() {{ offer(startVet); }};
             // 以顶点 vet 为起点，循环直至访问完所有顶点
