@@ -91,13 +91,13 @@ nav:
             - 图: graph/graph.md
         - 排序:
             - 排序: sort/sort.md
-            - 选择排序: sort/selection_sort.md
             - 冒泡排序: sort/bubble_sort.md
+            - 选择排序: sort/selection_sort.md
             - 插入排序: sort/insertion_sort.md
             - 希尔排序: sort/shell_sort.md
-            - 堆排序: sort/heap_sort.md
             - 归并排序: sort/merge_sort.md
             - 快速排序: sort/quick_sort.md
+            - 堆排序: sort/heap_sort.md
             - 计数排序: sort/counting_sort.md
         - 算法技巧:
             - 贪婪算法: tips/greedy.md
