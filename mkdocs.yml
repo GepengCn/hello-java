@@ -91,6 +91,7 @@ nav:
             - 图: graph/graph.md
         - 排序:
             - 排序: sort/sort.md
+            - 选择排序: sort/selection_sort.md
             - 冒泡排序: sort/bubble_sort.md
             - 插入排序: sort/insertion_sort.md
             - 希尔排序: sort/shell_sort.md
