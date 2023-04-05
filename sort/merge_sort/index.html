@@ -72,6 +72,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#merge-sort" class="md-skip">
+          跳转至
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -660,10 +665,119 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          归并排序
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         归并排序
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    思维导图
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    特性
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    原地归并
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    自顶向下的归并排序
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    算法优化
+  </a>
+  
+    <nav class="md-nav" aria-label="算法优化">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    对小规模子数组使用插入排序
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    测试数组是否有序
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    不将元素复制到辅助数组
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    自低向上的归并排序
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    复杂度分析
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    链表排序 *
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -848,6 +962,99 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    思维导图
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    特性
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    原地归并
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    自顶向下的归并排序
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    算法优化
+  </a>
+  
+    <nav class="md-nav" aria-label="算法优化">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    对小规模子数组使用插入排序
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    测试数组是否有序
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    不将元素复制到辅助数组
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    自低向上的归并排序
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    复杂度分析
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    链表排序 *
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -870,9 +1077,128 @@
   
 
 
-  <h1>归并排序</h1>
+<h1 id="merge-sort">归并排序 <code>Merge Sort</code><a class="headerlink" href="#merge-sort" title="Permanent link">&para;</a></h1>
+<h2 id="_1">思维导图<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p><img alt="" src="https://p.ipic.vip/bnam03.jpg" /></p>
+<h2 id="_2">特性<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<ul>
+<li>归并：将两个有序的数组归并成一个更大的数组</li>
+<li>递归排序算法</li>
+<li>时间复杂度<span class="arithmatex">\(O(n \log n)\)</span>，空间复杂度<span class="arithmatex">\(O(n)\)</span></li>
+</ul>
+<h2 id="_3">原地归并<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<div class="admonition tip">
+<p class="admonition-title">原地归并</p>
+<p>先将所有元素复制到<code>aux[]</code>中，然后再归并回<code>a[]</code>中。
+方法再归并时，进行了4个条件判断：</p>
+<ol>
+<li>左半边用尽（取右半边元素）</li>
+<li>右半边用尽（取左半边元素）</li>
+<li>右半边的当前元素小于左半边的当前元素（取右半边元素）</li>
+<li>左半边的当前元素小于右半边的当前元素（取左半边元素）</li>
+</ol>
+<p><img alt="" src="https://p.ipic.vip/5j6yu0.png" /></p>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">merge</span><span class="p">(</span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">lo</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">mid</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">hi</span><span class="p">){</span>
+<span class="w">    </span><span class="c1">//将a[lo..mid] 和 a[mid..hi]归并</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lo</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mid</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span>
+<span class="w">    </span><span class="c1">//将a[lo..hi]复制到aux[lo..hi]</span>
+<span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">k</span><span class="o">=</span><span class="n">lo</span><span class="p">;</span><span class="n">k</span><span class="o">&lt;=</span><span class="n">hi</span><span class="p">;</span><span class="n">k</span><span class="o">++</span><span class="p">)</span>
+<span class="w">        </span><span class="n">aux</span><span class="o">[</span><span class="n">k</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="o">[</span><span class="n">k</span><span class="o">]</span><span class="p">;</span>
+<span class="w">    </span><span class="c1">//归并回到a[lo..hi]</span>
+<span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">k</span><span class="o">=</span><span class="n">lo</span><span class="p">;</span><span class="n">k</span><span class="o">&lt;=</span><span class="n">hi</span><span class="p">;</span><span class="n">k</span><span class="o">++</span><span class="p">){</span>
+<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">i</span><span class="o">&gt;</span><span class="n">mid</span><span class="p">)</span><span class="w">                   </span><span class="n">a</span><span class="o">[</span><span class="n">k</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">aux</span><span class="o">[</span><span class="n">j</span><span class="o">++]</span><span class="p">;</span><span class="c1">//左半边用尽（取右半边元素）</span>
+<span class="w">        </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="p">(</span><span class="n">j</span><span class="o">&gt;</span><span class="n">hi</span><span class="p">)</span><span class="w">               </span><span class="n">a</span><span class="o">[</span><span class="n">k</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">aux</span><span class="o">[</span><span class="n">i</span><span class="o">++]</span><span class="p">;</span><span class="c1">//右半边用尽（取左半边元素）</span>
+<span class="w">        </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="p">(</span><span class="n">less</span><span class="o">[</span><span class="n">aux</span><span class="o">[</span><span class="n">j</span><span class="o">]</span><span class="p">,</span><span class="n">aux</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">)</span><span class="w"> </span><span class="n">a</span><span class="o">[</span><span class="n">k</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">aux</span><span class="o">[</span><span class="n">j</span><span class="o">++]</span><span class="p">;</span><span class="c1">//右半边的当前元素小于左半边的当前元素（取右半边元素）</span>
+<span class="w">        </span><span class="k">else</span><span class="w">                        </span><span class="n">a</span><span class="o">[</span><span class="n">k</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">aux</span><span class="o">[</span><span class="n">i</span><span class="o">++]</span><span class="p">;</span><span class="c1">//左半边的当前元素小于右半边的当前元素（取左半边元素）</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<h2 id="_4">自顶向下的归并排序<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<div class="admonition tip">
+<p class="admonition-title">自顶向下的归并排序</p>
+<ul>
+<li>分治思想</li>
+<li>递归</li>
+<li>如果它能将两个子数组排序，它就能够通过归并两个子数组来将整个数组排序</li>
+</ul>
+<p><img alt="" src="https://p.ipic.vip/l2nys2.jpg" /></p>
+<p><div class="center-table" markdown>
+<img alt="" src="https://p.ipic.vip/mhvzx8.jpg" width="200" />
+</div></p>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Merge</span><span class="p">{</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">aux</span><span class="p">;</span><span class="w"> </span><span class="c1">//归并所需的辅助数组</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">sort</span><span class="p">(</span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">a</span><span class="p">){</span>
+<span class="w">        </span><span class="n">aux</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="o">[</span><span class="n">a</span><span class="p">.</span><span class="na">length</span><span class="o">]</span><span class="p">;</span><span class="c1">//一次性分配空间</span>
+<span class="w">        </span><span class="n">sort</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="na">length</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">sort</span><span class="p">(</span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">lo</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">hi</span><span class="p">){</span>
+<span class="w">        </span><span class="c1">//将数组a[lo..hi]排序</span>
+<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">hi</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">lo</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="p">;</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">mid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lo</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">hi</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">lo</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span>
+<span class="w">        </span><span class="n">sort</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">lo</span><span class="p">,</span><span class="w"> </span><span class="n">mid</span><span class="p">);</span><span class="c1">//将左半边排序</span>
+<span class="w">        </span><span class="n">sort</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">mid</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">hi</span><span class="p">);</span><span class="c1">//将右半边排序</span>
+<span class="w">        </span><span class="n">merge</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">lo</span><span class="p">,</span><span class="w"> </span><span class="n">mid</span><span class="p">,</span><span class="w"> </span><span class="n">hi</span><span class="p">);</span><span class="c1">//归并结果</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<h2 id="_5">算法优化<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<h3 id="_6">对小规模子数组使用插入排序<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<div class="admonition info">
+<p class="admonition-title">对小规模子数组使用插入排序</p>
+<p>比如长度小于15的子数组，使用插入排序</p>
+</div>
+<h3 id="_7">测试数组是否有序<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<div class="admonition info">
+<p class="admonition-title">测试数组是否有序</p>
+<p>添加一个判断条件，如果<code>a[mid]&lt;a[mid+1]</code>，就可以认定数组是有序的了，不必执行<code>merge</code>方法</p>
+</div>
+<h3 id="_8">不将元素复制到辅助数组<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<div class="admonition info">
+<p class="admonition-title">不将元素复制到辅助数组</p>
+<ul>
+<li>将数据从输入数组排序到辅助数组</li>
+<li>将数据从辅助数组排序到输入数组</li>
+</ul>
+</div>
+<h2 id="_9">自低向上的归并排序<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
+<div class="admonition tip">
+<p class="admonition-title">自低向上的归并排序</p>
+<p>先归并那些微型数组，然后再成对归并得到的子数组，如此这般，直到我们将整个数组归并在一起</p>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MergeBU</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">aux</span><span class="p">;</span><span class="c1">//归并所需的辅助数组</span>
 
-
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">sort</span><span class="p">(</span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">a</span><span class="p">){</span>
+<span class="w">        </span><span class="c1">//进行lgN次两两归并</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">N</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="na">length</span><span class="p">;</span>
+<span class="w">        </span><span class="n">aux</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="o">[</span><span class="n">N</span><span class="o">]</span><span class="p">;</span>
+<span class="w">        </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">sz</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="n">sz</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">N</span><span class="p">;</span><span class="w"> </span><span class="n">sz</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sz</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">sz</span><span class="p">){</span><span class="c1">//sz子数组大小</span>
+<span class="w">            </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">lo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">lo</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">N</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">sz</span><span class="p">;</span><span class="w"> </span><span class="n">lo</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">sz</span><span class="w"> </span><span class="o">+</span><span class="n">sz</span><span class="p">){</span><span class="c1">//lo: 子数组索引</span>
+<span class="w">                </span><span class="n">merge</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">lo</span><span class="p">,</span><span class="w"> </span><span class="n">lo</span><span class="o">+</span><span class="n">sz</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">Math</span><span class="p">.</span><span class="na">min</span><span class="p">(</span><span class="n">lo</span><span class="o">+</span><span class="n">sz</span><span class="o">+</span><span class="n">sz</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">));</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>自底向上的归并排序会多次遍历整个数组，根据子数组大小进行两两归并。子数组的大小<code>sz</code>的初始值为<span class="arithmatex">\(1\)</span>，每次加倍，最后一个子数组的大小只有在数组大小是<code>sz</code>的偶数倍的时候才会等于<code>sz</code>(否则它会比<code>sz</code>小)。</p>
+<p><div class="center-table" markdown>
+<img alt="" src="https://p.ipic.vip/qjwfs1.png" width="350" />
+</div></p>
+</div>
+<h2 id="_10">复杂度分析<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
+<p><strong>时间复杂度 <span class="arithmatex">\(O(n \log n)\)</span></strong> ：划分形成高度为 <span class="arithmatex">\(\log n\)</span> 的递归树，每层合并的总操作数量为 <span class="arithmatex">\(n\)</span> ，总体使用 <span class="arithmatex">\(O(n \log n)\)</span> 时间。</p>
+<p><strong>空间复杂度 <span class="arithmatex">\(O(n)\)</span></strong> ：需借助辅助数组实现合并，使用 <span class="arithmatex">\(O(n)\)</span> 大小的额外空间；递归深度为 <span class="arithmatex">\(\log n\)</span> ，使用 <span class="arithmatex">\(O(\log n)\)</span> 大小的栈帧空间，因此是“非原地排序”。</p>
+<p>在合并时，不改变相等元素的次序，是“稳定排序”。</p>
+<h2 id="_11">链表排序 *<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h2>
+<p>归并排序有一个很特别的优势，用于排序链表时有很好的性能表现，<strong>空间复杂度可被优化至 <span class="arithmatex">\(O(1)\)</span></strong> ，这是因为：</p>
+<ul>
+<li>由于链表可仅通过改变指针来实现结点增删，因此“将两个短有序链表合并为一个长有序链表”无需使用额外空间，即回溯合并阶段不用像排序数组一样建立辅助数组 <code>tmp</code> ；</li>
+<li>通过使用「迭代」代替「递归划分」，可省去递归使用的栈帧空间；</li>
+</ul>
+<blockquote>
+<p>详情参考：<a href="https://leetcode-cn.com/problems/sort-list/solution/sort-list-gui-bing-pai-xu-lian-biao-by-jyd/">148. 排序链表</a></p>
+</blockquote>
 
 
 
