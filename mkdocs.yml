@@ -100,6 +100,7 @@ nav:
             - 堆排序: sort/heap_sort.md
             - 计数排序: sort/counting_sort.md
         - 算法技巧:
+            - 剑指offer: tips/jzoffer.md
             - 贪婪算法: tips/greedy.md
             - 分治算法: tips/divide_conquer.md
             - 动态规划: tips/dynamic.md
