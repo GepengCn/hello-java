@@ -2228,18 +2228,249 @@
 </ul>
 </div>
 <h3 id="offer-32-i">剑指 Offer 32 - I. 从上到下打印二叉树<a class="headerlink" href="#offer-32-i" title="Permanent link">&para;</a></h3>
+<div class="admonition tip">
+<p class="admonition-title">从上到下打印二叉树</p>
+<p>从上到下打印出二叉树的每个节点，同一层的节点按照从左到右的顺序打印。</p>
+<ul class="task-list">
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> BFS 广度优先搜索</p>
+<ul>
+<li>数据结构：二叉树</li>
+<li>解题技巧：广度优先搜索</li>
+</ul>
+</li>
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> DFS 深度优先搜索</p>
+<ul>
+<li>数据结构：二叉树</li>
+<li>解题技巧：深度优先搜索</li>
+</ul>
+</li>
+</ul>
+</div>
 <h3 id="offer-32-ii">剑指 Offer 32 - II. 从上到下打印二叉树<a class="headerlink" href="#offer-32-ii" title="Permanent link">&para;</a></h3>
+<div class="admonition tip">
+<p class="admonition-title">从上到下打印二叉树</p>
+<p>从上到下按层打印二叉树，同一层的节点按从左到右的顺序打印，每一层打印到一行。</p>
+<ul class="task-list">
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> BFS 广度优先搜索</p>
+<ul>
+<li>数据结构：二叉树</li>
+<li>解题技巧：广度优先搜索</li>
+</ul>
+</li>
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> DFS 深度优先搜索</p>
+<ul>
+<li>数据结构：二叉树</li>
+<li>解题技巧：深度优先搜索，二维列表保存层级<code>level</code>和每层的数</li>
+</ul>
+</li>
+</ul>
+</div>
 <h3 id="offer-32-iii">剑指 Offer 32 - III. 从上到下打印二叉树<a class="headerlink" href="#offer-32-iii" title="Permanent link">&para;</a></h3>
+<div class="admonition tip">
+<p class="admonition-title">从上到下打印二叉树</p>
+<p>请实现一个函数按照之字形顺序打印二叉树，即第一行按照从左到右的顺序打印，第二层按照从右到左的顺序打印，第三行再按照从左到右的顺序打印，其他行以此类推。</p>
+<ul class="task-list">
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> BFS+双端队列</p>
+<ul>
+<li>数据结构：二叉树、队列</li>
+<li>解题技巧：广度优先搜索、队列先入先出特性、双端队列可以自由添加元素到队首或者队尾</li>
+</ul>
+</li>
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> BFS+双端队列(奇偶层逻辑分离)</p>
+<ul>
+<li>数据结构：二叉树、队列</li>
+<li>解题技巧：广度优先搜索、队列先入先出特性、双端队列可以自由添加元素到队首或者队尾；先循环打印奇层，再循环打印偶层，如此往复。</li>
+</ul>
+</li>
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> BFS+倒序</p>
+<ul>
+<li>数据结构：二叉树</li>
+<li>解题技巧：广度优先搜索；<code>res</code>长度为奇数，则当前是偶数层，对列表<code>tmp</code>倒序</li>
+</ul>
+</li>
+</ul>
+</div>
 <h3 id="offer-26">剑指 Offer 26. 树的子结构<a class="headerlink" href="#offer-26" title="Permanent link">&para;</a></h3>
+<div class="admonition tip">
+<p class="admonition-title">树的子结构</p>
+<p>输入两棵二叉树A和B，判断B是不是A的子结构。(约定空树不是任意一个树的子结构)</p>
+<p>B是A的子结构， 即 A中有出现和B相同的结构和节点值。</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> DFS+递归终止判断<ul>
+<li>数据结构：二叉树</li>
+<li>解题技巧：深度优先搜索；递归；<code>当递归到B==null时，终止返回true，A==null或者A.val!=B.val返回false</code></li>
+</ul>
+</li>
+</ul>
+</div>
 <h3 id="offer-27">剑指 Offer 27. 二叉树的镜像<a class="headerlink" href="#offer-27" title="Permanent link">&para;</a></h3>
+<div class="admonition tip">
+<p class="admonition-title">二叉树的镜像</p>
+<p>请完成一个函数，输入一个二叉树，该函数输出它的镜像。</p>
+<ul class="task-list">
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> DFS</p>
+<ul>
+<li>数据结构：二叉树</li>
+<li>解题技巧：深度优先搜索；交换左右节点</li>
+</ul>
+</li>
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> BFS</p>
+<ul>
+<li>数据结构：二叉树、栈、队列</li>
+<li>解题技巧：广度优先搜索；交换左右节点</li>
+</ul>
+</li>
+</ul>
+</div>
 <h3 id="offer-28">剑指 Offer 28. 对称的二叉树<a class="headerlink" href="#offer-28" title="Permanent link">&para;</a></h3>
+<div class="admonition tip">
+<p class="admonition-title">对称的二叉树</p>
+<p>请实现一个函数，用来判断一棵二叉树是不是对称的。如果一棵二叉树和它的镜像一样，那么它是对称的。</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 递归<ul>
+<li>数据结构：二叉树</li>
+<li>解题技巧：递归；左右子树的值相等，不断递归到子树中判断，直到越过所有子结点</li>
+</ul>
+</li>
+</ul>
+</div>
 <h3 id="offer-10-i">剑指 Offer 10- I. 斐波那契数列<a class="headerlink" href="#offer-10-i" title="Permanent link">&para;</a></h3>
+<div class="admonition tip">
+<p class="admonition-title">斐波那契数列</p>
+<p>写一个函数，输入 <span class="arithmatex">\(n\)</span> ，求斐波那契（Fibonacci）数列的第 <span class="arithmatex">\(n\)</span> 项</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 递归<ul>
+<li>数据结构：基础计算规则</li>
+<li>解题技巧：不断递归，缩小求解值，直到<span class="arithmatex">\(f(0)\)</span>和<span class="arithmatex">\(f(1)\)</span></li>
+</ul>
+</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 记忆化递归法<ul>
+<li>数据结构：数组</li>
+<li>解题技巧：由小及大开始递归，之前积累的结果缓存起来，以便后续用，减少重复计算</li>
+</ul>
+</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 动态规划<ul>
+<li>数据结构：基础计算规则</li>
+<li>解题技巧：动态规划，<span class="arithmatex">\(dp(i)=dp(i-1)+dp(i-2)\)</span>，以小积大，推导出最小和求值公式，通过循环，不断累积求值结果直到最终。</li>
+</ul>
+</li>
+</ul>
+</div>
 <h3 id="offer-10-ii">剑指 Offer 10- II. 青蛙跳台阶问题<a class="headerlink" href="#offer-10-ii" title="Permanent link">&para;</a></h3>
+<div class="admonition tip">
+<p class="admonition-title">青蛙跳台阶问题</p>
+<p>一只青蛙一次可以跳上1级台阶，也可以跳上2级台阶。求该青蛙跳上一个 <span class="arithmatex">\(n\)</span> 级的台阶总共有多少种跳法。</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 递归<ul>
+<li>数据结构：基础计算规则</li>
+<li>解题技巧：不断递归，缩小求解值，直到<span class="arithmatex">\(f(0)\)</span>和<span class="arithmatex">\(f(1)\)</span></li>
+</ul>
+</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 记忆化递归法<ul>
+<li>数据结构：数组</li>
+<li>解题技巧：由小及大开始递归，之前积累的结果缓存起来，以便后续用，减少重复计算</li>
+</ul>
+</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 动态规划<ul>
+<li>数据结构：基础计算规则</li>
+<li>解题技巧：动态规划，<span class="arithmatex">\(dp(i)=dp(i-1)+dp(i-2)\)</span>，以小积大，推导出最小和求值公式，通过循环，不断累积求值结果直到最终。</li>
+</ul>
+</li>
+</ul>
+</div>
 <h3 id="offer-63">剑指 Offer 63. 股票的最大利润<a class="headerlink" href="#offer-63" title="Permanent link">&para;</a></h3>
+<div class="admonition tip">
+<p class="admonition-title">股票的最大利润</p>
+<p>假设把某股票的价格按照时间先后顺序存储在数组中，请问买卖该股票一次可能获得的最大利润是多少？</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 动态规划<ul>
+<li>数据结构：数组</li>
+<li>解题技巧：动态规划，<span class="arithmatex">\(dp(i)=max(dp(i-1),prices[i]-min(prices[0-i]))\)</span><ul>
+<li>前<span class="arithmatex">\(i\)</span>日最大利润<span class="arithmatex">\(=max(\)</span>前<span class="arithmatex">\(i-1\)</span>日最大利润，第<span class="arithmatex">\(i\)</span>日价格-前<span class="arithmatex">\(i\)</span>日最低价格<span class="arithmatex">\()\)</span></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
 <h3 id="offer-42">剑指 Offer 42. 连续子数组的最大和<a class="headerlink" href="#offer-42" title="Permanent link">&para;</a></h3>
+<div class="admonition tip">
+<p class="admonition-title">连续子数组的最大和</p>
+<p>输入一个整型数组，数组中的一个或连续多个整数组成一个子数组。求所有子数组的和的最大值。</p>
+<p>要求时间复杂度为<span class="arithmatex">\(O(n)\)</span>。</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 动态规划<ul>
+<li>数据结构：数组</li>
+<li>解题技巧：动态规划<ul>
+<li>当<span class="arithmatex">\(dp(i-1)&gt;0\)</span>，<span class="arithmatex">\(dp(i) = dp\)</span>(i-1) + nums[i]$</li>
+<li>当<span class="arithmatex">\(dp(i-1)&lt;=0\)</span>，<span class="arithmatex">\(dp(i) = nums[i]\)</span></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
 <h3 id="offer-47">剑指 Offer 47. 礼物的最大价值<a class="headerlink" href="#offer-47" title="Permanent link">&para;</a></h3>
+<div class="admonition tip">
+<p class="admonition-title">礼物的最大价值</p>
+<p>在一个 <code>m*n</code> 的棋盘的每一格都放有一个礼物，每个礼物都有一定的价值（价值大于 0）。你可以从棋盘的左上角开始拿格子里的礼物，并每次向右或者向下移动一格、直到到达棋盘的右下角。给定一个棋盘及其上面的礼物的价值，请计算你最多能拿到多少价值的礼物？</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 动态规划<ul>
+<li>数据结构：二维数组</li>
+<li>解题技巧：动态规划</li>
+</ul>
+</li>
+</ul>
+</div>
 <h3 id="offer-46">剑指 Offer 46. 把数字翻译成字符串<a class="headerlink" href="#offer-46" title="Permanent link">&para;</a></h3>
+<div class="admonition tip">
+<p class="admonition-title">把数字翻译成字符串</p>
+<p>给定一个数字，我们按照如下规则把它翻译为字符串：0 翻译成 “a” ，1 翻译成 “b”，……，11 翻译成 “l”，……，25 翻译成 “z”。一个数字可能有多个翻译。请编程实现一个函数，用来计算一个数字有多少种不同的翻译方法。</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 动态规划<ul>
+<li>数据结构：字符串</li>
+<li>解题技巧：动态规划</li>
+</ul>
+</li>
+</ul>
+</div>
 <h3 id="offer-48">剑指 Offer 48. 最长不含重复字符的子字符<a class="headerlink" href="#offer-48" title="Permanent link">&para;</a></h3>
+<div class="admonition tip">
+<p class="admonition-title">最长不含重复字符的子字符</p>
+<p>请从字符串中找出一个最长的不包含重复字符的子字符串，计算该最长子字符串的长度。</p>
+<ul class="task-list">
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 动态规划 + 哈希表</p>
+<ul>
+<li>数据结构：字符串、哈希表</li>
+<li>解题技巧：动态规划；哈希表记录字符最后一次出现的索引位置</li>
+</ul>
+</li>
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 动态规划 + 线性遍历</p>
+<ul>
+<li>数据结构：字符串</li>
+<li>解题技巧：动态规划；线性遍历字符重复出现的长度</li>
+</ul>
+</li>
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 双指针 + 哈希表</p>
+<ul>
+<li>数据结构：字符串、哈希表</li>
+<li>解题技巧：用两指针指向两重复元素，差值即为重复长度，保留最大值，直到遍历完</li>
+</ul>
+</li>
+</ul>
+</div>
 <h3 id="offer-18">剑指 Offer 18. 删除链表的节点<a class="headerlink" href="#offer-18" title="Permanent link">&para;</a></h3>
 <h3 id="offer-22-k">剑指 Offer 22. 链表中倒数第k个节点<a class="headerlink" href="#offer-22-k" title="Permanent link">&para;</a></h3>
 <h3 id="offer-25">剑指 Offer 25. 合并两个排序的链表<a class="headerlink" href="#offer-25" title="Permanent link">&para;</a></h3>
