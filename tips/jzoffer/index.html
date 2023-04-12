@@ -2832,30 +2832,375 @@ double findMedian() - 返回目前所有元素的中位数。</p>
 </ul>
 </div>
 <h3 id="offer-15-1">剑指 Offer 15. 二进制中1的个数<a class="headerlink" href="#offer-15-1" title="Permanent link">&para;</a></h3>
+<div class="admonition tip">
+<p class="admonition-title">二进制中1的个数</p>
+<p>编写一个函数，输入是一个无符号整数（以二进制串的形式），返回其二进制表达式中数字位数为 '1' 的个数（也被称为 汉明重量).）。</p>
+<ul class="task-list">
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 逐位判断</p>
+<ul>
+<li>数据结构：二进制</li>
+<li>解题技巧： 与运算</li>
+</ul>
+</li>
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <span class="arithmatex">\(n\&amp;(n-1)\)</span></p>
+<ul>
+<li>数据结构：二进制</li>
+<li>解题技巧： <span class="arithmatex">\(n\&amp;(n-1)\)</span></li>
+</ul>
+</li>
+</ul>
+</div>
 <h3 id="offer-65">剑指 Offer 65. 不用加减乘除做加法<a class="headerlink" href="#offer-65" title="Permanent link">&para;</a></h3>
+<div class="admonition tip">
+<p class="admonition-title">不用加减乘除做加法</p>
+<p>写一个函数，求两个整数之和，要求在函数体内不得使用 “+”、“-”、“*”、“/” 四则运算符号。</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 位运算<ul>
+<li>数据结构：二进制</li>
+<li>解题技巧： 位运算</li>
+</ul>
+</li>
+</ul>
+</div>
 <h3 id="offer-56-i">剑指 Offer 56 - I. 数组中数字出现的次数<a class="headerlink" href="#offer-56-i" title="Permanent link">&para;</a></h3>
+<div class="admonition tip">
+<p class="admonition-title">数组中数字出现的次数</p>
+<p>一个整型数组 <code>nums</code> 里除两个数字之外，其他数字都出现了两次。请写程序找出这两个只出现一次的数字。要求时间复杂度是<span class="arithmatex">\(O(n)\)</span>，空间复杂度是<span class="arithmatex">\(O(1)\)</span>。</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 位运算<ul>
+<li>数据结构：二进制</li>
+<li>解题技巧： 异或运算</li>
+</ul>
+</li>
+</ul>
+</div>
 <h3 id="offer-56-ii-ii">剑指 Offer 56 - II. 数组中数字出现的次数 II<a class="headerlink" href="#offer-56-ii-ii" title="Permanent link">&para;</a></h3>
+<div class="admonition tip">
+<p class="admonition-title">数组中数字出现的次数 II</p>
+<p>在一个数组 nums 中除一个数字只出现一次之外，其他数字都出现了三次。请找出那个只出现一次的数字。</p>
+<ul class="task-list">
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 有限状态自动机</p>
+<ul>
+<li>数据结构：二进制</li>
+<li>解题技巧： 有限状态自动机，与运算，异或运算</li>
+</ul>
+</li>
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 遍历统计</p>
+<ul>
+<li>数据结构：二进制</li>
+<li>解题技巧： 与运算，无符号右移，左移</li>
+</ul>
+</li>
+</ul>
+</div>
 <h3 id="offer-39">剑指 Offer 39. 数组中出现次数超过一半的数字<a class="headerlink" href="#offer-39" title="Permanent link">&para;</a></h3>
+<div class="admonition tip">
+<p class="admonition-title">数组中出现次数超过一半的数字</p>
+<p>数组中有一个数字出现的次数超过数组长度的一半，请找出这个数字。</p>
+<p>你可以假设数组是非空的，并且给定的数组总是存在多数元素。</p>
+<ul class="task-list">
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 哈希表统计法</p>
+<ul>
+<li>数据结构：哈希表、数组</li>
+<li>解题技巧： 遍历数组 <code>nums</code> ，用 <code>HashMap</code> 统计各数字的数量，即可找出 众数</li>
+</ul>
+</li>
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 数组排序法</p>
+<ul>
+<li>数据结构：数组</li>
+<li>解题技巧：将数组 <code>nums</code> 排序，数组<strong>中点</strong>的元素一定为众数</li>
+</ul>
+</li>
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 摩尔投票法</p>
+<ul>
+<li>数据结构：数组</li>
+<li>解题技巧：核心理念为 <strong>票数正负抵消</strong></li>
+</ul>
+</li>
+</ul>
+</div>
 <h3 id="offer-66">剑指 Offer 66. 构建乘积数组<a class="headerlink" href="#offer-66" title="Permanent link">&para;</a></h3>
+<div class="admonition tip">
+<p class="admonition-title">构建乘积数组</p>
+<p>给定一个数组 A[0,1,…,n-1]，请构建一个数组 B[0,1,…,n-1]，其中 B[i] 的值是数组 A 中除了下标 i 以外的元素的积, 即 B[i]=A[0]×A[1]×…×A[i-1]×A[i+1]×…×A[n-1]。不能使用除法。</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 矩阵法<ul>
+<li>数据结构：数组</li>
+<li>解题技巧：上下三角矩阵，对角线为1</li>
+</ul>
+</li>
+</ul>
+</div>
 <h3 id="offer-14-i">剑指 Offer 14- I. 剪绳子<a class="headerlink" href="#offer-14-i" title="Permanent link">&para;</a></h3>
+<div class="admonition tip">
+<p class="admonition-title">剪绳子</p>
+<p>给你一根长度为 n 的绳子，请把绳子剪成整数长度的 m 段（m、n都是整数，n&gt;1并且m&gt;1），每段绳子的长度记为 k[0],k[1]...k[m-1] 。请问 k[0]<em>k[1]</em>...*k[m-1] 可能的最大乘积是多少？例如，当绳子的长度是8时，我们把它剪成长度分别为2、3、3的三段，此时得到的最大乘积是18。</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 动态规划<ul>
+<li>数据结构：数组</li>
+<li>解题技巧：推导状态转移方程</li>
+</ul>
+</li>
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 数学 函数极值证明法</p>
+<ul>
+<li>数据结构：数组</li>
+<li>解题技巧：函数极值证明法</li>
+</ul>
+</li>
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 归纳证明法</p>
+<ul>
+<li>数据结构：数组</li>
+<li>解题技巧：归纳证明法</li>
+</ul>
+</li>
+</ul>
+</div>
 <h3 id="offer-57-ii-s">剑指 Offer 57 - II. 和为s的连续正数序列<a class="headerlink" href="#offer-57-ii-s" title="Permanent link">&para;</a></h3>
+<div class="admonition tip">
+<p class="admonition-title">和为s的连续正数序列</p>
+<p>输入一个正整数 target ，输出所有和为 target 的连续正整数序列（至少含有两个数）。</p>
+<p>序列内的数字由小到大排列，不同序列按照首个数字从小到大排列。</p>
+<ul class="task-list">
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 求和公式</p>
+<ul>
+<li>数据结构：数组、列表</li>
+<li>解题技巧：求和公式推导</li>
+</ul>
+</li>
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 滑动窗口+双指针</p>
+<ul>
+<li>数据结构：数组、列表</li>
+<li>解题技巧：滑动窗口+双指针</li>
+</ul>
+</li>
+</ul>
+</div>
 <h3 id="offer-62">剑指 Offer 62. 圆圈中最后剩下的数字<a class="headerlink" href="#offer-62" title="Permanent link">&para;</a></h3>
+<div class="admonition tip">
+<p class="admonition-title">圆圈中最后剩下的数字</p>
+<p>0,1,···,n-1这n个数字排成一个圆圈，从数字0开始，每次从这个圆圈里删除第m个数字（删除后从下一个数字开始计数）。求出这个圆圈里剩下的最后一个数字。</p>
+<p>例如，0、1、2、3、4这5个数字组成一个圆圈，从数字0开始每次删除第3个数字，则删除的前4个数字依次是2、0、4、1，因此最后剩下的数字是3。</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 动态规划<ul>
+<li>数据结构：基础数据</li>
+<li>解题技巧：约瑟夫环，推导状态转移方程, <span class="arithmatex">\(dp(i) = (dp(i-1)+m) \% 1\)</span></li>
+</ul>
+</li>
+</ul>
+</div>
 <h3 id="offer-29">剑指 Offer 29. 顺时针打印矩阵<a class="headerlink" href="#offer-29" title="Permanent link">&para;</a></h3>
+<div class="admonition tip">
+<p class="admonition-title">顺时针打印矩阵</p>
+<p>输入一个矩阵，按照从外向里以顺时针的顺序依次打印出每一个数字。</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 模拟+设定边界<ul>
+<li>数据结构：二维数组</li>
+<li>解题技巧：顺时针打印，列出打印方向和边界的设定,然后循环往复</li>
+</ul>
+</li>
+</ul>
+</div>
 <h3 id="offer-31">剑指 Offer 31. 栈的压入、弹出序列<a class="headerlink" href="#offer-31" title="Permanent link">&para;</a></h3>
+<div class="admonition tip">
+<p class="admonition-title">栈的压入、弹出序列</p>
+<p>输入两个整数序列，第一个序列表示栈的压入顺序，请判断第二个序列是否为该栈的弹出顺序。假设压入栈的所有数字均不相等。例如，序列 {1,2,3,4,5} 是某栈的压栈序列，序列 {4,5,3,2,1} 是该压栈序列对应的一个弹出序列，但 {4,3,5,1,2} 就不可能是该压栈序列的弹出序列。</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 模拟<ul>
+<li>数据结构：栈、数组</li>
+<li>解题技巧：模拟出入栈操作，一一比对</li>
+</ul>
+</li>
+</ul>
+</div>
 <h3 id="offer-20">剑指 Offer 20. 表示数值的字符串<a class="headerlink" href="#offer-20" title="Permanent link">&para;</a></h3>
+<div class="admonition tip">
+<p class="admonition-title">表示数值的字符串</p>
+<p>实现一个函数用来判断字符串是否表示数值（包括整数和小数）。</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 有限状态自动机<ul>
+<li>数据结构：哈希表、字符串</li>
+<li>解题技巧：设定状态转移表，根据状态变化遍历</li>
+</ul>
+</li>
+</ul>
+</div>
 <h3 id="67">面试题67. 把字符串转换成整数<a class="headerlink" href="#67" title="Permanent link">&para;</a></h3>
+<div class="admonition tip">
+<p class="admonition-title">把字符串转换成整数</p>
+<p>写一个函数 StrToInt，实现把字符串转换成整数这个功能。不能使用 atoi 或者其他类似的库函数。</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 遍历<ul>
+<li>数据结构：字符串、数组</li>
+<li>解题技巧：数字越界处理、字符串与数字转换、数字拼接</li>
+</ul>
+</li>
+</ul>
+</div>
 <h3 id="offer-59-i">剑指 Offer 59 - I. 滑动窗口的最大值<a class="headerlink" href="#offer-59-i" title="Permanent link">&para;</a></h3>
+<div class="admonition tip">
+<p class="admonition-title">滑动窗口的最大值</p>
+<p>给定一个数组 nums 和滑动窗口的大小 k，请找出所有滑动窗口里的最大值。</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 双端队列<ul>
+<li>数据结构：双端队列、数组</li>
+<li>解题技巧：移动窗口时，头部出队，尾部进队</li>
+</ul>
+</li>
+</ul>
+</div>
 <h3 id="59-ii">面试题59 - II. 队列的最大值<a class="headerlink" href="#59-ii" title="Permanent link">&para;</a></h3>
+<div class="admonition tip">
+<p class="admonition-title">队列的最大值</p>
+<p>请定义一个队列并实现函数 max_value 得到队列里的最大值，要求函数max_value、push_back 和 pop_front 的均摊时间复杂度都是O(1)。</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 双端队列<ul>
+<li>数据结构：双端队列</li>
+<li>解题技巧：使用两个双端队列，一个保存队列所有值，一个队首保存最大值</li>
+</ul>
+</li>
+</ul>
+</div>
 <h3 id="offer-37">剑指 Offer 37. 序列化二叉树<a class="headerlink" href="#offer-37" title="Permanent link">&para;</a></h3>
+<div class="admonition tip">
+<p class="admonition-title">序列化二叉树</p>
+<p>请实现两个函数，分别用来序列化和反序列化二叉树。</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> BFS<ul>
+<li>数据结构：二叉树、队列</li>
+<li>解题技巧：广度优先搜索逐级遍历</li>
+</ul>
+</li>
+</ul>
+</div>
 <h3 id="offer-38">剑指 Offer 38. 字符串的排列<a class="headerlink" href="#offer-38" title="Permanent link">&para;</a></h3>
+<div class="admonition tip">
+<p class="admonition-title">字符串的排列</p>
+<p>输入一个字符串，打印出该字符串中字符的所有排列。</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 递归+回溯<ul>
+<li>数据结构：列表、字符串、Set、数组</li>
+<li>解题技巧：递归到底，保存排列，然后回溯其他方案，直到递归结束</li>
+</ul>
+</li>
+</ul>
+</div>
 <h3 id="offer-19">剑指 Offer 19. 正则表达式匹配<a class="headerlink" href="#offer-19" title="Permanent link">&para;</a></h3>
+<div class="admonition tip">
+<p class="admonition-title">正则表达式匹配</p>
+<p>请实现一个函数用来匹配包含'. '和'*'的正则表达式。</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 动态规划<ul>
+<li>数据结构：字符串、数组</li>
+<li>解题技巧：推导状态转移方程</li>
+</ul>
+</li>
+</ul>
+</div>
 <h3 id="offer-49">剑指 Offer 49. 丑数<a class="headerlink" href="#offer-49" title="Permanent link">&para;</a></h3>
+<div class="admonition tip">
+<p class="admonition-title">丑数</p>
+<p>我们把只包含质因子 2、3 和 5 的数称作丑数（Ugly Number）。求按从小到大的顺序的第 n 个丑数。</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 动态规划<ul>
+<li>数据结构：数组</li>
+<li>解题技巧：推导状态转移方程</li>
+</ul>
+</li>
+</ul>
+</div>
 <h3 id="offer-60-n">剑指 Offer 60. n个骰子的点数<a class="headerlink" href="#offer-60-n" title="Permanent link">&para;</a></h3>
+<div class="admonition tip">
+<p class="admonition-title">n个骰子的点数</p>
+<p>把n个骰子扔在地上，所有骰子朝上一面的点数之和为s。输入n，打印出s的所有可能的值出现的概率。</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 动态规划<ul>
+<li>数据结构：数组</li>
+<li>解题技巧：推导状态转移方程</li>
+</ul>
+</li>
+</ul>
+</div>
 <h3 id="offer-17-1n">剑指 Offer 17. 打印从1到最大的n位数<a class="headerlink" href="#offer-17-1n" title="Permanent link">&para;</a></h3>
+<div class="admonition tip">
+<p class="admonition-title">打印从1到最大的n位数</p>
+<p>输入数字 n，按顺序打印出从 1 到最大的 n 位十进制数。比如输入 3，则打印出 1、2、3 一直到最大的 3 位数 999。</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 分治算法<ul>
+<li>数据结构：数组</li>
+<li>解题技巧：求最大数、大数越界问题</li>
+</ul>
+</li>
+</ul>
+</div>
 <h3 id="offer-51">剑指 Offer 51. 数组中的逆序对<a class="headerlink" href="#offer-51" title="Permanent link">&para;</a></h3>
+<div class="admonition tip">
+<p class="admonition-title">数组中的逆序对</p>
+<p>在数组中的两个数字，如果前面一个数字大于后面的数字，则这两个数字组成一个逆序对。输入一个数组，求出这个数组中的逆序对的总数。</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 归并排序<ul>
+<li>数据结构：数组</li>
+<li>解题技巧：归并排序，合并时，统计逆序对的数量</li>
+</ul>
+</li>
+</ul>
+</div>
 <h3 id="offer-14-ii-ii">剑指 Offer 14- II. 剪绳子 II<a class="headerlink" href="#offer-14-ii-ii" title="Permanent link">&para;</a></h3>
+<div class="admonition tip">
+<p class="admonition-title">剪绳子 II</p>
+<p>给你一根长度为 n 的绳子，请把绳子剪成整数长度的 m 段（m、n都是整数，n&gt;1并且m&gt;1），每段绳子的长度记为 k[0],k[1]...k[m - 1] 。请问 k[0]<em>k[1]</em>...*k[m - 1] 可能的最大乘积是多少？</p>
+<ul class="task-list">
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 数学推导+快速幂求余</p>
+<ul>
+<li>数据结构：基础数据</li>
+<li>解题技巧：数学推导+快速幂求余</li>
+</ul>
+</li>
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 贪心思想+快速幂求余</p>
+<ul>
+<li>数据结构：基础数据</li>
+<li>解题技巧：贪心思想+快速幂求余</li>
+</ul>
+</li>
+</ul>
+</div>
 <h3 id="offer-43-1n-1">剑指 Offer 43. 1～n 整数中 1 出现的次数<a class="headerlink" href="#offer-43-1n-1" title="Permanent link">&para;</a></h3>
+<div class="admonition tip">
+<p class="admonition-title">1～n 整数中 1 出现的次数</p>
+<p>输入一个整数 n ，求1～n这n个整数的十进制表示中1出现的次数。</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 数学推导<ul>
+<li>数据结构：基础数据</li>
+<li>解题技巧：数学推导</li>
+</ul>
+</li>
+</ul>
+</div>
 <h3 id="offer-44">剑指 Offer 44. 数字序列中某一位的数字<a class="headerlink" href="#offer-44" title="Permanent link">&para;</a></h3>
+<div class="admonition tip">
+<p class="admonition-title">数字序列中某一位的数字</p>
+<p>数字以0123456789101112131415…的格式序列化到一个字符序列中。在这个序列中，第5位（从下标0开始计数）是5，第13位是1，第19位是4，等等。</p>
+<p>请写一个函数，求任意第n位对应的数字。</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 数学推导<ul>
+<li>数据结构：基础数据</li>
+<li>解题技巧：数学推导，迭代，求整/求余</li>
+</ul>
+</li>
+</ul>
+</div>
 
 
 
