@@ -900,6 +900,33 @@
       
         <li class="md-nav__item">
   <a href="#_7" class="md-nav__link">
+    什么时候使用
+  </a>
+  
+    <nav class="md-nav" aria-label="什么时候使用">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    1. 最优子结构
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    2. 子问题重叠
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
     案例分析
   </a>
   
@@ -907,7 +934,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     钢条切割
   </a>
   
@@ -1116,6 +1143,33 @@
       
         <li class="md-nav__item">
   <a href="#_7" class="md-nav__link">
+    什么时候使用
+  </a>
+  
+    <nav class="md-nav" aria-label="什么时候使用">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    1. 最优子结构
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    2. 子问题重叠
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
     案例分析
   </a>
   
@@ -1123,7 +1177,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     钢条切割
   </a>
   
@@ -1201,8 +1255,64 @@
 <p>自底向上法（迭代）</p>
 </li>
 </ol>
-<h2 id="_7">案例分析<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
-<h3 id="_8">钢条切割<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<h2 id="_7">什么时候使用<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<h3 id="1">1. 最优子结构<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
+<p>一个问题的最优解包含其<strong>子问题</strong>的最优解</p>
+<div class="admonition info">
+<p class="admonition-title">怎么发掘最优子结构？</p>
+<ol>
+<li>做出一个选择</li>
+<li>已知最简子问题的最优选择</li>
+<li>逐步递进选择后，刻画子问题空间（找出规律,尽可能简单，只在必要时扩展）</li>
+<li>积累最优子问题直到目标问题完全由最优子问题构成，此时，目标问题已是最优选择</li>
+</ol>
+</div>
+<div class="admonition info">
+<p class="admonition-title">怎么区分不同问题的最优子结构</p>
+<ol>
+<li>多少个子问题</li>
+<li>每个子问题需要考察多少种选择</li>
+</ol>
+<p>所以时间复杂度即为 <strong>子问题数量</strong> <span class="arithmatex">\(\times\)</span> <strong>考察多少选择</strong></p>
+<p>如果<span class="arithmatex">\(n\)</span>个子问题，每个子问题需要做出<span class="arithmatex">\(n\)</span>个选择，时间复杂度为<span class="arithmatex">\(O(n^2)\)</span></p>
+<p>也可用<strong>图</strong>来做同样的分析。</p>
+<ol>
+<li>图中每个<strong>顶点</strong>对应一个<strong>子问题</strong></li>
+<li>需要考察的<strong>选择</strong>对应关联至子问题顶点的<strong>边</strong></li>
+</ol>
+</div>
+<div class="admonition info">
+<p class="admonition-title">与贪心算法相比</p>
+<ul>
+<li>相似之处：在于也必须具有<strong>最优子结构</strong>性质</li>
+<li>不同之处：贪心算法并不是首先寻找子问题的最优解，然后再其中进行选择，而是首先做出一次<strong>贪心</strong>选择 <span class="arithmatex">\(\implies\)</span> 在当时看来最优的选择 <span class="arithmatex">\(\implies\)</span> 然后求解选出的子问题，从而不必费心求解所有可能相关的子问题</li>
+</ul>
+</div>
+<div class="admonition info">
+<p class="admonition-title">怎么看问题是否具有最优子结构性质</p>
+<p>子问题之间无关，同一个原问题的一个子问题的解不影响另一个子问题的解，类似于图的顶点和边被某个子问题占用就不能在被其它子问题占用。</p>
+<p>换个角度来看，求解某个子问题的用到了某些资源（比如顶点），再解其它子问题时不可用，或者说资源不共享，是独占的。</p>
+</div>
+<h3 id="2">2. 子问题重叠<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
+<p>子问题空间必须足够<strong>小</strong>，即问题的递归算法会反复地求解相同的子问题，而不是一直生成新的子问题。</p>
+<p>与之相对的，适合用分治方法求解的问题通常在递归的每一步都生成全新得子问题。</p>
+<div class="admonition info">
+<p class="admonition-title">子问题重叠在动态规划中的使用</p>
+<p>对每个子问题求解一次，将解存入一个表中，当再次需要这个子问题时直接查表，每次查表的代价为常量时间。</p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">自底向上动态规划与自顶向下备忘算法（递归）</p>
+<ul>
+<li>
+<p>如果每个问题都必须至少求解一次，动态规划要更快，虽然都是<span class="arithmatex">\(O(n^3)\)</span>（但是相差一个常量系数），但是递归调用有开销，表的维护开销也更小</p>
+</li>
+<li>
+<p>如果不是每个问题都需要求解，只求解必要的子问题，那备忘方法更有优势</p>
+</li>
+</ul>
+</div>
+<h2 id="_8">案例分析<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<h3 id="_9">钢条切割<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
 <p><span class="arithmatex">\(r_{n} = \max\limits_{1&lt;=i&lt;=n}(p_{i} + r_{n-i})\)</span></p>
 
 
