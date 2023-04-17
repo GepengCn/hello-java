@@ -97,9 +97,205 @@
 
     - 如果不是每个问题都需要求解，只求解必要的子问题，那备忘方法更有优势
 
-## 案例分析
+## 最长公共子序列
 
-### 钢条切割
+### 刻画最长公共子序列的特征
 
-$r_{n} = \max\limits_{1<=i<=n}(p_{i} + r_{n-i})$
 
+${c[i,j]=
+\begin{cases}
+0 & \quad \text{ 若 } i = 0 \text{ 或 } j = 0\\
+c[i-1,j-1] + 1 & \quad \text{ 若 } i,j > 0 \text{ 且 } x_i = y_i\\
+max(c[i,j-1],c[i-1,j]) & \quad \text{ 若 } i,j > 0 \text{ 且 } x_i \neq y_i
+\end{cases}
+}$
+
+<div class="center-table" markdown>
+![](https://p.ipic.vip/3vc3ff.jpg){width=300}
+</div>
+
+
+## leetcode
+
+### 剑指 Offer 10- I. 斐波那契数列
+
+=== "1.1刻画一个最优解的结构特征"
+
+    ${
+        规律=
+        \begin{cases}
+        f(0)=0\\
+        f(1) = 1\\
+        f(2) = f(0) + f(1) = 1\\
+        f(3) = f(1) + f(2) = 2\\
+        f(4) = f(2) + f(3) = 3\\
+        f(5) = f(3) + f(4) = 5\\
+        ...\\
+        f(n) = f(n-1) + f(n-2)
+        \end{cases}
+    }$
+
+
+
+
+=== "1.2递归地定义最优解的值"
+
+    $dp(i) = dp(i-2) + dp(i-1)$
+
+=== "1.3计算最优解的值，通常采用自底而上的方法"
+
+    ```java
+    class Solution {
+        public int fib(int n) {
+            if(n <= 1) return n;
+
+            int a = 0,b = 1, sum = 0;
+
+            for(int i = 2;i <= n;i++){
+                sum = (a + b)%1000000007;
+                a = b;
+                b = sum;
+            }
+
+            return sum;
+        }
+    }
+
+    ```
+
+### 剑指 Offer 10- II. 青蛙跳台阶问题
+
+=== "2.1刻画一个最优解的结构特征"
+
+    ${规律=
+    \begin{cases}
+    f(2) = 11 2 = 2\\
+    f(3) = 111 12 21 = 3\\
+    f(4) = 1111 211 121 112 22 = 5\\
+    f(5) = 11111 2111 1211 1121 1112 122 212 221= 8\\
+    f(6) = 13\\
+    f(7) = 21\\
+    f(n) = f(n-1) + f(n-2)
+    \end{cases}
+    }$
+
+=== "2.2递归地定义最优解的值"
+
+    $dp(n) = dp(n-1) + dp(n-2)$
+
+
+=== "2.3计算最优解的值，通常采用自底而上的方法"
+
+    ```java
+    class Solution {
+        public int numWays(int n) {
+            if(n<=2)return n;
+            int a = 1, b = 2, sum = 0;
+
+            for(int i=3;i<=n;i++){
+                sum = a + b;
+                a = b;
+                b = sum;
+            }
+            return sum;
+        }
+    }
+
+    ```
+
+### 剑指 Offer 63. 股票的最大利润
+
+=== "3.1刻画一个最优解的结构特征"
+
+    `输入[7,1,5,3,6,4]`
+
+    ${规律=
+        \begin{cases}
+        第一天买，第二天卖，-6\\
+        第一天买，第三天卖，-2\\
+        第一天买，第四天卖，-4\\
+        第一天买，第五天卖，-1\\
+        第一天买，第六天卖，-3\\
+        i 是买入 j 是卖出，上面的第一天买，第二天卖就是i=1,j=2\\
+        i=2,j=3,4\\
+        i=2,j=4,2\\
+        i=2,j=5,5\\
+        i=2,j=6,3\\
+        ...\\
+        i=5,j=6,-2\\
+        i=6,跳出循环\\
+        第一天买,最大利润,是不买不卖=0\\
+        第二天买,最大利润,是第五天卖=5\\
+        第三天买,最大利润,是第六天卖=1\\
+        第四天买,最大利润,是第六天卖=3\\
+        第五天买,最大利润,是不买不卖=0\\
+        最大利润是，前i-1天的最大利润与第i天的价格减去前i-1天的最小价格作比较，取较大值
+        \end{cases}
+    }$
+
+=== "3.2递归地定义最优解的值"
+
+    $dp(i) = max(dp(i-1), prices(i)-min(prices(i-1)))$
+
+=== "3.3计算最优解的值，通常采用自底而上的方法"
+
+    循环一次，每天都更新最小价格和最大利润
+
+    ```java
+    class Solution {
+        public int maxProfit(int[] prices) {
+            if(prices==null||prices.length==0)return 0;
+            int max = 0, min = Integer.MAX_VALUE;
+            for(int i=0;i<prices.length;i++){
+                min = Math.min(min, prices[i]);
+                max = Math.max(max, prices[i]-min);
+            }
+            return max;
+        }
+    }
+    ```
+
+### 剑指 Offer 42. 连续子数组的最大和
+
+=== "4.1刻画一个最优解的结构特征"
+
+    输入: `nums = [-2,1,-3,4,-1,2,1,-5,4]`
+    ${规律=
+        \begin{cases}
+        [-2]&最大和为{-2}&子数组=[-2]\\
+        [-2,1]&最大和为1&子数组=[1]\\
+        [-2,1,-3]&最大和为1&子数组=[1]\\
+        [-2,1,-3,4]&最大和为4&子数组=[4]\\
+        [-2,1,-3,4,-1]&最大和为4&子数组=[4]\\
+        [-2,1,-3,4,-1,2]&最大和为5&子数组=[4,-1,2]\\
+        [-2,1,-3,4,-1,2,1]&最大和为6&子数组=[4,-1,2,1]\\
+        [-2,1,-3,4,-1,2,1,-5]&最大和为6&子数组=[4,-1,2,1]\\
+        [-2,1,-3,4,-1,2,1,-5,4]&最大和为6&子数组=[4,-1,2,1]\\
+        \end{cases}
+    }$
+
+=== "4.2递归地定义最优解的值"
+
+    ${dp(i)=
+        \begin{cases}
+        nums[i]&dp(i-1)<=0\\
+        dp(i-1) + nums[i]&dp(i-1)>0
+        \end{cases}
+    }$
+
+=== "4.3计算最优解的值，通常采用自底而上的方法"
+
+    ```java
+    class Solution {
+        public int maxSubArray(int[] nums) {
+            int last = Integer.MIN_VALUE;
+            int max = last;
+            for(int num: nums){
+                if(last<=0)last = num;
+                else last += num;
+                max = Math.max(max, last);
+            }
+            return max;
+        }
+    }
+    ```
