@@ -255,9 +255,9 @@ max(c[i,j-1],c[i-1,j]) & \quad \text{ 若 } i,j > 0 \text{ 且 } x_i \neq y_i
     }
     ```
 
-### 剑指 Offer 42. 连续子数组的最大和
+    ### 剑指 Offer 42. 连续子数组的最大和
 
-=== "4.1刻画一个最优解的结构特征"
+    === "4.1刻画一个最优解的结构特征"
 
     输入: `nums = [-2,1,-3,4,-1,2,1,-5,4]`
     ${规律=
@@ -274,7 +274,7 @@ max(c[i,j-1],c[i-1,j]) & \quad \text{ 若 } i,j > 0 \text{ 且 } x_i \neq y_i
         \end{cases}
     }$
 
-=== "4.2递归地定义最优解的值"
+    === "4.2递归地定义最优解的值"
 
     ${dp(i)=
         \begin{cases}
@@ -283,7 +283,7 @@ max(c[i,j-1],c[i-1,j]) & \quad \text{ 若 } i,j > 0 \text{ 且 } x_i \neq y_i
         \end{cases}
     }$
 
-=== "4.3计算最优解的值，通常采用自底而上的方法"
+    === "4.3计算最优解的值，通常采用自底而上的方法"
 
     ```java
     class Solution {
@@ -296,6 +296,73 @@ max(c[i,j-1],c[i-1,j]) & \quad \text{ 若 } i,j > 0 \text{ 且 } x_i \neq y_i
                 max = Math.max(max, last);
             }
             return max;
+        }
+    }
+    ```
+
+### 剑指 Offer 47. 礼物的最大价值
+
+=== "5.1刻画一个最优解的结构特征"
+    输入:
+    ```
+    [
+        [1,3,1],
+        [1,5,1],
+        [4,2,1]
+    ]
+    ```
+    ${规律=
+        \begin{cases}
+        [1*1]&最大和为1&路径为1\\
+        [1*2]&最大和为4&路径为1\to3\\
+        [1*3]&最大和为5&路径为1\to3\to1\\
+        [2*1]&最大和为2&路径为1\to1\\
+        [2*2]&最大和为9&路径为1\to3\to5\\
+        [2*3]&最大和为10&路径为1\to3\to5\to1\\
+        [3*1]&最大和为6&路径为1\to1\to4\\
+        [3*2]&最大和为11&路径为1\to3\to5\to2\\
+        [3*3]&最大和为12&路径为1\to3\to5\to2\to1\\
+        \end{cases}
+    }$
+
+
+=== "5.2递归地定义最优解的值"
+    ${dp(i,j)=
+        \begin{cases}
+        grid[i][j]&i = 0,j = 0\\
+        grid[i][j] + dp(i-1,j)&i \neq 0,j = 0\\
+        grid[i][j] + dp(i,j-1)&i = 0,j \neq 0\\
+        grid[i][j] + max[dp(i-1,j),dp(i,j-1)]&i \neq 0,j \neq 0\\
+        \end{cases}
+    }$
+
+=== "5.3计算最优解的值，通常采用自底而上的方法"
+
+
+    - `grid`随着m*n次遍历后，每个格子分别存了对应的最大价值
+    - 本题将子问题的最优解，保存到格子$grid[i][j]$中,这样随着格子`i++`,`j++`增大，直接复用$grid[i][j]$的最优解，而不必重复计算
+        - [x] 就比如格子由`[1 * 2]`扩张到`[1 * 3]`时，${dp(1,3) =
+        \begin{cases}
+        dp(1,2) + grid[0,2]&第一步\\
+        grid[0,1] + grid[0,2]&第二步\\
+        4 + 1&第三步,这个4是dp(1,2)的最优解，已缓存在格子里了\\
+        5&第四步\\
+        \end{cases}
+        }$
+    ```java
+    class Solution {
+        public int maxValue(int[][] grid) {
+             int m = grid.length;
+            int n = grid[0].length;
+            for(int i=0;i<m;i++){
+                for(int j=0;j<n;j++){
+                    if(i==0&&j==0) continue;
+                    else if(i==0) grid[i][j] += grid[i][j-1];
+                    else if(j==0) grid[i][j] += grid[i-1][j];
+                    else grid[i][j] += Math.max(grid[i-1][j],grid[i][j-1]);
+                }
+            }
+            return grid[m-1][n-1];
         }
     }
     ```
