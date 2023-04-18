@@ -349,6 +349,7 @@ max(c[i,j-1],c[i-1,j]) & \quad \text{ 若 } i,j > 0 \text{ 且 } x_i \neq y_i
         5&第四步\\
         \end{cases}
         }$
+
     ```java
     class Solution {
         public int maxValue(int[][] grid) {
@@ -365,4 +366,116 @@ max(c[i,j-1],c[i-1,j]) & \quad \text{ 若 } i,j > 0 \text{ 且 } x_i \neq y_i
             return grid[m-1][n-1];
         }
     }
+    ```
+### 剑指 Offer 46. 把数字翻译成字符串
+
+=== "6.1刻画一个最优解的结构特征"
+
+    12258
+    ${规律=
+        \begin{cases}
+        1&b&f(1) = 1\\
+        12&bc,m&f(2) = 2\\
+        122&bcc,bw,mb&f(3) = 3\\
+        1225&bccf,mz,bwf,bcz,mcf&f(4) = 5\\
+        12258&bccfi,mcfi,bwfi,bczi,mzi&f(4) = 5\\
+        \end{cases}
+    }$
+
+    - 新增的元素如果不能跟上一个元素组成新元素，可翻译的字符串数量不会增加
+    - f(n) = f(n-1) + f(n-2)
+
+=== "6.2递归地定义最优解的值"
+    ${dp(i)=
+        \begin{cases}
+        dp(i-1)&str[i-1,i]匹配\\
+        dp(i-1) + dp(i-2)&不匹配\\
+        \end{cases}
+    }$
+
+=== "6.3计算最优解的值，通常采用自底而上的方法"
+
+    ```java
+    class Solution {
+        public int translateNum(int num) {
+            String s = num + "";
+            int sum = 1;
+            int last = 1, pre = 1;
+            for(int i=2;i<=s.length();i++){
+                String str = s.substring(i-2,i);
+                if(str.compareTo("10")<0||str.compareTo("25")>0){
+                    sum = pre;
+                }else {
+                    sum = last + pre;
+                }
+                last = pre;
+                pre = sum;
+            }
+            return sum;
+        }
+    }
+    ```
+
+### 剑指 Offer 48. 最长不含重复字符的子字符串
+
+=== "7.1刻画一个最优解的结构特征"
+
+    输入: "abcabcbb"
+
+    输入: "bbbbb"
+
+    输入: "pwwkew"
+
+    1. 衡量子字符串长度需要使用双指针i和j，i是起始指针，j是终止指针，长度是j-i也即dp(j)
+    2. 遍历顺序是从左即右的，所以要逐步增大j指针，这时候就需要根据新j的值，判断i的落点，因为有可能j的值，与字符串内部的值重合，这时候，i指针也要往前递进
+    3. 随着i,j指针交替向前，最大长度也随之改变，直到遍历完
+
+    怎么确认最优解的
+
+    最大的j-i即是最优解，可能有多个，所以先有dp(j) = j - i
+
+    递归的规律是怎么变化的
+
+    1. j++，这里可以使用for循环
+    2. j增加后，新值str[j]是否存在于字符串？
+        - 存在，i移动到已存在的字符位置，即i=str.getIndex(str[j])，此时j-i也发生变化（会减小）
+        - 不存在，说明新增的字符依然是不重复字符，可以继续递增，即dp(j) = dp(j-1) + 1，此时j-i也发生变化（会增大）
+    3. 创建一个max变量，缓存递归过程中的最大j-i值，直到递归完成，返回max即为结果
+
+
+
+    ${规律=
+        \begin{cases}
+        3&abc\\
+        1&b\\
+        3&wke\\
+        \end{cases}
+    }$
+
+=== "7.2递归地定义最优解的值"
+    ${dp(j)=
+        \begin{cases}
+        dp(j-1) + 1& dp(j-1) < j - i\\
+        j - i&dp(j-1) \geq j - i\\
+        \end{cases}
+    }$
+
+=== "7.3计算最优解的值，通常采用自底而上的方法"
+
+    ```java
+    class Solution {
+        public int lengthOfLongestSubstring(String s) {
+            int tmp = 0, res = 0;
+            Map<Character, Integer> dict = new HashMap<>();
+            for(int j=0;j<s.length();i++){
+                int i = dict.getOrDefault(s.charAt(j),-1);
+                dict.put(s.charAt(j),j);
+                tmp = tmp < j-i ? tmp + 1 : j - i;
+                res = Math.max(res,tmp);
+            }
+
+            return res;
+        }
+    }
+
     ```
