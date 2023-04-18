@@ -988,6 +988,20 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#offer-46" class="md-nav__link">
+    剑指 Offer 46. 把数字翻译成字符串
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#offer-48" class="md-nav__link">
+    剑指 Offer 48. 最长不含重复字符的子字符串
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1275,6 +1289,20 @@
           <li class="md-nav__item">
   <a href="#offer-47" class="md-nav__link">
     剑指 Offer 47. 礼物的最大价值
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#offer-46" class="md-nav__link">
+    剑指 Offer 46. 把数字翻译成字符串
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#offer-48" class="md-nav__link">
+    剑指 Offer 48. 最长不含重复字符的子字符串
   </a>
   
 </li>
@@ -1642,7 +1670,10 @@ grid[0,1] + grid[0,2]&amp;第二步\\
 4 + 1&amp;第三步,这个4是dp(1,2)的最优解，已缓存在格子里了\\
 5&amp;第四步\\
 \end{cases}
-}\)</span>
+}\)</span></li>
+</ul>
+</li>
+</ul>
 <div class="highlight"><pre><span></span><code><span class="kd">class</span> <span class="nc">Solution</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">maxValue</span><span class="p">(</span><span class="kt">int</span><span class="o">[][]</span><span class="w"> </span><span class="n">grid</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">         </span><span class="kt">int</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">grid</span><span class="p">.</span><span class="na">length</span><span class="p">;</span>
@@ -1658,10 +1689,125 @@ grid[0,1] + grid[0,2]&amp;第二步\\
 <span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">grid</span><span class="o">[</span><span class="n">m</span><span class="o">-</span><span class="mi">1</span><span class="o">][</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="o">]</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div></li>
+</code></pre></div>
+</div>
+</div>
+</div>
+<h3 id="offer-46">剑指 Offer 46. 把数字翻译成字符串<a class="headerlink" href="#offer-46" title="Permanent link">&para;</a></h3>
+<div class="tabbed-set tabbed-alternate" data-tabs="8:3"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio" /><input id="__tabbed_8_2" name="__tabbed_8" type="radio" /><input id="__tabbed_8_3" name="__tabbed_8" type="radio" /><div class="tabbed-labels"><label for="__tabbed_8_1">6.1刻画一个最优解的结构特征</label><label for="__tabbed_8_2">6.2递归地定义最优解的值</label><label for="__tabbed_8_3">6.3计算最优解的值，通常采用自底而上的方法</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>12258
+<span class="arithmatex">\({规律=
+    \begin{cases}
+    1&amp;b&amp;f(1) = 1\\
+    12&amp;bc,m&amp;f(2) = 2\\
+    122&amp;bcc,bw,mb&amp;f(3) = 3\\
+    1225&amp;bccf,mz,bwf,bcz,mcf&amp;f(4) = 5\\
+    12258&amp;bccfi,mcfi,bwfi,bczi,mzi&amp;f(4) = 5\\
+    \end{cases}
+}\)</span></p>
+<ul>
+<li>新增的元素如果不能跟上一个元素组成新元素，可翻译的字符串数量不会增加</li>
+<li>f(n) = f(n-1) + f(n-2)</li>
+</ul>
+</div>
+<div class="tabbed-block">
+<p><span class="arithmatex">\({dp(i)=
+    \begin{cases}
+    dp(i-1)&amp;str[i-1,i]匹配\\
+    dp(i-1) + dp(i-2)&amp;不匹配\\
+    \end{cases}
+}\)</span></p>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kd">class</span> <span class="nc">Solution</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">translateNum</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">;</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">last</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">pre</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">        </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">2</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;=</span><span class="n">s</span><span class="p">.</span><span class="na">length</span><span class="p">();</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+<span class="w">            </span><span class="n">String</span><span class="w"> </span><span class="n">str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="na">substring</span><span class="p">(</span><span class="n">i</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="n">i</span><span class="p">);</span>
+<span class="w">            </span><span class="k">if</span><span class="p">(</span><span class="n">str</span><span class="p">.</span><span class="na">compareTo</span><span class="p">(</span><span class="s">&quot;10&quot;</span><span class="p">)</span><span class="o">&lt;</span><span class="mi">0</span><span class="o">||</span><span class="n">str</span><span class="p">.</span><span class="na">compareTo</span><span class="p">(</span><span class="s">&quot;25&quot;</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">){</span>
+<span class="w">                </span><span class="n">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pre</span><span class="p">;</span>
+<span class="w">            </span><span class="p">}</span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">last</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">pre</span><span class="p">;</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">            </span><span class="n">last</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pre</span><span class="p">;</span>
+<span class="w">            </span><span class="n">pre</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sum</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">sum</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<h3 id="offer-48">剑指 Offer 48. 最长不含重复字符的子字符串<a class="headerlink" href="#offer-48" title="Permanent link">&para;</a></h3>
+<div class="tabbed-set tabbed-alternate" data-tabs="9:3"><input checked="checked" id="__tabbed_9_1" name="__tabbed_9" type="radio" /><input id="__tabbed_9_2" name="__tabbed_9" type="radio" /><input id="__tabbed_9_3" name="__tabbed_9" type="radio" /><div class="tabbed-labels"><label for="__tabbed_9_1">7.1刻画一个最优解的结构特征</label><label for="__tabbed_9_2">7.2递归地定义最优解的值</label><label for="__tabbed_9_3">7.3计算最优解的值，通常采用自底而上的方法</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>输入: "abcabcbb"</p>
+<p>输入: "bbbbb"</p>
+<p>输入: "pwwkew"</p>
+<div class="admonition tip">
+<p class="admonition-title">规律分析</p>
+<ol class="task-list">
+<li>衡量子字符串长度需要使用双指针<span class="arithmatex">\(i\)</span>和<span class="arithmatex">\(j\)</span>，<span class="arithmatex">\(i\)</span>是起始指针，<span class="arithmatex">\(j\)</span>是终止指针，长度是<span class="arithmatex">\(j-i\)</span>也即<span class="arithmatex">\(dp(j)\)</span></li>
+<li>遍历顺序是从左即右的，所以要逐步增大<span class="arithmatex">\(j\)</span>指针，这时候就需要根据新<span class="arithmatex">\(j\)</span>的值，判断i的落点，因为有可能<span class="arithmatex">\(j\)</span>的值，与字符串内部的值重合，这时候，<span class="arithmatex">\(i\)</span>指针也要往前递进</li>
+<li>
+<p>随着<span class="arithmatex">\(i,j\)</span>指针交替向前，最大长度也随之改变，直到遍历完</p>
+</li>
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <strong>怎么确认最优解的</strong></p>
+<p>最大的<span class="arithmatex">\(j-i\)</span>即是最优解，可能有多个，所以有<span class="arithmatex">\(dp(j) = j - i\)</span></p>
+</li>
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <strong>递归的规律是怎么变化的</strong></p>
+<ol>
+<li><code>j++</code>，这里可以使用for循环</li>
+<li>j增加后，新值str[j]是否存在于字符串？<ul>
+<li>存在，<span class="arithmatex">\(i\)</span>移动到已存在的字符位置，即i=str.getIndex(str[j])，此时<span class="arithmatex">\(j-i\)</span>也发生变化（会减小）</li>
+<li>不存在，说明新增的字符依然是不重复字符，可以继续递增，即<span class="arithmatex">\(dp(j) = dp(j-1) + 1\)</span>，此时<span class="arithmatex">\(j-i\)</span>也发生变化（会增大）</li>
 </ul>
 </li>
-</ul>
+<li>创建一个<code>max</code>变量，缓存递归过程中的最大<span class="arithmatex">\(j-i\)</span>值，直到递归完成，返回<code>max</code>即为结果</li>
+</ol>
+</li>
+</ol>
+</div>
+<p><span class="arithmatex">\({规律=
+    \begin{cases}
+    3&amp;abc\\
+    1&amp;b\\
+    3&amp;wke\\
+    \end{cases}
+}\)</span></p>
+</div>
+<div class="tabbed-block">
+<p><span class="arithmatex">\({dp(j)=
+    \begin{cases}
+    dp(j-1) + 1&amp; dp(j-1) &lt; j - i\\
+    j - i&amp;dp(j-1) \geq j - i\\
+    \end{cases}
+}\)</span></p>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kd">class</span> <span class="nc">Solution</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">lengthOfLongestSubstring</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">tmp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">        </span><span class="n">Map</span><span class="o">&lt;</span><span class="n">Character</span><span class="p">,</span><span class="w"> </span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">dict</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HashMap</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<span class="w">        </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">j</span><span class="o">&lt;</span><span class="n">s</span><span class="p">.</span><span class="na">length</span><span class="p">();</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+<span class="w">            </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dict</span><span class="p">.</span><span class="na">getOrDefault</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="na">charAt</span><span class="p">(</span><span class="n">j</span><span class="p">),</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span>
+<span class="w">            </span><span class="n">dict</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="na">charAt</span><span class="p">(</span><span class="n">j</span><span class="p">),</span><span class="n">j</span><span class="p">);</span>
+<span class="w">            </span><span class="n">tmp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tmp</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">j</span><span class="o">-</span><span class="n">i</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">tmp</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<span class="w">            </span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Math</span><span class="p">.</span><span class="na">max</span><span class="p">(</span><span class="n">res</span><span class="p">,</span><span class="n">tmp</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">res</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
 </div>
 </div>
 </div>
