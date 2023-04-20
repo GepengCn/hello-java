@@ -1614,12 +1614,13 @@ f(n) = f(n-1) + f(n-2)
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
+</div>
+</div>
+</div>
 <h3 id="offer-42">剑指 Offer 42. 连续子数组的最大和<a class="headerlink" href="#offer-42" title="Permanent link">&para;</a></h3>
-<div class="tabbed-set tabbed-alternate" data-tabs="4:1"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">4.1刻画一个最优解的结构特征</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:3"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">4.1刻画一个最优解的结构特征</label><label for="__tabbed_4_2">4.2递归地定义最优解的值</label><label for="__tabbed_4_3">4.3计算最优解的值，通常采用自底而上的方法</label></div>
 <div class="tabbed-content">
-<div class="tabbed-block"></div>
-</div>
-</div>
+<div class="tabbed-block">
 <p>输入: <code>nums = [-2,1,-3,4,-1,2,1,-5,4]</code>
 <span class="arithmatex">\({规律=
     \begin{cases}
@@ -1634,22 +1635,16 @@ f(n) = f(n-1) + f(n-2)
     [-2,1,-3,4,-1,2,1,-5,4]&amp;最大和为6&amp;子数组=[4,-1,2,1]\\
     \end{cases}
 }\)</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="5:1"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">4.2递归地定义最优解的值</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block"></div>
 </div>
-</div>
+<div class="tabbed-block">
 <p><span class="arithmatex">\({dp(i)=
     \begin{cases}
     nums[i]&amp;dp(i-1)&lt;=0\\
     dp(i-1) + nums[i]&amp;dp(i-1)&gt;0
     \end{cases}
 }\)</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="6:1"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">4.3计算最优解的值，通常采用自底而上的方法</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block"></div>
 </div>
-</div>
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="kd">class</span> <span class="nc">Solution</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">maxSubArray</span><span class="p">(</span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">nums</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">last</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Integer</span><span class="p">.</span><span class="na">MIN_VALUE</span><span class="p">;</span>
@@ -1667,7 +1662,7 @@ f(n) = f(n-1) + f(n-2)
 </div>
 </div>
 <h3 id="offer-47">剑指 Offer 47. 礼物的最大价值<a class="headerlink" href="#offer-47" title="Permanent link">&para;</a></h3>
-<div class="tabbed-set tabbed-alternate" data-tabs="7:3"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><input id="__tabbed_7_2" name="__tabbed_7" type="radio" /><input id="__tabbed_7_3" name="__tabbed_7" type="radio" /><div class="tabbed-labels"><label for="__tabbed_7_1">5.1刻画一个最优解的结构特征</label><label for="__tabbed_7_2">5.2递归地定义最优解的值</label><label for="__tabbed_7_3">5.3计算最优解的值，通常采用自底而上的方法</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="5:3"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><input id="__tabbed_5_3" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">5.1刻画一个最优解的结构特征</label><label for="__tabbed_5_2">5.2递归地定义最优解的值</label><label for="__tabbed_5_3">5.3计算最优解的值，通常采用自底而上的方法</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>输入:
@@ -1736,7 +1731,7 @@ grid[0,1] + grid[0,2]&amp;第二步\\
 </div>
 </div>
 <h3 id="offer-46">剑指 Offer 46. 把数字翻译成字符串<a class="headerlink" href="#offer-46" title="Permanent link">&para;</a></h3>
-<div class="tabbed-set tabbed-alternate" data-tabs="8:3"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio" /><input id="__tabbed_8_2" name="__tabbed_8" type="radio" /><input id="__tabbed_8_3" name="__tabbed_8" type="radio" /><div class="tabbed-labels"><label for="__tabbed_8_1">6.1刻画一个最优解的结构特征</label><label for="__tabbed_8_2">6.2递归地定义最优解的值</label><label for="__tabbed_8_3">6.3计算最优解的值，通常采用自底而上的方法</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="6:3"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><input id="__tabbed_6_3" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">6.1刻画一个最优解的结构特征</label><label for="__tabbed_6_2">6.2递归地定义最优解的值</label><label for="__tabbed_6_3">6.3计算最优解的值，通常采用自底而上的方法</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>12258
@@ -1786,7 +1781,7 @@ grid[0,1] + grid[0,2]&amp;第二步\\
 </div>
 </div>
 <h3 id="offer-48">剑指 Offer 48. 最长不含重复字符的子字符串<a class="headerlink" href="#offer-48" title="Permanent link">&para;</a></h3>
-<div class="tabbed-set tabbed-alternate" data-tabs="9:3"><input checked="checked" id="__tabbed_9_1" name="__tabbed_9" type="radio" /><input id="__tabbed_9_2" name="__tabbed_9" type="radio" /><input id="__tabbed_9_3" name="__tabbed_9" type="radio" /><div class="tabbed-labels"><label for="__tabbed_9_1">7.1刻画一个最优解的结构特征</label><label for="__tabbed_9_2">7.2递归地定义最优解的值</label><label for="__tabbed_9_3">7.3计算最优解的值，通常采用自底而上的方法</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="7:3"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><input id="__tabbed_7_2" name="__tabbed_7" type="radio" /><input id="__tabbed_7_3" name="__tabbed_7" type="radio" /><div class="tabbed-labels"><label for="__tabbed_7_1">7.1刻画一个最优解的结构特征</label><label for="__tabbed_7_2">7.2递归地定义最优解的值</label><label for="__tabbed_7_3">7.3计算最优解的值，通常采用自底而上的方法</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>输入: "abcabcbb"</p>
@@ -1854,7 +1849,7 @@ grid[0,1] + grid[0,2]&amp;第二步\\
 </div>
 </div>
 <h3 id="offer-14-i">剑指 Offer 14- I. 剪绳子<a class="headerlink" href="#offer-14-i" title="Permanent link">&para;</a></h3>
-<div class="tabbed-set tabbed-alternate" data-tabs="10:3"><input checked="checked" id="__tabbed_10_1" name="__tabbed_10" type="radio" /><input id="__tabbed_10_2" name="__tabbed_10" type="radio" /><input id="__tabbed_10_3" name="__tabbed_10" type="radio" /><div class="tabbed-labels"><label for="__tabbed_10_1">8.1刻画一个最优解的结构特征</label><label for="__tabbed_10_2">8.2递归地定义最优解的值</label><label for="__tabbed_10_3">8.3计算最优解的值，通常采用自底而上的方法</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="8:3"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio" /><input id="__tabbed_8_2" name="__tabbed_8" type="radio" /><input id="__tabbed_8_3" name="__tabbed_8" type="radio" /><div class="tabbed-labels"><label for="__tabbed_8_1">8.1刻画一个最优解的结构特征</label><label for="__tabbed_8_2">8.2递归地定义最优解的值</label><label for="__tabbed_8_3">8.3计算最优解的值，通常采用自底而上的方法</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p><span class="arithmatex">\({规律=
@@ -1904,7 +1899,7 @@ grid[0,1] + grid[0,2]&amp;第二步\\
 </div>
 </div>
 <h3 id="offer-62">剑指 Offer 62. 圆圈中最后剩下的数字<a class="headerlink" href="#offer-62" title="Permanent link">&para;</a></h3>
-<div class="tabbed-set tabbed-alternate" data-tabs="11:3"><input checked="checked" id="__tabbed_11_1" name="__tabbed_11" type="radio" /><input id="__tabbed_11_2" name="__tabbed_11" type="radio" /><input id="__tabbed_11_3" name="__tabbed_11" type="radio" /><div class="tabbed-labels"><label for="__tabbed_11_1">9.1刻画一个最优解的结构特征</label><label for="__tabbed_11_2">9.2递归地定义最优解的值</label><label for="__tabbed_11_3">9.3计算最优解的值，通常采用自底而上的方法</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="9:3"><input checked="checked" id="__tabbed_9_1" name="__tabbed_9" type="radio" /><input id="__tabbed_9_2" name="__tabbed_9" type="radio" /><input id="__tabbed_9_3" name="__tabbed_9" type="radio" /><div class="tabbed-labels"><label for="__tabbed_9_1">9.1刻画一个最优解的结构特征</label><label for="__tabbed_9_2">9.2递归地定义最优解的值</label><label for="__tabbed_9_3">9.3计算最优解的值，通常采用自底而上的方法</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p><span class="arithmatex">\({规律=
@@ -1939,7 +1934,7 @@ grid[0,1] + grid[0,2]&amp;第二步\\
 </div>
 </div>
 <h3 id="offer-19">剑指 Offer 19. 正则表达式匹配<a class="headerlink" href="#offer-19" title="Permanent link">&para;</a></h3>
-<div class="tabbed-set tabbed-alternate" data-tabs="12:3"><input checked="checked" id="__tabbed_12_1" name="__tabbed_12" type="radio" /><input id="__tabbed_12_2" name="__tabbed_12" type="radio" /><input id="__tabbed_12_3" name="__tabbed_12" type="radio" /><div class="tabbed-labels"><label for="__tabbed_12_1">10.1刻画一个最优解的结构特征</label><label for="__tabbed_12_2">10.2递归地定义最优解的值</label><label for="__tabbed_12_3">10.3计算最优解的值，通常采用自底而上的方法</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="10:3"><input checked="checked" id="__tabbed_10_1" name="__tabbed_10" type="radio" /><input id="__tabbed_10_2" name="__tabbed_10" type="radio" /><input id="__tabbed_10_3" name="__tabbed_10" type="radio" /><div class="tabbed-labels"><label for="__tabbed_10_1">10.1刻画一个最优解的结构特征</label><label for="__tabbed_10_2">10.2递归地定义最优解的值</label><label for="__tabbed_10_3">10.3计算最优解的值，通常采用自底而上的方法</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>https://leetcode.cn/problems/zheng-ze-biao-da-shi-pi-pei-lcof/solution/by-flix-ziew/</p>
