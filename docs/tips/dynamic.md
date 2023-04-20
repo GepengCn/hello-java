@@ -480,3 +480,160 @@ max(c[i,j-1],c[i-1,j]) & \quad \text{ 若 } i,j > 0 \text{ 且 } x_i \neq y_i
     }
 
     ```
+
+### 剑指 Offer 14- I. 剪绳子
+
+=== "8.1刻画一个最优解的结构特征"
+
+    ${规律=
+        \begin{cases}
+        1&f(1)\\
+        1\times1=1&f(2)\\
+        1\times2=2&f(3)\\
+        2\times2=4&f(4)\\
+        2\times3=6&f(5)\\
+        3\times3=9&f(6)\\
+        2\times2\times3=12&f(7)\\
+        2\times3\times3=18&f(8)\\
+        3\times3\times3=27&f(9)\\
+        2\times2\times3\times3=36&f(10)\\
+        \end{cases}
+    }$
+=== "8.2递归地定义最优解的值"
+    假设长度为i的绳子，剪的第一刀长度为$k$，那么剩余的长度为$i-k$
+    ${dp(i)=
+        \begin{cases}
+        k \times (i-k)&i-k剩余的长度不能再剪(0或1)\\
+        k \times dp(i-k)&剩余的长度可再剪\\
+        \end{cases}
+    }$
+
+=== "8.3计算最优解的值，通常采用自底而上的方法"
+
+    ```java
+    class Solution {
+        public int cuttingRope(int n) {
+            int[] dp = new int[n+1];
+            for(int i=2;i<=n;i++){
+                int max = 0;
+                for(int k=1;k<i;k++){
+                    if(i-k>3){
+                        max = k * dp[i-k];
+                    } else {
+                        max = k * (i - k);
+                    }
+                    dp[i] = Math.max(dp[i],max);
+                }
+            }
+            return dp[n];
+        }
+    }
+    ```
+
+### 剑指 Offer 62. 圆圈中最后剩下的数字
+
+=== "9.1刻画一个最优解的结构特征"
+
+    ${规律=
+        \begin{cases}
+        f(1) = 0&0\\
+        f(2) = 0,1&1\\
+        f(3) = 2,0,1&1\\
+        f(4) = 2,1,3,0&0\\
+        f(5) = 2,0,4,1,3&3\\
+        f(6) = 2,5,3,1,4,0&0\\
+        \end{cases}
+    }$
+
+=== "9.2递归地定义最优解的值"
+
+    约瑟夫环问题
+
+    $f(n) = (f(n-1) + m) % n$
+
+    推导
+
+    $dp(n) = (dp(n-1) + m) % n$
+
+=== "9.3计算最优解的值，通常采用自底而上的方法"
+
+    ```java
+    class Solution {
+        public int lastRemaining(int n, int m) {
+            int x = 0;
+            for(int i = 1;i <= n;i++){
+                x = (x + m) % i;
+            }
+            return x;
+        }
+    }
+    ```
+
+### 剑指 Offer 19. 正则表达式匹配
+
+=== "10.1刻画一个最优解的结构特征"
+
+    $p[j-1] = '*'$
+
+    ${dp[i][j]=
+        \begin{cases}
+       dp[i][j-2]& 0匹配\\
+       dp[i-1][j]& s[i-1]=p[j-2]，匹配1次\\
+       dp[i-1][j]& p[j-2]==.\\
+        \end{cases}
+    }$
+
+    $p[j-1] \neq '*'$
+
+    ${dp[i][j]=
+        \begin{cases}
+        false& s[i-1]=p[i-1]，不匹配\\
+        dp[i-1][j]& s[i-1]=p[i-1]，匹配\\
+        dp[i-1][j]& p[j-1]==.\\
+        \end{cases}
+    }$
+
+
+https://leetcode.cn/problems/zheng-ze-biao-da-shi-pi-pei-lcof/solution/by-flix-ziew/
+
+
+=== "10.3"
+
+    ```java
+    class Solution {
+        public boolean isMatch(String s, String p) {
+            int m = s.length() + 1;
+            int n = p.length() + 1;
+            boolean[][] dp = new boolean[m][n];
+            dp[0][0] = true;
+
+            for(int j=2;j<n;j+=2){
+                dp[0][j] = dp[0][j-2] && p.charAt(j-1) == '*';
+            }
+
+            for(int i=1;i<m;i++){
+                for(int j=1;j<n;j++){
+                    if(p.charAt(j-1)=='*'){
+                        if(dp[i][j-2]){
+                            dp[i][j] = true;
+                        } else if(s.charAt(i-1) == p.charAt(j-2)){
+                            dp[i][j] = dp[i-1][j];
+                        } else if(p.charAt(j-2) == '.'){
+                            dp[i][j] = dp[i-1][j];
+                        }
+                    } else {
+                        if(s.charAt(i-1) == p.charAt(j-1)){
+                            dp[i][j] = dp[i-1][j-1];
+                        } else if(p.charAt(j-1) == '.'){
+                            dp[i][j] = dp[i-1][j-1];
+                        }
+                    }
+
+                }
+            }
+
+            return dp[m-1][n-1];
+        }
+    }
+
+    ```
