@@ -1956,7 +1956,7 @@ grid[0,1] + grid[0,2]&amp;第二步\\
 <p><span class="arithmatex">\(p[j-1] \neq '*'\)</span></p>
 <p><span class="arithmatex">\({dp[i][j]=
     \begin{cases}
-    false&amp; s[i-1]=p[i-1]，不匹配\\
+    false&amp; s[i-1] \neq p[i-1]，不匹配\\
     dp[i-1][j]&amp; s[i-1]=p[i-1]，匹配\\
     dp[i-1][j]&amp; p[j-1]==.\\
     \end{cases}
