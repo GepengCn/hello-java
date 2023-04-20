@@ -572,6 +572,9 @@ max(c[i,j-1],c[i-1,j]) & \quad \text{ 若 } i,j > 0 \text{ 且 } x_i \neq y_i
 ### 剑指 Offer 19. 正则表达式匹配
 
 === "10.1刻画一个最优解的结构特征"
+    https://leetcode.cn/problems/zheng-ze-biao-da-shi-pi-pei-lcof/solution/by-flix-ziew/
+
+=== "10.2递归地定义最优解的值"
 
     $p[j-1] = '*'$
 
@@ -594,10 +597,9 @@ max(c[i,j-1],c[i-1,j]) & \quad \text{ 若 } i,j > 0 \text{ 且 } x_i \neq y_i
     }$
 
 
-https://leetcode.cn/problems/zheng-ze-biao-da-shi-pi-pei-lcof/solution/by-flix-ziew/
 
 
-=== "10.3"
+=== "10.3计算最优解的值，通常采用自底而上的方法"
 
     ```java
     class Solution {
