@@ -590,7 +590,7 @@ max(c[i,j-1],c[i-1,j]) & \quad \text{ 若 } i,j > 0 \text{ 且 } x_i \neq y_i
 
     ${dp[i][j]=
         \begin{cases}
-        false& s[i-1]=p[i-1]，不匹配\\
+        false& s[i-1] \neq p[i-1]，不匹配\\
         dp[i-1][j]& s[i-1]=p[i-1]，匹配\\
         dp[i-1][j]& p[j-1]==.\\
         \end{cases}
