@@ -660,9 +660,14 @@ max(c[i,j-1],c[i-1,j]) & \quad \text{ 若 } i,j > 0 \text{ 且 } x_i \neq y_i
     }$
 
 === "11.2递归地定义最优解的值"
-    - [x] $j$是下一个丑数
 
-    $dp(i)=dp(i-1) + j$
+    ${dp(i)=
+        \begin{cases}
+       dp(a) \times 2 & a+1\\
+       dp(b) \times 3\\
+       dp(c) \times 5\\
+        \end{cases}
+    }$
 
 === "11.3计算最优解的值，通常采用自底而上的方法"
 
