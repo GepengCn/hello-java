@@ -1030,6 +1030,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#offer-60-n" class="md-nav__link">
+    剑指 Offer 60. n个骰子的点数
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1359,6 +1366,13 @@
           <li class="md-nav__item">
   <a href="#offer-49" class="md-nav__link">
     剑指 Offer 49. 丑数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#offer-60-n" class="md-nav__link">
+    剑指 Offer 60. n个骰子的点数
   </a>
   
 </li>
@@ -2054,6 +2068,75 @@ grid[0,1] + grid[0,2]&amp;第二步\\
 <span class="w">            </span><span class="n">i</span><span class="o">++</span><span class="p">;</span>
 <span class="w">        </span><span class="p">}</span>
 <span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">dp</span><span class="o">[</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="o">]</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<h3 id="offer-60-n">剑指 Offer 60. n个骰子的点数<a class="headerlink" href="#offer-60-n" title="Permanent link">&para;</a></h3>
+<div class="tabbed-set tabbed-alternate" data-tabs="12:3"><input checked="checked" id="__tabbed_12_1" name="__tabbed_12" type="radio" /><input id="__tabbed_12_2" name="__tabbed_12" type="radio" /><input id="__tabbed_12_3" name="__tabbed_12" type="radio" /><div class="tabbed-labels"><label for="__tabbed_12_1">12.1刻画一个最优解的结构特征</label><label for="__tabbed_12_2">12.2递归地定义最优解的值</label><label for="__tabbed_12_3">12.3计算最优解的值，通常采用自底而上的方法</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><span class="arithmatex">\({1个色子=
+    \begin{cases}
+    1&amp;\frac{1}{6}\\
+    2&amp;\frac{1}{6}\\
+    3&amp;\frac{1}{6}\\
+    4&amp;\frac{1}{6}\\
+    5&amp;\frac{1}{6}\\
+    6&amp;\frac{1}{6}\\
+    \end{cases}
+}\)</span></p>
+<p><span class="arithmatex">\({2个色子=
+    \begin{cases}
+    1+1=2&amp;\frac{1}{36}\\
+    1+2=2+1=3&amp;\frac{2}{36}\\
+    1+3=3+1=2+2=4&amp;\frac{3}{36}\\
+    1+4=4+1=2+3=3+2=5&amp;\frac{4}{36}\\
+    1+5=5+1=2+4=4+2=3+3=6&amp;\frac{5}{36}\\
+    1+6=6+1=2+5=5+2=3+4=4+3=7&amp;\frac{6}{36}\\
+    2+6=6+2=3+5=5+3=4+4=8&amp;\frac{5}{36}\\
+    3+6=6+3=4+5=5+4=9&amp;\frac{4}{36}\\
+    4+6=6+4=5+5=10&amp;\frac{3}{36}\\
+    5+6=6+5=11&amp;\frac{2}{36}\\
+    6+6=12&amp;\frac{1}{36}\\
+    \end{cases}
+}\)</span></p>
+</div>
+<div class="tabbed-block">
+<p>设色子数<span class="arithmatex">\(n\)</span></p>
+<p>比如2个色子<span class="arithmatex">\(a\)</span>和<span class="arithmatex">\(b\)</span></p>
+<p>f(a)=1,f(b)=1,sum(a,b)=2,概率为<span class="arithmatex">\(\frac{1}{36}\)</span></p>
+<p>f(a)=1,f(b)=2,sum(a,b)=3,概率为<span class="arithmatex">\(\frac{1}{36}\)</span></p>
+<p>...</p>
+<p>f(a)=1,f(b)=6,sum(a,b)=7,概率为<span class="arithmatex">\(\frac{1}{36}\)</span></p>
+<p>将其存储到数组之中，数组的起始就是sum(a=1,b=1)=2，终止为sum(a=6,b=6)=12，数组长度归纳为<span class="arithmatex">\(12-2+1=6 \times 2-1 \times 2+1=6n-n+1=5n+1\)</span></p>
+<p>继续遍历</p>
+<p>f(a)=2,f(b)=1,sum(a,b)=2,概率为<span class="arithmatex">\(\frac{1}{36}\)</span></p>
+<p>...</p>
+<p>f(a)=2,f(b)=6,sum(a,b)=7,概率为<span class="arithmatex">\(\frac{1}{36}\)</span></p>
+<p>直到...</p>
+<p>f(a)=6,f(b)=1,sum(a,b)=7,概率为<span class="arithmatex">\(\frac{1}{36}\)</span></p>
+<p>...</p>
+<p>f(a)=6,f(b)=6,sum(a,b)=7,概率为<span class="arithmatex">\(\frac{1}{36}\)</span></p>
+<p>这些概率随着遍历存储到数组中，即求出每个和的概率</p>
+<p><span class="arithmatex">\(dp(n,x) = \displaystyle\sum_{i=1}^{6} dp(n-1,x-i) \times \frac{1}{6}\)</span></p>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kd">class</span> <span class="nc">Solution</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">double</span><span class="o">[]</span><span class="w"> </span><span class="nf">dicesProbability</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">double</span><span class="o">[]</span><span class="w"> </span><span class="n">dp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">double</span><span class="o">[]</span><span class="p">{</span><span class="mf">1.0</span><span class="o">/</span><span class="mf">6.0</span><span class="p">,</span><span class="mf">1.0</span><span class="o">/</span><span class="mf">6.0</span><span class="p">,</span><span class="mf">1.0</span><span class="o">/</span><span class="mf">6.0</span><span class="p">,</span><span class="mf">1.0</span><span class="o">/</span><span class="mf">6.0</span><span class="p">,</span><span class="mf">1.0</span><span class="o">/</span><span class="mf">6.0</span><span class="p">,</span><span class="mf">1.0</span><span class="o">/</span><span class="mf">6.0</span><span class="p">};</span>
+<span class="w">        </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">2</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;=</span><span class="n">n</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+<span class="w">            </span><span class="kt">double</span><span class="o">[]</span><span class="w"> </span><span class="n">tmp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">double</span><span class="o">[</span><span class="mi">5</span><span class="o">*</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="o">]</span><span class="p">;</span>
+<span class="w">            </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">x</span><span class="o">&lt;</span><span class="n">dp</span><span class="p">.</span><span class="na">length</span><span class="p">;</span><span class="n">x</span><span class="o">++</span><span class="p">){</span>
+<span class="w">                </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">k</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">k</span><span class="o">&lt;</span><span class="mi">6</span><span class="p">;</span><span class="n">k</span><span class="o">++</span><span class="p">){</span>
+<span class="w">                    </span><span class="n">tmp</span><span class="o">[</span><span class="n">x</span><span class="o">+</span><span class="n">k</span><span class="o">]+=</span><span class="n">dp</span><span class="o">[</span><span class="n">x</span><span class="o">]/</span><span class="mi">6</span><span class="p">;</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">            </span><span class="n">dp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tmp</span><span class="p">;</span><span class="c1">//将当前色子的概率存入备忘录，如果色子数目+1，前一数目的概率可以直接从备忘录中获取，不必重复计算</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">dp</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
