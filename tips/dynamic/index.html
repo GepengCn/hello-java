@@ -1023,6 +1023,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#offer-49" class="md-nav__link">
+    剑指 Offer 49. 丑数
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1345,6 +1352,13 @@
           <li class="md-nav__item">
   <a href="#offer-19" class="md-nav__link">
     剑指 Offer 19. 正则表达式匹配
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#offer-49" class="md-nav__link">
+    剑指 Offer 49. 丑数
   </a>
   
 </li>
@@ -1991,6 +2005,52 @@ grid[0,1] + grid[0,2]&amp;第二步\\
 <span class="w">        </span><span class="p">}</span>
 
 <span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">dp</span><span class="o">[</span><span class="n">m</span><span class="o">-</span><span class="mi">1</span><span class="o">][</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="o">]</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<h3 id="offer-49">剑指 Offer 49. 丑数<a class="headerlink" href="#offer-49" title="Permanent link">&para;</a></h3>
+<div class="tabbed-set tabbed-alternate" data-tabs="11:3"><input checked="checked" id="__tabbed_11_1" name="__tabbed_11" type="radio" /><input id="__tabbed_11_2" name="__tabbed_11" type="radio" /><input id="__tabbed_11_3" name="__tabbed_11" type="radio" /><div class="tabbed-labels"><label for="__tabbed_11_1">11.1刻画一个最优解的结构特征</label><label for="__tabbed_11_2">11.2递归地定义最优解的值</label><label for="__tabbed_11_3">11.3计算最优解的值，通常采用自底而上的方法</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><span class="arithmatex">\({规律=
+    \begin{cases}
+    1&amp;f(1) = 1\\
+    1,2&amp;f(2) = 2\\
+    1,2,3&amp;f(3) = 3\\
+    1,2,3,4&amp;f(4) = 4\\
+    1,2,3,4,5&amp;f(5) = 5\\
+    1,2,3,4,5,6&amp;f(6) = 6\\
+    1,2,3,4,5,6,8&amp;f(7) = 8\\
+    1,2,3,4,5,6,8,9&amp;f(8) = 9\\
+    1,2,3,4,5,6,8,9,10&amp;f(9) = 10\\
+    1,2,3,4,5,6,8,9,10,12&amp;f(10) = 12\\
+    \end{cases}
+}\)</span></p>
+</div>
+<div class="tabbed-block">
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <span class="arithmatex">\(j\)</span>是下一个丑数</li>
+</ul>
+<p><span class="arithmatex">\(dp(i)=dp(i-1) + j\)</span></p>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kd">class</span> <span class="nc">Solution</span><span class="w"> </span><span class="p">{</span>
+<span class="w">     </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">nthUglyNumber</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">dp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="o">[</span><span class="n">n</span><span class="o">]</span><span class="p">;</span>
+<span class="w">        </span><span class="n">dp</span><span class="o">[</span><span class="mi">0</span><span class="o">]=</span><span class="mi">1</span><span class="p">;</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">b</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">c</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span>
+<span class="w">        </span><span class="k">while</span><span class="p">(</span><span class="n">i</span><span class="o">&lt;</span><span class="n">n</span><span class="p">){</span>
+<span class="w">            </span><span class="kt">int</span><span class="w"> </span><span class="n">n2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dp</span><span class="o">[</span><span class="n">a</span><span class="o">]*</span><span class="mi">2</span><span class="p">,</span><span class="n">n3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dp</span><span class="o">[</span><span class="n">b</span><span class="o">]*</span><span class="mi">3</span><span class="p">,</span><span class="n">n5</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dp</span><span class="o">[</span><span class="n">c</span><span class="o">]*</span><span class="mi">5</span><span class="p">;</span>
+<span class="w">            </span><span class="n">dp</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Math</span><span class="p">.</span><span class="na">min</span><span class="p">(</span><span class="n">Math</span><span class="p">.</span><span class="na">min</span><span class="p">(</span><span class="n">n2</span><span class="p">,</span><span class="n">n3</span><span class="p">),</span><span class="n">n5</span><span class="p">);</span>
+<span class="w">            </span><span class="k">if</span><span class="p">(</span><span class="n">dp</span><span class="o">[</span><span class="n">i</span><span class="o">]==</span><span class="n">n2</span><span class="p">)</span><span class="n">a</span><span class="o">++</span><span class="p">;</span>
+<span class="w">            </span><span class="k">if</span><span class="p">(</span><span class="n">dp</span><span class="o">[</span><span class="n">i</span><span class="o">]==</span><span class="n">n3</span><span class="p">)</span><span class="n">b</span><span class="o">++</span><span class="p">;</span>
+<span class="w">            </span><span class="k">if</span><span class="p">(</span><span class="n">dp</span><span class="o">[</span><span class="n">i</span><span class="o">]==</span><span class="n">n5</span><span class="p">)</span><span class="n">c</span><span class="o">++</span><span class="p">;</span>
+<span class="w">            </span><span class="n">i</span><span class="o">++</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">dp</span><span class="o">[</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="o">]</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
