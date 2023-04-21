@@ -1,6 +1,12 @@
 # 动态规划
 
+## 题库
+
 ![](https://p.ipic.vip/utwjtb.jpg)
+
+## 技巧总结
+
+![](https://p.ipic.vip/ois93n.jpg)
 
 ## 原理
 
