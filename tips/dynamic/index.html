@@ -2031,10 +2031,13 @@ grid[0,1] + grid[0,2]&amp;第二步\\
 }\)</span></p>
 </div>
 <div class="tabbed-block">
-<ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <span class="arithmatex">\(j\)</span>是下一个丑数</li>
-</ul>
-<p><span class="arithmatex">\(dp(i)=dp(i-1) + j\)</span></p>
+<p><span class="arithmatex">\({dp(i)=
+    \begin{cases}
+   dp(a) \times 2 &amp; a+1\\
+   dp(b) \times 3\\
+   dp(c) \times 5\\
+    \end{cases}
+}\)</span></p>
 </div>
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="kd">class</span> <span class="nc">Solution</span><span class="w"> </span><span class="p">{</span>
