@@ -108,6 +108,7 @@ nav:
             - 动态规划测试: tips/dynamic_test.md
             - 随机化算法: tips/random.md
             - 回溯算法: tips/backtracking.md
+            - 位运算: tips/bitwase.md
     - Java:
         - 集合:
               - Map: java/collection/map.md
