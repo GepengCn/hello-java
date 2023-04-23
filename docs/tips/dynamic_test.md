@@ -1,5 +1,7 @@
 # 动态规划测试
 
+# 简单难度
+
 ## 70. 爬楼梯
 
 得分5
@@ -171,6 +173,149 @@ class Solution {
             dp[i] = Math.min(dp[i-1]+cost[i-1],dp[i-2]+cost[i-2]);
         }
         return dp[cost.length];
+    }
+}
+```
+
+
+### 1025. 除数博弈
+
+```java
+class Solution {
+    public boolean divisorGame(int n) {
+        boolean[] dp = new boolean[n+1];
+        dp[1] = false;
+        for(int i=2;i<=n;i++){
+            dp[i] = !dp[i-1];
+        }
+        return dp[n];
+    }
+}
+```
+
+### 1137. 第 N 个泰波那契数
+
+```java
+class Solution {
+    public int tribonacci(int n) {
+        if(n==0)return 0;
+        if(n==1||n==2)return 1;
+        int[] dp = new int[n+1];
+        dp[0] = 0;
+        dp[1] = 1;
+        dp[2] = 1;
+        for(int i=3;i<=n;i++){
+            dp[i] = dp[i-3]+dp[i-2]+dp[i-1];
+        }
+        return dp[n];
+    }
+}
+```
+
+# 中等难度
+
+### 5. 最长回文子串
+
+${dp(i,j)=
+    \begin{cases}
+    true&i==j\\
+    true+dp(i+1,j-1)&s[i] == s[j]\\
+    false&s[i] \neq s[j]\\
+    \end{cases}
+}$
+
+```java
+class Solution {
+    public String longestPalindrome(String s) {
+        int length = s.length();
+        if(length<2)return s;
+        boolean[][] dp = new boolean[length][length];
+        for(int i=0;i<length;i++){
+            dp[i][i] = true;
+        }
+
+        int start = 0;
+        int maxLength = 1;
+        for(int j=1;j<length;j++){
+            for(int i=0;i<j;i++){
+                if(s.charAt(i)!=s.charAt(j)){
+                    dp[i][j] = false;
+                } else {
+                    if(j-i<3){
+                        dp[i][j] = true;
+                    } else {
+                        dp[i][j] = dp[i+1][j-1];
+                    }
+                }
+                if(dp[i][j]&&j-i+1 > maxLength){
+                    start = i;
+                    maxLength = j-i+1;
+                }
+            }
+        }
+        return s.substring(start, start+maxLength);
+    }
+}
+```
+
+## 22. 括号生成
+
+```
+i = 0结果是空；
+
+i = 1结果有一种：()
+
+i = 2结果有两种：()(), (())
+
+∴i = 3的结果，使用公式：[ + p + ] + q有如下三种情况共5种结果（我以花括号来表示新添加的括号）：
+
+p = 2, q = 0:
+
+{()()}
+
+{(())}
+
+p = 1, q = 1:
+
+{()}()
+
+p = 0, q = 2:
+
+{}()()
+
+{}(())
+
+所以i=3时共5种结果
+```
+
+$dp(n,i) = \displaystyle\sum_{i=0,j=0,j<i}^{n} \langle dp(i) \rangle + dp(i-1-j)$
+
+
+```java
+class Solution {
+    public List<String> generateParenthesis(int n) {
+        List<List<String>> res = new ArrayList<>();
+        if(n==0)return res.get(0);
+        List<String> l0 = new ArrayList<>();
+        l0.add("");
+        List<String> l1 = new ArrayList<>();
+        l1.add("()");
+        res.add(l0);
+        res.add(l1);
+        for(int i=2;i<=n;i++){
+            List<String> l = new ArrayList<>();
+            for(int j=0;j<i;j++){
+                List<String> p = res.get(j);
+                List<String> q = res.get(i-1-j);
+                for(String p1: p){
+                    for(String q1: q){
+                        l.add("("+p1+")"+q1);
+                    }
+                }
+            }
+            res.add(l);
+        }
+        return res.get(n);
     }
 }
 ```
