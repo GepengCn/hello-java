@@ -853,88 +853,9 @@
         
       
       
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          动态规划测试
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
       <a href="./" class="md-nav__link md-nav__link--active">
         动态规划测试
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#70" class="md-nav__link">
-    70. 爬楼梯
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#118" class="md-nav__link">
-    118. 杨辉三角
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#119-ii" class="md-nav__link">
-    119. 杨辉三角 II
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#121" class="md-nav__link">
-    121. 买卖股票的最佳时机
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#392" class="md-nav__link">
-    392. 判断子序列
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#509" class="md-nav__link">
-    509. 斐波那契数
-  </a>
-  
-    <nav class="md-nav" aria-label="509. 斐波那契数">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#746" class="md-nav__link">
-    746. 使用最小花费爬楼梯
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
       
     </li>
   
@@ -1101,69 +1022,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#70" class="md-nav__link">
-    70. 爬楼梯
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#118" class="md-nav__link">
-    118. 杨辉三角
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#119-ii" class="md-nav__link">
-    119. 杨辉三角 II
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#121" class="md-nav__link">
-    121. 买卖股票的最佳时机
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#392" class="md-nav__link">
-    392. 判断子序列
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#509" class="md-nav__link">
-    509. 斐波那契数
-  </a>
-  
-    <nav class="md-nav" aria-label="509. 斐波那契数">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#746" class="md-nav__link">
-    746. 使用最小花费爬楼梯
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -1186,6 +1044,7 @@
 
 
 <h1 id="_1">动态规划测试<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<h1 id="_2">简单难度<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h1>
 <h2 id="70">70. 爬楼梯<a class="headerlink" href="#70" title="Permanent link">&para;</a></h2>
 <p>得分5</p>
 <div class="highlight"><pre><span></span><code><span class="kd">class</span> <span class="nc">Solution</span><span class="w"> </span><span class="p">{</span>
@@ -1330,6 +1189,130 @@
 <span class="w">            </span><span class="n">dp</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Math</span><span class="p">.</span><span class="na">min</span><span class="p">(</span><span class="n">dp</span><span class="o">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="o">]+</span><span class="n">cost</span><span class="o">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="o">]</span><span class="p">,</span><span class="n">dp</span><span class="o">[</span><span class="n">i</span><span class="o">-</span><span class="mi">2</span><span class="o">]+</span><span class="n">cost</span><span class="o">[</span><span class="n">i</span><span class="o">-</span><span class="mi">2</span><span class="o">]</span><span class="p">);</span>
 <span class="w">        </span><span class="p">}</span>
 <span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">dp</span><span class="o">[</span><span class="n">cost</span><span class="p">.</span><span class="na">length</span><span class="o">]</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="1025">1025. 除数博弈<a class="headerlink" href="#1025" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="kd">class</span> <span class="nc">Solution</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">divisorGame</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">boolean</span><span class="o">[]</span><span class="w"> </span><span class="n">dp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">boolean</span><span class="o">[</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="o">]</span><span class="p">;</span>
+<span class="w">        </span><span class="n">dp</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
+<span class="w">        </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">2</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;=</span><span class="n">n</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+<span class="w">            </span><span class="n">dp</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">!</span><span class="n">dp</span><span class="o">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="o">]</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">dp</span><span class="o">[</span><span class="n">n</span><span class="o">]</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="1137-n">1137. 第 N 个泰波那契数<a class="headerlink" href="#1137-n" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="kd">class</span> <span class="nc">Solution</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">tribonacci</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">n</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">n</span><span class="o">==</span><span class="mi">1</span><span class="o">||</span><span class="n">n</span><span class="o">==</span><span class="mi">2</span><span class="p">)</span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">        </span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">dp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="o">[</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="o">]</span><span class="p">;</span>
+<span class="w">        </span><span class="n">dp</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">        </span><span class="n">dp</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">        </span><span class="n">dp</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">        </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">3</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;=</span><span class="n">n</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+<span class="w">            </span><span class="n">dp</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dp</span><span class="o">[</span><span class="n">i</span><span class="o">-</span><span class="mi">3</span><span class="o">]+</span><span class="n">dp</span><span class="o">[</span><span class="n">i</span><span class="o">-</span><span class="mi">2</span><span class="o">]+</span><span class="n">dp</span><span class="o">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="o">]</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">dp</span><span class="o">[</span><span class="n">n</span><span class="o">]</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h1 id="_3">中等难度<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h1>
+<h3 id="5">5. 最长回文子串<a class="headerlink" href="#5" title="Permanent link">&para;</a></h3>
+<p><span class="arithmatex">\({dp(i,j)=
+    \begin{cases}
+    true&amp;i==j\\
+    true+dp(i+1,j-1)&amp;s[i] == s[j]\\
+    false&amp;s[i] \neq s[j]\\
+    \end{cases}
+}\)</span></p>
+<div class="highlight"><pre><span></span><code><span class="kd">class</span> <span class="nc">Solution</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">longestPalindrome</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">length</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="na">length</span><span class="p">();</span>
+<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">length</span><span class="o">&lt;</span><span class="mi">2</span><span class="p">)</span><span class="k">return</span><span class="w"> </span><span class="n">s</span><span class="p">;</span>
+<span class="w">        </span><span class="kt">boolean</span><span class="o">[][]</span><span class="w"> </span><span class="n">dp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">boolean</span><span class="o">[</span><span class="n">length</span><span class="o">][</span><span class="n">length</span><span class="o">]</span><span class="p">;</span>
+<span class="w">        </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">length</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+<span class="w">            </span><span class="n">dp</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">i</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">start</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">maxLength</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">        </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="n">j</span><span class="o">&lt;</span><span class="n">length</span><span class="p">;</span><span class="n">j</span><span class="o">++</span><span class="p">){</span>
+<span class="w">            </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">j</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+<span class="w">                </span><span class="k">if</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="na">charAt</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">!=</span><span class="n">s</span><span class="p">.</span><span class="na">charAt</span><span class="p">(</span><span class="n">j</span><span class="p">)){</span>
+<span class="w">                    </span><span class="n">dp</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
+<span class="w">                </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="k">if</span><span class="p">(</span><span class="n">j</span><span class="o">-</span><span class="n">i</span><span class="o">&lt;</span><span class="mi">3</span><span class="p">){</span>
+<span class="w">                        </span><span class="n">dp</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
+<span class="w">                    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                        </span><span class="n">dp</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dp</span><span class="o">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="o">][</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="o">]</span><span class="p">;</span>
+<span class="w">                    </span><span class="p">}</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">                </span><span class="k">if</span><span class="p">(</span><span class="n">dp</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]&amp;&amp;</span><span class="n">j</span><span class="o">-</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">maxLength</span><span class="p">){</span>
+<span class="w">                    </span><span class="n">start</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<span class="w">                    </span><span class="n">maxLength</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">j</span><span class="o">-</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="na">substring</span><span class="p">(</span><span class="n">start</span><span class="p">,</span><span class="w"> </span><span class="n">start</span><span class="o">+</span><span class="n">maxLength</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="22">22. 括号生成<a class="headerlink" href="#22" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>i = 0结果是空；
+
+i = 1结果有一种：()
+
+i = 2结果有两种：()(), (())
+
+∴i = 3的结果，使用公式：[ + p + ] + q有如下三种情况共5种结果（我以花括号来表示新添加的括号）：
+
+p = 2, q = 0:
+
+{()()}
+
+{(())}
+
+p = 1, q = 1:
+
+{()}()
+
+p = 0, q = 2:
+
+{}()()
+
+{}(())
+
+所以i=3时共5种结果
+</code></pre></div>
+<p><span class="arithmatex">\(dp(n,i) = \displaystyle\sum_{i=0,j=0,j&lt;i}^{n} \langle dp(i) \rangle + dp(i-1-j)\)</span></p>
+<div class="highlight"><pre><span></span><code><span class="kd">class</span> <span class="nc">Solution</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">generateParenthesis</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">List</span><span class="o">&lt;</span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">n</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span><span class="k">return</span><span class="w"> </span><span class="n">res</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="w">        </span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">l0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<span class="w">        </span><span class="n">l0</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">l1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<span class="w">        </span><span class="n">l1</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">&quot;()&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">res</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">l0</span><span class="p">);</span>
+<span class="w">        </span><span class="n">res</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">l1</span><span class="p">);</span>
+<span class="w">        </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">2</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;=</span><span class="n">n</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+<span class="w">            </span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">l</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<span class="w">            </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">j</span><span class="o">&lt;</span><span class="n">i</span><span class="p">;</span><span class="n">j</span><span class="o">++</span><span class="p">){</span>
+<span class="w">                </span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">res</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">j</span><span class="p">);</span>
+<span class="w">                </span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">q</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">res</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="n">j</span><span class="p">);</span>
+<span class="w">                </span><span class="k">for</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">p1</span><span class="p">:</span><span class="w"> </span><span class="n">p</span><span class="p">){</span>
+<span class="w">                    </span><span class="k">for</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">q1</span><span class="p">:</span><span class="w"> </span><span class="n">q</span><span class="p">){</span>
+<span class="w">                        </span><span class="n">l</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">&quot;(&quot;</span><span class="o">+</span><span class="n">p1</span><span class="o">+</span><span class="s">&quot;)&quot;</span><span class="o">+</span><span class="n">q1</span><span class="p">);</span>
+<span class="w">                    </span><span class="p">}</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">            </span><span class="n">res</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">l</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">res</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">n</span><span class="p">);</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
