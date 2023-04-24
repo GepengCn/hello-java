@@ -319,3 +319,24 @@ class Solution {
     }
 }
 ```
+
+## 55. 跳跃游戏
+
+$dp(i) = max(dp(i-1)-1, nums[i])$
+
+```java
+class Solution {
+    public boolean canJump(int[] nums) {
+        int n = nums.length;
+        int[] dp = new int[n];
+        if(n == 1) return true;
+        dp[0] = nums[0];
+        if(dp[0]==0)return false;
+        for(int i=1;i<n;i++){
+            dp[i] = Math.max(nums[i],dp[i-1]-1);
+            if(dp[i]==0&&i<n-1)return false;
+        }
+        return true;
+    }
+}
+```

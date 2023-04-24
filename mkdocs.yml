@@ -110,5 +110,6 @@ nav:
             - 回溯算法: tips/backtracking.md
             - 位运算: tips/bitwase.md
     - Java:
+        - 线路图: java/index/index.md
         - 集合:
               - Map: java/collection/map.md
