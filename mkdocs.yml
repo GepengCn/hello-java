@@ -102,7 +102,7 @@ nav:
         - 算法技巧:
             - 剑指offer: tips/jzoffer.md
             - 剑指offer技巧精炼: tips/jzoffer_tips.md
-            - 贪婪算法: tips/greedy.md
+            - 贪心算法: tips/greedy.md
             - 分治算法: tips/divide_conquer.md
             - 动态规划: tips/dynamic.md
             - 动态规划测试: tips/dynamic_test.md

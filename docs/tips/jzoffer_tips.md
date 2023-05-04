@@ -26,7 +26,5 @@
 
 ![](https://p.ipic.vip/3kybye.jpg)
 
-## 算法技巧
 
-## 动态规划
 
