@@ -1,5 +1,9 @@
 # Map
 
+## 思维导图
+
+![](https://p.ipic.vip/e25rdn.jpg)
+
 ## 问题
 
 - 介绍下HashMap
@@ -226,11 +230,14 @@
 !!! tip "hashmap的遍历方式"
 
     HashMap 遍历从大的方向来说，可分为以下 4 类：
+
     1. 迭代器（Iterator）方式遍历；
     2. For Each 方式遍历；
     3. Lambda 表达式遍历（JDK 1.8+）;
     4. Streams API 遍历（JDK 1.8+）。
+
     但每种类型下又有不同的实现方式，因此具体的遍历方式又可以分为以下 7 种：
+
     1. 使用迭代器（Iterator）EntrySet 的方式进行遍历；
     2. 使用迭代器（Iterator）KeySet 的方式进行遍历；
     3. 使用 For Each EntrySet 的方式进行遍历；
