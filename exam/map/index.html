@@ -1027,13 +1027,20 @@
       
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
-    问题
+    思维导图
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
+    问题
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
     答案
   </a>
   
@@ -1056,56 +1063,6 @@
     <li class="md-nav__item">
       <a href="../collection/" class="md-nav__link">
         集合
-      </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    
-      
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
-      
-      
-      
-      
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
-      
-      
-      
-        <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
-          集合
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_3_3">
-          <span class="md-nav__icon md-icon"></span>
-          集合
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../java/collection/map/" class="md-nav__link">
-        Map
       </a>
     </li>
   
@@ -1153,13 +1110,20 @@
       
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
-    问题
+    思维导图
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
+    问题
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
     答案
   </a>
   
@@ -1189,7 +1153,9 @@
 
 
 <h1 id="map">Map<a class="headerlink" href="#map" title="Permanent link">&para;</a></h1>
-<h2 id="_1">问题<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<h2 id="_1">思维导图<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p><img alt="" src="https://p.ipic.vip/e25rdn.jpg" /></p>
+<h2 id="_2">问题<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <ul>
 <li>介绍下HashMap</li>
 <li>什么是扰动函数,怎么实现的</li>
@@ -1215,7 +1181,7 @@
 <li>hashmap的遍历方式</li>
 <li>hashmap中用了哪些设计模式</li>
 </ul>
-<h2 id="_2">答案<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h2 id="_3">答案<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <div class="admonition tip">
 <p class="admonition-title">介绍下HashMap</p>
 <p>jdk8之前:数组+链表
@@ -1424,19 +1390,23 @@ HashMap 通过 key 的 hashcode 经过扰动函数处理过后得到 hash 值，
 </div>
 <div class="admonition tip">
 <p class="admonition-title">hashmap的遍历方式</p>
-<p>HashMap 遍历从大的方向来说，可分为以下 4 类：
-1. 迭代器（Iterator）方式遍历；
-2. For Each 方式遍历；
-3. Lambda 表达式遍历（JDK 1.8+）;
-4. Streams API 遍历（JDK 1.8+）。
-但每种类型下又有不同的实现方式，因此具体的遍历方式又可以分为以下 7 种：
-1. 使用迭代器（Iterator）EntrySet 的方式进行遍历；
-2. 使用迭代器（Iterator）KeySet 的方式进行遍历；
-3. 使用 For Each EntrySet 的方式进行遍历；
-4. 使用 For Each KeySet 的方式进行遍历；
-5. 使用 Lambda 表达式的方式进行遍历；
-6. 使用 Streams API 单线程的方式进行遍历；
-7. 使用 Streams API 多线程的方式进行遍历。</p>
+<p>HashMap 遍历从大的方向来说，可分为以下 4 类：</p>
+<ol>
+<li>迭代器（Iterator）方式遍历；</li>
+<li>For Each 方式遍历；</li>
+<li>Lambda 表达式遍历（JDK 1.8+）;</li>
+<li>Streams API 遍历（JDK 1.8+）。</li>
+</ol>
+<p>但每种类型下又有不同的实现方式，因此具体的遍历方式又可以分为以下 7 种：</p>
+<ol>
+<li>使用迭代器（Iterator）EntrySet 的方式进行遍历；</li>
+<li>使用迭代器（Iterator）KeySet 的方式进行遍历；</li>
+<li>使用 For Each EntrySet 的方式进行遍历；</li>
+<li>使用 For Each KeySet 的方式进行遍历；</li>
+<li>使用 Lambda 表达式的方式进行遍历；</li>
+<li>使用 Streams API 单线程的方式进行遍历；</li>
+<li>使用 Streams API 多线程的方式进行遍历。</li>
+</ol>
 <p>https://mp.weixin.qq.com/s/zQBN3UvJDhRTKP6SzcZFKw</p>
 </div>
 <div class="admonition tip">
