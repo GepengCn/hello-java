@@ -9,24 +9,24 @@
       
       
       
-        <link rel="prev" href="../..">
+        <link rel="prev" href="../../map/">
       
       
-        <link rel="next" href="../../linkedlist/linkedlist/">
+        <link rel="next" href="../../collection/">
       
-      <link rel="icon" href="../../assets/images/favicon.png">
+      <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.3">
     
     
       
-        <title>数组 - hello-java</title>
+        <title>Map测试1 - hello-java</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.c4a75a56.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.c4a75a56.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.a0c5b2b5.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.a0c5b2b5.min.css">
       
       
 
@@ -42,9 +42,9 @@
       
     
     
-      <link rel="stylesheet" href="../../stylesheets/extra.css">
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -73,7 +73,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#array" class="md-skip">
+        <a href="#_1" class="md-skip">
           跳转至
         </a>
       
@@ -87,7 +87,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="页眉">
-    <a href="../.." title="hello-java" class="md-header__button md-logo" aria-label="hello-java" data-md-component="logo">
+    <a href="../../.." title="hello-java" class="md-header__button md-logo" aria-label="hello-java" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              数组
+              Map测试1
             
           </span>
         </div>
@@ -207,7 +207,7 @@
 
 
   <li class="md-tabs__item">
-    <a href="../.." class="md-tabs__link">
+    <a href="../../.." class="md-tabs__link">
       首页
     </a>
   </li>
@@ -215,8 +215,6 @@
       
         
   
-  
-    
   
 
 
@@ -229,7 +227,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="./" class="md-tabs__link md-tabs__link--active">
+      <a href="../../../array/array/" class="md-tabs__link">
         算法
       </a>
     </li>
@@ -241,13 +239,15 @@
         
   
   
+    
+  
 
 
   
   
   
     <li class="md-tabs__item">
-      <a href="../../java/index/" class="md-tabs__link">
+      <a href="../../../java/index/" class="md-tabs__link md-tabs__link--active">
         Java
       </a>
     </li>
@@ -275,7 +275,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="hello-java" class="md-nav__button md-logo" aria-label="hello-java" data-md-component="logo">
+    <a href="../../.." title="hello-java" class="md-nav__button md-logo" aria-label="hello-java" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -306,7 +306,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href="../../.." class="md-nav__link">
         首页
       </a>
     </li>
@@ -319,16 +319,14 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
       
       
       
@@ -337,7 +335,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_2">
           <span class="md-nav__icon md-icon"></span>
           算法
@@ -348,18 +346,16 @@
               
   
   
-    
-  
   
     
       
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" checked>
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
       
       
       
@@ -368,7 +364,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="true">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_2_1">
           <span class="md-nav__icon md-icon"></span>
           数据结构
@@ -379,100 +375,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          数组
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../../array/array/" class="md-nav__link">
         数组
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    思维导图
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    特性
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    初始化
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    常用操作
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    实际应用
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#leetcode" class="md-nav__link">
-    leetcode
-  </a>
-  
-    <nav class="md-nav" aria-label="leetcode">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1" class="md-nav__link">
-    1. 两数之和
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -484,7 +391,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../linkedlist/linkedlist/" class="md-nav__link">
+      <a href="../../../linkedlist/linkedlist/" class="md-nav__link">
         链表
       </a>
     </li>
@@ -498,7 +405,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../stack/stack/" class="md-nav__link">
+      <a href="../../../stack/stack/" class="md-nav__link">
         栈
       </a>
     </li>
@@ -512,7 +419,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../queue/queue/" class="md-nav__link">
+      <a href="../../../queue/queue/" class="md-nav__link">
         队列
       </a>
     </li>
@@ -553,7 +460,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tree/binary_tree/" class="md-nav__link">
+      <a href="../../../tree/binary_tree/" class="md-nav__link">
         二叉树
       </a>
     </li>
@@ -567,7 +474,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tree/binary_search_tree/" class="md-nav__link">
+      <a href="../../../tree/binary_search_tree/" class="md-nav__link">
         二叉查找树
       </a>
     </li>
@@ -581,7 +488,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tree/avl_tree/" class="md-nav__link">
+      <a href="../../../tree/avl_tree/" class="md-nav__link">
         AVL树
       </a>
     </li>
@@ -595,7 +502,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tree/2_3_tree/" class="md-nav__link">
+      <a href="../../../tree/2_3_tree/" class="md-nav__link">
         2-3查找树
       </a>
     </li>
@@ -609,7 +516,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tree/red_black_tree/" class="md-nav__link">
+      <a href="../../../tree/red_black_tree/" class="md-nav__link">
         红黑树
       </a>
     </li>
@@ -630,7 +537,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../heap/heap/" class="md-nav__link">
+      <a href="../../../heap/heap/" class="md-nav__link">
         堆
       </a>
     </li>
@@ -644,7 +551,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../graph/graph/" class="md-nav__link">
+      <a href="../../../graph/graph/" class="md-nav__link">
         图
       </a>
     </li>
@@ -694,7 +601,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../sort/sort/" class="md-nav__link">
+      <a href="../../../sort/sort/" class="md-nav__link">
         排序
       </a>
     </li>
@@ -708,7 +615,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../sort/bubble_sort/" class="md-nav__link">
+      <a href="../../../sort/bubble_sort/" class="md-nav__link">
         冒泡排序
       </a>
     </li>
@@ -722,7 +629,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../sort/selection_sort/" class="md-nav__link">
+      <a href="../../../sort/selection_sort/" class="md-nav__link">
         选择排序
       </a>
     </li>
@@ -736,7 +643,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../sort/insertion_sort/" class="md-nav__link">
+      <a href="../../../sort/insertion_sort/" class="md-nav__link">
         插入排序
       </a>
     </li>
@@ -750,7 +657,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../sort/shell_sort/" class="md-nav__link">
+      <a href="../../../sort/shell_sort/" class="md-nav__link">
         希尔排序
       </a>
     </li>
@@ -764,7 +671,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../sort/merge_sort/" class="md-nav__link">
+      <a href="../../../sort/merge_sort/" class="md-nav__link">
         归并排序
       </a>
     </li>
@@ -778,7 +685,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../sort/quick_sort/" class="md-nav__link">
+      <a href="../../../sort/quick_sort/" class="md-nav__link">
         快速排序
       </a>
     </li>
@@ -792,7 +699,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../sort/heap_sort/" class="md-nav__link">
+      <a href="../../../sort/heap_sort/" class="md-nav__link">
         堆排序
       </a>
     </li>
@@ -806,7 +713,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../sort/counting_sort/" class="md-nav__link">
+      <a href="../../../sort/counting_sort/" class="md-nav__link">
         计数排序
       </a>
     </li>
@@ -856,7 +763,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tips/jzoffer/" class="md-nav__link">
+      <a href="../../../tips/jzoffer/" class="md-nav__link">
         剑指offer
       </a>
     </li>
@@ -870,7 +777,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tips/jzoffer_tips/" class="md-nav__link">
+      <a href="../../../tips/jzoffer_tips/" class="md-nav__link">
         剑指offer技巧精炼
       </a>
     </li>
@@ -884,7 +791,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tips/greedy/" class="md-nav__link">
+      <a href="../../../tips/greedy/" class="md-nav__link">
         贪心算法
       </a>
     </li>
@@ -898,7 +805,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tips/divide_conquer/" class="md-nav__link">
+      <a href="../../../tips/divide_conquer/" class="md-nav__link">
         分治算法
       </a>
     </li>
@@ -912,7 +819,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tips/dynamic/" class="md-nav__link">
+      <a href="../../../tips/dynamic/" class="md-nav__link">
         动态规划
       </a>
     </li>
@@ -926,7 +833,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tips/dynamic_test/" class="md-nav__link">
+      <a href="../../../tips/dynamic_test/" class="md-nav__link">
         动态规划测试
       </a>
     </li>
@@ -940,7 +847,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tips/random/" class="md-nav__link">
+      <a href="../../../tips/random/" class="md-nav__link">
         随机化算法
       </a>
     </li>
@@ -954,7 +861,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tips/backtracking/" class="md-nav__link">
+      <a href="../../../tips/backtracking/" class="md-nav__link">
         回溯算法
       </a>
     </li>
@@ -968,7 +875,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tips/bitwase/" class="md-nav__link">
+      <a href="../../../tips/bitwase/" class="md-nav__link">
         位运算
       </a>
     </li>
@@ -995,14 +902,16 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
       
       
       
@@ -1011,7 +920,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_3">
           <span class="md-nav__icon md-icon"></span>
           Java
@@ -1024,7 +933,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/index/" class="md-nav__link">
+      <a href="../../../java/index/" class="md-nav__link">
         线路图
       </a>
     </li>
@@ -1036,16 +945,18 @@
               
   
   
+    
+  
   
     
       
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" checked>
       
       
       
@@ -1054,7 +965,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_3_2">
           <span class="md-nav__icon md-icon"></span>
           测评
@@ -1067,7 +978,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../exam/exam/" class="md-nav__link">
+      <a href="../../exam/" class="md-nav__link">
         准备
       </a>
     </li>
@@ -1081,7 +992,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../exam/map/" class="md-nav__link">
+      <a href="../../map/" class="md-nav__link">
         Map
       </a>
     </li>
@@ -1093,11 +1004,48 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../exam/test/test_map_1/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Map测试1
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Map测试1
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    问题
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1109,7 +1057,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../exam/collection/" class="md-nav__link">
+      <a href="../../collection/" class="md-nav__link">
         集合
       </a>
     </li>
@@ -1123,7 +1071,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../exam/concurrent/" class="md-nav__link">
+      <a href="../../concurrent/" class="md-nav__link">
         并发
       </a>
     </li>
@@ -1161,8 +1109,6 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -1172,56 +1118,8 @@
       
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
-    思维导图
+    问题
   </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    特性
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    初始化
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    常用操作
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    实际应用
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#leetcode" class="md-nav__link">
-    leetcode
-  </a>
-  
-    <nav class="md-nav" aria-label="leetcode">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1" class="md-nav__link">
-    1. 两数之和
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1240,7 +1138,7 @@
                   
 
   
-    <a href="https://github.com/GepengCn/hello-java/tree/main/docs/array/array.md" title="编辑此页" class="md-content__button md-icon">
+    <a href="https://github.com/GepengCn/hello-java/tree/main/docs/exam/test/test_map_1.md" title="编辑此页" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
     </a>
@@ -1248,112 +1146,161 @@
   
 
 
-<h1 id="array">数组<code>Array</code><a class="headerlink" href="#array" title="Permanent link">&para;</a></h1>
-<h2 id="_1">思维导图<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p><img alt="" src="https://p.ipic.vip/v3xymp.png" /></p>
-<h2 id="_2">特性<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+  <h1>Map测试1</h1>
+
+<h2 id="_1">问题<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>62分</p>
 <ul>
-<li><code>顺序</code>存储多个<code>相同类型</code>的数据, 内存中相连</li>
-<li>元素在数组中的位置为<code>索引</code></li>
-<li>有索引，所以访问非常高效</li>
-<li><code>固定容量</code>，一经创建，长度不可变，扩容需要<code>创建新数组</code>，将数据<code>拷贝</code>过去</li>
-<li>插入或删除元素效率低，为了使数组的元素相连，可能需要移动其它数组元素，时间复杂度 <span class="arithmatex">\(O(N)\)</span></li>
-<li><code>内存浪费</code>，初始化一个比较长的数组，只用前面部分</li>
+<li>介绍下HashMap  &#8535;</li>
 </ul>
-<h2 id="_3">初始化<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<div class="admonition info">
-<p class="admonition-title">无初始值，但需指定长度</p>
-<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">arr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="o">[</span><span class="mi">5</span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="c1">// { 0, 0, 0, 0, 0 }</span>
-</code></pre></div>
-</div>
-<div class="admonition info">
-<p class="admonition-title">有初始值</p>
-<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">nums</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="p">};</span>
-</code></pre></div>
-</div>
-<h2 id="_4">常用操作<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
-<div class="admonition quote">
-<p class="admonition-title">遍历</p>
-<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">nums</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="p">};</span>
-
-<span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">nums</span><span class="p">.</span><span class="na">length</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
-<span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">);</span>
-<span class="p">}</span>
-
-<span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="p">:</span><span class="n">nums</span><span class="p">){</span>
-<span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">num</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre></div>
-</div>
-<div class="admonition quote">
-<p class="admonition-title">查找</p>
-<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="p">;</span>
-</code></pre></div>
-</div>
-<div class="admonition quote">
-<p class="admonition-title">插入</p>
-<div class="highlight"><pre><span></span><code><span class="cm">/* 在数组的索引 index 处插入元素 num */</span>
-<span class="kt">void</span><span class="w"> </span><span class="nf">insert</span><span class="p">(</span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">index</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="c1">// 把索引 index 以及之后的所有元素向后移动一位</span>
-<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="na">length</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">index</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">--</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="o">]</span><span class="p">;</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">    </span><span class="c1">// 将 num 赋给 index 处元素</span>
-<span class="w">    </span><span class="n">nums</span><span class="o">[</span><span class="n">index</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">num</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div>
-</div>
-<div class="admonition quote">
-<p class="admonition-title">删除</p>
-<div class="highlight"><pre><span></span><code><span class="cm">/* 删除索引 index 处元素 */</span>
-<span class="kt">void</span><span class="w"> </span><span class="nf">remove</span><span class="p">(</span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">index</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="c1">// 把索引 index 之后的所有元素向前移动一位</span>
-<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">index</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="na">length</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="o">]</span><span class="p">;</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
-</div>
-<h2 id="_5">实际应用<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
-<div class="admonition note">
-<p class="admonition-title">随机访问</p>
-<p>如果我们想要随机抽取一些样本，那么可以用数组存储，并生成一个随机序列，根据索引实现样本的随机抽取。</p>
-</div>
-<div class="admonition note">
-<p class="admonition-title">二分查找</p>
-<p>例如查字典的例子，我们可以将字典中的所有字按照拼音顺序存储在数组中，然后使用与日常查纸质字典相同的“翻开中间，排除一半”的方式，来实现一个查电子字典的算法。</p>
-</div>
-<div class="admonition note">
-<p class="admonition-title">深度学习</p>
-<p>神经网络中大量使用了向量、矩阵、张量之间的线性代数运算，这些数据都是以数组的形式构建的。数组是神经网络编程中最常使用的数据结构。</p>
-</div>
-<h2 id="leetcode"><code>leetcode</code><a class="headerlink" href="#leetcode" title="Permanent link">&para;</a></h2>
-<h3 id="1">1. 两数之和<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
-<div class="admonition example">
-<p class="admonition-title">1. 两数之和</p>
-<p>给定一个整数数组 nums 和一个整数目标值 target，请你在该数组中找出 和为目标值 target  的那 两个 整数，并返回它们的数组下标。</p>
-<p>你可以假设每种输入只会对应一个答案。但是，数组中同一个元素在答案里不能重复出现。</p>
-<p>你可以按任意顺序返回答案。</p>
-<p>示例 1：</p>
-<div class="highlight"><pre><span></span><code>输入：nums = [2,7,11,15], target = 9
-输出：[0,1]
-解释：因为 nums[0] + nums[1] == 9 ，返回 [0, 1] 。
-</code></pre></div>
-<div class="highlight"><pre><span></span><code><span class="kd">class</span> <span class="nc">Solution</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="nf">twoSum</span><span class="p">(</span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">nums</span><span class="p">.</span><span class="na">length</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
-<span class="w">            </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="o">=</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span><span class="n">j</span><span class="o">&lt;</span><span class="n">nums</span><span class="p">.</span><span class="na">length</span><span class="p">;</span><span class="n">j</span><span class="o">++</span><span class="p">){</span>
-<span class="w">                </span><span class="k">if</span><span class="p">(</span><span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]+</span><span class="n">nums</span><span class="o">[</span><span class="n">j</span><span class="o">]==</span><span class="n">target</span><span class="p">){</span>
-<span class="w">                    </span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">};</span>
-<span class="w">                    </span><span class="k">return</span><span class="w"> </span><span class="n">res</span><span class="p">;</span>
-<span class="w">                </span><span class="p">}</span>
-<span class="w">            </span><span class="p">}</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="p">;</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
-</div>
+<p>jdk8之前，数组+链表
+jdk8之后，数组+链表+红黑树</p>
+<ul>
+<li>
+<p>什么是扰动函数,怎么实现的 &#8535;
+就是hash方法 </p>
+</li>
+<li>
+<p>jdk8前后有什么变化，为什么？ &#8535;</p>
+</li>
+</ul>
+<p>jdk8之前，数组+链表
+jdk8之后，数组+链表+红黑树
+红黑树用来解决链表过长，增删查比较慢的问题</p>
+<ul>
+<li>为什么需要链表 5/5</li>
+</ul>
+<p>解决哈希冲突</p>
+<ul>
+<li>什么是hash冲突 5/5</li>
+</ul>
+<p>hashmap通过key的hash值&amp;(n-1)获取元素下标，hash冲突就是多个元素指向同一个下标</p>
+<ul>
+<li>为什么要用红黑树？红黑树是什么？红黑树需要满足什么条件？有什么优势？与平衡二叉树的区别？使用场景？3+5+0+0+0/25</li>
+</ul>
+<p>用红黑树解决链表过长的性能下降问题。红黑树是二叉搜索树，增加了一个标志位存储颜色。</p>
+<p>最长的分支不会超过其他分支的两倍，近乎平衡</p>
+<p>hashmap,hashtable,ConcurrentHashMap</p>
+<ul>
+<li>为什么改为尾插法，头插法有什么弊端 &#8534;</li>
+</ul>
+<p>头插法并发时会形成环，造成死循环</p>
+<ul>
+<li>链表和红黑树转换的阈值是多少，为什么不一样 &#8536;</li>
+</ul>
+<p>链表-&gt;红黑树 数组长度大于64，链表长度大于8</p>
+<p>红黑树-&gt;链表，数组长度小于6</p>
+<p>避免在阈值上下增减，链表与红黑树反复转换</p>
+<ul>
+<li>
+<p>HashMap怎么扩容 &#8535;</p>
+</li>
+<li>
+<p>重写创建一个新数组，长度为原来的2倍</p>
+</li>
+<li>
+<p>将元素重新hash到新数组中</p>
+</li>
+<li>
+<p>HashMap为什么重写equals之后，必须重写hashcode 5/5</p>
+</li>
+</ul>
+<p>因为当哈希冲突时，链表中的元素需要通过equals方法来筛选，如果不重写hashcode，会出现用同样的key值获取不到value的情况</p>
+<ul>
+<li>
+<p>HashMap怎么保证线程安全 5/5</p>
+</li>
+<li>
+<p>Collecitons.synchronizedMap</p>
+</li>
+<li>synchronized关键字</li>
+<li>hashTable替换</li>
+<li>
+<p>ConcurrentHashMap替换</p>
+</li>
+<li>
+<p>HashMap是否有序，如果想要有序，有什么方案？ &#8536;</p>
+</li>
+</ul>
+<p>无序 
+1. 使用LinkedHashMap
+2. 使用TreeMap</p>
+<ul>
+<li>LinkedHashMap怎么实现有序，有哪些顺序，LRU顺序是什么？算法原理是什么？5/10</li>
+</ul>
+<p>LinkedHashMap内部维护了一个双向链表，维护了前置与后置元素的指针。</p>
+<p>插入顺序与LRU顺序</p>
+<p>LRU,最少最近使用算法，使用双向链表，头部存储最新的元素</p>
+<ul>
+<li>
+<p>描述下put操作 &#8536;</p>
+</li>
+<li>
+<p>通过hash&amp;(n-1)获取元素下标</p>
+</li>
+<li>判断该下标是否已存在链表元素</li>
+<li>已存在遍历链表，通过equals方法比较目标元素是否存在链表中，如果存在，则替换该元素的value；如果不存在，则通过尾插法，插入链表尾部</li>
+<li>
+<p>如果不存在链表元素，则创建新链表，将元素插入链表</p>
+</li>
+<li>
+<p>怎么计算hash值 0/5</p>
+</li>
+</ul>
+<p>1.8之前位运算
+1.8之后优化了运算，少了4次运算</p>
+<ul>
+<li>怎么确定捅下标 5/5</li>
+</ul>
+<p>hash&amp;(n-1)</p>
+<ul>
+<li>与hashtable比较 5/10</li>
+</ul>
+<p>hashtable增删改增加了synchronized关键字，保证线程安全
+hashmap非线程安全</p>
+<p>hashtable初始值11，每次扩容2n+1,指定初始容量为多少即是多少
+hashMap初始16，每次扩容是原长度的2倍，指定初始容量后会扩容为2的幂次方</p>
+<ul>
+<li>与hashset比较 &#8535;</li>
+</ul>
+<p>hashset内部维护着hashMap</p>
+<p>hashmap存储键值对， key能存储null，但只有一个，value能存储null，不限制</p>
+<p>hashset只存储值，value不能存储null，否则会抛异常</p>
+<ul>
+<li>treemap描述下？&#8536;</li>
+</ul>
+<p>底层数据结构是红黑树，所以天然支持排序，增删查的时间复杂度为O(logn)</p>
+<ul>
+<li>ConcurrentHashMap描述下？jdk8前后有什么变化？怎么保证的线程安全？8/10</li>
+</ul>
+<p>jdk8之前是分段数组+链表组成，内部维护了一个Segment类，每个Segment维护一组数据，通过显示锁保证线程安全，并发数即是Segment的数量，不同线程可以并发访问不同的Segment上的元素</p>
+<p>jdk8之后是数组+链表/红黑树组成，通过synchronized关键字+CAS操作实现线程安全，synchronized关键字只修饰单个元素，并发能力大幅增强，CAS实现乐观锁来增删查询元素，volitile关键字修饰链表元素</p>
+<ul>
+<li>
+<p>hashmap的长度为什么是2的幂次方 8/10</p>
+</li>
+<li>
+<p>可以用位元素替换求余运算，提升效率</p>
+</li>
+<li>
+<p>是的hash更均匀，长度为2的幂次方时，n-1的2进制都为11-11，在进行位运算，减少重复，使得hash更均匀，减少hash冲突，使得数组下标能被充分利用</p>
+</li>
+<li>
+<p>hashmap的遍历方式 3/10</p>
+</li>
+<li>
+<p>迭代器模式</p>
+</li>
+<li>ForEach方式</li>
+<li>Lambda方式</li>
+<li>
+<p>Streams API方式</p>
+</li>
+<li>
+<p>hashmap中用了哪些设计模式 5/5</p>
+</li>
+</ul>
+<p>迭代器模式</p>
 
 
 
@@ -1382,7 +1329,7 @@
       <nav class="md-footer__inner md-grid" aria-label="页脚" >
         
           
-          <a href="../.." class="md-footer__link md-footer__link--prev" aria-label="上一页: 首页" rel="prev">
+          <a href="../../map/" class="md-footer__link md-footer__link--prev" aria-label="上一页: Map" rel="prev">
             <div class="md-footer__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
             </div>
@@ -1391,20 +1338,20 @@
                 <span class="md-footer__direction">
                   上一页
                 </span>
-                首页
+                Map
               </div>
             </div>
           </a>
         
         
           
-          <a href="../../linkedlist/linkedlist/" class="md-footer__link md-footer__link--next" aria-label="下一页: 链表" rel="next">
+          <a href="../../collection/" class="md-footer__link md-footer__link--next" aria-label="下一页: 集合" rel="next">
             <div class="md-footer__title">
               <div class="md-ellipsis">
                 <span class="md-footer__direction">
                   下一页
                 </span>
-                链表
+                集合
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -1447,12 +1394,12 @@
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "content.tabs.link", "content.tooltips", "navigation.tabs", "navigation.sections", "navigation.top", "navigation.footer", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "content.tabs.link", "content.tooltips", "navigation.tabs", "navigation.sections", "navigation.top", "navigation.footer", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.efa0ade1.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.efa0ade1.min.js"></script>
       
-        <script src="../../javascripts/mathjax.js"></script>
+        <script src="../../../javascripts/mathjax.js"></script>
       
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
