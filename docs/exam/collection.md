@@ -1,5 +1,9 @@
 # 集合
 
+## 思维导图
+
+![](https://p.ipic.vip/3no7g4.jpg)
+
 ## 问题
 1. List, Set, Queue, Map 四者的区别
 2. List底层数据结构
