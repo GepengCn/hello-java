@@ -111,6 +111,9 @@ nav:
             - 位运算: tips/bitwase.md
     - Java:
         - 线路图: java/index/index.md
-        - 测评: exam/exam.md
+        - 测评:
+            - 准备: exam/exam.md
+            - Map: exam/map.md
+            - 集合: exam/collection.md
         - 集合:
               - Map: java/collection/map.md

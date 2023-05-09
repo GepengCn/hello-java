@@ -7,7 +7,6 @@
 - LinkedHashMap
 - HashTable
 - TreeMap
-- 设计模式
 
 !!! info "HashMap"
 
