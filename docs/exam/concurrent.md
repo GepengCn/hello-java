@@ -307,3 +307,27 @@
     另外，还可能会有死锁问题发生。举个例子：假设两个线程的读锁都想升级写锁，则需要对方都释放自己锁，而双方都不释放，就会产生死锁。
 
 !!! tip "Atomic 原子类介绍，有哪几种类型，分别介绍一下?"
+
+    1. 基本类型
+
+        - AtomicInteger
+        - AtomicLong
+        - AtomicBoolean
+
+    2. 数组类型
+
+        - AtomicIntegerArray
+        - AtomicLongArray
+        - AtomicReferenceArray
+
+    3. 引用类型
+
+        - AtomicReference: 引用类型原子类
+        - AtomicMarkableReference:原子更新带有标记的引用类型
+        - AtomicStampedReference:原子更新带有版本号的引用类型。可以解决使用 CAS 进行原子更新时可能出现的 ABA 问题。
+
+    4. 对象的属性修改类型
+
+        - AtomicIntegerFieldUpdater: 原子更新整型字段的更新器
+        - AtomicLongFieldUpdater: 原子更新长整型字段的更新器
+        - AtomicReferenceFieldUpdater: 原子更新引用类型里的字段
