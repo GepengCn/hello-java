@@ -1562,6 +1562,40 @@
 </div>
 <div class="admonition tip">
 <p class="admonition-title">Atomic 原子类介绍，有哪几种类型，分别介绍一下?</p>
+<ol>
+<li>
+<p>基本类型</p>
+<ul>
+<li>AtomicInteger</li>
+<li>AtomicLong</li>
+<li>AtomicBoolean</li>
+</ul>
+</li>
+<li>
+<p>数组类型</p>
+<ul>
+<li>AtomicIntegerArray</li>
+<li>AtomicLongArray</li>
+<li>AtomicReferenceArray</li>
+</ul>
+</li>
+<li>
+<p>引用类型</p>
+<ul>
+<li>AtomicReference: 引用类型原子类</li>
+<li>AtomicMarkableReference:原子更新带有标记的引用类型</li>
+<li>AtomicStampedReference:原子更新带有版本号的引用类型。可以解决使用 CAS 进行原子更新时可能出现的 ABA 问题。</li>
+</ul>
+</li>
+<li>
+<p>对象的属性修改类型</p>
+<ul>
+<li>AtomicIntegerFieldUpdater: 原子更新整型字段的更新器</li>
+<li>AtomicLongFieldUpdater: 原子更新长整型字段的更新器</li>
+<li>AtomicReferenceFieldUpdater: 原子更新引用类型里的字段</li>
+</ul>
+</li>
+</ol>
 </div>
 
 
