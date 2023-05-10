@@ -20,7 +20,6 @@
 - HashMap是否有序，如果想要有序，有什么方案？
 - LinkedHashMap怎么实现有序，有哪些顺序，LRU顺序是什么？算法原理是什么？
 - 描述下put操作
-- 怎么计算hash值
 - 怎么确定捅下标
 - 与hashtable比较
 - 与hashset比较
@@ -40,7 +39,7 @@
     - jdk8之前:数组+链表
     - jdk8之后:数组+链表+红黑树
     - 增删改查的时间复杂度为O(1)
-    - HashMap 通过 key 的 hashcode 经过扰动函数处理过后得到 hash 值，然后通过 (n - 1) & hash 判断当前元素存放的位置（这里的 n 指的是数组的长度），如果当前位置存在元素的话，就判断该元素与要存入的元素的 hash 值以及 key 是否相同，如果相同的话，直接覆盖，不相同就通过拉链法解决冲突。
+    - HashMap 通过 key 的 hashcode 经过扰动函数处理过后得到 hash 值，然后通过 (n - 1) & hash 判断当前元素存放的位置（这里的 n 指的是数组的长度），判断链表中是否存在该key，存在则覆盖value，不存在，则尝试插入新元素，先判断是否超出数组容量扩容阈值，如果超出则先扩容，否则创建新链表并写入元素在元素存放的位置。
     
     
 !!! tip "什么是扰动函数,怎么实现的"
@@ -111,7 +110,7 @@
         - 对每个结点，从该结点到其所有后代叶结点的简单路径上，均包含相同数目的黑色结点
     4. 两点优势
         - 红黑树是非AVL树，跟AVL树相比，在插入或删除元素时，不需要旋转很多次以保持树的平衡，效率大大提升。
-        - 二叉平衡树在一定情况下，会退化成一个线性结构，红黑树则不会出现这种情况
+        - 二叉查找树在一定情况下，会退化成一个线性结构，红黑树则不会出现这种情况
     5. TreeMap、TreeSet以及JDK1.8之后的HashMap底层都用到了红黑树
     
 !!! tip "为什么改为尾插法，头插法有什么弊端"
@@ -163,33 +162,6 @@
     2. 判断该元素位置链表是否为空，如果不为空并且key已存在，则直接更新value值
     3. 否则尾插法插入新键值对到链表中
 
-    
-!!! tip "怎么计算hash值"
-
-    jdk8
-    ```java
-    static final int hash(Object key) {
-        int h;
-        // key.hashCode()：返回散列值也就是hashcode
-        // ^：按位异或
-        // >>>:无符号右移，忽略符号位，空位都以0补齐
-        return (key == null) ? 0 : (h = key.hashCode()) ^ (h >>> 16);
-    }
-    ```
-    
-    jdk7
-    
-    ```java
-    static int hash(int h) {
-        // This function ensures that hashCodes that differ only by
-        // constant multiples at each bit position have a bounded
-        // number of collisions (approximately 8 at default load factor).
-
-        h ^= (h >>> 20) ^ (h >>> 12);
-        return h ^ (h >>> 7) ^ (h >>> 4);
-    }
-    ```
-    
 !!! tip "怎么确定捅下标"
 
     hash & (n-1)
