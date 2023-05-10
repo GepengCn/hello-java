@@ -1199,7 +1199,6 @@
 <li>HashMap是否有序，如果想要有序，有什么方案？</li>
 <li>LinkedHashMap怎么实现有序，有哪些顺序，LRU顺序是什么？算法原理是什么？</li>
 <li>描述下put操作</li>
-<li>怎么计算hash值</li>
 <li>怎么确定捅下标</li>
 <li>与hashtable比较</li>
 <li>与hashset比较</li>
@@ -1216,7 +1215,7 @@
 <li>jdk8之前:数组+链表</li>
 <li>jdk8之后:数组+链表+红黑树</li>
 <li>增删改查的时间复杂度为O(1)</li>
-<li>HashMap 通过 key 的 hashcode 经过扰动函数处理过后得到 hash 值，然后通过 (n - 1) &amp; hash 判断当前元素存放的位置（这里的 n 指的是数组的长度），如果当前位置存在元素的话，就判断该元素与要存入的元素的 hash 值以及 key 是否相同，如果相同的话，直接覆盖，不相同就通过拉链法解决冲突。</li>
+<li>HashMap 通过 key 的 hashcode 经过扰动函数处理过后得到 hash 值，然后通过 (n - 1) &amp; hash 判断当前元素存放的位置（这里的 n 指的是数组的长度），判断链表中是否存在该key，存在则覆盖value，不存在，则尝试插入新元素，先判断是否超出数组容量扩容阈值，如果超出则先扩容，否则创建新链表并写入元素在元素存放的位置。</li>
 </ul>
 </div>
 <div class="admonition tip">
@@ -1287,7 +1286,7 @@
 </li>
 <li>两点优势<ul>
 <li>红黑树是非AVL树，跟AVL树相比，在插入或删除元素时，不需要旋转很多次以保持树的平衡，效率大大提升。</li>
-<li>二叉平衡树在一定情况下，会退化成一个线性结构，红黑树则不会出现这种情况</li>
+<li>二叉查找树在一定情况下，会退化成一个线性结构，红黑树则不会出现这种情况</li>
 </ul>
 </li>
 <li>TreeMap、TreeSet以及JDK1.8之后的HashMap底层都用到了红黑树</li>
@@ -1356,28 +1355,6 @@
 <li>判断该元素位置链表是否为空，如果不为空并且key已存在，则直接更新value值</li>
 <li>否则尾插法插入新键值对到链表中</li>
 </ol>
-</div>
-<div class="admonition tip">
-<p class="admonition-title">怎么计算hash值</p>
-<p>jdk8
-<div class="highlight"><pre><span></span><code><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">hash</span><span class="p">(</span><span class="n">Object</span><span class="w"> </span><span class="n">key</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">h</span><span class="p">;</span>
-<span class="w">    </span><span class="c1">// key.hashCode()：返回散列值也就是hashcode</span>
-<span class="w">    </span><span class="c1">// ^：按位异或</span>
-<span class="w">    </span><span class="c1">// &gt;&gt;&gt;:无符号右移，忽略符号位，空位都以0补齐</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="n">key</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">(</span><span class="n">h</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">key</span><span class="p">.</span><span class="na">hashCode</span><span class="p">())</span><span class="w"> </span><span class="o">^</span><span class="w"> </span><span class="p">(</span><span class="n">h</span><span class="w"> </span><span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="mi">16</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre></div></p>
-<p>jdk7</p>
-<div class="highlight"><pre><span></span><code><span class="kd">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">hash</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">h</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="c1">// This function ensures that hashCodes that differ only by</span>
-<span class="w">    </span><span class="c1">// constant multiples at each bit position have a bounded</span>
-<span class="w">    </span><span class="c1">// number of collisions (approximately 8 at default load factor).</span>
-
-<span class="w">    </span><span class="n">h</span><span class="w"> </span><span class="o">^=</span><span class="w"> </span><span class="p">(</span><span class="n">h</span><span class="w"> </span><span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="mi">20</span><span class="p">)</span><span class="w"> </span><span class="o">^</span><span class="w"> </span><span class="p">(</span><span class="n">h</span><span class="w"> </span><span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="mi">12</span><span class="p">);</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">h</span><span class="w"> </span><span class="o">^</span><span class="w"> </span><span class="p">(</span><span class="n">h</span><span class="w"> </span><span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="mi">7</span><span class="p">)</span><span class="w"> </span><span class="o">^</span><span class="w"> </span><span class="p">(</span><span class="n">h</span><span class="w"> </span><span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="mi">4</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre></div>
 </div>
 <div class="admonition tip">
 <p class="admonition-title">怎么确定捅下标</p>
