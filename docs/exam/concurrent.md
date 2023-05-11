@@ -1,5 +1,9 @@
 # 并发
 
+## 思维导图
+
+![](https://p.ipic.vip/iafdbt.jpg)
+
 ## 问题
 
 - 什么是指令重排序
@@ -418,6 +422,7 @@
     - keepAliveTime:线程池中的线程数量大于corePoolSize 的时候，如果这时没有新的任务提交，核心线程外的线程不会立即销毁，而是会等待，直到等待的时间超过了keepAliveTime才会被回收销毁；
     - unit : keepAliveTime 参数的时间单位。threadFactory :executor 创建新线程的时候会用到。
     - handler :饱和策略。
+
 
 !!! tip "线程池的饱和策略有哪些？"
 
