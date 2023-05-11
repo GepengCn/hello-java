@@ -28,10 +28,7 @@
 - 线程持有读锁还能获取写锁吗？
 - 读锁为什么不能升级为写锁？
 - Atomic 原子类介绍，有哪几种类型，分别介绍一下?
-- 基本数据类型原子类的优势
-- AtomicInteger 线程安全原理简单分析
 - ThreadLocal 有什么用？
-- 如何使用 ThreadLocal？
 - ThreadLocal 原理了解吗？
 - ThreadLocal 内存泄露问题是怎么导致的？
 - 什么是线程池?为什么要用线程池？如何创建线程池？
@@ -331,3 +328,331 @@
         - AtomicIntegerFieldUpdater: 原子更新整型字段的更新器
         - AtomicLongFieldUpdater: 原子更新长整型字段的更新器
         - AtomicReferenceFieldUpdater: 原子更新引用类型里的字段
+
+!!! tip "ThreadLocal 有什么用？"
+
+    通常情况下，我们创建的变量是可以被任何一个线程访问并修改的。如果想实现每一个线程都有自己的专属本地变量该如何解决呢？
+
+    JDK 中自带的ThreadLocal类正是为了解决这样的问题。 ThreadLocal类主要解决的就是让每个线程绑定自己的值，可以将ThreadLocal类形象的比喻成存放数据的盒子，盒子中可以存储每个线程的私有数据。
+
+    如果你创建了一个ThreadLocal变量，那么访问这个变量的每个线程都会有这个变量的本地副本，这也是ThreadLocal变量名的由来。他们可以使用 get() 和 set() 方法来获取默认值或将其值更改为当前线程所存的副本的值，从而避免了线程安全问题。
+
+!!! tip "ThreadLocal 原理了解吗？"
+
+    最终的变量是放在了当前线程的 ThreadLocalMap 中，并不是存在 ThreadLocal 上，ThreadLocal 可以理解为只是ThreadLocalMap的封装，传递了变量值。 ThrealLocal 类中可以通过Thread.currentThread()获取到当前线程对象后，直接通过getMap(Thread t)可以访问到该线程的ThreadLocalMap对象。
+
+    每个Thread中都具备一个ThreadLocalMap，而ThreadLocalMap可以存储以ThreadLocal为 key ，Object 对象为 value 的键值对。
+
+!!! tip "ThreadLocal 内存泄露问题是怎么导致的？"
+
+    ThreadLocalMap 中使用的 key 为 ThreadLocal 的弱引用，而 value 是强引用。所以，如果 ThreadLocal 没有被外部强引用的情况下，在垃圾回收的时候，key 会被清理掉，而 value 不会被清理掉。这样一来，ThreadLocalMap 中就会出现 key 为 null 的 Entry。假如我们不做任何措施的话，value 永远无法被 GC 回收，这个时候就可能会产生内存泄露。
+
+    ThreadLocalMap 实现中已经考虑了这种情况，在调用 set()、get()、remove() 方法的时候，会清理掉 key 为 null 的记录。使用完 ThreadLocal方法后 最好手动调用remove()方法
+
+!!! tip "什么是线程池?为什么要用线程池？如何创建线程池？"
+
+    线程池就是管理一系列线程的资源池。当有任务要处理时，直接从线程池中获取线程来处理，处理完之后线程并不会立即被销毁，而是等待下一个任务。
+
+    池化技术的思想主要是为了减少每次获取资源的消耗，提高对资源的利用率
+
+    - 降低资源消耗。通过重复利用已创建的线程降低线程创建和销毁造成的消耗。
+    - 提高响应速度。当任务到达时，任务可以不需要等到线程创建就能立即执行。
+    - 提高线程的可管理性。线程是稀缺资源，如果无限制的创建，不仅会消耗系统资源，还会降低系统的稳定性，使用线程池可以进行统一的分配，调优和监控。
+
+    创建线程池：
+
+    - 方式一：通过ThreadPoolExecutor构造函数来创建（推荐）。
+    - 方式二：通过 Executor 框架的工具类 Executors 来创建。
+
+!!! tip "为什么不推荐使用内置线程池？"
+
+    使用线程池的好处是减少在创建和销毁线程上所消耗的时间以及系统资源开销，解决资源不足的问题。如果不使用线程池，有可能会造成系统创建大量同类线程而导致消耗完内存或者“过度切换”的问题。
+
+    Executors 返回线程池对象的弊端如下(后文会详细介绍到)：
+
+    - FixedThreadPool 和 SingleThreadExecutor：使用的是无界的 LinkedBlockingQueue，任务队列最大长度为 Integer.MAX_VALUE,可能堆积大量的请求，从而导致 OOM。
+    - CachedThreadPool：使用的是同步队列 SynchronousQueue, 允许创建的线程数量为 Integer.MAX_VALUE ，可能会创建大量线程，从而导致 OOM。
+    - ScheduledThreadPool 和 SingleThreadScheduledExecutor : 使用的无界的延迟阻塞队列DelayedWorkQueue，任务队列最大长度为 Integer.MAX_VALUE,可能堆积大量的请求，从而导致 OOM。
+
+!!! tip "线程池常见参数有哪些？如何解释？"
+
+
+    ```java
+    /**
+    * 用给定的初始参数创建一个新的ThreadPoolExecutor。
+    */
+    public ThreadPoolExecutor(int corePoolSize,//线程池的核心线程数量
+    int maximumPoolSize,//线程池的最大线程数
+    long keepAliveTime,//当线程数大于核心线程数时，多余的空闲线程存活的最长时间
+    TimeUnit unit,//时间单位
+    BlockingQueue<Runnable> workQueue,//任务队列，用来储存等待执行任务的队列
+        ThreadFactory threadFactory,//线程工厂，用来创建线程，一般默认即可
+        RejectedExecutionHandler handler//拒绝策略，当提交的任务过多而不能及时处理时，我们可以定制策略来处理任务
+        ) {
+            if (corePoolSize < 0 ||
+            maximumPoolSize <= 0 ||
+            maximumPoolSize < corePoolSize ||
+            keepAliveTime < 0)
+            throw new IllegalArgumentException();
+            if (workQueue == null || threadFactory == null || handler == null)
+            throw new NullPointerException();
+            this.corePoolSize = corePoolSize;
+            this.maximumPoolSize = maximumPoolSize;
+            this.workQueue = workQueue;
+            this.keepAliveTime = unit.toNanos(keepAliveTime);
+            this.threadFactory = threadFactory;
+            this.handler = handler;
+        }
+
+    ```
+
+
+    ThreadPoolExecutor 3 个最重要的参数：
+
+    - corePoolSize : 任务队列未达到队列容量时，最大可以同时运行的线程数量。
+    - maximumPoolSize : 任务队列中存放的任务达到队列容量的时候，当前可以同时运行的线程数量变为最大线程数。
+    - workQueue: 新任务来的时候会先判断当前运行的线程数量是否达到核心线程数，如果达到的话，新任务就会被存放在队列中。
+
+    ThreadPoolExecutor其他常见参数 :
+
+    - keepAliveTime:线程池中的线程数量大于corePoolSize 的时候，如果这时没有新的任务提交，核心线程外的线程不会立即销毁，而是会等待，直到等待的时间超过了keepAliveTime才会被回收销毁；
+    - unit : keepAliveTime 参数的时间单位。threadFactory :executor 创建新线程的时候会用到。
+    - handler :饱和策略。
+
+!!! tip "线程池的饱和策略有哪些？"
+
+    如果当前同时运行的线程数量达到最大线程数量并且队列也已经被放满了任务时，ThreadPoolTaskExecutor 定义一些策略:
+
+    - ThreadPoolExecutor.AbortPolicy： 抛出 RejectedExecutionException来拒绝新任务的处理。
+    - ThreadPoolExecutor.CallerRunsPolicy： 调用执行自己的线程运行任务，也就是直接在调用execute方法的线程中运行(run)被拒绝的任务，如果执行程序已关闭，则会丢弃该任务。因此这种策略会降低对于新任务提交速度，影响程序的整体性能。如果您的应用程序可以承受此延迟并且你要求任何一个任务请求都要被执行的话，你可以选择这个策略。
+    - ThreadPoolExecutor.DiscardPolicy： 不处理新任务，直接丢弃掉。
+    - ThreadPoolExecutor.DiscardOldestPolicy： 此策略将丢弃最早的未处理的任务请求。
+
+!!! tip "线程池常用的阻塞队列有哪些？"
+
+    - 容量为 Integer.MAX_VALUE 的 LinkedBlockingQueue（无界队列）：FixedThreadPool 和 SingleThreadExector 。由于队列永远不会被放满，因此FixedThreadPool最多只能创建核心线程数的线程。
+
+    - SynchronousQueue（同步队列）：CachedThreadPool 。SynchronousQueue 没有容量，不存储元素，目的是保证对于提交的任务，如果有空闲线程，则使用空闲线程来处理；否则新建一个线程来处理任务。也就是说，CachedThreadPool 的最大线程数是 Integer.MAX_VALUE ，可以理解为线程数是可以无限扩展的，可能会创建大量线程，从而导致 OOM。
+
+    - DelayedWorkQueue（延迟阻塞队列）：ScheduledThreadPool 和 SingleThreadScheduledExecutor 。DelayedWorkQueue 的内部元素并不是按照放入的时间排序，而是会按照延迟的时间长短对任务进行排序，内部采用的是“堆”的数据结构，可以保证每次出队的任务都是当前队列中执行时间最靠前的。DelayedWorkQueue 添加元素满了之后会自动扩容原来容量的 1/2，即永远不会阻塞，最大扩容可达 Integer.MAX_VALUE，所以最多只能创建核心线程数的线程。
+
+!!! tip "线程池处理任务的流程了解吗？"
+
+    ![](https://p.ipic.vip/fhsr06.jpg)
+
+    1. 如果当前运行的线程数小于核心线程数，那么就会新建一个线程来执行任务。
+    2. 如果当前运行的线程数等于或大于核心线程数，但是小于最大线程数，那么就把该任务放入到任务队列里等待执行。
+    3. 如果向任务队列投放任务失败（任务队列已经满了），但是当前运行的线程数是小于最大线程数的，就新建一个线程来执行任务。
+    4. 如果当前运行的线程数已经等同于最大线程数了，新建线程将会使当前运行的线程超出最大线程数，那么当前任务会被拒绝，饱和策略会调用RejectedExecutionHandler.rejectedExecution()方法。
+
+
+!!! tip "如何给线程池命名？"
+
+    初始化线程池的时候需要显示命名（设置线程池名称前缀），有利于定位问题。
+
+    默认情况下创建的线程名字类似 pool-1-thread-n 这样的，没有业务含义，不利于我们定位问题。
+
+    给线程池里的线程命名通常有下面两种方式：
+
+    ## 1. 利用 guava 的 ThreadFactoryBuilder
+
+    ```java
+    ThreadFactory threadFactory = new ThreadFactoryBuilder()
+    .setNameFormat(threadNamePrefix + "-%d")
+    .setDaemon(true).build();
+    ExecutorService threadPool = new ThreadPoolExecutor(corePoolSize, maximumPoolSize, keepAliveTime, TimeUnit.MINUTES, workQueue, threadFactory)
+
+    ```
+
+    ## 2. 自己实现 ThreadFactor。
+
+    ```java
+    import java.util.concurrent.Executors;
+    import java.util.concurrent.ThreadFactory;
+    import java.util.concurrent.atomic.AtomicInteger;
+    /**
+    * 线程工厂，它设置线程名称，有利于我们定位问题。
+    */
+    public final class NamingThreadFactory implements ThreadFactory {
+
+        private final AtomicInteger threadNum = new AtomicInteger();
+        private final ThreadFactory delegate;
+        private final String name;
+
+        /**
+        * 创建一个带名字的线程池生产工厂
+        */
+        public NamingThreadFactory(ThreadFactory delegate, String name) {
+            this.delegate = delegate;
+            this.name = name; // TODO consider uniquifying this
+        }
+
+        @Override
+        public Thread newThread(Runnable r) {
+            Thread t = delegate.newThread(r);
+            t.setName(name + " [#" + threadNum.incrementAndGet() + "]");
+            return t;
+        }
+
+    }
+
+    ```
+
+!!! tip "如何设定线程池的大小？"
+
+    - CPU 密集型任务(N+1)： 这种任务消耗的主要是 CPU 资源，可以将线程数设置为 N（CPU 核心数）+1。比 CPU 核心数多出来的一个线程是为了防止线程偶发的缺页中断，或者其它原因导致的任务暂停而带来的影响。一旦任务暂停，CPU 就会处于空闲状态，而在这种情况下多出来的一个线程就可以充分利用 CPU 的空闲时间。
+
+    - I/O 密集型任务(2N)： 这种任务应用起来，系统会用大部分的时间来处理 I/O 交互，而线程在处理 I/O 的时间段内不会占用 CPU 来处理，这时就可以将 CPU 交出给其它线程使用。因此在 I/O 密集型任务的应用中，我们可以多配置一些线程，具体的计算方法是 2N。
+
+    **如何判断是 CPU 密集任务还是 IO 密集任务？**
+
+    CPU 密集型简单理解就是利用 CPU 计算能力的任务比如你在内存中对大量数据进行排序。但凡涉及到网络读取，文件读取这类都是 IO 密集型，这类任务的特点是 CPU 计算耗费时间相比于等待 IO 操作完成的时间来说很少，大部分时间都花在了等待 IO 操作完成上。
+
+
+!!! tip "如何动态修改线程池的参数？"
+
+    ThreadPoolExecutor 提供的下面这些方法。
+
+    ![](https://p.ipic.vip/6l6qoq.jpg)
+
+    格外需要注意的是corePoolSize， 程序运行期间的时候，我们调用 setCorePoolSize（）这个方法的话，线程池会首先判断当前工作线程数是否大于corePoolSize，如果大于的话就会回收工作线程。
+
+    另外，你也看到了上面并没有动态指定队列长度的方法，美团的方式是自定义了一个叫做 ResizableCapacityLinkedBlockIngQueue 的队列（主要就是把LinkedBlockingQueue的 capacity 字段的 final 关键字修饰给去掉了，让它变为可变的）。
+
+    如果我们的项目也想要实现这种效果的话，可以借助现成的开源项目：
+
+    - Hippo-4：一款强大的动态线程池框架，解决了传统线程池使用存在的一些痛点比如线程池参数没办法动态修改、不支持运行时变量的传递、无法执行优雅关闭。除了支持动态修改线程池参数、线程池任务传递上下文，还支持通知报警、运行监控等开箱即用的功能。
+
+    - Dynamic TP：轻量级动态线程池，内置监控告警功能，集成三方中间件线程池管理，基于主流配置中心（已支持 Nacos、Apollo，Zookeeper、Consul、Etcd，可通过 SPI 自定义实现）。
+
+!!! tip "Future 类有什么用？"
+
+    Future 类是异步思想的典型运用，主要用在一些需要执行耗时任务的场景，避免程序一直原地等待耗时任务执行完成，执行效率太低。具体来说是这样的：当我们执行某一耗时的任务时，可以将这个耗时任务交给一个子线程去异步执行，同时我们可以干点其他事情，不用傻傻等待耗时任务执行完成。等我们的事情干完后，我们再通过 Future 类获取到耗时任务的执行结果。这样一来，程序的执行效率就明显提高了。
+
+    这其实就是多线程中经典的 Future 模式，你可以将其看作是一种设计模式，核心思想是异步调用，主要用在多线程领域，并非 Java 语言独有。
+
+    ```java
+    // V 代表了Future执行的任务返回值的类型
+    public interface Future<V> {
+        // 取消任务执行
+        // 成功取消返回 true，否则返回 false
+        boolean cancel(boolean mayInterruptIfRunning);
+        // 判断任务是否被取消
+        boolean isCancelled();
+        // 判断任务是否已经执行完成
+        boolean isDone();
+        // 获取任务执行结果
+        V get() throws InterruptedException, ExecutionException;
+        // 指定时间内没有返回计算结果就抛出 TimeOutException 异常
+        V get(long timeout, TimeUnit unit)
+
+        throws InterruptedException, ExecutionException, TimeoutExceptio
+    }
+
+    ```
+
+    简单理解就是：我有一个任务，提交给了 Future 来处理。任务执行期间我自己可以去做任何想做的事情。并且，在这期间我还可以取消任务以及获取任务的执行状态。一段时间之后，我就可以 Future 那里直接取出任务执行结果。#
+
+
+!!! tip "Callable 和 Future 有什么关系？"
+
+    我们可以通过 FutureTask 来理解 Callable 和 Future 之间的关系。
+
+    FutureTask 提供了 Future 接口的基本实现，常用来封装 Callable 和 Runnable，具有取消任务、查看任务是否执行完成以及获取任务执行结果的方法。ExecutorService.submit() 方法返回的其实就是 Future 的实现类 FutureTask 。
+
+    FutureTask 不光实现了 Future接口，还实现了Runnable 接口，因此可以作为任务直接被线程执行。
+
+    FutureTask 有两个构造函数，可传入 Callable 或者 Runnable 对象。实际上，传入 Runnable 对象也会在方法内部转换为Callable 对象。
+
+    FutureTask相当于对Callable 进行了封装，管理着任务执行的情况，存储了 Callable 的 call 方法的任务执行结果。
+
+!!! tip "CompletableFuture 类有什么用？"
+
+    Future 在实际使用过程中存在一些局限性比如不支持异步任务的编排组合、获取计算结果的 get() 方法为阻塞调用。
+
+    Java 8 才被引入CompletableFuture 类可以解决Future 的这些缺陷。CompletableFuture 除了提供了更为好用和强大的 Future 特性之外，还提供了函数式编程、异步任务编排组合（可以将多个异步任务串联起来，组成一个完整的链式调用）等能力。
+
+    CompletableFuture 同时实现了 Future 和 CompletionStage 接口。
+
+    CompletionStage 接口描述了一个异步计算的阶段。很多计算可以分成多个阶段或步骤，此时可以通过它将所有步骤组合起来，形成异步计算的流水线。
+
+    CompletionStage 接口中的方法比较多，CompletableFuture 的函数式能力就是这个接口赋予的。从这个接口的方法参数你就可以发现其大量使用了 Java8 引入的函数式编程。
+
+
+!!! tip "AQS 是什么？"
+
+    AQS 的全称为 AbstractQueuedSynchronizer ，翻译过来的意思就是抽象队列同步器。这个类在 java.util.concurrent.locks 包下面。
+
+    AQS 就是一个抽象类，主要用来构建锁和同步器。
+
+    AQS 为构建锁和同步器提供了一些通用功能的是实现，因此，使用 AQS 能简单且高效地构造出应用广泛的大量的同步器，比如我们提到的 ReentrantLock，Semaphore，其他的诸如 ReentrantReadWriteLock，SynchronousQueue等等皆是基于 AQS 的。
+
+!!! tip "AQS 的原理是什么？"
+
+    AQS 核心思想是，如果被请求的共享资源空闲，则将当前请求资源的线程设置为有效的工作线程，并且将共享资源设置为锁定状态。如果被请求的共享资源被占用，那么就需要一套线程阻塞等待以及被唤醒时锁分配的机制，这个机制 AQS 是用 CLH 队列锁 实现的，即将暂时获取不到锁的线程加入到队列中。
+
+    CLH(Craig,Landin,and Hagersten) 队列是一个虚拟的双向队列（虚拟的双向队列即不存在队列实例，仅存在结点之间的关联关系）。AQS 是将每条请求共享资源的线程封装成一个 CLH 锁队列的一个结点（Node）来实现锁的分配。在 CLH 同步队列中，一个节点表示一个线程，它保存着线程的引用（thread）、 当前节点在队列中的状态（waitStatus）、前驱节点（prev）、后继节点（next）。
+
+    AQS 使用 int 成员变量 state 表示同步状态，通过内置的 线程等待队列 来完成获取资源线程的排队工作。
+
+    state 变量由 volatile 修饰，用于展示当前临界资源的获锁情况。
+
+    另外，状态信息 state 可以通过 protected 类型的getState()、setState()和compareAndSetState() 进行操作。并且，这几个方法都是 final 修饰的，在子类中无法被重写。
+
+    以 ReentrantLock 为例，state 初始值为 0，表示未锁定状态。A 线程 lock() 时，会调用 tryAcquire() 独占该锁并将 state+1 。此后，其他线程再 tryAcquire() 时就会失败，直到 A 线程 unlock() 到 state=0（即释放锁）为止，其它线程才有机会获取该锁。当然，释放锁之前，A 线程自己是可以重复获取此锁的（state 会累加），这就是可重入的概念。但要注意，获取多少次就要释放多少次，这样才能保证 state 是能回到零态的。
+
+    再以 CountDownLatch 以例，任务分为 N 个子线程去执行，state 也初始化为 N（注意 N 要与线程个数一致）。这 N 个子线程是并行执行的，每个子线程执行完后countDown() 一次，state 会 CAS(Compare and Swap) 减 1。等到所有子线程都执行完后(即 state=0 )，会 unpark() 主调用线程，然后主调用线程就会从 await() 函数返回，继续后余动作。
+
+!!! tip "Semaphore 有什么用？"
+
+    synchronized 和 ReentrantLock 都是一次只允许一个线程访问某个资源，而Semaphore(信号量)可以用来控制同时访问特定资源的线程数量。
+
+    当初始的资源个数为 1 的时候，Semaphore 退化为排他锁。
+
+    Semaphore 有两种模式：
+
+    - 公平模式： 调用 acquire() 方法的顺序就是获取许可证的顺序，遵循 FIFO；
+    - 非公平模式： 抢占式的。
+
+    这两个构造方法，都必须提供许可的数量，第二个构造方法可以指定是公平模式还是非公平模式，默认非公平模式。
+
+    Semaphore 通常用于那些资源有明确访问数量限制的场景比如限流（仅限于单机模式，实际项目中推荐使用 Redis +Lua 来做限流）
+
+!!! tip "Semaphore 的原理是什么？"
+
+    Semaphore 是共享锁的一种实现，它默认构造 AQS 的 state 值为 permits，你可以将 permits 的值理解为许可证的数量，只有拿到许可证的线程才能执行。调用semaphore.acquire() ，线程尝试获取许可证，如果 state >= 0 的话，则表示可以获取成功。如果获取成功的话，使用 CAS 操作去修改 state 的值 state=state-1。如果 state<0 的话，则表示许可证数量不足。此时会创建一个 Node 节点加入阻塞队列，挂起当前线程。
+
+    调用semaphore.release(); ，线程尝试释放许可证，并使用 CAS 操作去修改 state 的值 state=state+1。释放许可证成功之后，同时会唤醒同步队列中的一个线程。被唤醒的线程会重新尝试去修改 state 的值 state=state-1 ，如果 state>=0 则获取令牌成功，否则重新进入阻塞队列，挂起线程。
+
+!!! tip "CountDownLatch 有什么用？"
+
+    CountDownLatch 允许 count 个线程阻塞在一个地方，直至所有线程的任务都执行完毕。
+
+    CountDownLatch 是一次性的，计数器的值只能在构造方法中初始化一次，之后没有任何机制再次对其设置值，当 CountDownLatch 使用完毕后，它不能再次被使用。
+
+!!! tip "CountDownLatch 的原理是什么？"
+
+    CountDownLatch 是共享锁的一种实现,它默认构造 AQS 的 state 值为 count。当线程使用 countDown() 方法时,其实使用了tryReleaseShared方法以 CAS 的操作来减少 state,直至 state 为 0 。当调用 await() 方法的时候，如果 state 不为 0，那就证明任务还没有执行完毕，await() 方法就会一直阻塞，也就是说 await() 方法之后的语句不会被执行。然后，CountDownLatch 会自旋 CAS 判断 state == 0，如果 state == 0 的话，就会释放所有等待的线程，await() 方法之后的语句得到执行。#
+
+
+!!! tip "用过 CountDownLatch 么？什么场景下用的？"
+
+    CountDownLatch 的作用就是 允许 count 个线程阻塞在一个地方，直至所有线程的任务都执行完毕。之前在项目中，有一个使用多线程读取多个文件处理的场景，我用到了 CountDownLatch 。具体场景是下面这样的：我们要读取处理 6 个文件，这 6 个任务都是没有执行顺序依赖的任务，但是我们需要返回给用户的时候将这几个文件的处理的结果进行统计整理。为此我们定义了一个线程池和 count 为 6 的CountDownLatch对象 。使用线程池处理读取任务，每一个线程处理完之后就将 count-1，调用CountDownLatch对象的 await()方法，直到所有文件读取完之后，才会接着执行后面的逻辑。
+
+    - 有没有可以改进的地方呢？
+
+    可以使用 CompletableFuture 类来改进！Java8 的 CompletableFuture 提供了很多对多线程友好的方法，使用它可以很方便地为我们编写多线程程序，什么异步、串行、并行或者等待所有线程执行完任务什么的都非常方便。
+
+
+!!! tip "CyclicBarrier 有什么用？"
+
+    CyclicBarrier 和 CountDownLatch 非常类似，它也可以实现线程间的技术等待，但是它的功能比 CountDownLatch 更加复杂和强大。主要应用场景和 CountDownLatch 类似。
+
+    CountDownLatch 的实现是基于 AQS 的，而 CycliBarrier 是基于 ReentrantLock(ReentrantLock 也属于 AQS 同步器)和 Condition 的。
+
+    CyclicBarrier 的字面意思是可循环使用（Cyclic）的屏障（Barrier）。它要做的事情是：让一组线程到达一个屏障（也可以叫同步点）时被阻塞，直到最后一个线程到达屏障时，屏障才会开门，所有被屏障拦截的线程才会继续干活。
+
+
+!!! tip "CyclicBarrier 的原理是什么？"
+
+    CyclicBarrier 内部通过一个 count 变量作为计数器，count 的初始值为 parties 属性的初始化值，每当一个线程到了栅栏这里了，那么就将计数器减 1。如果 count 值为 0 了，表示这是这一代最后一个线程到达栅栏，就尝试执行我们构造方法中输入的任务。
