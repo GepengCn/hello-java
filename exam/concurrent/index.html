@@ -1067,6 +1067,13 @@
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
+    思维导图
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
     问题
   </a>
   
@@ -1094,14 +1101,14 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     什么是悲观锁？
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     什么是乐观锁？
   </a>
   
@@ -1192,6 +1199,13 @@
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
+    思维导图
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
     问题
   </a>
   
@@ -1219,14 +1233,14 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     什么是悲观锁？
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     什么是乐观锁？
   </a>
   
@@ -1291,7 +1305,9 @@
 
 
 <h1 id="_1">并发<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<h2 id="_2">问题<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h2 id="_2">思维导图<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p><img alt="" src="https://p.ipic.vip/iafdbt.jpg" /></p>
+<h2 id="_3">问题<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <ul>
 <li>什么是指令重排序</li>
 <li>什么是主内存？什么是本地内存？</li>
@@ -1421,10 +1437,10 @@
 </div>
 <div class="admonition tip">
 <p class="admonition-title">乐观锁和悲观锁</p>
-<h2 id="_3">什么是悲观锁？<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h2 id="_4">什么是悲观锁？<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <p>悲观锁总是假设最坏的情况，认为共享资源每次被访问的时候就会出现问题(比如共享数据被修改)，所以每次在获取资源操作的时候都会上锁，这样其他线程想拿到这个资源就会阻塞直到锁被上一个持有者释放。也就是说，共享资源每次只给一个线程使用，其它线程阻塞，用完后再把资源转让给其它线程。</p>
 <p>像 Java 中synchronized和ReentrantLock等独占锁就是悲观锁思想的实现。</p>
-<h2 id="_4">什么是乐观锁？<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<h2 id="_5">什么是乐观锁？<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <p>乐观锁总是假设最好的情况，认为共享资源每次被访问的时候不会出现问题，线程可以不停地执行，无需加锁也无需等待，只是在提交修改的时候去验证对应的资源（也就是数据）是否被其它线程修改了（具体方法可以使用版本号机制或 CAS 算法）。</p>
 <p>在 Java 中java.util.concurrent.atomic包下面的原子变量类（比如AtomicInteger、LongAdder）就是使用了乐观锁的一种实现方式 CAS 实现的。
 高并发的场景下，乐观锁相比悲观锁来说，不存在锁竞争造成线程阻塞，也不会有死锁的问题，在性能上往往会更胜一筹。但是，如果冲突频繁发生（写占比非常多的情况），会频繁失败和重试，这样同样会非常影响性能，导致 CPU 飙升。</p>
