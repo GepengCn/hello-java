@@ -2043,20 +2043,22 @@
 <div class="admonition tip">
 <p class="admonition-title">乐观锁和悲观锁</p>
 <ul>
-<li>什么是悲观锁？</li>
-</ul>
+<li>
+<p>什么是悲观锁？</p>
 <p>悲观锁总是假设最坏的情况，认为共享资源每次被访问的时候就会出现问题(比如共享数据被修改)，所以每次在获取资源操作的时候都会上锁，这样其他线程想拿到这个资源就会阻塞直到锁被上一个持有者释放。也就是说，共享资源每次只给一个线程使用，其它线程阻塞，用完后再把资源转让给其它线程。</p>
 <p>像 Java 中synchronized和ReentrantLock等独占锁就是悲观锁思想的实现。</p>
-<ul>
-<li>什么是乐观锁？
-乐观锁总是假设最好的情况，认为共享资源每次被访问的时候不会出现问题，线程可以不停地执行，无需加锁也无需等待，只是在提交修改的时候去验证对应的资源（也就是数据）是否被其它线程修改了（具体方法可以使用版本号机制或 CAS 算法）。</li>
+</li>
+<li>
+<p>什么是乐观锁？</p>
+<p>乐观锁总是假设最好的情况，认为共享资源每次被访问的时候不会出现问题，线程可以不停地执行，无需加锁也无需等待，只是在提交修改的时候去验证对应的资源（也就是数据）是否被其它线程修改了（具体方法可以使用版本号机制或 CAS 算法）。</p>
+<p>在 Java 中java.util.concurrent.atomic包下面的原子变量类（比如AtomicInteger、LongAdder）就是使用了乐观锁的一种实现方式 CAS 实现的。</p>
+<p>高并发的场景下，乐观锁相比悲观锁来说，不存在锁竞争造成线程阻塞，也不会有死锁的问题，在性能上往往会更胜一筹。但是，如果冲突频繁发生（写占比非常多的情况），会频繁失败和重试，这样同样会非常影响性能，导致 CPU 飙升。</p>
+</li>
 </ul>
-<p>在 Java 中java.util.concurrent.atomic包下面的原子变量类（比如AtomicInteger、LongAdder）就是使用了乐观锁的一种实现方式 CAS 实现的。
-高并发的场景下，乐观锁相比悲观锁来说，不存在锁竞争造成线程阻塞，也不会有死锁的问题，在性能上往往会更胜一筹。但是，如果冲突频繁发生（写占比非常多的情况），会频繁失败和重试，这样同样会非常影响性能，导致 CPU 飙升。</p>
 <p>理论上来说：</p>
 <ul>
 <li>悲观锁通常多用于写比较多的情况下（多写场景，竞争激烈），这样可以避免频繁失败和重试影响性能，悲观锁的开销是固定的。不过，如果乐观锁解决了频繁失败和重试这个问题的话（比如LongAdder），也是可以考虑使用乐观锁的，要视实际情况而定。</li>
-<li>乐观锁通常多于写比较少的情况下（多读场景，竞争较少），这样可以避免频繁加锁影响性能。不过，乐观锁主要针对的对象是单个共享变量（参考java.util.concurrent.atomic包下面的原子变量类）。#</li>
+<li>乐观锁通常多用于写比较少读比较多的情况下（多读场景，竞争较少），这样可以避免频繁加锁影响性能。不过，乐观锁主要针对的对象是单个共享变量（参考java.util.concurrent.atomic包下面的原子变量类）。</li>
 </ul>
 </div>
 <h3 id="_11">如何实现乐观锁？<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
@@ -2083,19 +2085,21 @@
 <h3 id="_12">乐观锁存在哪些问题？<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
 <div class="admonition tip">
 <p class="admonition-title">乐观锁存在哪些问题？</p>
-<ol>
-<li>ABA 问题是乐观锁最常见的问题。</li>
-</ol>
+<ul>
+<li>
+<p>ABA 问题是乐观锁最常见的问题。</p>
 <p>如果一个变量 V 初次读取的时候是 A 值，并且在准备赋值的时候检查到它仍然是 A 值，那我们就能说明它的值没有被其他线程修改过了吗？很明显是不能的，因为在这段时间它的值可能被改为其他值，然后又改回 A，那 CAS 操作就会误认为它从来没有被修改过。这个问题被称为 CAS 操作的 "ABA"问题。</p>
 <p>ABA 问题的解决思路是在变量前面追加上版本号或者时间戳。JDK 1.5 以后的 AtomicStampedReference 类就是用来解决 ABA 问题的，其中的 compareAndSet() 方法就是首先检查当前引用是否等于预期引用，并且当前标志是否等于预期标志，如果全部相等，则以原子方式将该引用和该标志的值设置为给定的更新值。</p>
-<ol>
-<li>循环时间长开销大</li>
-</ol>
+</li>
+<li>
+<p>循环时间长开销大</p>
 <p>CAS 经常会用到自旋操作来进行重试，也就是不成功就一直循环执行直到成功。如果长时间不成功，会给 CPU 带来非常大的执行开销。</p>
-<ol>
-<li>只能保证一个共享变量的原子操作</li>
-</ol>
+</li>
+<li>
+<p>只能保证一个共享变量的原子操作</p>
 <p>CAS 只对单个共享变量有效，当操作涉及跨多个共享变量时 CAS 无效。但是从 JDK 1.5 开始，提供了AtomicReference类来保证引用对象之间的原子性，你可以把多个变量放在一个对象里来进行 CAS 操作.所以我们可以使用锁或者利用AtomicReference类把多个共享变量合并成一个共享变量来操作。</p>
+</li>
+</ul>
 </div>
 <h3 id="synchronized">synchronized 是什么？有什么用？<a class="headerlink" href="#synchronized" title="Permanent link">&para;</a></h3>
 <div class="admonition tip">
@@ -2109,10 +2113,10 @@
 <p class="admonition-title">如何使用 synchronized？</p>
 <p>synchronized 关键字的使用方式主要有下面 3 种：</p>
 <ol>
-<li>修饰实例方法（锁当前对象实例）:给当前对象实例加锁，进入同步代码前要获得 当前对象实例的锁 。</li>
-<li>修饰静态方法（锁当前类）:给当前类加锁，会作用于类的所有对象实例 ，进入同步代码前要获得 当前 class 的锁。</li>
+<li>修饰实例方法（锁当前对象实例）：给当前对象实例加锁，进入同步代码前要获得 当前对象实例的锁 。</li>
+<li>修饰静态方法（锁当前类）：给当前类加锁，会作用于类的所有对象实例 ，进入同步代码前要获得 当前 class 的锁。</li>
 <li>
-<p>修饰代码块（锁指定对象/类）:对括号里指定的对象/类加锁</p>
+<p>修饰代码块（锁指定对象/类）：对括号里指定的对象/类加锁</p>
 <ul>
 <li>synchronized(object) 表示进入同步代码库前要获得 给定对象的锁。</li>
 <li>synchronized(类.class) 表示进入同步代码前要获得 给定 Class 的锁</li>
@@ -2152,7 +2156,8 @@
 <h3 id="reentrantlock">ReentrantLock 是什么？<a class="headerlink" href="#reentrantlock" title="Permanent link">&para;</a></h3>
 <div class="admonition tip">
 <p class="admonition-title">ReentrantLock 是什么？</p>
-<p>ReentrantLock 实现了 Lock 接口，是一个可重入且独占式的锁，和 synchronized 关键字类似。不过，ReentrantLock 更灵活、更强大，增加了轮询、超时、中断、公平锁和非公平锁等高级功能。</p>
+<p>ReentrantLock 实现了 Lock 接口，是一个可重入且独占式的锁，和 synchronized 关键字类似。</p>
+<p>不过，ReentrantLock 更灵活、更强大，增加了轮询、超时、中断、公平锁和非公平锁等高级功能。</p>
 <p>ReentrantLock 默认使用非公平锁，也可以通过构造器来显式的指定使用公平锁。</p>
 </div>
 <h3 id="_13">公平锁和非公平锁有什么区别？<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h3>
@@ -2166,30 +2171,18 @@
 <h3 id="synchronized-reentrantlock">synchronized 和 ReentrantLock 有什么区别？<a class="headerlink" href="#synchronized-reentrantlock" title="Permanent link">&para;</a></h3>
 <div class="admonition tip">
 <p class="admonition-title">synchronized 和 ReentrantLock 有什么区别？</p>
-<ul>
-<li>
-<ol>
-<li>两者都是可重入锁</li>
-</ol>
-</li>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 1. 两者都是可重入锁</li>
 </ul>
 <p>可重入锁 也叫递归锁，指的是线程可以再次获取自己的内部锁。比如一个线程获得了某个对象的锁，此时这个对象锁还没有释放，当其再次想要获取这个对象的锁的时候还是可以获取的，如果是不可重入锁的话，就会造成死锁。</p>
 <p>JDK 提供的所有现成的 Lock 实现类，包括 synchronized 关键字锁都是可重入的。</p>
-<ul>
-<li>
-<ol>
-<li>synchronized 依赖于 JVM 而 ReentrantLock 依赖于 API</li>
-</ol>
-</li>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 2. synchronized 依赖于 JVM 而 ReentrantLock 依赖于 API</li>
 </ul>
 <p>synchronized 是依赖于 JVM 实现的，虚拟机团队在 JDK1.6 为 synchronized 关键字进行了很多优化，但是这些优化都是在虚拟机层面实现的，并没有直接暴露给我们。</p>
 <p>ReentrantLock 是 JDK 层面实现的（也就是 API 层面，需要 lock() 和 unlock() 方法配合 try/finally 语句块来完成），所以我们可以通过查看它的源代码，来看它是如何实现的。</p>
-<ul>
-<li>
-<ol>
-<li>ReentrantLock 比 synchronized 增加了一些高级功能</li>
-</ol>
-</li>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 3. ReentrantLock 比 synchronized 增加了一些高级功能</li>
 </ul>
 <p>主要来说主要有三点：</p>
 <ul>
@@ -2203,7 +2196,7 @@
 <p class="admonition-title">可中断锁和不可中断锁有什么区别？</p>
 <ul>
 <li>可中断锁：获取锁的过程中可以被中断，不需要一直等到获取锁之后 才能进行其他逻辑处理。ReentrantLock 就属于是可中断锁。</li>
-<li>不可中断锁：一旦线程申请了锁，就只能等到拿到锁以后才能进行其他的逻辑处理。 synchronized 就属于是不可中断锁。#</li>
+<li>不可中断锁：一旦线程申请了锁，就只能等到拿到锁以后才能进行其他的逻辑处理。 synchronized 就属于是不可中断锁。</li>
 </ul>
 </div>
 <h3 id="reentrantreadwritelock">ReentrantReadWriteLock 是什么？<a class="headerlink" href="#reentrantreadwritelock" title="Permanent link">&para;</a></h3>
@@ -2211,7 +2204,7 @@
 <p class="admonition-title">ReentrantReadWriteLock 是什么？</p>
 <p>ReentrantReadWriteLock 在实际项目中使用的并不多，面试中也问的比较少，简单了解即可。JDK 1.8 引入了性能更好的读写锁 StampedLock 。</p>
 <p>ReentrantReadWriteLock 实现了 ReadWriteLock ，是一个可重入的读写锁，既可以保证多个线程同时读的效率，同时又可以保证有写入操作时的线程安全。</p>
-<p>ReentrantReadWriteLock 其实是两把锁，一把是 WriteLock (写锁)，一把是 ReadLock（读锁） 。读锁是共享锁，写锁是独占锁。读锁可以被同时读，可以同时被多个线程持有，而写锁最多只能同时被一个线程持有。</p>
+<p>ReentrantReadWriteLock 其实是两把锁，一把是 WriteLock (写锁)，一把是 ReadLock（读锁）。读锁是共享锁，写锁是独占锁。读锁可以被同时读，可以同时被多个线程持有，而写锁最多只能同时被一个线程持有。</p>
 <ul>
 <li>一般锁进行并发控制的规则：读读互斥、读写互斥、写写互斥。</li>
 <li>读写锁进行并发控制的规则：读读不互斥、读写互斥、写写互斥（只有读读不互斥）。</li>
