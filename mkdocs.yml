@@ -114,7 +114,10 @@ nav:
         - 测评:
             - 准备: exam/exam.md
             - Map: exam/map.md
-            - Map测试1: exam/test/test_map_1.md
+#            - Map测试1: exam/test/test_map_1.md
             - 集合: exam/collection.md
             - 并发: exam/concurrent.md
+            - JVM: exam/jvm.md
+            - 计算机网络基础: exam/net.md
+            - MySQL: exam/mysql.md
 
