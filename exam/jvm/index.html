@@ -1278,6 +1278,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_27" class="md-nav__link">
+    垃圾收集器有哪些？
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1566,6 +1573,13 @@
           <li class="md-nav__item">
   <a href="#_26" class="md-nav__link">
     垃圾收集算法有哪些？
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_27" class="md-nav__link">
+    垃圾收集器有哪些？
   </a>
   
 </li>
@@ -1992,6 +2006,47 @@
 <p>比如在新生代中，每次收集都会有大量对象死去，所以可以选择”标记-复制“算法，只需要付出少量对象的复制成本就可以完成每次垃圾收集。</p>
 <p>而老年代的对象存活几率是比较高的，而且没有额外的空间对它进行分配担保，所以我们必须选择“标记-清除”或“标记-整理”算法进行垃圾收集。</p>
 </div>
+<h3 id="_27">垃圾收集器有哪些？<a class="headerlink" href="#_27" title="Permanent link">&para;</a></h3>
+<div class="admonition tip">
+<p class="admonition-title">垃圾收集器有哪些？</p>
+</div>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Serial 收集器</li>
+</ul>
+<p>一个单线程收集器,进行垃圾收集工作的时候必须暂停其他所有的工作线程</p>
+<p>新生代采用标记-复制算法，老年代采用标记-整理算法。</p>
+<p>Serial 收集器由于没有线程交互的开销，自然可以获得很高的单线程收集效率。Serial 收集器对于运行在 Client 模式下的虚拟机来说是个不错的选择。</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> ParNew 收集器</li>
+</ul>
+<p>其实就是 Serial 收集器的多线程版本</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Parallel Scavenge 收集器</li>
+</ul>
+<p>Parallel Scavenge 收集器关注点是吞吐量（高效率的利用 CPU）。CMS 等垃圾收集器的关注点更多的是用户线程的停顿时间（提高用户体验）。</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Serial Old 收集器</li>
+</ul>
+<p>Serial 收集器的老年代版本，它同样是一个单线程收集器。它主要有两大用途：一种用途是在 JDK1.5 以及以前的版本中与 Parallel Scavenge 收集器搭配使用，另一种用途是作为 CMS 收集器的后备方案。</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Parallel Old 收集器</li>
+</ul>
+<p>Parallel Scavenge 收集器的老年代版本。使用多线程和“标记-整理”算法。在注重吞吐量以及 CPU 资源的场合，都可以优先考虑 Parallel Scavenge 收集器和 Parallel Old 收集器。</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> CMS 收集器</li>
+</ul>
+<p>一种以获取最短回收停顿时间为目标的收集器。它非常符合在注重用户体验的应用上使用。</p>
+<p>HotSpot 虚拟机第一款真正意义上的并发收集器，它第一次实现了让垃圾收集线程与用户线程（基本上）同时工作。</p>
+<p>是一种 “标记-清除”算法实现的</p>
+<p>整个过程分为四个步骤：
+    - <strong>初始标记</strong>:暂停所有的其他线程，并记录下直接与 root 相连的对象，速度很快 ；
+    - <strong>并发标记</strong>:
+    - <strong>重新标记</strong>:
+    - <strong>并发清除</strong>:</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> G1 收集器</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> ZGC 收集器</li>
+</ul>
 
 
 
