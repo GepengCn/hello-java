@@ -44,7 +44,6 @@
 - 指定垃圾回收垃圾器
 - GC 日志记录
 - 处理 OOM 配置
-- JDK 命令行工具描述一下
 - 查看所有 Java 进程
 - 监视虚拟机各种运行状态信息
 - 实时地查看和调整虚拟机各项参数
@@ -553,7 +552,7 @@
 
 !!! tip "显式指定堆内存"
 
-    ```bash
+    ```powershell
     -Xms2G //最小堆
     -Xmx5G //最大最
     ```
@@ -561,7 +560,7 @@
 ### 显式新生代内存
 !!! tip "显式新生代内存"
 
-    ```bash
+    ```powershell
     第一种
     -XX:NewSize=256m //新生代分配 最小 256m 的内存
     -XX:MaxNewSize=1024m //新生代分配 最大 1024m
@@ -573,7 +572,7 @@
 ### 显式指定永久代/元空间的大小
 !!! tip "显式指定永久代/元空间的大小"
 
-    ```bash
+    ```powershell
     -XX:MetaspaceSize=N //MetaspaceSize 表示 Metaspace 使用过程中触发 Full GC 的阈值，只对触发起作用。
     -XX:MaxMetaspaceSize=N #设置 Metaspace 的最大大小
     ```
@@ -581,7 +580,7 @@
 ### 指定垃圾回收垃圾器
 !!! tip "指定垃圾回收垃圾器"
 
-    ```bash
+    ```powershell
     -XX:+UseSerialGC
     -XX:+UseParallelGC
     -XX:+UseParNewGC
@@ -591,7 +590,7 @@
 ### GC 日志记录
 !!! tip "GC 日志记录"
 
-    ```bash
+    ```powershell
     # 必选
     # 打印基本 GC 信息
     -XX:+PrintGCDetails
@@ -614,31 +613,135 @@
     -XX:NumberOfGCLogFiles=14
     # 每个文件上限大小，超过就触发分割
     -XX:GCLogFileSize=50M
-```
+    ```
 
 ### 处理 OOM 配置
 !!! tip "处理 OOM 配置"
 
-### JDK 命令行工具描述一下
-!!! tip "JDK 命令行工具描述一下"
+    ```powershell
+    -XX:+HeapDumpOnOutOfMemoryError
+    -XX:HeapDumpPath=./java_pid<pid>.hprof
+    -XX:OnOutOfMemoryError="< cmd args >;< cmd args >"
+    -XX:+UseGCOverheadLimit
+    ```
+
+    - HeapDumpOnOutOfMemoryError 指示 JVM 在遇到 OutOfMemoryError 错误时将 heap 转储到物理文件中。
+    - HeapDumpPath 表示要写入文件的路径; 可以给出任何文件名; 但是，如果 JVM 在名称中找到一个 <pid> 标记，则当前进程的进程 id 将附加到文件名中，并使用.hprof格式
+    - OnOutOfMemoryError 用于发出紧急命令，以便在内存不足的情况下执行; 应该在 cmd args 空间中使用适当的命令。例如，如果我们想在内存不足时重启服务器，我们可以设置参数: -XX:OnOutOfMemoryError="shutdown -r" 。
+    - UseGCOverheadLimit 是一种策略，它限制在抛出 OutOfMemory 错误之前在 GC 中花费的 VM 时间的比例#
 
 ### 查看所有 Java 进程
 !!! tip "查看所有 Java 进程"
 
+    ```powershell
+    jps #显示虚拟机执行主类名称以及这些进程的本地虚拟机唯一 ID
+    jps -q #只输出进程的本地虚拟机唯一 ID。
+    jps -l #输出主类的全名，如果进程执行的是 Jar 包，输出 Jar 路径。
+    jps -v #输出虚拟机进程启动时 JVM 参数。
+    jps -m #输出传递给 Java 进程 main() 函数的参数。
+    ```
+
 ### 监视虚拟机各种运行状态信息
 !!! tip "监视虚拟机各种运行状态信息"
+
+    ```powershell
+    jstat -gc -h3 31736 1000 10   #表示分析进程 id 为 31736 的 gc 情况，每隔 1000ms 打印一次记录，打印 10 次停止，每 3 行后打印指标头部。
+    ```
+
+    - jstat -class vmid：显示 ClassLoader 的相关信息；
+    - jstat -compiler vmid：显示 JIT 编译的相关信息；
+    - jstat -gc vmid：显示与 GC 相关的堆信息；
+    - jstat -gccapacity vmid：显示各个代的容量及使用情况；
+    - jstat -gcnew vmid：显示新生代信息；
+    - jstat -gcnewcapcacity vmid：显示新生代大小与使用情况；
+    - jstat -gcold vmid：显示老年代和永久代的行为统计，从 jdk1.8 开始,该选项仅表示老年代，因为永久代被移除了；
+    - jstat -gcoldcapacity vmid：显示老年代的大小；
+    - jstat -gcutil vmid：显示垃圾收集信息；
 
 ### 实时地查看和调整虚拟机各项参数
 !!! tip "实时地查看和调整虚拟机各项参数"
 
+    jinfo vmid :输出当前 jvm 进程的全部参数和系统属性 (第一部分是系统的属性，第二部分是 JVM 的参数)。
+
+    jinfo -flag name vmid :输出对应名称的参数的具体值。比如输出 MaxHeapSize、查看当前 jvm 进程是否开启打印 GC 日志 ( -XX:PrintGCDetails :详细 GC 日志模式，这两个都是默认关闭的)。
+
+    ```powershell
+    C:\Users\SnailClimb>jinfo  -flag MaxHeapSize 17340
+    -XX:MaxHeapSize=2124414976
+    C:\Users\SnailClimb>jinfo  -flag PrintGC 17340
+    -XX:-PrintGC
+    ```
+
+    使用 jinfo 可以在不重启虚拟机的情况下，可以动态的修改 jvm 的参数。尤其在线上的环境特别有用,请看下面的例子：
+
+    jinfo -flag [+|-]name vmid 开启或者关闭对应名称的参数。
+
+    ```powershell
+    C:\Users\SnailClimb>jinfo  -flag  PrintGC 17340
+    -XX:-PrintGC
+
+    C:\Users\SnailClimb>jinfo  -flag  +PrintGC 17340
+
+    C:\Users\SnailClimb>jinfo  -flag  PrintGC 17340
+    -XX:+PrintGC
+    ```
+
 ### 生成堆转储快照
 !!! tip "生成堆转储快照"
+
+    jmap（Memory Map for Java）命令用于生成堆转储快照。 如果不使用 jmap 命令，要想获取 Java 堆转储，可以使用 “-XX:+HeapDumpOnOutOfMemoryError” 参数，可以让虚拟机在 OOM 异常出现之后自动生成 dump 文件，Linux 命令下可以通过 kill -3 发送进程退出信号也能拿到 dump 文件。
+
+    jmap 的作用并不仅仅是为了获取 dump 文件，它还可以查询 finalizer 执行队列、Java 堆和永久代的详细信息，如空间使用率、当前使用的是哪种收集器等。和jinfo一样，jmap有不少功能在 Windows 平台下也是受限制的。
+
+    示例：将指定应用程序的堆快照输出到桌面。后面，可以通过 jhat、Visual VM 等工具分析该堆文件。
+
+    ```powershell
+    C:\Users\SnailClimb>jmap -dump:format=b,file=C:\Users\SnailClimb\Desktop\heap.hprof 17340
+    Dumping heap to C:\Users\SnailClimb\Desktop\heap.hprof ...
+    Heap dump file created
+    ```
 
 ### 分析 heapdump 文件
 !!! tip "分析 heapdump 文件"
 
+    jhat 用于分析 heapdump 文件，它会建立一个 HTTP/HTML 服务器，让用户可以在浏览器上查看分析结果。
+
+    ```powershell
+    C:\Users\SnailClimb>jhat C:\Users\SnailClimb\Desktop\heap.hprof
+    Reading from C:\Users\SnailClimb\Desktop\heap.hprof...
+    Dump file created Sat May 04 12:30:31 CST 2019
+    Snapshot read, resolving...
+    Resolving 131419 objects...
+    Chasing references, expect 26 dots..........................
+    Eliminating duplicate references..........................
+    Snapshot resolved.
+    Started HTTP server on port 7000
+    Server is ready.
+    ```
+
 ### 生成虚拟机当前时刻的线程快照
 !!! tip "生成虚拟机当前时刻的线程快照"
 
+    jstack（Stack Trace for Java）命令用于生成虚拟机当前时刻的线程快照。线程快照就是当前虚拟机内每一条线程正在执行的方法堆栈的集合.
+
+    生成线程快照的目的主要是定位线程长时间出现停顿的原因，如线程间死锁、死循环、请求外部资源导致的长时间等待等都是导致线程长时间停顿的原因。线程出现停顿的时候通过jstack来查看各个线程的调用堆栈，就可以知道没有响应的线程到底在后台做些什么事情，或者在等待些什么资源。
+
+    ```powershell
+    C:\Users\SnailClimb>jps
+    13792 KotlinCompileDaemon
+    7360 NettyClient2
+    17396
+    7972 Launcher
+    8932 Launcher
+    9256 DeadLockDemo
+    10764 Jps
+    17340 NettyServer
+
+    C:\Users\SnailClimb>jstack 9256
+
+    ```
+
 ### JVM线上问题排查和性能调优案例
 !!! tip "JVM线上问题排查和性能调优案例"
+
+    https://javaguide.cn/java/jvm/jvm-in-action.html
