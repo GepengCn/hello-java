@@ -2281,15 +2281,15 @@
 </li>
 <li class="task-list-item">
 <p><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> G1 收集器
-面向服务器的垃圾收集器,主要针对配备多颗处理器及大容量内存的机器. 以极高概率满足 GC 停顿时间要求的同时,还具备高吞吐量性能特征.</p>
+面向服务器的垃圾收集器,既有较低的GC 停顿时间同时还具备高吞吐量。</p>
 </li>
 </ul>
 <p>具备以下特点：</p>
 <ul>
-<li>并行与并发：G1 能充分利用 CPU、多核环境下的优势来缩短 Stop-The-World 停顿时间。部分其他收集器需要停顿来执行GC 动作，G1 仍然可以并发的让程序继续执行。</li>
+<li>并行与并发：G1 能充分利用CPU多核的优势来缩短停顿时间。</li>
 <li>分代收集：虽然 G1 可以不需要其他收集器配合就能独立管理整个 GC 堆，但是还是保留了分代的概念。</li>
 <li>空间整合：G1 从整体来看是基于“标记-整理”算法实现的收集器；从局部上来看是基于“标记-复制”算法实现的。</li>
-<li>可预测的停顿：这是 G1 相对于 CMS 的另一个大优势，降低停顿时间是 G1 和 CMS 共同的关注点，但 G1 除了追求低停顿外，还能建立可预测的停顿时间模型，能让使用者明确指定在一个长度为 M 毫秒的时间片段内，消耗在垃圾收集上的时间不得超过 N 毫秒。</li>
+<li>可预测的停顿：能建立可预测的停顿时间模型，能让使用者指定消耗在垃圾收集上的时间。</li>
 </ul>
 <p>G1 收集器的运作大致分为以下几个步骤：</p>
 <ul class="task-list">
@@ -2308,18 +2308,18 @@
 <h3 id="_26">类加载器介绍<a class="headerlink" href="#_26" title="Permanent link">&para;</a></h3>
 <div class="admonition tip">
 <p class="admonition-title">类加载器介绍</p>
-<p>类加载器的主要作用就是加载 Java 类的字节码（ .class 文件）到 JVM 中（在内存中生成一个代表该类的 Class 对象）</p>
+<p>类加载器的主要作用就是加载 Java 类的字节码到 JVM 中</p>
 <p>字节码可以是 Java 源程序（.java文件）经过 javac 编译得来，也可以是通过工具动态生成或者通过网络下载得来。</p>
 <p>JVM 中内置了三个重要的 ClassLoader：</p>
 <ul>
 <li>
-<p>BootstrapClassLoader(启动类加载器)：主要用来加载 JDK 内部的核心类库</p>
+<p>BootstrapClassLoader(启动类加载器)：主要用来加载 JDK 核心类库</p>
 </li>
 <li>
 <p>ExtensionClassLoader(扩展类加载器)：主要负责加载 %JRE_HOME%/lib/ext 目录下的 jar 包和类以及被 java.ext.dirs 系统变量所指定的路径下的所有类。</p>
 </li>
 <li>
-<p>AppClassLoader(应用程序类加载器)：面向我们用户的加载器，负责加载当前应用 classpath 下的所有 jar 包和类。</p>
+<p>AppClassLoader(应用程序类加载器)：负责加载当前应用 classpath 下的所有 jar 包和类。</p>
 </li>
 <li>
 <p>CustomClassLoader(自定义类加载器)：一般重写findClass方法即可，尽量别打破双亲委派模型。</p>
