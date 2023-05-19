@@ -1278,6 +1278,34 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#tcp_1" class="md-nav__link">
+    TCP 如何保证传输的可靠性？（重要）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tcp_2" class="md-nav__link">
+    TCP 如何实现流量控制？
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    为什么需要流量控制?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tcp_3" class="md-nav__link">
+    TCP 的拥塞控制是怎么实现的？
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1542,6 +1570,34 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#tcp_1" class="md-nav__link">
+    TCP 如何保证传输的可靠性？（重要）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tcp_2" class="md-nav__link">
+    TCP 如何实现流量控制？
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    为什么需要流量控制?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tcp_3" class="md-nav__link">
+    TCP 的拥塞控制是怎么实现的？
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1600,14 +1656,9 @@
 <li>使用 TCP 的协议有哪些?使用 UDP 的协议有哪些?</li>
 <li>TCP 三次握手和四次挥手（非常重要）</li>
 <li>TCP 如何保证传输的可靠性？（重要）</li>
-<li>IP 协议的作用是什么？</li>
-<li>什么是 IP 地址？IP 寻址如何工作？</li>
-<li>什么是 IP 地址过滤？</li>
-<li>IPv4 和 IPv6 有什么区别？</li>
-<li>NAT 的作用是什么？</li>
-<li>什么是 Mac 地址？</li>
-<li>ARP 协议解决了什么问题地位如何？</li>
-<li>ARP 协议的工作原理？</li>
+<li>TCP 如何实现流量控制？</li>
+<li>TCP 为什么需要流量控制？</li>
+<li>TCP 的拥塞控制是怎么实现的？</li>
 </ul>
 <h2 id="_3">答案<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <h3 id="osi">OSI 七层模型是什么？每一层的作用是什么？<a class="headerlink" href="#osi" title="Permanent link">&para;</a></h3>
@@ -1842,6 +1893,50 @@ https 运行在ssl/tls 内容密文</p>
 </ul>
 <p>如果没有这个等待时间，客户端直接关闭了并且第四次挥手的报文丢失了，服务端就会一直处于确认状态无法关闭，有了这个时间，服务器才可以重试发送并且正常关闭</p>
 </div>
+<h3 id="tcp_1">TCP 如何保证传输的可靠性？（重要）<a class="headerlink" href="#tcp_1" title="Permanent link">&para;</a></h3>
+<div class="admonition tip">
+<p class="admonition-title">TCP 如何保证传输的可靠性？（重要）</p>
+</div>
+<ol>
+<li>分块传输</li>
+<li>每个包都有序号，保证不会重复和丢包</li>
+<li>数据校验</li>
+<li>超时重传</li>
+<li>流量控制</li>
+<li>拥塞控制</li>
+</ol>
+<h3 id="tcp_2">TCP 如何实现流量控制？<a class="headerlink" href="#tcp_2" title="Permanent link">&para;</a></h3>
+<div class="admonition tip">
+<p class="admonition-title">TCP 如何实现流量控制？</p>
+</div>
+<p>滑动窗口。确认报文中的窗口字段设置窗口大小，如果设置为0，发送方就不能发送数据</p>
+<h3 id="_8">为什么需要流量控制?<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<div class="admonition tip">
+<p class="admonition-title">为什么需要流量控制? </p>
+</div>
+<p>收发双方速率不等，发的过快，接收的处理不过来，就会放入缓冲区。但是缓冲区放不下就会丢掉，这样又丢包又浪费网络资源</p>
+<h3 id="tcp_3">TCP 的拥塞控制是怎么实现的？<a class="headerlink" href="#tcp_3" title="Permanent link">&para;</a></h3>
+<div class="admonition tip">
+<p class="admonition-title">TCP 的拥塞控制是怎么实现的？</p>
+</div>
+<p>拥塞控制：防止过多的数据注入到网络，使网络中的路由器或链路不致过载</p>
+<ul>
+<li>
+<p>全局的</p>
+</li>
+<li>
+<p>发送方维持一个拥塞窗口(cwnd) 变量，大小取决于网络拥塞程度，会从发送和接收方取更小值</p>
+</li>
+<li>
+<p>慢开始</p>
+</li>
+<li>
+<p>缓慢增大</p>
+</li>
+<li>
+<p>快重传与快恢复，接收方收到收到三个重复确认，会假定数据段丢失，并立即重传</p>
+</li>
+</ul>
 
 
 
