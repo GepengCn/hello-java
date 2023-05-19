@@ -1,0 +1,52 @@
+- 什么是指令重排序
+真顺序不是代码顺序。编译器、cpu指令并行
+- happens-before 原则是什么？为什么需要 happens-before 原则？happens-before 常见规则有哪些？谈谈你的理解？
+要点：分布式、逻辑时钟、仅区分事件而不是时间本身
+
+- 并发编程三个重要特性
+- 如何保证变量的可见性？
+- 如何禁止指令重排序？
+- volatile 可以保证原子性么?
+- 乐观锁和悲观锁
+- 如何实现乐观锁？
+- 乐观锁存在哪些问题？
+- synchronized 是什么？有什么用？
+- 如何使用 synchronized？
+- 构造方法可以用 synchronized 修饰么？
+- synchronized 底层原理了解吗？
+- JDK1.6 之后的 synchronized 底层做了哪些优化？
+- synchronized 和 volatile 有什么区别？
+- ReentrantLock 是什么？
+- 公平锁和非公平锁有什么区别？
+- synchronized 和 ReentrantLock 有什么区别？
+- 可中断锁和不可中断锁有什么区别？
+- ReentrantReadWriteLock 是什么？
+- ReentrantReadWriteLock 适合什么场景？
+- 共享锁和独占锁有什么区别？
+- 线程持有读锁还能获取写锁吗？
+- 读锁为什么不能升级为写锁？
+- Atomic 原子类介绍，有哪几种类型，分别介绍一下?
+- ThreadLocal 有什么用？
+- ThreadLocal 原理了解吗？
+- ThreadLocal 内存泄露问题是怎么导致的？
+- 什么是线程池?为什么要用线程池？如何创建线程池？
+- 为什么不推荐使用内置线程池？
+- 线程池常见参数有哪些？如何解释？
+- 线程池的饱和策略有哪些？
+- 线程池常用的阻塞队列有哪些？
+- 线程池处理任务的流程了解吗？
+- 如何给线程池命名？
+- 如何设定线程池的大小？
+- 如何动态修改线程池的参数？
+- Future 类有什么用？
+- Callable 和 Future 有什么关系？
+- CompletableFuture 类有什么用？
+- AQS 是什么？
+- AQS 的原理是什么？
+- Semaphore 有什么用？
+- Semaphore 的原理是什么？
+- CountDownLatch 有什么用？
+- CountDownLatch 的原理是什么？
+- 用过 CountDownLatch 么？什么场景下用的？
+- CyclicBarrier 有什么用？
+- CyclicBarrier 的原理是什么？
