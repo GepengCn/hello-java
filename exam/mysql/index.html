@@ -1900,16 +1900,20 @@ B+ 树是 B 树的一种变体</p>
 <p><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> type</p>
 </li>
 </ul>
-<p>从最优到最差排序为：system &gt; const &gt; eq_ref &gt; ref &gt; fulltext &gt; ref_or_null &gt; index_merge &gt; unique_subquery &gt; index_subquery &gt; range &gt; index &gt; ALL
-- const：表中最多只有一行匹配的记录，一次查询就可以找到，常用于使用主键或唯一索引的所有字段作为查询条件。
-- eq_ref：当连表查询时，前一张表的行在当前这张表中只有一行与之对应。是除了 system 与 const 之外最好的 join 方式，常用于使用主键或唯一索引的所有字段作为连表条件。
-- ref：使用普通索引作为查询条件，查询结果可能找到多个符合条件的行。
-- index_merge：当查询条件使用了多个索引时，表示开启了 Index Merge 优化，此时执行计划中的 key 列列出了使用到的索引。
-- range：对索引列进行范围查询，执行计划中的 key 列表示哪个索引被使用了。
-- index：查询遍历了整棵索引树，与 ALL 类似，只不过扫描的是索引，而索引一般在内存中，速度更快。
-- ALL：全表扫描。</p>
-<p>-[x] possible_keys:可能用到的索引,如果为 NULL，则表示未用到索引</p>
+<p>从最优到最差排序为：system &gt; const &gt; eq_ref &gt; ref &gt; fulltext &gt; ref_or_null &gt; index_merge &gt; unique_subquery &gt; index_subquery &gt; range &gt; index &gt; ALL</p>
 <ul class="task-list">
+<li>const：表中最多只有一行匹配的记录，一次查询就可以找到，常用于使用主键或唯一索引的所有字段作为查询条件。</li>
+<li>eq_ref：当连表查询时，前一张表的行在当前这张表中只有一行与之对应。是除了 system 与 const 之外最好的 join 方式，常用于使用主键或唯一索引的所有字段作为连表条件。</li>
+<li>ref：使用普通索引作为查询条件，查询结果可能找到多个符合条件的行。</li>
+<li>index_merge：当查询条件使用了多个索引时，表示开启了 Index Merge 优化，此时执行计划中的 key 列列出了使用到的索引。</li>
+<li>range：对索引列进行范围查询，执行计划中的 key 列表示哪个索引被使用了。</li>
+<li>index：查询遍历了整棵索引树，与 ALL 类似，只不过扫描的是索引，而索引一般在内存中，速度更快。</li>
+<li>
+<p>ALL：全表扫描。</p>
+</li>
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> possible_keys:可能用到的索引,如果为 NULL，则表示未用到索引</p>
+</li>
 <li class="task-list-item">
 <p><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> key:实际使用到的索引。如果为 NULL，则表示未用到索引</p>
 </li>
@@ -1946,8 +1950,10 @@ B+ 树是 B 树的一种变体</p>
 </ul>
 </div>
 <h3 id="mysql_7">MySQL隐式转换造成索引失效<a class="headerlink" href="#mysql_7" title="Permanent link">&para;</a></h3>
-<pre><code>当查询的字段是字符串时，等号右边的条件一定要用引号引起来标明这是一个字符串，否则会造成隐式转换进而索引失效触发全表扫描
-</code></pre>
+<div class="admonition tip">
+<p class="admonition-title">MySQL隐式转换造成索引失效</p>
+<p>当查询的字段是字符串时，等号右边的条件一定要用引号引起来标明这是一个字符串，否则会造成隐式转换进而索引失效触发全表扫描</p>
+</div>
 
 
 

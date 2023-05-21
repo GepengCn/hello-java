@@ -1896,7 +1896,6 @@ https 运行在ssl/tls 内容密文</p>
 <h3 id="tcp_1">TCP 如何保证传输的可靠性？（重要）<a class="headerlink" href="#tcp_1" title="Permanent link">&para;</a></h3>
 <div class="admonition tip">
 <p class="admonition-title">TCP 如何保证传输的可靠性？（重要）</p>
-</div>
 <ol>
 <li>分块传输</li>
 <li>每个包都有序号，保证不会重复和丢包</li>
@@ -1905,20 +1904,20 @@ https 运行在ssl/tls 内容密文</p>
 <li>流量控制</li>
 <li>拥塞控制</li>
 </ol>
+</div>
 <h3 id="tcp_2">TCP 如何实现流量控制？<a class="headerlink" href="#tcp_2" title="Permanent link">&para;</a></h3>
 <div class="admonition tip">
 <p class="admonition-title">TCP 如何实现流量控制？</p>
-</div>
 <p>滑动窗口。确认报文中的窗口字段设置窗口大小，如果设置为0，发送方就不能发送数据</p>
+</div>
 <h3 id="_8">为什么需要流量控制?<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
 <div class="admonition tip">
 <p class="admonition-title">为什么需要流量控制? </p>
-</div>
 <p>收发双方速率不等，发的过快，接收的处理不过来，就会放入缓冲区。但是缓冲区放不下就会丢掉，这样又丢包又浪费网络资源</p>
+</div>
 <h3 id="tcp_3">TCP 的拥塞控制是怎么实现的？<a class="headerlink" href="#tcp_3" title="Permanent link">&para;</a></h3>
 <div class="admonition tip">
 <p class="admonition-title">TCP 的拥塞控制是怎么实现的？</p>
-</div>
 <p>拥塞控制：防止过多的数据注入到网络，使网络中的路由器或链路不致过载</p>
 <ul>
 <li>
@@ -1937,6 +1936,7 @@ https 运行在ssl/tls 内容密文</p>
 <p>快重传与快恢复，接收方收到收到三个重复确认，会假定数据段丢失，并立即重传</p>
 </li>
 </ul>
+</div>
 
 
 
