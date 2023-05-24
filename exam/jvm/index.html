@@ -1922,18 +1922,16 @@
 <h3 id="_4">程序计数器<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
 <div class="admonition tip">
 <p class="admonition-title">程序计数器</p>
-<p>当前线程所执行的字节码的行号指示器。字节码解释器通过改变这个计数器的值来选取下一条需要执行的字节码指令，分支、循环、跳转、异常处理、线程恢复等功能都需要依赖这个计数器来完成。</p>
-<p>另外，为了线程切换后能恢复到正确的执行位置，每条线程都需要有一个独立的程序计数器，各线程之间计数器互不影响，独立存储。</p>
+<p>当前线程所执行的字节码的行号指示器。字节码解释器通过改变这个计数器的值来选取要执行的指令，比如分支、循环、跳转、异常处理、线程恢复都需要依赖这个计数器来完成。</p>
 </div>
 <h3 id="java">Java 虚拟机栈<a class="headerlink" href="#java" title="Permanent link">&para;</a></h3>
 <div class="admonition tip">
 <p class="admonition-title">Java 虚拟机栈</p>
-<p>线程私有的，它的生命周期和线程相同，随着线程的创建而创建，随着线程的死亡而死亡。</p>
-<p>所有的 Java 方法调用都是通过栈来实现的</p>
-<p>方法调用的数据需要通过栈进行传递，每一次方法调用都会有一个对应的栈帧被压入栈中，每一个方法调用结束后，都会有一个栈帧被弹出。</p>
-<p>栈由一个个栈帧组成，而每个栈帧中都拥有：局部变量表、操作数栈、动态链接、方法返回地址。</p>
+<p>线程私有的，它的生命周期和线程相同，随着线程生而生，死而死。</p>
+<p>所有的<code>Java</code> 方法调用都是通过虚拟机栈实现，每次方法调用都会有一个栈帧压入栈，方法结束，栈帧被弹出。</p>
+<p>每个栈帧中都拥有：局部变量表、操作数栈、动态链接、方法返回地址。</p>
 <ul>
-<li><strong>局部变量表</strong>:主要存放了编译期可知的各种数据类型、对象引用</li>
+<li><strong>局部变量表</strong>:存放了编译期可知的各种数据类型、对象引用</li>
 <li><strong>操作数栈</strong>:存放方法执行过程中产生的中间计算结果和临时变量。</li>
 <li><strong>动态链接</strong>:将符号引用转换为调用方法的直接引用 。</li>
 <li><strong>方法返回地址</strong>:一种是 return 语句正常返回，一种是抛出异常。不管哪种返回方式，都会导致栈帧被弹出。</li>
@@ -1973,12 +1971,12 @@
 <h3 id="_9">方法区<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
 <div class="admonition tip">
 <p class="admonition-title">方法区</p>
-<p>存储已被虚拟机加载的 类信息、字段信息、方法信息、常量、静态变量、编译后的代码缓存等数据。</p>
+<p>存储已被虚拟机加载的 类、字段、方法信息和常量、静态变量、编译后的代码缓存等数据。</p>
 </div>
 <h3 id="_10">方法区和永久代以及元空间是什么关系呢？<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
 <div class="admonition tip">
 <p class="admonition-title">方法区和永久代以及元空间是什么关系呢？</p>
-<p>方法区和永久代以及元空间的关系很像 Java 中接口和类的关系，类实现了接口，这里的类就可以看作是永久代和元空间，接口可以看作是方法区，也就是说永久代以及元空间是 HotSpot 虚拟机对虚拟机规范中方法区的两种实现方式。</p>
+<p>很像 Java 中接口和类的关系，这里的类就可以看作是永久代和元空间，接口可以看作是方法区，也就是说永久代以及元空间是 HotSpot 虚拟机对虚拟机规范中方法区的两种实现方式。</p>
 </div>
 <h3 id="_11">为什么要将永久代替换为元空间呢?<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
 <div class="admonition tip">
@@ -2009,7 +2007,7 @@
 <h3 id="java_1">直接内存怎么在java中应用的<a class="headerlink" href="#java_1" title="Permanent link">&para;</a></h3>
 <div class="admonition tip">
 <p class="admonition-title">直接内存怎么在java中应用的</p>
-<p>NIO，引入了一种基于通道与缓冲区的 I/O 方式，它可以直接使用 JNI 直接分配堆外内存，然后通过存储在 Java 堆中的 DirectByteBuffer 对象来引用这块内存。在一些场景中显著提高性能，因为避免了在 Java 堆和 Native 堆之间来回复制数据。</p>
+<p>NIO，一种基于通道与缓冲区的 I/O 方式，通过JNI可以直接分配堆外内存，然后通过DirectByteBuffer引用这块内存。在一些场景中显著提高性能，因为避免了在 Java 堆和 Native 堆之间来回复制数据。</p>
 </div>
 <h3 id="java_2">Java 对象的创建过程<a class="headerlink" href="#java_2" title="Permanent link">&para;</a></h3>
 <div class="admonition tip">
@@ -2065,7 +2063,7 @@
 <ul>
 <li>指针碰撞：<ul>
 <li>适用场合：堆内存规整。</li>
-<li>原理：用过的内存全部整合到一边，没有用过的内存放在另一边，中间有一个分界指针，分配内存时，向没用过的内存区域移动指针。</li>
+<li>原理：用过的内存全部整合到一边，没有用过的内存放在另一边，中间有一个分界指针，分配内存时，向没用过的区域移动指针。</li>
 <li>GC 收集器：Serial, ParNew</li>
 </ul>
 </li>
@@ -2090,9 +2088,9 @@
 <div class="admonition tip">
 <p class="admonition-title">对象的内存布局</p>
 <p>分为 3 块区域：对象头、实例数据和对齐填充。</p>
-<p>Hotspot 虚拟机的对象头包括两部分信息，第一部分用于存储对象自身的运行时数据（哈希码、GC 分代年龄、锁状态标志等等），另一部分是类型指针，虚拟机通过这个指针来确定这个对象是哪个类的实例。</p>
-<p>实例数据，也就是在程序中定义的各种类型的字段内容。</p>
-<p>对齐填充部分不是必然存在的，也没有什么特别的含义，仅仅起占位作用。 因为 Hotspot 虚拟机的要求对象起始地址必须是 8 字节的整数倍，因此，当没有对齐时，就需要对齐填充来补全。</p>
+<p>对象头：包括两部分信息，一部分用于存储哈希码、GC 分代年龄、锁状态标志，另一部分是类型指针，虚拟机通过这个指针来确定这个对象是哪个类的实例。</p>
+<p>实例数据:程序中定义的各种类型的字段内容。</p>
+<p>对齐填充：不是必然存在的，仅仅起占位作用。虚拟机的要求对象起始地址必须是 8 字节的整数倍，因此，当没有对齐时，就需要对齐填充来补全。</p>
 </div>
 <h3 id="_18">对象的访问定位(可选)<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h3>
 <div class="admonition tip">
@@ -2124,7 +2122,7 @@
 <ul class="task-list">
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 长期存活的对象将进入老年代</li>
 </ul>
-<p>如果对象在 Eden 出生并经过第一次 Minor GC 后仍然能够存活，并且能被 Survivor 容纳的话，将被移动到 Survivor 空间）中，并将对象年龄设为 1。</p>
+<p>如果对象在 Eden 出生并经过一次 Minor GC 后仍能存活，并能被 Survivor 容纳的话，将被移动到 Survivor 空间中，并将对象年龄设为 1。</p>
 <p>对象在 Survivor 中每熬过一次 MinorGC,年龄就增加 1 岁，当它的年龄增加到一定程度（默认为 15 岁），就会被晋升到老年代中。</p>
 <ul class="task-list">
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 主要进行 gc 的区域</li>
@@ -2147,11 +2145,11 @@
 <ul class="task-list">
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 引用计数法</li>
 </ul>
-<p>但是目前主流的虚拟机中并没有选择这个算法来管理内存，其最主要的原因是它很难解决对象之间循环引用的问题。</p>
+<p>很难解决对象之间循环引用的问题。</p>
 <ul class="task-list">
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 可达性分析算法</li>
 </ul>
-<p>这个算法的基本思想就是通过一系列的称为 “GC Roots” 的对象作为起点，从这些节点开始向下搜索，节点所走过的路径称为引用链，当一个对象到 GC Roots 没有任何引用链相连的话，则证明此对象是不可用的，需要被回收。</p>
+<p>通过一系列的称为 “GC Roots” 的对象作为起点，从这些节点开始向下搜索，节点所走过的路径称为引用链，当一个对象到 GC Roots 没有任何引用链相连的话，证明此对象是不可用，需要被回收。</p>
 </div>
 <h3 id="gc-roots">哪些对象可以作为 GC Roots 呢？<a class="headerlink" href="#gc-roots" title="Permanent link">&para;</a></h3>
 <div class="admonition tip">
@@ -2167,10 +2165,10 @@
 <h3 id="_21">对象可以被回收，就代表一定会被回收吗？<a class="headerlink" href="#_21" title="Permanent link">&para;</a></h3>
 <div class="admonition tip">
 <p class="admonition-title">对象可以被回收，就代表一定会被回收吗？</p>
-<p>当一个对象在可达性分析时被判定为不可达对象时，不会马上被回收，还需要进行两次标记。</p>
+<p>不会马上被回收，还需要进行两次标记。</p>
 <ul>
 <li>
-<p>第一次标记：判断当前对象是否有 finalize() 方法并且该方法没有被执行过，若不存在则标记为垃圾对象，等待回收；若有的话，并且该方法没有被执行，则进行第二次标记；</p>
+<p>第一次标记：判断当前对象是否有 finalize() 方法，若不存在则标记为垃圾对象，等待回收；若有的话，并且该方法没有被执行，则进行第二次标记；</p>
 </li>
 <li>
 <p>第二次标记将当前对象放入 F-Queue 队列，并生成一个线程去执行finalize方法，</p>
@@ -2184,18 +2182,17 @@
 <ul class="task-list">
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 强引用</li>
 </ul>
-<p>垃圾回收器绝不会回收它。当内存空间不足，Java 虚拟机宁愿抛出 OutOfMemoryError 错误，使程序异常终止，也不会靠随意回收具有强引用的对象来解决内存不足问题。</p>
+<p>垃圾回收器绝不会回收它。</p>
 <ul class="task-list">
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 软引用</li>
 </ul>
-<p>如果内存空间足够，垃圾回收器就不会回收它，如果内存空间不足了，就会回收这些对象的内存
+<p>只有内存空间不足了，才回收这些对象的内存
 - [x] 弱引用</p>
-<p>弱引用与软引用的区别在于：只具有弱引用的对象拥有更短暂的生命周期。在垃圾回收器线程扫描它所管辖的内存区域的过程中，一旦发现了只具有弱引用的对象，不管当前内存空间足够与否，都会回收它的内存。</p>
+<p>只要垃圾回收器发现它，就会回收</p>
 <ul class="task-list">
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 虚引用</li>
 </ul>
-<p>与其他几种引用都不同，虚引用并不会决定对象的生命周期。如果一个对象仅持有虚引用，那么它就和没有任何引用一样，在任何时候都可能被垃圾回收。</p>
-<p><strong>虚引用主要用来跟踪对象被垃圾回收的活动。</strong></p>
+<p>在任何时候都可能被垃圾回收。 <strong>虚引用主要用来跟踪对象被垃圾回收的活动。</strong></p>
 </div>
 <h3 id="_23">如何判断一个类是无用的类？<a class="headerlink" href="#_23" title="Permanent link">&para;</a></h3>
 <div class="admonition tip">
@@ -2214,9 +2211,8 @@
 </ul>
 <p>首先标记出所有不需要回收的对象，在标记完成后统一回收掉所有没有被标记的对象。</p>
 <ul class="task-list">
-<li>效率问题：标记和清除两个过程效率都不高。</li>
 <li>
-<p>空间问题：标记清除后会产生大量不连续的内存碎片。</p>
+<p>产生不连续的内存碎片。</p>
 </li>
 <li class="task-list-item">
 <p><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 复制算法</p>
@@ -2247,9 +2243,9 @@
 <ul class="task-list">
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Serial 收集器</li>
 </ul>
-<p>一个单线程收集器,进行垃圾收集工作的时候必须暂停其他所有的工作线程</p>
+<p>单线程收集器,进行垃圾收集工作时必须暂停所有工作线程</p>
 <p>新生代采用标记-复制算法，老年代采用标记-整理算法。</p>
-<p>Serial 收集器由于没有线程交互的开销，自然可以获得很高的单线程收集效率。Serial 收集器对于运行在 Client 模式下的虚拟机来说是个不错的选择。</p>
+<p>适合单机模式。</p>
 <ul class="task-list">
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> ParNew 收集器</li>
 </ul>
@@ -2257,37 +2253,37 @@
 <ul class="task-list">
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Parallel Scavenge 收集器</li>
 </ul>
-<p>Parallel Scavenge 收集器关注点是吞吐量（高效率的利用 CPU）。CMS 等垃圾收集器的关注点更多的是用户线程的停顿时间（提高用户体验）。</p>
+<p>关注吞吐量</p>
 <ul class="task-list">
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Serial Old 收集器</li>
 </ul>
-<p>Serial 收集器的老年代版本，它同样是一个单线程收集器。它主要有两大用途：一种用途是在 JDK1.5 以及以前的版本中与 Parallel Scavenge 收集器搭配使用，另一种用途是作为 CMS 收集器的后备方案。</p>
+<p>Serial 老年代版本，一个单线程收集器。它主要有两大用途：一种用途是在 JDK1.5 以及以前的版本中与 Parallel Scavenge 收集器搭配使用，另一种用途是作为 CMS 收集器的后备方案。</p>
 <ul class="task-list">
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Parallel Old 收集器</li>
 </ul>
-<p>Parallel Scavenge 收集器的老年代版本。使用多线程和“标记-整理”算法。在注重吞吐量以及 CPU 资源的场合，都可以优先考虑 Parallel Scavenge 收集器和 Parallel Old 收集器。</p>
+<p>Parallel Scavenge 收集器的老年代版本。使用多线程和“标记-整理”算法。关注吞吐量。</p>
 <ul class="task-list">
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> CMS 收集器</li>
 </ul>
-<p>一种以获取最短回收停顿时间为目标的收集器。它非常符合在注重用户体验的应用上使用。</p>
+<p>关注回收停顿时间和用户体验</p>
 <p>是一种 “标记-清除”算法实现的</p>
 <p>整个过程分为四个步骤：</p>
 <ul class="task-list">
-<li><strong>初始标记</strong>:暂停所有的其他线程，并记录下直接与 root 相连的对象，速度很快 ；</li>
-<li><strong>并发标记</strong>:同时开启标记 和用户线程。</li>
-<li><strong>重新标记</strong>:为了修正并发标记期间因为用户程序运行而导致标记产生变动的记录，这个阶段的停顿时间一般会比初始标记阶段的时间稍长，远远比并发标记阶段时间短</li>
+<li><strong>初始标记</strong>:暂停所有的其他线程，标记对象；</li>
+<li><strong>并发标记</strong>:同时开启标记和用户线程。</li>
+<li><strong>重新标记</strong>:修正并发标记步骤用户线程产生的变动</li>
 <li>
 <p><strong>并发清除</strong>:一边开启用户线程，一边对对未标记的对象做清除。</p>
 </li>
 <li class="task-list-item">
 <p><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> G1 收集器
-面向服务器的垃圾收集器,既有较低的GC 停顿时间同时还具备高吞吐量。</p>
+既有较低的GC停顿时间还具备高吞吐量。</p>
 </li>
 </ul>
 <p>具备以下特点：</p>
 <ul>
-<li>并行与并发：G1 能充分利用CPU多核的优势来缩短停顿时间。</li>
-<li>分代收集：虽然 G1 可以不需要其他收集器配合就能独立管理整个 GC 堆，但是还是保留了分代的概念。</li>
+<li>并行与并发：利用CPU多核来缩短停顿时间。</li>
+<li>分代收集：不用其他收集器配合，自己就能实现分代回收</li>
 <li>空间整合：G1 从整体来看是基于“标记-整理”算法实现的收集器；从局部上来看是基于“标记-复制”算法实现的。</li>
 <li>可预测的停顿：能建立可预测的停顿时间模型，能让使用者指定消耗在垃圾收集上的时间。</li>
 </ul>
@@ -2313,13 +2309,13 @@
 <p>JVM 中内置了三个重要的 ClassLoader：</p>
 <ul>
 <li>
-<p>BootstrapClassLoader(启动类加载器)：主要用来加载 JDK 核心类库</p>
+<p>BootstrapClassLoader(启动类加载器)：加载 JDK 核心类库</p>
 </li>
 <li>
-<p>ExtensionClassLoader(扩展类加载器)：主要负责加载 %JRE_HOME%/lib/ext 目录下的 jar 包和类以及被 java.ext.dirs 系统变量所指定的路径下的所有类。</p>
+<p>ExtensionClassLoader(扩展类加载器)：加载/lib/ext下的jar包和类。</p>
 </li>
 <li>
-<p>AppClassLoader(应用程序类加载器)：负责加载当前应用 classpath 下的所有 jar 包和类。</p>
+<p>AppClassLoader(应用程序类加载器)：加载classpath下的所有 jar 包和类。</p>
 </li>
 <li>
 <p>CustomClassLoader(自定义类加载器)：一般重写findClass方法即可，尽量别打破双亲委派模型。</p>
@@ -2339,15 +2335,19 @@
 <div class="admonition tip">
 <p class="admonition-title">双亲委派模型的执行流程</p>
 <ul>
-<li>在类加载的时候，系统会首先判断当前类是否被加载过。已经被加载的类会直接返回，否则才会尝试加载</li>
-<li>类加载器在进行类加载的时候，它首先不会自己去尝试加载这个类，而是把这个请求委派给父类加载器去完成</li>
-<li>只有当父加载器反馈自己无法完成这个加载请求时，子加载器才会尝试自己去加载</li>
+<li>先判断类是否被加载过。已加载会直接返回，否则才会尝试加载</li>
+<li>首先不会自己去尝试加载这个类，而是把这个请求委派给父类加载器去完成</li>
+<li>只有当父加载器无法加载时，子加载器才会自己去加载</li>
 </ul>
 </div>
 <h3 id="_29">双亲委派模型的好处<a class="headerlink" href="#_29" title="Permanent link">&para;</a></h3>
 <div class="admonition tip">
 <p class="admonition-title">双亲委派模型的好处</p>
-<p>双亲委派模型保证了 Java 程序的稳定运行，可以避免类的重复加载，也保证了 Java 的核心 API 不被篡改。</p>
+<ul>
+<li>保证了Java程序的稳定</li>
+<li>避免类的重复加载</li>
+<li>保证了核心API不被篡改</li>
+</ul>
 </div>
 <h3 id="_30">打破双亲委派模型方法<a class="headerlink" href="#_30" title="Permanent link">&para;</a></h3>
 <div class="admonition tip">
