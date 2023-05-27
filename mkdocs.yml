@@ -120,4 +120,6 @@ nav:
             - JVM: exam/jvm.md
             - 计算机网络基础: exam/net.md
             - MySQL: exam/mysql.md
+            - Spring: exam/spring.md
+            - Redis: exam/redis.md
 

@@ -239,6 +239,8 @@
 
 !!! tip "synchronized 底层原理了解吗？"
 
+    https://www.cnblogs.com/suger43894/p/12171341.html
+
     synchronized 同步语句块的实现使用的是 monitorenter 和 monitorexit 指令，其中 monitorenter 指令指向同步代码块的开始位置，monitorexit 指令则指向同步代码块的结束位置。
 
     synchronized 修饰的方法使用的是 ACC_SYNCHRONIZED 标识，该标识指明了该方法是一个同步方法。
