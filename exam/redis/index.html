@@ -1587,7 +1587,7 @@
 <ul class="task-list">
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> List</li>
 </ul>
-<p>一个双向链表，常用来做最新文章、最新动态、消息队列等</p>
+<p>一个双向链表，获取一定范围数据较容易，常用来做最新文章、最新动态、消息队列等</p>
 <ul class="task-list">
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Hash</li>
 </ul>
@@ -1690,18 +1690,20 @@
 <p class="admonition-title">如何选择 RDB 和 AOF？</p>
 <p>RDB优秀的点</p>
 <ul>
-<li>经过压缩，文件小， 虽然aof过大会重写，但是重写期间会大量占用内存</li>
-<li>恢复的时候，直接还原数据，速度快，不需要向aof一条条执行命令</li>
+<li>经过压缩，文件小， 虽然AOF过大会重写，但是重写期间会大量占用内存</li>
+<li>恢复的时候，直接还原数据，速度快，不需要向AOF一条条执行命令</li>
 </ul>
 <p>AOF优秀的点</p>
 <ul>
-<li>RDB没有aof那么实时，安全性不如aof，而且aof比较轻量，rdb比较吃资源</li>
-<li>rdb新老版本不兼容</li>
+<li>RDB没有AOF那么实时，安全性不如AOF，而且AOF比较轻量，RDB比较吃资源</li>
+<li>RDB新老版本不兼容</li>
 <li>AOF比较易于理解和解析</li>
 </ul>
-<p>结论：
-- 数据丢失影响不大，可以选择rdb
-- 不建议单独使用aof，恢复起来没有rdb快，如果安全性有要求建议混合使用</p>
+<p>结论：</p>
+<ul>
+<li>数据丢失影响不大，可以选择RDB</li>
+<li>不建议单独使用AOF，恢复起来没有RDB快，如果安全性有要求建议混合使用</li>
+</ul>
 </div>
 <h3 id="redis_3">Redis应用<a class="headerlink" href="#redis_3" title="Permanent link">&para;</a></h3>
 <div class="admonition tip">
