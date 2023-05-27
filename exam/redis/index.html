@@ -1248,6 +1248,27 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    过期的数据的删除策略了解么？
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#redis_5" class="md-nav__link">
+    Redis 单线程模型了解吗？
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#redis-memcached" class="md-nav__link">
+    Redis 和 Memcached 的区别和共同点
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1428,6 +1449,27 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    过期的数据的删除策略了解么？
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#redis_5" class="md-nav__link">
+    Redis 单线程模型了解吗？
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#redis-memcached" class="md-nav__link">
+    Redis 和 Memcached 的区别和共同点
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1476,6 +1518,9 @@
 <li>如何选择 RDB 和 AOF？</li>
 <li>redis应用</li>
 <li>如何基于 Redis 实现分布式锁？</li>
+<li>过期的数据的删除策略了解么？</li>
+<li>Redis 单线程模型了解吗？</li>
+<li>Redis 和 Memcached 的区别和共同点</li>
 </ul>
 <h3 id="3">3种常用的缓存读写策略<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
 <div class="admonition tip">
@@ -1654,6 +1699,38 @@
 <p class="admonition-title">如何基于 Redis 实现分布式锁？</p>
 <p>setIfAbsent或者SETNX，上锁，最好设置一个过期时间，避免锁未正常释放，锁持久存在。锁过期时间续期可以用Redisson</p>
 <p>delete或DEL，解锁</p>
+</div>
+<h3 id="_4">过期的数据的删除策略了解么？<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<div class="admonition tip">
+<p class="admonition-title">过期的数据的删除策略了解么？</p>
+<ol>
+<li>惰性删除：只会在取出 key 的时候才对数据进行过期检查。这样对 CPU 最友好，但是可能会造成太多过期 key 没有被删除。</li>
+<li>定期删除：每隔一段时间抽取一批 key 执行删除过期 key 操作。并且，Redis 底层会通过限制删除操作执行的时长和频率来减少删除操作对 CPU 时间的影响。</li>
+</ol>
+<p>Redis 采用的是 定期删除+惰性删除 。</p>
+</div>
+<h3 id="redis_5">Redis 单线程模型了解吗？<a class="headerlink" href="#redis_5" title="Permanent link">&para;</a></h3>
+<div class="admonition tip">
+<p class="admonition-title">Redis 单线程模型了解吗？</p>
+<p>基于 Reactor 模式设计开发的时间处理模型，对应的是Redis 中的文件事件处理器，它是单线程的</p>
+<p>基于 IO 多路复用来监听客户端的大量连接</p>
+<p>包含四部分</p>
+<ul>
+<li>客户端socket连接</li>
+<li>io多路复用程序。一个线程管理多个客户端连接</li>
+<li>事件分派期</li>
+<li>事件处理器</li>
+</ul>
+</div>
+<h3 id="redis-memcached">Redis 和 Memcached 的区别和共同点<a class="headerlink" href="#redis-memcached" title="Permanent link">&para;</a></h3>
+<div class="admonition tip">
+<p class="admonition-title">Redis 和 Memcached 的区别和共同点</p>
+<ol>
+<li>redis支持数据类型多</li>
+<li>redis支持持久化，可以灾难恢复</li>
+<li>redis支持集群</li>
+<li>redis支持pub/sub、lua脚本</li>
+</ol>
 </div>
 
 
