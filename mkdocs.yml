@@ -123,4 +123,6 @@ nav:
             - MySQL: exam/mysql.md
             - Spring: exam/spring.md
             - Redis: exam/redis.md
+            - SpringBoot: exam/springboot.md
+            - Netty: exam/netty.md
 
