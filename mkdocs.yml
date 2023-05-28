@@ -112,6 +112,7 @@ nav:
     - Java:
         - 线路图: java/index/index.md
         - 简历: exam/profile.md
+        - 计划: exam/plan.md
         - 测评:
             - 准备: exam/exam.md
             - Map: exam/map.md
@@ -125,4 +126,5 @@ nav:
             - Redis: exam/redis.md
             - SpringBoot: exam/springboot.md
             - Netty: exam/netty.md
+            - 分布式: exam/cloud.md
 
