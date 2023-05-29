@@ -1272,6 +1272,20 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#tcp" class="md-nav__link">
+    TCP三次握手
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tcp_1" class="md-nav__link">
+    TCP四次挥手
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#tcp-udp" class="md-nav__link">
     TCP 与 UDP 的区别（重要）
   </a>
@@ -1300,21 +1314,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#tcp" class="md-nav__link">
+  <a href="#tcp_2" class="md-nav__link">
     TCP 三次握手和四次挥手（非常重要）
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#tcp_1" class="md-nav__link">
+  <a href="#tcp_3" class="md-nav__link">
     TCP 如何保证传输的可靠性？（重要）
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#tcp_2" class="md-nav__link">
+  <a href="#tcp_4" class="md-nav__link">
     TCP 如何实现流量控制？
   </a>
   
@@ -1328,7 +1342,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#tcp_3" class="md-nav__link">
+  <a href="#tcp_5" class="md-nav__link">
     TCP 的拥塞控制是怎么实现的？
   </a>
   
@@ -1426,6 +1440,20 @@
     <li class="md-nav__item">
       <a href="../cloud/" class="md-nav__link">
         分布式
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../experiences/" class="md-nav__link">
+        高频算法
       </a>
     </li>
   
@@ -1634,6 +1662,20 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#tcp" class="md-nav__link">
+    TCP三次握手
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tcp_1" class="md-nav__link">
+    TCP四次挥手
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#tcp-udp" class="md-nav__link">
     TCP 与 UDP 的区别（重要）
   </a>
@@ -1662,21 +1704,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#tcp" class="md-nav__link">
+  <a href="#tcp_2" class="md-nav__link">
     TCP 三次握手和四次挥手（非常重要）
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#tcp_1" class="md-nav__link">
+  <a href="#tcp_3" class="md-nav__link">
     TCP 如何保证传输的可靠性？（重要）
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#tcp_2" class="md-nav__link">
+  <a href="#tcp_4" class="md-nav__link">
     TCP 如何实现流量控制？
   </a>
   
@@ -1690,7 +1732,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#tcp_3" class="md-nav__link">
+  <a href="#tcp_5" class="md-nav__link">
     TCP 的拥塞控制是怎么实现的？
   </a>
   
@@ -1748,6 +1790,8 @@
 <li>DNS 的作用是什么？</li>
 <li>DNS 服务器有哪些？</li>
 <li>DNS 解析的过程是什么样的？</li>
+<li>TCP三次握手</li>
+<li>TCP四次挥手</li>
 <li>TCP 与 UDP 的区别（重要）</li>
 <li>什么时候选择 TCP，什么时候选 UDP?</li>
 <li>HTTP 基于 TCP 还是 UDP？</li>
@@ -1930,6 +1974,25 @@ https 运行在ssl/tls 内容密文</p>
 <p class="admonition-title">DNS 解析的过程是什么样的？</p>
 <p>本地缓存-&gt;本地hosts-&gt;本地dns服务器-&gt;根dns服务器-&gt;顶级dns服务器地址-&gt;发送解析请求-&gt;返回域名服务器地址-&gt;查询域名和ip映射关系-&gt;本地dns缓存这个映射关系-&gt;解析结果返回本地电脑</p>
 </div>
+<h3 id="tcp">TCP三次握手<a class="headerlink" href="#tcp" title="Permanent link">&para;</a></h3>
+<div class="admonition tip">
+<p class="admonition-title">TCP三次握手</p>
+<ul>
+<li>客户端发送SYN到服务端，客户端进入SYN_SEND状态，等待服务端确认</li>
+<li>服务端发送SYN+ACK到客户端，服务器进入SYN_RECV状态</li>
+<li>客户端发送ACK到服务端，客和服都处于ESTABLISHED状态，完成握手</li>
+</ul>
+</div>
+<h3 id="tcp_1">TCP四次挥手<a class="headerlink" href="#tcp_1" title="Permanent link">&para;</a></h3>
+<div class="admonition tip">
+<p class="admonition-title">TCP四次挥手</p>
+<ul>
+<li>客户端发送FIN到服务端，客户端进入FIN-WAIT-1状态</li>
+<li>服务端收到后，返回一个ACK给客户端，服务端进入CLOSE-WAIT状态，客户端进入FIN-WAIT-2状态</li>
+<li>服务端关闭与客户端连接，并发送一个FIN给客户端，服务端进入LAST-ACK状态</li>
+<li>客户端发送ACK给服务端，并且进入TIME-WAIT状态，服务端收到后进入CLOSE状态。如果客户端2MSL没收到回复，证明服务端正常关闭，客户端可以关闭了。</li>
+</ul>
+</div>
 <h3 id="tcp-udp">TCP 与 UDP 的区别（重要）<a class="headerlink" href="#tcp-udp" title="Permanent link">&para;</a></h3>
 <div class="admonition tip">
 <p class="admonition-title">TCP 与 UDP 的区别（重要）</p>
@@ -1963,7 +2026,7 @@ https 运行在ssl/tls 内容密文</p>
 <p>DHCP</p>
 <p>dns</p>
 </div>
-<h3 id="tcp">TCP 三次握手和四次挥手（非常重要）<a class="headerlink" href="#tcp" title="Permanent link">&para;</a></h3>
+<h3 id="tcp_2">TCP 三次握手和四次挥手（非常重要）<a class="headerlink" href="#tcp_2" title="Permanent link">&para;</a></h3>
 <div class="admonition tip">
 <p class="admonition-title">TCP 三次握手和四次挥手（非常重要）</p>
 <ul class="task-list">
@@ -1977,7 +2040,7 @@ https 运行在ssl/tls 内容密文</p>
 <ul class="task-list">
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 为什么要四次挥手？</li>
 </ul>
-<p>因为一方挥手，没有数据要传输时，另一方可能还未传输完，所以双方都需要向对方挥手+响应挥手之后，才能真正的关闭连接，才不会丢失数据</p>
+<p>因为一方要关的时候另一方可能还没传输完，所以需要双方都挥手+响应挥手之后，才能真正的关闭连接，才不会丢失数据</p>
 <ul class="task-list">
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 为什么不能把服务器发送的 ACK 和 FIN 合并起来，变成三次挥手？</li>
 </ul>
@@ -1991,7 +2054,7 @@ https 运行在ssl/tls 内容密文</p>
 </ul>
 <p>如果没有这个等待时间，客户端直接关闭了并且第四次挥手的报文丢失了，服务端就会一直处于确认状态无法关闭，有了这个时间，服务器才可以重试发送并且正常关闭</p>
 </div>
-<h3 id="tcp_1">TCP 如何保证传输的可靠性？（重要）<a class="headerlink" href="#tcp_1" title="Permanent link">&para;</a></h3>
+<h3 id="tcp_3">TCP 如何保证传输的可靠性？（重要）<a class="headerlink" href="#tcp_3" title="Permanent link">&para;</a></h3>
 <div class="admonition tip">
 <p class="admonition-title">TCP 如何保证传输的可靠性？（重要）</p>
 <ol>
@@ -2003,7 +2066,7 @@ https 运行在ssl/tls 内容密文</p>
 <li>拥塞控制</li>
 </ol>
 </div>
-<h3 id="tcp_2">TCP 如何实现流量控制？<a class="headerlink" href="#tcp_2" title="Permanent link">&para;</a></h3>
+<h3 id="tcp_4">TCP 如何实现流量控制？<a class="headerlink" href="#tcp_4" title="Permanent link">&para;</a></h3>
 <div class="admonition tip">
 <p class="admonition-title">TCP 如何实现流量控制？</p>
 <p>滑动窗口。确认报文中的窗口字段设置窗口大小，如果设置为0，发送方就不能发送数据</p>
@@ -2013,7 +2076,7 @@ https 运行在ssl/tls 内容密文</p>
 <p class="admonition-title">为什么需要流量控制? </p>
 <p>收发双方速率不等，发的过快，接收的处理不过来，就会放入缓冲区。但是缓冲区放不下就会丢掉，这样又丢包又浪费网络资源</p>
 </div>
-<h3 id="tcp_3">TCP 的拥塞控制是怎么实现的？<a class="headerlink" href="#tcp_3" title="Permanent link">&para;</a></h3>
+<h3 id="tcp_5">TCP 的拥塞控制是怎么实现的？<a class="headerlink" href="#tcp_5" title="Permanent link">&para;</a></h3>
 <div class="admonition tip">
 <p class="admonition-title">TCP 的拥塞控制是怎么实现的？</p>
 <p>拥塞控制：防止过多的数据注入到网络，使网络中的路由器或链路不致过载</p>
