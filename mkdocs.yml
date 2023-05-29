@@ -127,4 +127,5 @@ nav:
             - SpringBoot: exam/springboot.md
             - Netty: exam/netty.md
             - 分布式: exam/cloud.md
+            - 高频算法: exam/experiences.md
 
