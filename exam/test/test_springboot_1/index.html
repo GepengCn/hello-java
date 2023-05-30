@@ -15,7 +15,7 @@
     
     
       
-        <title>0529 - hello-java</title>
+        <title>Test springboot 1 - hello-java</title>
       
     
     
@@ -68,11 +68,6 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
-        
-        <a href="#0529" class="md-skip">
-          跳转至
-        </a>
-      
     </div>
     <div data-md-component="announce">
       
@@ -102,7 +97,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              0529
+              Test springboot 1
             
           </span>
         </div>
@@ -1216,8 +1211,6 @@
   
   
   
-    
-  
   
 </nav>
                   </div>
@@ -1232,7 +1225,7 @@
                   
 
   
-    <a href="https://github.com/GepengCn/hello-java/tree/main/docs/exam/record/0529.md" title="编辑此页" class="md-content__button md-icon">
+    <a href="https://github.com/GepengCn/hello-java/tree/main/docs/exam/test/test_springboot_1.md" title="编辑此页" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
     </a>
@@ -1240,19 +1233,72 @@
   
 
 
-<h1 id="0529">0529<a class="headerlink" href="#0529" title="Permanent link">&para;</a></h1>
+  <h1>Test springboot 1</h1>
+
 <ul>
-<li>计算机网络基础 69</li>
-<li>spring 90</li>
-<li>netty 70</li>
+<li>为什么要有SpringBoot</li>
 </ul>
-<h1 id="0530">0530<a class="headerlink" href="#0530" title="Permanent link">&para;</a></h1>
+<p>部署服务更简单了，更轻量，也没有那些xml配置了，集成spring组件甚至其他的组件也更加的简单，兼容性更好，与maven和Graddle这个项目构建工具集成也更好，各种注解、配置式的开发，更加的便利</p>
 <ul>
-<li>mysql 69</li>
-<li>redis 82</li>
-<li>jvm 63</li>
-<li>springboot 90</li>
+<li>SpringBoot的主要优点</li>
 </ul>
+<p>构建web服务更加的简单
+自动装配+maven构建，让集成各种第三方组件更容易兼容性也更好，配置也简单多了
+与Spring全家桶集成更好
+注解+配置，让开发更容易
+SpringBoot也让服务更清量，从选型到集成第三方，到最后构建非常快捷方便</p>
+<ul>
+<li>什么是Spring Boot Starters</li>
+</ul>
+<p>一系列依赖的合集</p>
+<ul>
+<li>Spring Boot支持哪些内嵌的容器</li>
+</ul>
+<p>tomcat
+jetty
+undertow</p>
+<ul>
+<li>介绍下@SpringBootApplication注解</li>
+</ul>
+<p>三个注解构成的
+@EnableAutoConfig 启用自动装配
+@ComponentScan 扫描该类包下的所有bean，交给Spring容器来做ioc</p>
+<ul>
+<li>
+<p>Spring Boot 自动装配是如何实现的？
+@SpringBootApplication注解</p>
+</li>
+<li>
+<p>开发web服务常用注解有哪些?</p>
+</li>
+</ul>
+<p>@Component @Service @Respository @Controller @RestController @Bean</p>
+<p>@RequestMapping @GetMapping</p>
+<p>@RequestParam @ResponseBody @Pathvariable</p>
+<p>@Autowised
+@Qualified
+@Conditional
+@Configuration</p>
+<ul>
+<li>Spring Boot 常用读取配置文件的方法有哪些？</li>
+</ul>
+<p>@Value
+@Configuration+@Component</p>
+<ul>
+<li>
+<p>Spring Boot 加载配置文件的优先级了解吗？
+根目录/config
+优先根目录
+resources/config
+resources /</p>
+</li>
+<li>
+<p>常用的Bean映射工具有哪些？</p>
+</li>
+</ul>
+<p>Spring.BeanUtils
+MapStruct
+Hutool BeanUtil</p>
 
 
 
