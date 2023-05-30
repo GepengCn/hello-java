@@ -286,10 +286,10 @@
     - [x] select_type
 
     - SIMPLE：简单查询
-    - PRIMARY：查询中如果包含子查询或其他部分，外层的 SELECT 将被标记为 PRIMARY。
-    - SUBQUERY：子查询中的第一个 SELECT。
-    - UNION：在 UNION 语句中，UNION 之后出现的 SELECT。
-    - DERIVED：在 FROM 中出现的子查询将被标记为 DERIVED。
+    - PRIMARY：包含子查询
+    - SUBQUERY：子查询本身
+    - UNION：UNION后的SELECT
+    - DERIVED：FROM后的子查询
     - UNION RESULT：UNION 查询的结果。
 
 
@@ -297,12 +297,12 @@
 
     从最优到最差排序为：system > const > eq_ref > ref > fulltext > ref_or_null > index_merge > unique_subquery > index_subquery > range > index > ALL
 
-    - const：表中最多只有一行匹配的记录，一次查询就可以找到，常用于使用主键或唯一索引的所有字段作为查询条件。
-    - eq_ref：当连表查询时，前一张表的行在当前这张表中只有一行与之对应。是除了 system 与 const 之外最好的 join 方式，常用于使用主键或唯一索引的所有字段作为连表条件。
-    - ref：使用普通索引作为查询条件，查询结果可能找到多个符合条件的行。
-    - index_merge：当查询条件使用了多个索引时，表示开启了 Index Merge 优化，此时执行计划中的 key 列列出了使用到的索引。
-    - range：对索引列进行范围查询，执行计划中的 key 列表示哪个索引被使用了。
-    - index：查询遍历了整棵索引树，与 ALL 类似，只不过扫描的是索引，而索引一般在内存中，速度更快。
+    - const：匹配一条记录，一般是左键或者唯一索引作为条件
+    - eq_ref：联表匹配一条，一般是主键或唯一索引作为链表字段
+    - ref：单个索引作为查询条件
+    - index_merge：多个索引作为查询条件
+    - range：索引列范围查询
+    - index：查询了整个索引树
     - ALL：全表扫描。
 
 
