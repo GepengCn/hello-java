@@ -129,4 +129,5 @@ nav:
             - 分布式: exam/cloud.md
             - 高频算法: exam/experiences.md
             - docker: exam/docker.md
+            - 排序: exam/sort.md
 
