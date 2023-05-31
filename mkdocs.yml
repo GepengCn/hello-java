@@ -113,6 +113,7 @@ nav:
         - 线路图: java/index/index.md
         - 简历: exam/profile.md
         - 计划: exam/plan.md
+        - 自我介绍: exam/introduce.md
         - 测评:
             - 准备: exam/exam.md
             - Map: exam/map.md
@@ -130,4 +131,5 @@ nav:
             - 高频算法: exam/experiences.md
             - docker: exam/docker.md
             - 排序: exam/sort.md
+            - Kafka: exam/kafka.md
 
