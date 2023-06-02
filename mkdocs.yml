@@ -114,6 +114,8 @@ nav:
         - 简历: exam/profile.md
         - 计划: exam/plan.md
         - 自我介绍: exam/introduce.md
+        - 重点深化:
+            - Netty: core/netty.md
         - 测评:
             - 准备: exam/exam.md
             - Map: exam/map.md

@@ -115,7 +115,6 @@
     - 如果实现InitializingBean会执行afterPropertiesSet
     - 如果配置文件里配置了 init-method和destroy，会执行对应方法，destroy会在bean销毁时执行
     - 如果实现了DisposableBean接口，销毁bean的时候会执行destroy方法
-    - 多个切面的执行顺序如何控制？
 
 
 ### 谈谈自己对于 AOP 的了解
