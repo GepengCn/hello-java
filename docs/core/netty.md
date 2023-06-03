@@ -230,3 +230,182 @@
     处理出站数据并且允许拦截所有的操作
     
     可以推迟操作或事件
+
+
+### ChannelHandler适配器
+
+!!! tip "ChannelHandler适配器"
+
+    ChannelInboundHandlerAdapter和ChannelOutboundHandlerAdapter
+
+    提供方法isSharable()。标注@Sharable注解，表明可以被添加到多个ChannelPipeline中，可以被多个Channel安全的共享
+
+### 怎么检测内存泄露
+
+!!! tip "怎么检测内存泄露"
+
+    类ResourceLeakDetector，它将对应用程序的缓冲区分配做大约1%的采样来检测内存泄露，开销很小。
+
+    四种检测级别，通过设置jvm启动选项`java -Dio.netty.leakDetectionLevel=ADVANCED`
+
+    - DISABLED:禁用
+    - SIMPLE:1%采样率，默认
+    - ADVANCED:1%采样率，报告所有泄露以及访问位置
+    - PARANOID:100%采样，报告所有泄露以及访问位置
+
+### 怎么防止内存泄露
+
+!!! tip "怎么防止内存泄露"
+
+    - 手动通过ReferenceCountUtil.release(msg)释放
+    - 使用SimpleChannelInboundHandler的channelRead0()，方法执行完，自动释放
+    - 出站，除了release(msg)之外，还要promise.setSuccess()通知消息已被处理。
+    - 如果消息到了实际的传输层，被写入或者Channel关闭时，会被自动释放
+
+### 什么是ChannelPipeline
+
+!!! tip "什么是ChannelPipeline"
+
+    拦截流经Channel的入站和出站事件的ChannelHandler实例链
+
+### 怎么修改ChannelPipeline
+
+!!! tip "怎么修改ChannelPipeline"
+
+    ChannelPipeline上的相关方法addFirst、addLast等新增或删除上面的ChannelHandler
+
+### 有阻塞的业务怎么办
+
+!!! tip "有阻塞的业务怎么办"
+
+
+    使用DefaultEventExecutor来创建并发的线程池，如果某个ChannelHandler传入之后，就会从Channel本身的EventLoop种移除，不会阻塞整体，而是交给线程池来处理
+
+    ```java
+    final EventExecutorGroup slowTaskGroup = new DefaultEventExecutorGroup(asyncPoolSize);
+
+    .addLast(slowTaskGroup, new CustomizedHandlerContext());
+    ```
+
+
+### 触发事件
+
+!!! tip "触发事件"
+
+    ChannelPipeline的API提供一系列的方法比如fire*、bind、connect等，它实际调用的是下一个ChannelHandler的对应方法
+
+
+### ChannelPipeline传播事件
+
+!!! tip "ChannelPipeline传播事件"
+
+    传播时，会测试下一个ChannelHandler的类型是否和事件的运动方向匹配（出站还是入站）。不匹配会跳过。ChannelHandler也可以同时实现入站和出站接口。
+
+
+### ChannelHandlerContext简介
+
+!!! tip "ChannelHandlerContext简介"
+
+    使得ChannelHandler可以和它的ChannelPipeline以及其他的ChannelHandler交互。
+
+    可以通知它的下一个ChannelHandler，甚至动态修改它所属的ChannelPipeline编排。
+
+    具有丰富的处理事件和执行 I/O 操作的API。
+
+
+### ChannelHandlerContext与ChannelPipeline同样方法区别在哪
+
+!!! tip "ChannelHandlerContext与ChannelPipeline同样方法区别在哪"
+
+    - ChannelPipeline的方法沿着整个链路传播
+    - ChannelHandlerContext会从关联的ChannelHandler开始，只会传播下一个处理该事件的ChannelHandler
+
+### ChannelHandlerContext好处在哪
+
+!!! tip "ChannelHandlerContext好处在哪"
+
+    - ChannelHandlerContext和ChannelHandler关联（绑定）是永远不会变的，所以缓存对它的引用是安全的
+    - ChannelHandlerContext调用的方法会产生更短的事件流（只传播下一个），所以性能更好
+
+
+### ctx、Channel、ChannelHandler、Pipeline的关联
+
+!!! tip "ctx、Channel、ChannelHandler、Pipeline的关联"
+
+
+    - Channel：相当于移动的火车
+    - ChannelHandler：就是途径的火车站
+    - Pipeline：就是整个火车的线路
+    - ctx：ChannelHandler添加到Pipeline时创建，管理它对应的ChannelHandler和下一个ChannelHandler的引用，相当于某个火车站管理员和对的下一站的指引员（传播给下一站消息）
+
+
+### ctx什么应用
+
+!!! tip "ctx什么应用"
+
+    - 访问Channel
+    - 访问ChannelPipeline
+
+
+### 为什么想要从Pipeline某个特定点开始传播呢
+
+!!! tip "为什么想要从Pipeline某个特定点开始传播呢"
+
+    - 减少事件流经对它不感兴趣的ChannelHandler带来的开销
+    - 避免事件流经对它不感兴趣的ChannelHandler
+
+
+### 怎么从指定的ChannelHandler开始处理事件呢
+
+!!! tip "怎么从指定的ChannelHandler开始处理事件呢"
+
+    找到指定ChannelHandler之前的ctx
+
+
+### ctx和ChannelHandler的高级用法
+
+!!! tip "ctx和ChannelHandler的高级用法"
+
+
+    - 通过ctx.pipeline()修改ChannelHandler,比如动态的协议切换
+    - 缓存ctx的引用以供稍后使用，甚至不同的线程使用
+
+
+### Sharable用法
+
+!!! tip "Sharable用法"
+
+    - 在多个ChannelPipeline中安装同一个ChannelHandler的一个常见原因是用于收集跨越多个Channel的统计信息
+    - 最好保证@Sharable修饰的类里面是线程安全的，比如可以将方法上锁改成同步方法，或者有状态变量用原子类等等方式
+
+
+### 处理入站异常
+
+!!! tip "处理入站异常"
+
+    - 要处理异常的ChannelHandler要重写exceptionCaught()方法
+    - 异常也会按照入站方向移动，所以最好确保处理异常的ChannelHandler放在最后，保证异常总会被处理
+    - 异常处理，可以关闭channel，或者尝试恢复重试等等，如果没做任何处理，Netty会waring日志记录，出现异常而且未被处理，并释放该异常。
+
+
+### 处理出站异常
+
+!!! tip "处理出站异常"
+
+
+    - 无论正常完成还是异常，出站操作都会返回一个ChannelFuture，注册到上面的ChannelFutureListener会在操作完成后通知成功还是出错
+    - 几乎所有ChannelOutboundHandler上的方法都会传入一个ChannelPromise的实例，是ChannelFuture的子类，用于异步通知，也可以立即通知。
+
+### ChannelFuture和ChannelPromise区别
+
+!!! tip "ChannelFuture和ChannelPromise区别"
+
+    - 细致的异常处理用ChannelFuture
+    - 一般的异常处理，ChannelPromise更简单
+
+
+### ChannelOutboundHandler本身抛出异常会发生什么？
+
+!!! tip "ChannelOutboundHandler本身抛出异常会发生什么？"
+
+    Netty本身会通知任何已经注册到对应ChannelPromise的监听器
