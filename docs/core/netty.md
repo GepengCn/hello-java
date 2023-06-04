@@ -409,3 +409,366 @@
 !!! tip "ChannelOutboundHandler本身抛出异常会发生什么？"
 
     Netty本身会通知任何已经注册到对应ChannelPromise的监听器
+
+
+### EventLoop是什么？为什么要用它？
+
+!!! tip "EventLoop是什么？为什么要用它？"
+
+    - 运行任务来处理在连接的生命周期内发生的事件
+    - 由一个永远不会改变的Thread驱动，任务可以直接提交给EventLoop实现，以立即执行或者调度执行
+
+
+### EventLoop任务调度
+
+!!! tip "EventLoop任务调度"
+
+
+    ```java
+    ctx.channel().eventLoop().schedule(new Runnable() {
+        @Override
+        public void run() {
+            System.out.println("ln");
+        }
+    }, 60, TimeUnit.SECONDS);//60s后执行
+
+    ctx.channel().eventLoop().scheduleAtFixedRate(new Runnable() {
+        @Override
+        public void run() {
+            System.out.println("ln");
+        }
+    }, 60, 60, TimeUnit.SECONDS);//60s后开始，然后每60s执行一次
+
+    ScheduledFuture<?> future = ctx.channel().eventLoop().scheduleAtFixedRate(...);
+
+    future.cancel(true);//取消该任务
+
+    ```
+
+
+### EventLoop线程管理
+
+!!! tip "EventLoop线程管理"
+
+    - 如果调用线程正是支撑EventLoop的线程，那么代码会被直接执行
+    - 否则，调用线程会调度该任务以便稍后执行，并把它放入队列，当支撑EventLoop线程空闲时，会优先处理队列里的任务。
+    - 所以不要把耗时任务放入执行队列里，因为它会阻塞需要在同一线程上执行的任何其他任务。
+
+
+### EventLoop异步传输
+
+!!! tip "EventLoop异步传输"
+
+    - EventLoopGroup负责为每个新创建的Channel分配一个EventLoop
+    - 一旦一个Channel被分配给一个EventLoop，它将在它的整个生命周期都使用这个EventLoop
+    - 因为一个EventLoop支撑多个Channel，所以对于所有相关联的Channel来说，ThreadLocal都将是一样的
+
+
+### EventLoop阻塞传输
+
+!!! tip "EventLoop阻塞传输"
+
+    每个Channel都将被分配给**一个**EventLoop
+
+### 什么是Bootstrap？
+
+!!! tip "什么是Bootstrap？"
+
+    - 对它进行配置，并使它运行起来的过程
+    - 服务端：使用一个父Channel来接受来自客户端的连接，并创建子Channel用于它们之间的通信
+    - 客户端：一个单独的、没有父Channel的Channel用于所有的网络交互（也适用于无连接的传输协议，比如UDP）
+
+
+### 为什么引导类是Cloneable的
+
+!!! tip "为什么引导类是Cloneable的"
+
+    - 可能需要创建多个具有类似配置或完全相同配置的Channel
+    - clone()方法
+    - 只会创建EventLoopGroup的一个浅拷贝，可以在所有克隆的Channel实例之间共享
+    - 典型场景：创建一个Channel进行一次HTTP请求
+
+### 怎么引导客户端？
+
+!!! tip "怎么引导客户端？"
+
+
+    - 设置EventLoopGroup，提供用于处理Channel事件的EventLoop
+    - channel(NioSocketChannel.class)：指定要使用的Channel实现
+    - handler(...)：设置ChannelHandler用于处理事件和数据
+    - connect()：连接到远程主机
+
+
+### Channel和EventLoopGroup的兼容性
+
+!!! tip "Channel和EventLoopGroup的兼容性"
+
+    - 要一一对应，不能混用，比如NioEventLoopGroup对应NioSocketChannel、NioServerSocketChannel、NioDatagramChannel，OioEventLoopGroup对应OioSocketChannel...
+    - 如果不对应，会抛异常IllegalStateException
+    - 在调用bind()或connect()方法之前，必须调用group()、channel()或者Handler方法，不然也会抛异常IllegalStateException
+
+
+### 引导服务器
+
+!!! tip "引导服务器"
+
+    - 设置EventLoopGroup，提供用于处理Channel事件的EventLoop
+    - channel(NioSocketChannel.class)：指定要使用的Channel实现
+    - childHandler(...)：设置子Channel的ChannelHandler用于处理事件和数据
+    - bind()：配置绑定的端口
+
+
+### 从Channel引导客户端
+
+!!! tip "从Channel引导客户端"
+
+    服务端充当客户端，连接另一个服务端，可以复用同一个eventLoop，避免额外的线程创建
+
+    ```java
+
+    public void channelActive(ctx){
+        Bootstrap bootstrap = new Bootstrap();
+        bootstrap.channel(NioSocketChannel.class).handler(...);
+        bootstrap.group(ctx.channel().eventLoop());//复用当前Channel的eventLoop
+    }
+
+    ```
+
+
+### 引导过程中添加多个ChannelHandler
+
+!!! tip "引导过程中添加多个ChannelHandler"
+
+    使用ChannelInitializer抽象类
+
+    提供一种将多个ChannelHandler添加到一个ChannelPipeline中的简便方法
+
+
+### ChannelOption
+
+!!! tip "ChannelOption"
+
+    常用于配置底层连接的详细信息
+
+    ```java
+
+    bootstrap.childOption(ChannelOption.SO_KEEPALIVE, Boolean.TRUE);
+
+    ```
+
+
+### 关闭Bootstrap
+
+!!! tip "关闭Bootstrap"
+
+    - 使用EventLoopGroup.shutdownGracefully()方法
+    - 异步的操作，所以需要阻塞直到完成
+
+
+### EmbeddedChannel概述
+
+!!! tip "EmbeddedChannel概述"
+
+    用于测试ChannelHandler，将入站或出站数据写入到EmbeddedChannel中，然后检查是否有任何东西达到了ChannelPipeline的尾端。以这种方式，确定消息是否被编解码过，以及是否触发了ChannelHandler的动作。
+
+
+### 测试入站消息
+
+!!! tip "测试入站消息"
+
+    - new EmbeddedChannel([自定义ChannelHandler])
+    - writeInbound()写入入站消息
+    - readInbound()读取入站消息。入站消息穿越了整个pipeline。没有任何读取的，返回null。
+    - finish() 将EmbeddedChannel标记为完成，如果有可读取的出入站数据返回true。这个方法还会调用EmbeddedChannel的close()方法。
+
+### 测试出站消息
+
+!!! tip "测试出站消息"
+
+    - new EmbeddedChannel([自定义ChannelHandler])
+    - writeOutbound()写入出站消息
+    - readOutbound()读取出站消息。出站消息穿越了整个pipeline。没有任何读取的，返回null。
+    - finish() 将EmbeddedChannel标记为完成，如果有可读取的出入站数据返回true。这个方法还会调用EmbeddedChannel的close()方法。
+
+
+### 测试异常处理
+
+!!! tip "测试异常处理"
+
+    如果抛出了一个受检查的Exception，EmbeddedChannel会将它包装在一个RuntimeException中并被try/catch捕获；如果该类实现了exceptionCaught()方法并处理了该异常，则不会抛出被try/catch捕获。
+
+
+### 什么是编解码器
+
+!!! tip "什么是编解码器"
+
+    编码器：将具有具体含义的结构化的数据转换为适用于传输的格式
+    解码器：反之
+
+
+### 编解码器中的引用计数
+
+!!! tip "编解码器中的引用计数"
+
+    - 一旦消息被编码或者解码，它就会被ReferenceCountUtil.release(message)调用自动释放。
+    - 如果需要保留引用以便稍后使用， 可以调用ReferenceCountUtil.retain(message)。这回增加引用计数，防止该消息被释放。
+
+
+### ByteToMessageDecoder
+
+!!! tip "ByteToMessageDecoder"
+
+    一个抽象类，将字节解码为消息
+
+    ```java
+    public class ToIntegerDecoder extends ByteToMessageDecoder {
+        @Override
+        protected void decode(ChannelHandlerContext channelHandlerContext, ByteBuf byteBuf, List<Object> list) throws Exception {
+            if(byteBuf.readableBytes() >= 4) {//检查是否有4个字节可读（一个int的字节长度）
+                list.add(byteBuf.readInt());
+            }
+        }
+    }
+    ```
+
+
+### ReplayingDecoder
+
+!!! tip "ReplayingDecoder"
+
+    - 扩展了ByteToMessageDecoder，如果没有足够的字节可用，会抛出一个Error。如果足够的字节可供读取，该decode()方法会被再次调用
+    - 相比于ByteToMessageDecoder稍慢一点，但是代码更简洁
+
+    ```java
+    public class ToIntegerDecoder extends ReplayingDecoder<Void> {
+        @Override
+        protected void decode(ChannelHandlerContext channelHandlerContext, ByteBuf byteBuf, List<Object> list) throws Exception {
+            list.add(byteBuf.readInt());
+        }
+    }
+    ```
+
+
+### MessageToMessageDecoder
+
+!!! tip "MessageToMessageDecoder"
+
+    两个消息格式之间进行转换
+
+    ```java
+    public class IntegerToStringDecoder extends MessageToMessageDecoder<Integer> {
+        @Override
+        protected void decode(ChannelHandlerContext channelHandlerContext, Integer integer, List<Object> list) throws Exception {
+            list.add(String.valueOf(integer));
+        }
+    }
+    ```
+
+
+### TooLongFrameException
+
+!!! tip "TooLongFrameException"
+
+    防止解码器缓冲的数据过大导致内存耗尽，抛出这个异常
+
+    ```java
+    public class SafeByteToMessageDecoder extends ByteToMessageDecoder {
+
+        private static final int MAX_FRAME_SIZE = 1024;
+
+        @Override
+        protected void decode(ChannelHandlerContext channelHandlerContext, ByteBuf in, List<Object> out) throws Exception {
+            int readable = in.readableBytes();
+            if(readable > MAX_FRAME_SIZE){
+                in.skipBytes(readable);
+                throw new TooLongFrameException("Frame too big!");
+            }
+            //do something
+            ...
+        }
+    }
+    ```
+
+
+### MessageToByteEncoder
+
+!!! tip "MessageToByteEncoder"
+
+
+    ```java
+    public class ShortToByteEncoder extends MessageToByteEncoder<Short> {
+        @Override
+        protected void encode(ChannelHandlerContext channelHandlerContext, Short msg, ByteBuf out) throws Exception {
+            out.writeShort(msg);
+        }
+    }
+    ```
+
+
+### MessageToMessageEncoder
+
+!!! tip "MessageToMessageEncoder"
+
+    ```java
+    public class IntegerToStringEncoder extends MessageToMessageEncoder<Integer> {
+        @Override
+        protected void encode(ChannelHandlerContext channelHandlerContext, Integer msg, List<Object> out) throws Exception {
+            out.add(String.valueOf(msg));
+        }
+    }
+    ```
+
+
+### ByteToMessageCodec
+
+!!! tip "ByteToMessageCodec"
+
+    ```java
+    public class ShortToByteCodec extends ByteToMessageCodec<Short> {
+        @Override
+        protected void encode(ChannelHandlerContext channelHandlerContext, Short msg, ByteBuf out) throws Exception {
+            out.writeShort(msg);
+        }
+
+        @Override
+        protected void decode(ChannelHandlerContext channelHandlerContext, ByteBuf msg, List<Object> in) throws Exception {
+            if (msg.readableBytes() >=2){
+                in.add(msg.readShort());
+            }
+        }
+    }
+    ```
+
+
+### MessageToMessageCodec
+
+!!! tip "MessageToMessageCodec"
+
+    ```java
+    public class IntegerToStringCodec extends MessageToMessageCodec<Integer, String> {
+        @Override
+        protected void encode(ChannelHandlerContext ctx, String msg, List<Object> out) throws Exception {
+            out.add(String.valueOf(msg));
+        }
+
+        @Override
+        protected void decode(ChannelHandlerContext ctx, Integer msg, List<Object> in) throws Exception {
+            in.add(String.valueOf(msg));
+        }
+    }
+    ```
+
+
+### CombinedChannelDuplexHandler
+
+!!! tip "CombinedChannelDuplexHandler"
+
+    结合编码器和解码器，编码器和解码器还可以单独部署，既灵活还不影响可重用性。
+
+    ```java
+    public class CombinedIntegerToStringCodec extends CombinedChannelDuplexHandler<IntegerToStringDecoder, IntegerToStringEncoder> {
+        protected CombinedIntegerToStringCodec() {
+            super(new IntegerToStringDecoder(), new IntegerToStringEncoder());
+        }
+    }
+    ```
