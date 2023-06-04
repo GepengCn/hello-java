@@ -1564,6 +1564,55 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#ssltls" class="md-nav__link">
+    SSL/TLS
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#http" class="md-nav__link">
+    HTTP编码器、解码器和编解码器
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#http_1" class="md-nav__link">
+    聚合HTTP消息
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#http_2" class="md-nav__link">
+    HTTP压缩
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#https" class="md-nav__link">
+    使用HTTPS
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#websocket" class="md-nav__link">
+    使用WebSocket
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    空闲的连接和超时
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2383,6 +2432,55 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#ssltls" class="md-nav__link">
+    SSL/TLS
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#http" class="md-nav__link">
+    HTTP编码器、解码器和编解码器
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#http_1" class="md-nav__link">
+    聚合HTTP消息
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#http_2" class="md-nav__link">
+    HTTP压缩
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#https" class="md-nav__link">
+    使用HTTPS
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#websocket" class="md-nav__link">
+    使用WebSocket
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    空闲的连接和超时
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -3063,6 +3161,187 @@ copy 复制的是真实的副本</p>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">CombinedIntegerToStringCodec</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">CombinedChannelDuplexHandler</span><span class="o">&lt;</span><span class="n">IntegerToStringDecoder</span><span class="p">,</span><span class="w"> </span><span class="n">IntegerToStringEncoder</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kd">protected</span><span class="w"> </span><span class="nf">CombinedIntegerToStringCodec</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="kd">super</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">IntegerToStringDecoder</span><span class="p">(),</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">IntegerToStringEncoder</span><span class="p">());</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<h3 id="ssltls">SSL/TLS<a class="headerlink" href="#ssltls" title="Permanent link">&para;</a></h3>
+<div class="admonition tip">
+<p class="admonition-title">SSL/TLS</p>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">SslChannelInitializer</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">ChannelInitializer</span><span class="o">&lt;</span><span class="n">Channel</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">SslContext</span><span class="w"> </span><span class="n">context</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="n">startTls</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">SslChannelInitializer</span><span class="p">(</span><span class="n">SslContext</span><span class="w"> </span><span class="n">context</span><span class="p">,</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="n">startTls</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">context</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">context</span><span class="p">;</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">startTls</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">startTls</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">protected</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">initChannel</span><span class="p">(</span><span class="n">Channel</span><span class="w"> </span><span class="n">channel</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">SSLEngine</span><span class="w"> </span><span class="n">engine</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">context</span><span class="p">.</span><span class="na">newEngine</span><span class="p">(</span><span class="n">channel</span><span class="p">.</span><span class="na">alloc</span><span class="p">());</span>
+<span class="w">        </span><span class="n">channel</span><span class="p">.</span><span class="na">pipeline</span><span class="p">().</span><span class="na">addFirst</span><span class="p">(</span><span class="s">&quot;ssl&quot;</span><span class="p">,</span><span class="k">new</span><span class="w"> </span><span class="n">SslHandler</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span><span class="w"> </span><span class="n">startTls</span><span class="p">));</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<h3 id="http">HTTP编码器、解码器和编解码器<a class="headerlink" href="#http" title="Permanent link">&para;</a></h3>
+<div class="admonition tip">
+<p class="admonition-title">HTTP编码器、解码器和编解码器</p>
+<ul>
+<li>HttpRequestEncoder:将HttpRequest、HttpContent和LastHttpContent消息编码为字节</li>
+<li>HttpResponseEncoder:将HttpResponse、HttpContent和LastHttpContent消息编码为字节</li>
+<li>HttpRequestDecoder:将字节解码为HttpRequest、HttpContent和LastHttpContent</li>
+<li>HttpResponseDecoder:将字节解码为HttpResponse、HttpContent和LastHttpContent</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">HttpPipelineInitializer</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">ChannelInitializer</span><span class="o">&lt;</span><span class="n">Channel</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="n">client</span><span class="p">;</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">HttpPipelineInitializer</span><span class="p">(</span><span class="kt">boolean</span><span class="w"> </span><span class="n">client</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">client</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">client</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">protected</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">initChannel</span><span class="p">(</span><span class="n">Channel</span><span class="w"> </span><span class="n">channel</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">ChannelPipeline</span><span class="w"> </span><span class="n">pipeline</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">channel</span><span class="p">.</span><span class="na">pipeline</span><span class="p">();</span>
+<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">client</span><span class="p">){</span>
+<span class="w">            </span><span class="n">pipeline</span><span class="p">.</span><span class="na">addLast</span><span class="p">(</span><span class="s">&quot;decoder&quot;</span><span class="p">,</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HttpResponseDecoder</span><span class="p">());</span><span class="c1">//处理服务端的响应</span>
+<span class="w">            </span><span class="n">pipeline</span><span class="p">.</span><span class="na">addLast</span><span class="p">(</span><span class="s">&quot;encoder&quot;</span><span class="p">,</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HttpRequestEncoder</span><span class="p">());</span><span class="c1">//向服务端发送请求</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">pipeline</span><span class="p">.</span><span class="na">addLast</span><span class="p">(</span><span class="s">&quot;decoder&quot;</span><span class="p">,</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HttpRequestDecoder</span><span class="p">());</span><span class="c1">//接收来自客户端的请求</span>
+<span class="w">            </span><span class="n">pipeline</span><span class="p">.</span><span class="na">addLast</span><span class="p">(</span><span class="s">&quot;encoder&quot;</span><span class="p">,</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HttpResponseEncoder</span><span class="p">());</span><span class="c1">//向客户端发送相应</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>简化版本</p>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">HttpCodecInitializer</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">ChannelInitializer</span><span class="o">&lt;</span><span class="n">Channel</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="n">client</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">HttpCodecInitializer</span><span class="p">(</span><span class="kt">boolean</span><span class="w"> </span><span class="n">client</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">client</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">client</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">protected</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">initChannel</span><span class="p">(</span><span class="n">Channel</span><span class="w"> </span><span class="n">channel</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">ChannelPipeline</span><span class="w"> </span><span class="n">pipeline</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">channel</span><span class="p">.</span><span class="na">pipeline</span><span class="p">();</span>
+<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">client</span><span class="p">){</span>
+<span class="w">            </span><span class="n">pipeline</span><span class="p">.</span><span class="na">addLast</span><span class="p">(</span><span class="s">&quot;codec&quot;</span><span class="p">,</span><span class="k">new</span><span class="w"> </span><span class="n">HttpServerCodec</span><span class="p">());</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">pipeline</span><span class="p">.</span><span class="na">addLast</span><span class="p">(</span><span class="s">&quot;codec&quot;</span><span class="p">,</span><span class="k">new</span><span class="w"> </span><span class="n">HttpClientCodec</span><span class="p">());</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<h3 id="http_1">聚合HTTP消息<a class="headerlink" href="#http_1" title="Permanent link">&para;</a></h3>
+<div class="admonition tip">
+<p class="admonition-title">聚合HTTP消息</p>
+<div class="highlight"><pre><span></span><code><span class="n">pipeline</span><span class="p">.</span><span class="na">addLast</span><span class="p">(</span><span class="s">&quot;aggregator&quot;</span><span class="p">,</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HttpObjectAggregator</span><span class="p">(</span><span class="mi">512</span><span class="o">*</span><span class="mi">1024</span><span class="p">));</span><span class="c1">//将最大为512KB的消息的HttpObjectAggregator添加到pipeline</span>
+</code></pre></div>
+</div>
+<h3 id="http_2">HTTP压缩<a class="headerlink" href="#http_2" title="Permanent link">&para;</a></h3>
+<div class="admonition tip">
+<p class="admonition-title">HTTP压缩</p>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">HttpCompressionInitializer</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">ChannelInitializer</span><span class="o">&lt;</span><span class="n">Channel</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="n">client</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">HttpCompressionInitializer</span><span class="p">(</span><span class="kt">boolean</span><span class="w"> </span><span class="n">client</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">client</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">client</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">protected</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">initChannel</span><span class="p">(</span><span class="n">Channel</span><span class="w"> </span><span class="n">channel</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">ChannelPipeline</span><span class="w"> </span><span class="n">pipeline</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">channel</span><span class="p">.</span><span class="na">pipeline</span><span class="p">();</span>
+<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">client</span><span class="p">){</span>
+<span class="w">            </span><span class="n">pipeline</span><span class="p">.</span><span class="na">addLast</span><span class="p">(</span><span class="s">&quot;codec&quot;</span><span class="p">,</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HttpClientCodec</span><span class="p">());</span>
+<span class="w">            </span><span class="n">pipeline</span><span class="p">.</span><span class="na">addLast</span><span class="p">(</span><span class="s">&quot;decompressor&quot;</span><span class="p">,</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HttpContentDecompressor</span><span class="p">());</span><span class="c1">//解压缩</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">pipeline</span><span class="p">.</span><span class="na">addLast</span><span class="p">(</span><span class="s">&quot;codec&quot;</span><span class="p">,</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HttpServerCodec</span><span class="p">());</span>
+<span class="w">            </span><span class="n">pipeline</span><span class="p">.</span><span class="na">addLast</span><span class="p">(</span><span class="s">&quot;compressor&quot;</span><span class="p">,</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HttpContentCompressor</span><span class="p">());</span><span class="c1">//压缩</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<h3 id="https">使用HTTPS<a class="headerlink" href="#https" title="Permanent link">&para;</a></h3>
+<div class="admonition tip">
+<p class="admonition-title">使用HTTPS</p>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">HttpsCodecInitializer</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">ChannelInitializer</span><span class="o">&lt;</span><span class="n">Channel</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">SslContext</span><span class="w"> </span><span class="n">context</span><span class="p">;</span>
+
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="n">isClient</span><span class="p">;</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">HttpsCodecInitializer</span><span class="p">(</span><span class="n">SslContext</span><span class="w"> </span><span class="n">context</span><span class="p">,</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="n">isClient</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">context</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">context</span><span class="p">;</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">isClient</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">isClient</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">protected</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">initChannel</span><span class="p">(</span><span class="n">Channel</span><span class="w"> </span><span class="n">channel</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">ChannelPipeline</span><span class="w"> </span><span class="n">pipeline</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">channel</span><span class="p">.</span><span class="na">pipeline</span><span class="p">();</span>
+<span class="w">        </span><span class="n">SSLEngine</span><span class="w"> </span><span class="n">engine</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">context</span><span class="p">.</span><span class="na">newEngine</span><span class="p">(</span><span class="n">channel</span><span class="p">.</span><span class="na">alloc</span><span class="p">());</span>
+<span class="w">        </span><span class="n">pipeline</span><span class="p">.</span><span class="na">addLast</span><span class="p">(</span><span class="s">&quot;ssl&quot;</span><span class="p">,</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">SslHandler</span><span class="p">(</span><span class="n">engine</span><span class="p">));</span>
+<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">isClient</span><span class="p">){</span>
+<span class="w">            </span><span class="n">pipeline</span><span class="p">.</span><span class="na">addLast</span><span class="p">(</span><span class="s">&quot;codec&quot;</span><span class="p">,</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HttpClientCodec</span><span class="p">());</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">pipeline</span><span class="p">.</span><span class="na">addLast</span><span class="p">(</span><span class="s">&quot;codec&quot;</span><span class="p">,</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HttpServerCodec</span><span class="p">());</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<h3 id="websocket">使用WebSocket<a class="headerlink" href="#websocket" title="Permanent link">&para;</a></h3>
+<div class="admonition tip">
+<p class="admonition-title">使用WebSocket</p>
+<ul>
+<li>先建立HTTP通信</li>
+<li>然后发起WebSocket握手</li>
+<li>可以WebSocket通信</li>
+<li>如果要保护WebSocket，只需要把SslHandler作为第一个ChannelHandler添加到Pipeline中</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">WebSocketServerInitializer</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">ChannelInitializer</span><span class="o">&lt;</span><span class="n">Channel</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">protected</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">initChannel</span><span class="p">(</span><span class="n">Channel</span><span class="w"> </span><span class="n">ch</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">ch</span><span class="p">.</span><span class="na">pipeline</span><span class="p">().</span><span class="na">addLast</span><span class="p">(</span>
+<span class="w">        </span><span class="k">new</span><span class="w"> </span><span class="n">HttpServerCodec</span><span class="p">(),</span>
+<span class="w">        </span><span class="k">new</span><span class="w"> </span><span class="n">HttpObjectAggregator</span><span class="p">(</span><span class="mi">65536</span><span class="p">),</span>
+<span class="w">        </span><span class="k">new</span><span class="w"> </span><span class="n">WebSocketServerProtocolHandler</span><span class="p">(</span><span class="s">&quot;/ws&quot;</span><span class="p">),</span>
+<span class="w">        </span><span class="k">new</span><span class="w"> </span><span class="n">TextFrameHandler</span><span class="p">()</span>
+<span class="w">        </span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kd">class</span> <span class="nc">TextFrameHandler</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">SimpleChannelInboundHandler</span><span class="o">&lt;</span><span class="n">TextWebSocketFrame</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nd">@Override</span>
+<span class="w">        </span><span class="kd">protected</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">channelRead0</span><span class="p">(</span><span class="n">ChannelHandlerContext</span><span class="w"> </span><span class="n">channelHandlerContext</span><span class="p">,</span><span class="w"> </span><span class="n">TextWebSocketFrame</span><span class="w"> </span><span class="n">textWebSocketFrame</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="c1">//Handle text frame</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<h3 id="_15">空闲的连接和超时<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h3>
+<div class="admonition tip">
+<p class="admonition-title">空闲的连接和超时</p>
+<ul>
+<li>IdleStateHandler:当连接空闲时间太长，将会触发一个IdleStateEvent事件。然后可以通过在ChannelInboundHandler中重写userEventTriggered()方法来处理。</li>
+<li>ReadTimeoutHandler:如果在指定的时间间隔内没有收到任何的入站数据，则会抛出一个ReadTimeoutException并关闭对应的Channel。可以通过重写exceptionCaught()方法来检测ReadTimeoutException。</li>
+<li>WriteTimeoutHandler:如果在指定的时间间隔内没有任何的出站数据写入，则会抛出一个WriteTimeoutException并关闭对应的Channel。可以通过重写exceptionCaught()方法来检测WriteTimeoutException。</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">IdleStateHandlerInitializer</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">ChannelInitializer</span><span class="o">&lt;</span><span class="n">Channel</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">protected</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">initChannel</span><span class="p">(</span><span class="n">Channel</span><span class="w"> </span><span class="n">channel</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">ChannelPipeline</span><span class="w"> </span><span class="n">pipeline</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">channel</span><span class="p">.</span><span class="na">pipeline</span><span class="p">();</span>
+<span class="w">        </span><span class="n">pipeline</span><span class="p">.</span><span class="na">addLast</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">IdleStateHandler</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">60</span><span class="p">,</span><span class="w"> </span><span class="n">TimeUnit</span><span class="p">.</span><span class="na">SECONDS</span><span class="p">));</span>
+<span class="w">        </span><span class="n">pipeline</span><span class="p">.</span><span class="na">addLast</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">HeartbeatHandler</span><span class="p">());</span>
+
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kd">class</span> <span class="nc">HeartbeatHandler</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">ChannelInboundHandlerAdapter</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">ByteBuf</span><span class="w"> </span><span class="n">HEARTBEAT_SEQUENCE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Unpooled</span><span class="p">.</span><span class="na">unreleasableBuffer</span><span class="p">(</span><span class="n">Unpooled</span><span class="p">.</span><span class="na">copiedBuffer</span><span class="p">(</span><span class="s">&quot;HEARTBEAT&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">CharsetUtil</span><span class="p">.</span><span class="na">ISO_8859_1</span><span class="p">));</span>
+<span class="w">        </span><span class="nd">@Override</span>
+<span class="w">        </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">userEventTriggered</span><span class="p">(</span><span class="n">ChannelHandlerContext</span><span class="w"> </span><span class="n">ctx</span><span class="p">,</span><span class="w"> </span><span class="n">Object</span><span class="w"> </span><span class="n">evt</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">if</span><span class="p">(</span><span class="n">evt</span><span class="w"> </span><span class="k">instanceof</span><span class="w"> </span><span class="n">IdleStateEvent</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">ctx</span><span class="p">.</span><span class="na">writeAndFlush</span><span class="p">(</span><span class="n">HEARTBEAT_SEQUENCE</span><span class="p">.</span><span class="na">duplicate</span><span class="p">()).</span><span class="na">addListener</span><span class="p">(</span><span class="n">ChannelFutureListener</span><span class="p">.</span><span class="na">CLOSE_ON_FAILURE</span><span class="p">);</span><span class="c1">//发送心跳，并且在心跳发送失败时关闭连接释放资源</span>
+<span class="w">            </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="kd">super</span><span class="p">.</span><span class="na">userEventTriggered</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span><span class="w"> </span><span class="n">evt</span><span class="p">);</span><span class="c1">//如果不是IdleStateEvent事件，则传递给下一个ChannelHandler</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
