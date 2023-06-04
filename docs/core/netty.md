@@ -772,3 +772,209 @@
         }
     }
     ```
+
+
+### SSL/TLS
+
+!!! tip "SSL/TLS"
+
+
+
+    ```java
+    public class SslChannelInitializer extends ChannelInitializer<Channel> {
+        private final SslContext context;
+        private final boolean startTls;
+        public SslChannelInitializer(SslContext context, boolean startTls) {
+            this.context = context;
+            this.startTls = startTls;
+        }
+
+        @Override
+        protected void initChannel(Channel channel) throws Exception {
+            SSLEngine engine = context.newEngine(channel.alloc());
+            channel.pipeline().addFirst("ssl",new SslHandler(engine, startTls));
+        }
+    }
+    ```
+
+
+### HTTP编码器、解码器和编解码器
+
+!!! tip "HTTP编码器、解码器和编解码器"
+
+
+    - HttpRequestEncoder:将HttpRequest、HttpContent和LastHttpContent消息编码为字节
+    - HttpResponseEncoder:将HttpResponse、HttpContent和LastHttpContent消息编码为字节
+    - HttpRequestDecoder:将字节解码为HttpRequest、HttpContent和LastHttpContent
+    - HttpResponseDecoder:将字节解码为HttpResponse、HttpContent和LastHttpContent
+
+    ```java
+    public class HttpPipelineInitializer extends ChannelInitializer<Channel> {
+
+        private final boolean client;
+
+        public HttpPipelineInitializer(boolean client) {
+            this.client = client;
+        }
+        @Override
+        protected void initChannel(Channel channel) throws Exception {
+            ChannelPipeline pipeline = channel.pipeline();
+            if(client){
+                pipeline.addLast("decoder", new HttpResponseDecoder());//处理服务端的响应
+                pipeline.addLast("encoder", new HttpRequestEncoder());//向服务端发送请求
+            } else {
+                pipeline.addLast("decoder", new HttpRequestDecoder());//接收来自客户端的请求
+                pipeline.addLast("encoder", new HttpResponseEncoder());//向客户端发送相应
+            }
+        }
+    }
+    ```
+
+    简化版本
+
+    ```java
+    public class HttpCodecInitializer extends ChannelInitializer<Channel> {
+
+        private final boolean client;
+        public HttpCodecInitializer(boolean client) {
+            this.client = client;
+        }
+        @Override
+        protected void initChannel(Channel channel) throws Exception {
+            ChannelPipeline pipeline = channel.pipeline();
+            if(client){
+                pipeline.addLast("codec",new HttpServerCodec());
+            } else {
+                pipeline.addLast("codec",new HttpClientCodec());
+            }
+        }
+    }
+    ```
+
+
+### 聚合HTTP消息
+
+!!! tip "聚合HTTP消息"
+
+    ```java
+    pipeline.addLast("aggregator", new HttpObjectAggregator(512*1024));//将最大为512KB的消息的HttpObjectAggregator添加到pipeline
+    ```
+
+### HTTP压缩
+
+!!! tip "HTTP压缩"
+
+    ```java
+    public class HttpCompressionInitializer extends ChannelInitializer<Channel> {
+        private final boolean client;
+        public HttpCompressionInitializer(boolean client) {
+            this.client = client;
+        }
+        @Override
+        protected void initChannel(Channel channel) throws Exception {
+            ChannelPipeline pipeline = channel.pipeline();
+            if(client){
+                pipeline.addLast("codec", new HttpClientCodec());
+                pipeline.addLast("decompressor", new HttpContentDecompressor());//解压缩
+            } else {
+                pipeline.addLast("codec", new HttpServerCodec());
+                pipeline.addLast("compressor", new HttpContentCompressor());//压缩
+            }
+        }
+    }
+    ```
+
+
+### 使用HTTPS
+
+!!! tip "使用HTTPS"
+
+    ```java
+    public class HttpsCodecInitializer extends ChannelInitializer<Channel> {
+        private final SslContext context;
+
+        private final boolean isClient;
+
+        public HttpsCodecInitializer(SslContext context, boolean isClient) {
+            this.context = context;
+            this.isClient = isClient;
+        }
+
+        @Override
+        protected void initChannel(Channel channel) throws Exception {
+            ChannelPipeline pipeline = channel.pipeline();
+            SSLEngine engine = context.newEngine(channel.alloc());
+            pipeline.addLast("ssl", new SslHandler(engine));
+            if(isClient){
+                pipeline.addLast("codec", new HttpClientCodec());
+            } else {
+                pipeline.addLast("codec", new HttpServerCodec());
+            }
+        }
+    }
+
+    ```
+
+
+### 使用WebSocket
+
+!!! tip "使用WebSocket"
+
+    - 先建立HTTP通信
+    - 然后发起WebSocket握手
+    - 可以WebSocket通信
+    - 如果要保护WebSocket，只需要把SslHandler作为第一个ChannelHandler添加到Pipeline中
+
+    ```java
+    public class WebSocketServerInitializer extends ChannelInitializer<Channel> {
+        @Override
+        protected void initChannel(Channel ch) throws Exception {
+            ch.pipeline().addLast(
+            new HttpServerCodec(),
+            new HttpObjectAggregator(65536),
+            new WebSocketServerProtocolHandler("/ws"),
+            new TextFrameHandler()
+            );
+        }
+
+        public static final class TextFrameHandler extends SimpleChannelInboundHandler<TextWebSocketFrame> {
+            @Override
+            protected void channelRead0(ChannelHandlerContext channelHandlerContext, TextWebSocketFrame textWebSocketFrame) throws Exception {
+                //Handle text frame
+            }
+        }
+    }
+    ```
+
+
+
+### 空闲的连接和超时
+
+!!! tip "空闲的连接和超时"
+
+    - IdleStateHandler:当连接空闲时间太长，将会触发一个IdleStateEvent事件。然后可以通过在ChannelInboundHandler中重写userEventTriggered()方法来处理。
+    - ReadTimeoutHandler:如果在指定的时间间隔内没有收到任何的入站数据，则会抛出一个ReadTimeoutException并关闭对应的Channel。可以通过重写exceptionCaught()方法来检测ReadTimeoutException。
+    - WriteTimeoutHandler:如果在指定的时间间隔内没有任何的出站数据写入，则会抛出一个WriteTimeoutException并关闭对应的Channel。可以通过重写exceptionCaught()方法来检测WriteTimeoutException。
+
+    ```java
+    public class IdleStateHandlerInitializer extends ChannelInitializer<Channel> {
+        @Override
+        protected void initChannel(Channel channel) throws Exception {
+            ChannelPipeline pipeline = channel.pipeline();
+            pipeline.addLast(new IdleStateHandler(0, 0, 60, TimeUnit.SECONDS));
+            pipeline.addLast(new HeartbeatHandler());
+
+        }
+        public static final class HeartbeatHandler extends ChannelInboundHandlerAdapter {
+            private static final ByteBuf HEARTBEAT_SEQUENCE = Unpooled.unreleasableBuffer(Unpooled.copiedBuffer("HEARTBEAT", CharsetUtil.ISO_8859_1));
+            @Override
+            public void userEventTriggered(ChannelHandlerContext ctx, Object evt) throws Exception {
+                if(evt instanceof IdleStateEvent) {
+                    ctx.writeAndFlush(HEARTBEAT_SEQUENCE.duplicate()).addListener(ChannelFutureListener.CLOSE_ON_FAILURE);//发送心跳，并且在心跳发送失败时关闭连接释放资源
+                } else {
+                    super.userEventTriggered(ctx, evt);//如果不是IdleStateEvent事件，则传递给下一个ChannelHandler
+                }
+            }
+        }
+    }
+    ```
