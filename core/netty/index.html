@@ -1613,6 +1613,34 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    基于分隔符的协议
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    基于长度的协议
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    写大型数据
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    序列化数据
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2481,6 +2509,34 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    基于分隔符的协议
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    基于长度的协议
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    写大型数据
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    序列化数据
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2505,7 +2561,7 @@
 
 
 <h1 id="netty">Netty<a class="headerlink" href="#netty" title="Permanent link">&para;</a></h1>
-<p><img alt="" src="https://p.ipic.vip/qrrk7m.jpg" /></p>
+<p><img alt="" src="https://p.ipic.vip/j9f0dv.jpg" /></p>
 <h3 id="nio">什么不直接用NIO<a class="headerlink" href="#nio" title="Permanent link">&para;</a></h3>
 <div class="admonition tip">
 <p class="admonition-title">什么不直接用NIO</p>
@@ -3341,6 +3397,153 @@ copy 复制的是真实的副本</p>
 <span class="w">            </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
 <span class="w">                </span><span class="kd">super</span><span class="p">.</span><span class="na">userEventTriggered</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span><span class="w"> </span><span class="n">evt</span><span class="p">);</span><span class="c1">//如果不是IdleStateEvent事件，则传递给下一个ChannelHandler</span>
 <span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<h3 id="_16">基于分隔符的协议<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h3>
+<div class="admonition tip">
+<p class="admonition-title">基于分隔符的协议</p>
+<ul>
+<li>DelimiterBasedFrameDecoder: 用户自定义分隔符</li>
+<li>LineBasedFrameDecoder: 使用行尾符(\n或者\r\n)分割，比DelimiterBasedFrameDecoder更快</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">LineBasedHandlerInitializer</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">ChannelInitializer</span><span class="o">&lt;</span><span class="n">Channel</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">protected</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">initChannel</span><span class="p">(</span><span class="n">Channel</span><span class="w"> </span><span class="n">channel</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">ChannelPipeline</span><span class="w"> </span><span class="n">pipeline</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">channel</span><span class="p">.</span><span class="na">pipeline</span><span class="p">();</span>
+<span class="w">        </span><span class="n">pipeline</span><span class="p">.</span><span class="na">addLast</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">LineBasedFrameDecoder</span><span class="p">(</span><span class="mi">64</span><span class="o">*</span><span class="mi">1024</span><span class="p">));</span>
+<span class="w">        </span><span class="n">pipeline</span><span class="p">.</span><span class="na">addLast</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">FrameHandler</span><span class="p">());</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kd">class</span> <span class="nc">FrameHandler</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">SimpleChannelInboundHandler</span><span class="o">&lt;</span><span class="n">ByteBuf</span><span class="o">&gt;</span><span class="p">{</span>
+<span class="w">        </span><span class="nd">@Override</span>
+<span class="w">        </span><span class="kd">protected</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">channelRead0</span><span class="p">(</span><span class="n">ChannelHandlerContext</span><span class="w"> </span><span class="n">channelHandlerContext</span><span class="p">,</span><span class="w"> </span><span class="n">ByteBuf</span><span class="w"> </span><span class="n">byteBuf</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="c1">//do something</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">DelimiterBasedHandlerInitializer</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">ChannelInitializer</span><span class="o">&lt;</span><span class="n">Channel</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">protected</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">initChannel</span><span class="p">(</span><span class="n">Channel</span><span class="w"> </span><span class="n">channel</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">ChannelPipeline</span><span class="w"> </span><span class="n">pipeline</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">channel</span><span class="p">.</span><span class="na">pipeline</span><span class="p">();</span>
+<span class="w">        </span><span class="n">pipeline</span><span class="p">.</span><span class="na">addLast</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">DelimiterBasedFrameDecoder</span><span class="p">(</span><span class="mi">1024</span><span class="o">*</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="n">Unpooled</span><span class="p">.</span><span class="na">copiedBuffer</span><span class="p">(</span><span class="s">&quot;$&quot;</span><span class="p">.</span><span class="na">getBytes</span><span class="p">())));</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<h3 id="_17">基于长度的协议<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h3>
+<div class="admonition tip">
+<p class="admonition-title">基于长度的协议</p>
+<ul>
+<li>FixedLengthFrameDecoder: 定长帧</li>
+<li>LengthFieldBasedFrameDecode: 从帧头部读取指定的帧长度，然后获取指定长度的帧</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">LengthBasedInitializer</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">ChannelInitializer</span><span class="o">&lt;</span><span class="n">Channel</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">protected</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">initChannel</span><span class="p">(</span><span class="n">Channel</span><span class="w"> </span><span class="n">channel</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">ChannelPipeline</span><span class="w"> </span><span class="n">pipeline</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">channel</span><span class="p">.</span><span class="na">pipeline</span><span class="p">();</span>
+<span class="w">        </span><span class="n">pipeline</span><span class="p">.</span><span class="na">addLast</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">LengthFieldBasedFrameDecoder</span><span class="p">(</span><span class="mi">64</span><span class="o">*</span><span class="mi">1024</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">));</span><span class="c1">//0~8字节的数据保存的就是要读取的帧的长度</span>
+<span class="w">        </span><span class="n">pipeline</span><span class="p">.</span><span class="na">addLast</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">FrameHandler</span><span class="p">());</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kd">class</span> <span class="nc">FrameHandler</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">SimpleChannelInboundHandler</span><span class="o">&lt;</span><span class="n">ByteBuf</span><span class="o">&gt;</span><span class="p">{</span>
+<span class="w">        </span><span class="nd">@Override</span>
+<span class="w">        </span><span class="kd">protected</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">channelRead0</span><span class="p">(</span><span class="n">ChannelHandlerContext</span><span class="w"> </span><span class="n">channelHandlerContext</span><span class="p">,</span><span class="w"> </span><span class="n">ByteBuf</span><span class="w"> </span><span class="n">byteBuf</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="c1">//do something</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<h3 id="_18">写大型数据<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h3>
+<div class="admonition tip">
+<p class="admonition-title">写大型数据</p>
+<ul>
+<li>文件只传输不处理</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">FileTransferHandler</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">transfer</span><span class="p">(</span><span class="n">Channel</span><span class="w"> </span><span class="n">channel</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">        </span><span class="n">File</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FileUtil</span><span class="p">.</span><span class="na">file</span><span class="p">(</span><span class="s">&quot;/test&quot;</span><span class="p">);</span>
+
+<span class="w">        </span><span class="n">FileInputStream</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">FileInputStream</span><span class="p">(</span><span class="n">file</span><span class="p">);</span>
+
+<span class="w">        </span><span class="n">FileRegion</span><span class="w"> </span><span class="n">region</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">DefaultFileRegion</span><span class="p">(</span><span class="n">in</span><span class="p">.</span><span class="na">getChannel</span><span class="p">(),</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">file</span><span class="p">.</span><span class="na">length</span><span class="p">());</span>
+
+<span class="w">        </span><span class="n">channel</span><span class="p">.</span><span class="na">writeAndFlush</span><span class="p">(</span><span class="n">region</span><span class="p">).</span><span class="na">addListener</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">ChannelFutureListener</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nd">@Override</span>
+<span class="w">            </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">operationComplete</span><span class="p">(</span><span class="n">ChannelFuture</span><span class="w"> </span><span class="n">channelFuture</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">channelFuture</span><span class="p">.</span><span class="na">isSuccess</span><span class="p">()){</span>
+<span class="w">                    </span><span class="n">Throwable</span><span class="w"> </span><span class="n">cause</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">channelFuture</span><span class="p">.</span><span class="na">cause</span><span class="p">();</span>
+<span class="w">                    </span><span class="c1">//do something</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">});</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<ul>
+<li>
+<p>需要处理文件，把文件系统读取到用户内存时，可以使用ChunkedWriteHandler，它支持异步写大型数据流，而又不会导致大量的内存消耗</p>
+<ul>
+<li>ChunkedFile: 从文件中逐块获取数据</li>
+<li>ChunkedNioFile: 与ChunkedFile类似，只是它使用了FileChannel</li>
+<li>ChunkedStream: 从InputStream中逐块传输内容</li>
+<li>CHunkedNioStream: 从ReadableByteChannel中逐块传输内容</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">ChunkedWriteHandlerInitializer</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">ChannelInitializer</span><span class="o">&lt;</span><span class="n">Channel</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">File</span><span class="w"> </span><span class="n">file</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">SslContext</span><span class="w"> </span><span class="n">context</span><span class="p">;</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">ChunkedWriteHandlerInitializer</span><span class="p">(</span><span class="n">File</span><span class="w"> </span><span class="n">file</span><span class="p">,</span><span class="w"> </span><span class="n">SslContext</span><span class="w"> </span><span class="n">context</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">file</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">file</span><span class="p">;</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">context</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">context</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">protected</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">initChannel</span><span class="p">(</span><span class="n">Channel</span><span class="w"> </span><span class="n">channel</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">ChannelPipeline</span><span class="w"> </span><span class="n">pipeline</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">channel</span><span class="p">.</span><span class="na">pipeline</span><span class="p">();</span>
+<span class="w">        </span><span class="n">pipeline</span><span class="p">.</span><span class="na">addLast</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">SslHandler</span><span class="p">(</span><span class="n">context</span><span class="p">.</span><span class="na">newEngine</span><span class="p">(</span><span class="n">channel</span><span class="p">.</span><span class="na">alloc</span><span class="p">())));</span>
+<span class="w">        </span><span class="n">pipeline</span><span class="p">.</span><span class="na">addLast</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">ChunkedWriteHandler</span><span class="p">());</span>
+<span class="w">        </span><span class="n">pipeline</span><span class="p">.</span><span class="na">addLast</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">WriteStreamHandler</span><span class="p">());</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kd">class</span> <span class="nc">WriteStreamHandler</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">ChannelInboundHandlerAdapter</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nd">@Override</span>
+<span class="w">        </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">channelActive</span><span class="p">(</span><span class="n">ChannelHandlerContext</span><span class="w"> </span><span class="n">ctx</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="kd">super</span><span class="p">.</span><span class="na">channelActive</span><span class="p">(</span><span class="n">ctx</span><span class="p">);</span>
+<span class="w">            </span><span class="n">ctx</span><span class="p">.</span><span class="na">writeAndFlush</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">ChunkedStream</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">FileInputStream</span><span class="p">(</span><span class="n">file</span><span class="p">)));</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<h3 id="_19">序列化数据<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h3>
+<div class="admonition tip">
+<p class="admonition-title">序列化数据</p>
+<ul>
+<li>JDK序列化</li>
+<li>JBoss Marshalling</li>
+<li>Protocol Buffers</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">ProtoBufIntializer</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">ChannelInitializer</span><span class="o">&lt;</span><span class="n">Channel</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">MessageLite</span><span class="w"> </span><span class="n">messageLite</span><span class="p">;</span>
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">protected</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">initChannel</span><span class="p">(</span><span class="n">Channel</span><span class="w"> </span><span class="n">channel</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">ChannelPipeline</span><span class="w"> </span><span class="n">pipeline</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">channel</span><span class="p">.</span><span class="na">pipeline</span><span class="p">();</span>
+<span class="w">        </span><span class="n">pipeline</span><span class="p">.</span><span class="na">addLast</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">ProtobufVarint32FrameDecoder</span><span class="p">());</span>
+<span class="w">        </span><span class="n">pipeline</span><span class="p">.</span><span class="na">addLast</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">ProtobufEncoder</span><span class="p">());</span>
+<span class="w">        </span><span class="n">pipeline</span><span class="p">.</span><span class="na">addLast</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">ProtobufDecoder</span><span class="p">(</span><span class="n">messageLite</span><span class="p">));</span>
+<span class="w">        </span><span class="n">pipeline</span><span class="p">.</span><span class="na">addLast</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">ObjectHandler</span><span class="p">());</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kd">class</span> <span class="nc">ObjectHandler</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">SimpleChannelInboundHandler</span><span class="o">&lt;</span><span class="n">Object</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nd">@Override</span>
+<span class="w">        </span><span class="kd">protected</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">channelRead0</span><span class="p">(</span><span class="n">ChannelHandlerContext</span><span class="w"> </span><span class="n">channelHandlerContext</span><span class="p">,</span><span class="w"> </span><span class="n">Object</span><span class="w"> </span><span class="n">o</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="c1">//do something</span>
 <span class="w">        </span><span class="p">}</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
