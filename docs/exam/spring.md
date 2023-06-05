@@ -110,7 +110,7 @@
     - 根据配置找bean的定义
     - 反射创建bean的实例
     - set bean的属性值
-    - 如果实现了Bean**Aware接口，回回调对应的set方法，在里面传入一些自定义的，比如beanName，类加载器，bean工厂
+    - 如果实现了Bean**Aware接口，回调对应的set方法，在里面传入一些自定义的，比如beanName，类加载器，bean工厂
     - 如果有实现BeanPostProcessor接口的对象使用，会执行里面的before和after方法
     - 如果实现InitializingBean会执行afterPropertiesSet
     - 如果配置文件里配置了 init-method和destroy，会执行对应方法，destroy会在bean销毁时执行
