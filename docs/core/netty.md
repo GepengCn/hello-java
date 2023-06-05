@@ -1,6 +1,6 @@
 # Netty
 
-![](https://p.ipic.vip/qrrk7m.jpg)
+![](https://p.ipic.vip/j9f0dv.jpg)
 
 ### 什么不直接用NIO
 
@@ -978,3 +978,164 @@
         }
     }
     ```
+
+
+### 基于分隔符的协议
+
+!!! tip "基于分隔符的协议"
+
+    - DelimiterBasedFrameDecoder: 用户自定义分隔符
+    - LineBasedFrameDecoder: 使用行尾符(\n或者\r\n)分割，比DelimiterBasedFrameDecoder更快
+
+    ```java
+    public class LineBasedHandlerInitializer extends ChannelInitializer<Channel> {
+        @Override
+        protected void initChannel(Channel channel) throws Exception {
+            ChannelPipeline pipeline = channel.pipeline();
+            pipeline.addLast(new LineBasedFrameDecoder(64*1024));
+            pipeline.addLast(new FrameHandler());
+        }
+        public static final class FrameHandler extends SimpleChannelInboundHandler<ByteBuf>{
+            @Override
+            protected void channelRead0(ChannelHandlerContext channelHandlerContext, ByteBuf byteBuf) throws Exception {
+                //do something
+            }
+        }
+    }
+
+    ```
+
+
+    ```java
+    public class DelimiterBasedHandlerInitializer extends ChannelInitializer<Channel> {
+        @Override
+        protected void initChannel(Channel channel) throws Exception {
+            ChannelPipeline pipeline = channel.pipeline();
+            pipeline.addLast(new DelimiterBasedFrameDecoder(1024*5, Unpooled.copiedBuffer("$".getBytes())));
+        }
+    }
+    ```
+
+
+### 基于长度的协议
+
+!!! tip "基于长度的协议"
+
+    - FixedLengthFrameDecoder: 定长帧
+    - LengthFieldBasedFrameDecode: 从帧头部读取指定的帧长度，然后获取指定长度的帧
+
+
+    ```java
+    public class LengthBasedInitializer extends ChannelInitializer<Channel> {
+        @Override
+        protected void initChannel(Channel channel) throws Exception {
+            ChannelPipeline pipeline = channel.pipeline();
+            pipeline.addLast(new LengthFieldBasedFrameDecoder(64*1024, 0, 8));//0~8字节的数据保存的就是要读取的帧的长度
+            pipeline.addLast(new FrameHandler());
+        }
+        public static final class FrameHandler extends SimpleChannelInboundHandler<ByteBuf>{
+            @Override
+            protected void channelRead0(ChannelHandlerContext channelHandlerContext, ByteBuf byteBuf) throws Exception {
+                //do something
+            }
+        }
+    }
+    ```
+
+### 写大型数据
+
+!!! tip "写大型数据"
+
+    - 文件只传输不处理
+
+    ```java
+    public class FileTransferHandler {
+
+        public void transfer(Channel channel) throws Exception {
+
+            File file = FileUtil.file("/test");
+
+            FileInputStream in = new FileInputStream(file);
+
+            FileRegion region = new DefaultFileRegion(in.getChannel(), 0, file.length());
+
+            channel.writeAndFlush(region).addListener(new ChannelFutureListener() {
+                @Override
+                public void operationComplete(ChannelFuture channelFuture) throws Exception {
+                    if(!channelFuture.isSuccess()){
+                        Throwable cause = channelFuture.cause();
+                        //do something
+                    }
+                }
+            });
+        }
+    }
+    ```
+
+    - 需要处理文件，把文件系统读取到用户内存时，可以使用ChunkedWriteHandler，它支持异步写大型数据流，而又不会导致大量的内存消耗
+
+        - ChunkedFile: 从文件中逐块获取数据
+        - ChunkedNioFile: 与ChunkedFile类似，只是它使用了FileChannel
+        - ChunkedStream: 从InputStream中逐块传输内容
+        - CHunkedNioStream: 从ReadableByteChannel中逐块传输内容
+
+
+    ```java
+    public class ChunkedWriteHandlerInitializer extends ChannelInitializer<Channel> {
+        private final File file;
+        private final SslContext context;
+
+        public ChunkedWriteHandlerInitializer(File file, SslContext context) {
+            this.file = file;
+            this.context = context;
+        }
+
+        @Override
+        protected void initChannel(Channel channel) throws Exception {
+            ChannelPipeline pipeline = channel.pipeline();
+            pipeline.addLast(new SslHandler(context.newEngine(channel.alloc())));
+            pipeline.addLast(new ChunkedWriteHandler());
+            pipeline.addLast(new WriteStreamHandler());
+        }
+        public final class WriteStreamHandler extends ChannelInboundHandlerAdapter {
+            @Override
+            public void channelActive(ChannelHandlerContext ctx) throws Exception {
+                super.channelActive(ctx);
+                ctx.writeAndFlush(new ChunkedStream(new FileInputStream(file)));
+            }
+        }
+    }
+    ```
+
+
+### 序列化数据
+
+!!! tip "序列化数据"
+
+    - JDK序列化
+    - JBoss Marshalling
+    - Protocol Buffers
+
+
+    ```java
+    public class ProtoBufIntializer extends ChannelInitializer<Channel> {
+
+        private final MessageLite messageLite;
+        @Override
+        protected void initChannel(Channel channel) throws Exception {
+            ChannelPipeline pipeline = channel.pipeline();
+            pipeline.addLast(new ProtobufVarint32FrameDecoder());
+            pipeline.addLast(new ProtobufEncoder());
+            pipeline.addLast(new ProtobufDecoder(messageLite));
+            pipeline.addLast(new ObjectHandler());
+        }
+        public static final class ObjectHandler extends SimpleChannelInboundHandler<Object> {
+            @Override
+            protected void channelRead0(ChannelHandlerContext channelHandlerContext, Object o) throws Exception {
+                //do something
+            }
+        }
+    }
+    ```
+
+
