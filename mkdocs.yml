@@ -130,7 +130,7 @@ nav:
             - SpringBoot: exam/springboot.md
             - Netty: exam/netty.md
             - 分布式: exam/cloud.md
-            - 高频算法: exam/experiences.md
+            - 高频面试题: exam/experiences.md
             - docker: exam/docker.md
             - 排序: exam/sort.md
             - Kafka: exam/kafka.md

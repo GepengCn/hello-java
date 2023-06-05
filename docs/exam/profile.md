@@ -77,7 +77,7 @@
 精通Git、Maven等工具构建与管理项目
 熟练使用Mysql、Oracle数据库以及Redis、Kafka、RocketMQ等中间件
 熟练使用Netty、Guava、Lombok、Mybatis、Spring Data JPA等框架
-熟练使用Docker、K8S构建与管理服务
+熟练使用Docker、K8S进行服务部署
 
 
 

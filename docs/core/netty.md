@@ -1,6 +1,6 @@
 # Netty
 
-![](https://p.ipic.vip/j9f0dv.jpg)
+![](https://p.ipic.vip/gnhm2b.jpg)
 
 ### 什么不直接用NIO
 
