@@ -1733,6 +1733,7 @@
 
 
 <h1 id="_1">经验<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p><img alt="" src="https://p.ipic.vip/9we089.jpg" /></p>
 <h2 id="_2">问题<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <ul>
 <li>简单说一下 SQL 调优思路。</li>
@@ -1765,7 +1766,7 @@
 <p class="admonition-title">简单说一下 SQL 调优思路。</p>
 <ul>
 <li>避免使用select *</li>
-<li>数据量较大时，用子查询代替普通分页查询</li>
+<li>数据量较大时，用子分页查询代替普通分页查询</li>
 <li>尽量避免多表join：尽量单表查询，然后再程序中关联，易于后续维护，复用性也强。</li>
 <li>尽量不使用外键和级联：分库分表不友好</li>
 <li>尽量用union all代替union：union会创建临时表去重，耗时，如果需要去重可以再内存中做。</li>
@@ -1795,7 +1796,7 @@
 <p>主从同步延迟</p>
 <p>解决方案:</p>
 <ol>
-<li>强制将读请求路由到主库处理。</li>
+<li>从库过期的数据从主库读</li>
 <li>延迟读取。像是支付成功之后跳转到一个支付成功页面，有个倒计时之类的。</li>
 </ol>
 </div>
@@ -1852,7 +1853,7 @@
 <p class="admonition-title">分库分表后，数据怎么迁移呢</p>
 <ul>
 <li>停机迁移</li>
-<li>双写，新老库一起写。如果跟新的是新库没有的数据，还需要先导入那条数据</li>
+<li>双写，新老库一起写。如果更新的是新库没有的数据，还需要先导入那条数据</li>
 <li>用canal，通过binlog迁移</li>
 </ul>
 </div>
