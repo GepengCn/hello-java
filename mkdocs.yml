@@ -131,6 +131,7 @@ nav:
             - Netty: exam/netty.md
             - 分布式: exam/cloud.md
             - 高频面试题: exam/experiences.md
+            - 高频面试题2: exam/experiences2.md
             - docker: exam/docker.md
             - 排序: exam/sort.md
             - Kafka: exam/kafka.md
