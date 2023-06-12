@@ -1642,17 +1642,16 @@
 <h3 id="_3">为什么用微服务<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
 <div class="admonition tip">
 <p class="admonition-title">为什么用微服务</p>
-</div>
 <ul>
 <li>解耦合，业务耦合拆分开来</li>
 <li>独立部署，扩展和删除</li>
 <li>弹性，出故障不会影响其它服务</li>
 <li>可以不同语言来实现服务</li>
 </ul>
+</div>
 <h3 id="_4">怎么设计一个高并发的系统<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
 <div class="admonition tip">
 <p class="admonition-title">怎么设计一个高并发的系统</p>
-</div>
 <ul>
 <li>多点部署服务</li>
 <li>微服务拆分不同模块</li>
@@ -1666,38 +1665,39 @@
 <li>限流</li>
 <li>做好压测</li>
 </ul>
+</div>
 <h3 id="_5">秒杀系统怎么设计<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
 <div class="admonition tip">
 <p class="admonition-title">秒杀系统怎么设计</p>
-</div>
 <p>同上</p>
+</div>
 <h3 id="_6">怎么保证数据的一致性？<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
 <div class="admonition tip">
 <p class="admonition-title">怎么保证数据的一致性？</p>
-</div>
 <ul>
 <li>做好幂等，前端限制按钮置灰，后端用分布式id</li>
 <li>分布式锁</li>
 </ul>
+</div>
 <h3 id="_7">为什么要异步任务呢<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
 <div class="admonition tip">
 <p class="admonition-title">为什么要异步任务呢</p>
-</div>
 <p>慢业务需要</p>
+</div>
 <h3 id="nginx">反向代理nginx有什么用？<a class="headerlink" href="#nginx" title="Permanent link">&para;</a></h3>
 <div class="admonition tip">
 <p class="admonition-title">反向代理nginx有什么用？</p>
-</div>
 <ul>
 <li>提高访问速度，缓存</li>
 <li>防火墙</li>
 <li>负载均衡</li>
 </ul>
+</div>
 <h3 id="_8">怎么做系统性能测试？<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
 <div class="admonition tip">
 <p class="admonition-title">怎么做系统性能测试？</p>
-</div>
 <p>apache bench</p>
+</div>
 <h3 id="jvm">JVM调优了解吗？<a class="headerlink" href="#jvm" title="Permanent link">&para;</a></h3>
 <div class="admonition tip">
 <p class="admonition-title">JVM调优了解吗？</p>
@@ -1705,45 +1705,45 @@
 <h3 id="_9">为什么要拆分服务？<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
 <div class="admonition tip">
 <p class="admonition-title">为什么要拆分服务？</p>
-</div>
 <ul>
 <li>业务复杂后，频繁的迭代影响整体的稳定性</li>
 <li>测试效率低下</li>
 <li>代码冲突频繁</li>
 <li>架构升级也困难</li>
 </ul>
+</div>
 <h3 id="_10">微服务会带来什么问题？有什么解决方案？<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
 <div class="admonition tip">
 <p class="admonition-title">微服务会带来什么问题？有什么解决方案？</p>
-</div>
 <ul>
 <li>数据一致性问题：幂等、分布式锁</li>
 <li>分布式事务问题：分布式锁</li>
 <li>复杂度增加，服务监控、服务间依赖关系、异常问题排查：运维系统，链路追踪，日志统计</li>
 </ul>
+</div>
 <h3 id="_11">为什么要有注册中心<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
 <div class="admonition tip">
 <p class="admonition-title">为什么要有注册中心</p>
-</div>
 <ul>
 <li>服务的状态管理：在线，不在线，有心跳机制</li>
 <li>服务间通信：每个服务的ip可能会变化，注册中心相当于通讯里</li>
 </ul>
+</div>
 <h3 id="_12">服务间怎么通信呢？<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
 <div class="admonition tip">
 <p class="admonition-title">服务间怎么通信呢？</p>
-</div>
 <ul>
 <li>RestTemplate</li>
 <li>Feign：通过启动类enable扫描@FeignClient注解修饰的接口，然后通过反射实例化这个接口调用远程服务接口</li>
 </ul>
+</div>
 <h3 id="_13">服务熔断、限流、降级了解吗？<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h3>
 <div class="admonition tip">
 <p class="admonition-title">服务熔断、限流、降级了解吗？</p>
-</div>
 <p>熔断：某个下游服务故障引起
 降级：整体的核心业务线可用，其它非核心的停用
 限流：限制并发</p>
+</div>
 
 
 
