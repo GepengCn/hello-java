@@ -9,10 +9,10 @@
       
       
       
-        <link rel="prev" href="../redis/">
+        <link rel="prev" href="../rocketmq/">
       
       
-        <link rel="next" href="../netty/">
+        <link rel="next" href="../docker_10/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -20,7 +20,7 @@
     
     
       
-        <title>SpringBoot - hello-java</title>
+        <title>netty高频面试题 - hello-java</title>
       
     
     
@@ -77,7 +77,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#springboot" class="md-skip">
+        <a href="#1-nettyjavanio" class="md-skip">
           跳转至
         </a>
       
@@ -111,7 +111,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              SpringBoot
+              netty高频面试题
             
           </span>
         </div>
@@ -1529,29 +1529,9 @@
                 
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    SpringBoot
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../springboot/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1560,116 +1540,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    问题
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    答案
-  </a>
-  
-    <nav class="md-nav" aria-label="答案">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#springboot_1" class="md-nav__link">
-    为什么要有SpringBoot
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#springboot_2" class="md-nav__link">
-    SpringBoot的主要优点
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#spring-boot-starters" class="md-nav__link">
-    什么是Spring Boot Starters
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#spring-boot" class="md-nav__link">
-    Spring Boot支持哪些内嵌的容器
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#springbootapplication" class="md-nav__link">
-    介绍下@SpringBootApplication注解
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#spring-boot_1" class="md-nav__link">
-    Spring Boot 自动装配是如何实现的？
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#web" class="md-nav__link">
-    开发web服务常用注解有哪些?
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#spring-boot_2" class="md-nav__link">
-    Spring Boot 常用读取配置文件的方法有哪些？
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#spring-boot_3" class="md-nav__link">
-    Spring Boot 加载配置文件的优先级了解吗？
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#bean" class="md-nav__link">
-    常用的Bean映射工具有哪些？
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1839,9 +1709,27 @@
                 
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../netty_10/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    netty高频面试题
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -1850,6 +1738,94 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-nettyjavanio" class="md-nav__link">
+    1. Netty相比于Java原生NIO的优势是什么？
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-netty" class="md-nav__link">
+    2. 什么是Netty的零拷贝特性，它是如何实现的？
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-nettychanneleventloopchannelpipeline" class="md-nav__link">
+    3. 解释Netty中的Channel、EventLoop和ChannelPipeline。
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-nettytcp" class="md-nav__link">
+    4. Netty是如何解决TCP粘包/拆包问题的？
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-nettybytebufjava-niobytebuffer" class="md-nav__link">
+    5. Netty中的ByteBuf与Java NIO中的ByteBuffer有什么区别？
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-netty" class="md-nav__link">
+    6. 如何在Netty中实现心跳机制？
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-netty" class="md-nav__link">
+    7. 解释Netty的高性能是如何实现的？
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-netty" class="md-nav__link">
+    8. Netty如何处理半关闭的连接？
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-nettychanneloptionchannelhandler" class="md-nav__link">
+    9. 什么是Netty的ChannelOption和ChannelHandler？
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-netty" class="md-nav__link">
+    10. 解释Netty的线程模型。
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1907,8 +1883,6 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -1917,92 +1891,72 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    问题
+  <a href="#1-nettyjavanio" class="md-nav__link">
+    1. Netty相比于Java原生NIO的优势是什么？
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    答案
-  </a>
-  
-    <nav class="md-nav" aria-label="答案">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#springboot_1" class="md-nav__link">
-    为什么要有SpringBoot
+  <a href="#2-netty" class="md-nav__link">
+    2. 什么是Netty的零拷贝特性，它是如何实现的？
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#springboot_2" class="md-nav__link">
-    SpringBoot的主要优点
+      
+        <li class="md-nav__item">
+  <a href="#3-nettychanneleventloopchannelpipeline" class="md-nav__link">
+    3. 解释Netty中的Channel、EventLoop和ChannelPipeline。
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#spring-boot-starters" class="md-nav__link">
-    什么是Spring Boot Starters
+      
+        <li class="md-nav__item">
+  <a href="#4-nettytcp" class="md-nav__link">
+    4. Netty是如何解决TCP粘包/拆包问题的？
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#spring-boot" class="md-nav__link">
-    Spring Boot支持哪些内嵌的容器
+      
+        <li class="md-nav__item">
+  <a href="#5-nettybytebufjava-niobytebuffer" class="md-nav__link">
+    5. Netty中的ByteBuf与Java NIO中的ByteBuffer有什么区别？
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#springbootapplication" class="md-nav__link">
-    介绍下@SpringBootApplication注解
+      
+        <li class="md-nav__item">
+  <a href="#6-netty" class="md-nav__link">
+    6. 如何在Netty中实现心跳机制？
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#spring-boot_1" class="md-nav__link">
-    Spring Boot 自动装配是如何实现的？
+      
+        <li class="md-nav__item">
+  <a href="#7-netty" class="md-nav__link">
+    7. 解释Netty的高性能是如何实现的？
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#web" class="md-nav__link">
-    开发web服务常用注解有哪些?
+      
+        <li class="md-nav__item">
+  <a href="#8-netty" class="md-nav__link">
+    8. Netty如何处理半关闭的连接？
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#spring-boot_2" class="md-nav__link">
-    Spring Boot 常用读取配置文件的方法有哪些？
+      
+        <li class="md-nav__item">
+  <a href="#9-nettychanneloptionchannelhandler" class="md-nav__link">
+    9. 什么是Netty的ChannelOption和ChannelHandler？
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#spring-boot_3" class="md-nav__link">
-    Spring Boot 加载配置文件的优先级了解吗？
+      
+        <li class="md-nav__item">
+  <a href="#10-netty" class="md-nav__link">
+    10. 解释Netty的线程模型。
   </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#bean" class="md-nav__link">
-    常用的Bean映射工具有哪些？
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -2021,7 +1975,7 @@
                   
 
   
-    <a href="https://github.com/GepengCn/hello-java/tree/main/docs/exam/springboot.md" title="编辑此页" class="md-content__button md-icon">
+    <a href="https://github.com/GepengCn/hello-java/tree/main/docs/exam/netty_10.md" title="编辑此页" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
     </a>
@@ -2029,102 +1983,61 @@
   
 
 
-<h1 id="springboot">SpringBoot<a class="headerlink" href="#springboot" title="Permanent link">&para;</a></h1>
-<h2 id="_1">问题<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+  <h1>netty高频面试题</h1>
+
+<p>Netty是一个高性能的NIO（非阻塞IO）客户端-服务器框架，广泛应用于开发网络应用程序，如RPC框架、游戏服务器等。以下是关于Netty的一些高频面试问题及答案，有助于准备相关职位的面试。</p>
+<h3 id="1-nettyjavanio">1. Netty相比于Java原生NIO的优势是什么？<a class="headerlink" href="#1-nettyjavanio" title="Permanent link">&para;</a></h3>
+<p><strong>答案</strong>：</p>
 <ul>
-<li>为什么要有SpringBoot</li>
-<li>SpringBoot的主要优点</li>
-<li>什么是Spring Boot Starters</li>
-<li>Spring Boot支持哪些内嵌的容器</li>
-<li>介绍下@SpringBootApplication注解</li>
-<li>Spring Boot 自动装配是如何实现的？</li>
-<li>开发web服务常用注解有哪些?</li>
-<li>Spring Boot 常用读取配置文件的方法有哪些？</li>
-<li>Spring Boot 加载配置文件的优先级了解吗？</li>
-<li>常用的Bean映射工具有哪些？</li>
+<li><strong>简化开发复杂度</strong>：Netty提供了更为简洁的API，隐藏了Java NIO编程的复杂性。</li>
+<li><strong>更高的性能</strong>：Netty提供了更高效的数据读写方式，如基于零拷贝的传输。</li>
+<li><strong>更丰富的功能</strong>：支持多种协议、SSL/TLS加密、HTTP2等，而Java NIO则需要自己实现。</li>
+<li><strong>更好的稳定性和可靠性</strong>：Netty经过了广泛的测试和优化。</li>
 </ul>
-<h2 id="_2">答案<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<h3 id="springboot_1">为什么要有SpringBoot<a class="headerlink" href="#springboot_1" title="Permanent link">&para;</a></h3>
-<div class="admonition tip">
-<p class="admonition-title">为什么要有SpringBoot</p>
-<p>简化spring开发，减少配置文件，开箱即用</p>
-</div>
-<h3 id="springboot_2">SpringBoot的主要优点<a class="headerlink" href="#springboot_2" title="Permanent link">&para;</a></h3>
-<div class="admonition tip">
-<p class="admonition-title">SpringBoot的主要优点</p>
-<ol>
-<li>不需要编写大量样板代码、XML配置</li>
-<li>很容易与Spring生态集成，Spring JDBC、Spring MVC等</li>
-<li>内置http服务器</li>
-<li>多种插件集成，比如maven、Graddle，管理项目更容易</li>
-</ol>
-</div>
-<h3 id="spring-boot-starters">什么是Spring Boot Starters<a class="headerlink" href="#spring-boot-starters" title="Permanent link">&para;</a></h3>
-<div class="admonition tip">
-<p class="admonition-title">什么是Spring Boot Starters</p>
-<p>一系列依赖关系的集合，比如Spring-boot-starter-web，依赖好了必备的库，比如Spring MVC、Tomcat、Jackson等</p>
-</div>
-<h3 id="spring-boot">Spring Boot支持哪些内嵌的容器<a class="headerlink" href="#spring-boot" title="Permanent link">&para;</a></h3>
-<div class="admonition tip">
-<p class="admonition-title">Spring Boot支持哪些内嵌的容器</p>
-<p>Tomcat,Jetty,Undertow</p>
-</div>
-<h3 id="springbootapplication">介绍下@SpringBootApplication注解<a class="headerlink" href="#springbootapplication" title="Permanent link">&para;</a></h3>
-<div class="admonition tip">
-<p class="admonition-title">介绍下@SpringBootApplication注解</p>
-<p>可以看做是<code>@Configuration</code>、<code>@EnableAutoConfiguration</code>、<code>@ComponentScan</code>注解的集合</p>
+<h3 id="2-netty">2. 什么是Netty的零拷贝特性，它是如何实现的？<a class="headerlink" href="#2-netty" title="Permanent link">&para;</a></h3>
+<p><strong>答案</strong>：
+零拷贝是指在数据传输过程中减少或消除CPU拷贝操作，以提高性能。Netty通过使用直接内存访问、复合缓冲区（CompositeByteBuf）和文件传输的内存映射（Memory Mapped File）等技术实现零拷贝。</p>
+<h3 id="3-nettychanneleventloopchannelpipeline">3. 解释Netty中的Channel、EventLoop和ChannelPipeline。<a class="headerlink" href="#3-nettychanneleventloopchannelpipeline" title="Permanent link">&para;</a></h3>
+<p><strong>答案</strong>：</p>
 <ul>
-<li><code>@EnableAutoConfiguration</code>：启用Springboot自动装配</li>
-<li><code>@ComponentScan</code>：扫描被<code>@Component</code>、<code>@Service</code>、<code>@Controller</code>注解的bean，默认扫描该类所在包下所有的类</li>
-<li><code>@Configuration</code>：指明这个类，里面有@bean方法，可以被Spring容器管理</li>
+<li><strong>Channel</strong>：代表一个到实体（如硬件设备、文件、网络套接字等）的开放连接，可以进行读写操作。</li>
+<li><strong>EventLoop</strong>：负责处理所有通过Channel发生的事件，如连接、数据接收等。一个EventLoop可以服务于多个Channel。</li>
+<li><strong>ChannelPipeline</strong>：包含了一系列的ChannelHandler，用于处理或拦截Channel的入站事件和出站操作。</li>
 </ul>
-</div>
-<h3 id="spring-boot_1">Spring Boot 自动装配是如何实现的？<a class="headerlink" href="#spring-boot_1" title="Permanent link">&para;</a></h3>
-<div class="admonition tip">
-<p class="admonition-title">Spring Boot 自动装配是如何实现的？</p>
-<p>由@SpringBootApplication来实现的</p>
-</div>
-<h3 id="web">开发web服务常用注解有哪些?<a class="headerlink" href="#web" title="Permanent link">&para;</a></h3>
-<div class="admonition tip">
-<p class="admonition-title">开发web服务常用注解有哪些?</p>
+<h3 id="4-nettytcp">4. Netty是如何解决TCP粘包/拆包问题的？<a class="headerlink" href="#4-nettytcp" title="Permanent link">&para;</a></h3>
+<p><strong>答案</strong>：
+Netty通过提供编解码器（如<code>LineBasedFrameDecoder</code>、<code>LengthFieldBasedFrameDecoder</code>等）来处理粘包和拆包问题，根据协议的规则对数据流进行正确的分割。</p>
+<h3 id="5-nettybytebufjava-niobytebuffer">5. Netty中的ByteBuf与Java NIO中的ByteBuffer有什么区别？<a class="headerlink" href="#5-nettybytebufjava-niobytebuffer" title="Permanent link">&para;</a></h3>
+<p><strong>答案</strong>：</p>
 <ul>
-<li>@Autowired</li>
-<li>@RestController、@Controller</li>
-<li>@Component</li>
-<li>@Service</li>
-<li>@GetMapping、@PostMapping</li>
-<li>@RequestParam、@Pathvariable、@RequestBody</li>
+<li><strong>引用计数</strong>：ByteBuf支持引用计数，使得内存管理更加高效。</li>
+<li><strong>读写索引分离</strong>：ByteBuf提供了两个独立的指针用于读操作和写操作，使得读写操作更加灵活。</li>
+<li><strong>动态扩容</strong>：ByteBuf在数据空间不足时可以动态扩容。</li>
 </ul>
-</div>
-<h3 id="spring-boot_2">Spring Boot 常用读取配置文件的方法有哪些？<a class="headerlink" href="#spring-boot_2" title="Permanent link">&para;</a></h3>
-<div class="admonition tip">
-<p class="admonition-title">Spring Boot 常用读取配置文件的方法有哪些？</p>
+<h3 id="6-netty">6. 如何在Netty中实现心跳机制？<a class="headerlink" href="#6-netty" title="Permanent link">&para;</a></h3>
+<p><strong>答案</strong>：
+Netty通过<code>IdleStateHandler</code>实现心跳机制。它可以检测读空闲、写空闲或读写空闲，当检测到空闲时触发<code>userEventTriggered</code>方法，在该方法中实现心跳消息的发送。</p>
+<h3 id="7-netty">7. 解释Netty的高性能是如何实现的？<a class="headerlink" href="#7-netty" title="Permanent link">&para;</a></h3>
+<p><strong>答案</strong>：
+Netty的高性能主要来自于：</p>
 <ul>
-<li>@Value读取</li>
-<li>@ConfigurationProperties+@Component+@Autowired(引用)</li>
-<li>@ConfigurationProperties+@EnableConfigurationProperties(ProfileProperties.class)修饰Application</li>
+<li>非阻塞I/O操作，基于事件驱动；</li>
+<li>高效的并发模型，利用EventLoopGroup管理多个EventLoop；</li>
+<li>零拷贝技术，减少不必要的内存拷贝；</li>
+<li>精心设计的缓冲区策略，优化内存使用。</li>
 </ul>
-</div>
-<h3 id="spring-boot_3">Spring Boot 加载配置文件的优先级了解吗？<a class="headerlink" href="#spring-boot_3" title="Permanent link">&para;</a></h3>
-<div class="admonition tip">
-<p class="admonition-title">Spring Boot 加载配置文件的优先级了解吗？</p>
-<ol>
-<li>classpath下的/config目录</li>
-<li>classpath根目录</li>
-<li>resources下的/config目录</li>
-<li>resources根目录</li>
-</ol>
-</div>
-<h3 id="bean">常用的Bean映射工具有哪些？<a class="headerlink" href="#bean" title="Permanent link">&para;</a></h3>
-<div class="admonition tip">
-<p class="admonition-title">常用的Bean映射工具有哪些？</p>
+<h3 id="8-netty">8. Netty如何处理半关闭的连接？<a class="headerlink" href="#8-netty" title="Permanent link">&para;</a></h3>
+<p><strong>答案</strong>：
+Netty通过<code>ChannelInboundHandler</code>的<code>channelInactive</code>和<code>channelUnregistered</code>方法来处理半关闭的连接。当连接被远端半关闭时，<code>channelInactive</code>会被触发，开发者可以在这里实现资源释放和清理逻辑。</p>
+<h3 id="9-nettychanneloptionchannelhandler">9. 什么是Netty的ChannelOption和ChannelHandler？<a class="headerlink" href="#9-nettychanneloptionchannelhandler" title="Permanent link">&para;</a></h3>
+<p><strong>答案</strong>：</p>
 <ul>
-<li>Spring BeanUtils</li>
-<li>Apache BeanUtils</li>
-<li>MapStruct</li>
-<li>Hutool</li>
+<li><strong>ChannelOption</strong>：用于配置Channel的参数，如连接超时时间、缓冲区大小等。</li>
+<li><strong>ChannelHandler</strong>：用于处理网络事件，如连接建立、数据接收等。可以通过添加自定义的Handler到ChannelPipeline中来扩展或修改网络事件的处理逻辑。</li>
 </ul>
-</div>
+<h3 id="10-netty">10. 解释Netty的线程模型。<a class="headerlink" href="#10-netty" title="Permanent link">&para;</a></h3>
+<p><strong>答案</strong>：
+Netty使用基于事件循环的线程模型，核心是EventLoopGroup和EventLoop。EventLoopGroup包含多个EventLoop，每个EventLoop绑定一个线程，在其生命周期内处理所有事件。这种模型减少了线程创建的开销，并简化了并发编程模型。</p>
 
 
 
@@ -2154,7 +2067,7 @@
       <nav class="md-footer__inner md-grid" aria-label="页脚" >
         
           
-          <a href="../redis/" class="md-footer__link md-footer__link--prev" aria-label="上一页: Redis">
+          <a href="../rocketmq/" class="md-footer__link md-footer__link--prev" aria-label="上一页: rocketmq">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
@@ -2164,20 +2077,20 @@
                 上一页
               </span>
               <div class="md-ellipsis">
-                Redis
+                rocketmq
               </div>
             </div>
           </a>
         
         
           
-          <a href="../netty/" class="md-footer__link md-footer__link--next" aria-label="下一页: Netty">
+          <a href="../docker_10/" class="md-footer__link md-footer__link--next" aria-label="下一页: docker高频面试题">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 下一页
               </span>
               <div class="md-ellipsis">
-                Netty
+                docker高频面试题
               </div>
             </div>
             <div class="md-footer__button md-icon">
